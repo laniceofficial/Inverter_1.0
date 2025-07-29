@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake_install.cmake",
+		"C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

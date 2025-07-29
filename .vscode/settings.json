@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "task.h": "c",
+    "main.h": "c",
+    "dma.h": "c",
+    "adc.h": "c",
+    "cmath": "c",
+    "compare": "c",
+    "type_traits": "c",
+    "hrtim.h": "c"
+  },
+  "cmake.cmakePath": "D:\\msys2\\ucrt64\\bin\\cmake.exe"
+}

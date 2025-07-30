@@ -5,6 +5,8 @@
 #include "collection.h"
 #include "arm_math.h"
 #include "stdlib.h"
+#define ROW 4
+#define SAMPLING_LENS 100
 // uint16_t adc1_data[9] = {0};
 uint16_t adc2_data[16] = {0};
 uint16_t adc3_data[12] = {0};
@@ -13,7 +15,8 @@ uint16_t adc3_data[12] = {0};
 collect_data_t *data = NULL;
 Recursive_ave_filter_type_t Vfilter;
 Recursive_ave_filter_type_t Cfilter;
-
+static float current_ac[SAMPLING_LENS] = {0};
+static float voltage_ac[SAMPLING_LENS] = {0};
 collect_data_t *collection_init(void)
 {
     // while (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED)!=HAL_OK)
@@ -35,19 +38,23 @@ collect_data_t *collection_init(void)
     data = (collect_data_t *)malloc(sizeof(collect_data_t));
     return data;
 }
+float test = 0;
 
 inline void collection_update(void)
 {
-    static float current_ac = 0;
-    static float voltage_ac = 0;
-    static ave_process_t currunt_ave;
-    static ave_process_t voltage_ave;
-    float raw_data = ((float)(adc2_data[3] + adc2_data[7] + adc2_data[11] + adc2_data[15]) / 4.f - 1985.45f) * 12.121f * VOL_REF / ADC_MAX_VALUE;
-    current_ac = Recursive_ave_filter(&Cfilter, raw_data, 10);
-    data->current = get_rms(&currunt_ave, current_ac);
-    raw_data = ((float)(adc3_data[0] + adc3_data[3] + adc3_data[6] + adc3_data[9]) / 4.f - 1985.45f) * VOL_REF * 50 / ADC_MAX_VALUE;
-    voltage_ac = Recursive_ave_filter(&Vfilter, raw_data, 20);
-    data->volatage = get_rms(&voltage_ave, voltage_ac);
+    // static float current_ac= {0};
+    // static float voltage_ac= {0};
+    // static ave_process_t currunt_ave;
+    // static ave_process_t voltage_ave;
+    // float test = ((float)(adc3_data[0] + adc3_data[3] + adc3_data[6] + adc3_data[9]) / 4.f - 1985.45f) * VOL_REF  / ADC_MAX_VALUE;
+    // float raw_data = ((float)(adc2_data[3] + adc2_data[7] + adc2_data[11] + adc2_data[15]) / 4.f - 3102.27f) * 8.0f * VOL_REF / ADC_MAX_VALUE;
+    // current_ac = Recursive_ave_filter(&Cfilter, raw_data, 10);
+    // data->current = get_rms(&currunt_ave, current_ac);
+    // raw_data = ((float)(adc3_data[0] + adc3_data[3] + adc3_data[6] + adc3_data[9]) / 4.f - 1985.45f) * VOL_REF * 90.909f / ADC_MAX_VALUE;
+    // voltage_ac = Recursive_ave_filter(&Vfilter, raw_data, 20);
+    // data->volatage = get_rms(&voltage_ave, voltage_ac);
+    arm_rms_f32(current_ac ,SAMPLING_LENS, &data->current);
+    arm_rms_f32(voltage_ac ,SAMPLING_LENS, &data->volatage);
 }
 
 void collection_stop(void)
@@ -69,7 +76,7 @@ float get_rms(ave_process_t *ave_process, float value)
     }
     if ((ave_process->cnt == 1000))
     {
-        ave_process->ave_data = (uint16_t)sqrt(ave_process->sum / 128); // 平方和取平均，再开方
+        ave_process->ave_data = sqrt(ave_process->sum / 128); // 平方和取平均，再开方
         ave_process->cnt = 0;
         ave_process->sum = 0;
     }
@@ -109,4 +116,38 @@ float Recursive_ave_filter_init(Recursive_ave_filter_type_t *filter)
     filter->count_num = 0;
     filter->sum = 0;
     return 0;
+}
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    if(hadc==&hadc2)
+    {
+        static uint8_t cnt2 = 0;
+        uint16_t sum2 = 0;
+        uint16_t sum_ = 0;
+        for(uint8_t i = 0;i<ROW;i++)
+        {
+            // sum_ += adc2_data[i*4 ];
+            sum2 += adc2_data[i*4 + 3];
+        }
+        current_ac[cnt2] = (sum2 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49)*8;
+        if (cnt2 >= SAMPLING_LENS)
+        {
+            cnt2 = 0;
+        }
+    }
+    else if (hadc==&hadc3)
+    {
+        static uint8_t cnt3 = 0;
+        uint16_t sum3 = 0;
+        for (uint8_t i = 0; i < ROW; i++)
+        {
+            sum3 += adc3_data[i * 3];
+        }
+        // test = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF);
+        voltage_ac[cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 50;
+        if (cnt3 >= SAMPLING_LENS)
+        {
+            cnt3 = 0;
+        }
+    }
 }

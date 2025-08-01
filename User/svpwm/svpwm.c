@@ -1,10 +1,9 @@
 #include "svpwm.h"
-#include "arm_math.h"
 #define PI2 6.2831853f
 #define Sqrt3 1.7320508075688772935
 // 当调制比接近或超过极限值（约 0.577）时，零矢量时间Dz可能会变成负数，此时就需要进行过调制处理。
 // Udc > Uref/0.577
-void svpwm_init(svpwm_t *spwm,float Uref,float target_freq_,float carrier_freq_)
+void svpwm_init(svpwm_t *spwm,float Uref,float target_freq_,float carrier_freq_) 
 {
     spwm->target_freq = target_freq_;
     spwm->carrier_freq = carrier_freq_;
@@ -15,7 +14,17 @@ void change_freq(svpwm_t *spwm,float freq)
     spwm->target_freq = freq;
     spwm->deltaTheta = PI2 * freq / spwm->carrier_freq;
 }
-void judge_area(svpwm_t *spwm)
+void calcu_UaUb(svpwm_t *spwm) // 1
+{
+    spwm->theta += spwm->deltaTheta;
+    if (spwm->theta >= PI2)
+    {
+        spwm->theta -= PI2;
+    }
+    spwm->Ua = spwm->Uref * arm_cos_f32(spwm->theta);
+    spwm->Ub = spwm->Uref * arm_sin_f32(spwm->theta);
+}
+void judge_area(svpwm_t *spwm) //2
 {
     char A, B, C, T;
     A = (spwm->Ub) > 0 ? 1 : 0;
@@ -24,19 +33,10 @@ void judge_area(svpwm_t *spwm)
     T = A + 2 * B + 4 * C;
     spwm->area = T;
 }
-void calcu_UaUb(svpwm_t *spwm)
-{
-    spwm->theta+=spwm->deltaTheta;
-    if (spwm->theta >= PI2)
-    {
-        spwm->theta -= PI2;
-    }
-    spwm->Ua = spwm->Uref * arm_cos_f32(spwm->theta);
-    spwm->Ub = spwm->Uref * arm_sin_f32(spwm->theta);
-}
+
 static float Dx=0, Dy=0, Dz = 0; // Tz是零矢量持续时间比
 
-void Cacu_Time(svpwm_t * svpwm_v)
+void Cacu_Time(svpwm_t * svpwm_v) //3
 {
 	float x,y,z;
 	
@@ -57,7 +57,7 @@ void Cacu_Time(svpwm_t * svpwm_v)
 	}
     Dz = 1 - (Dx + Dy); // z是零矢量持续时间比T0
 }
-void CacuPWMDuty(svpwm_t *svpwm_v)
+void CacuPWMDuty(svpwm_t *svpwm_v) //4
 {
     switch (svpwm_v->area)
     {
@@ -99,8 +99,10 @@ void CacuPWMDuty(svpwm_t *svpwm_v)
     }
 }
 
-// void svpwm_calculate(svpwm_t *spwm, float Ua, float Ub, float Uc)
-// {
-
-
-// }
+inline void svpwm_calculate(svpwm_t *spwm)
+{
+    calcu_UaUb(spwm);
+    judge_area(spwm);
+    Cacu_Time(spwm);
+    CacuPWMDuty(spwm);
+}

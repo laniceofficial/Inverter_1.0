@@ -25,6 +25,8 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/pr_ctr"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/collection"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/task"
+  "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/svpwm"
+  "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/bsp_soft_iic"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Core/Inc"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"
@@ -65,9 +67,11 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj.d"
+  "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/bsp_soft_iic/bsp_soft_iic.c" "CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/collection/collection.c" "CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/pid/pid.c" "CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/pr_ctr/pr.c" "CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj.d"
+  "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/svpwm/svpwm.c" "CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj.d"
   "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/task/task.c" "CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj" "gcc" "CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj.d"
   )
 

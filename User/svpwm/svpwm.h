@@ -1,6 +1,7 @@
 #ifndef SVPWM_H
 #define SVPWM_H
 #include "stdint.h"
+#include "arm_math.h"
 
 typedef struct spwm
 {
@@ -20,12 +21,12 @@ typedef struct spwm
     float duty_b;
     float duty_c;
 } svpwm_t;
-
+void svpwm_init(svpwm_t *spwm, float Uref, float target_freq_, float carrier_freq_);
 void judge_area(svpwm_t *spwm);
 void change_freq(svpwm_t *spwm, float freq);
 void calcu_UaUb(svpwm_t *spwm);
 void Cacu_Time(svpwm_t *svpwm_v) ;
 void CacuPWMDuty(svpwm_t *svpwm_v);
-void svpwm_calculate(svpwm_t *spwm, float Ua, float Ub, float Uc);
+void svpwm_calculate(svpwm_t *spwm);
 #endif // !SVPWM_H
 

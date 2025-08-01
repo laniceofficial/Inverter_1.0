@@ -5,8 +5,8 @@
 #define ADC_MAX_VALUE 4095.0f // ADC最大值
 typedef struct collect_data
 {
-    float volatage;
-    float current;
+    float volatage[3];
+    float current[3];
 } collect_data_t;
 typedef struct ave_process
 {

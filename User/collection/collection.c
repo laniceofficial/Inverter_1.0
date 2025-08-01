@@ -6,7 +6,7 @@
 #include "arm_math.h"
 #include "stdlib.h"
 #define ROW 4
-#define SAMPLING_LENS 100
+#define SAMPLING_LENS 1000
 // uint16_t adc1_data[9] = {0};
 uint16_t adc2_data[16] = {0};
 uint16_t adc3_data[12] = {0};
@@ -15,8 +15,8 @@ uint16_t adc3_data[12] = {0};
 collect_data_t *data = NULL;
 Recursive_ave_filter_type_t Vfilter;
 Recursive_ave_filter_type_t Cfilter;
-static float current_ac[SAMPLING_LENS] = {0};
-static float voltage_ac[SAMPLING_LENS] = {0};
+static float current_ac[3][SAMPLING_LENS] = {0};
+static float voltage_ac[3][SAMPLING_LENS] = {0};
 collect_data_t *collection_init(void)
 {
     // while (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED)!=HAL_OK)
@@ -38,7 +38,6 @@ collect_data_t *collection_init(void)
     data = (collect_data_t *)malloc(sizeof(collect_data_t));
     return data;
 }
-float test = 0;
 
 inline void collection_update(void)
 {
@@ -53,8 +52,6 @@ inline void collection_update(void)
     // raw_data = ((float)(adc3_data[0] + adc3_data[3] + adc3_data[6] + adc3_data[9]) / 4.f - 1985.45f) * VOL_REF * 90.909f / ADC_MAX_VALUE;
     // voltage_ac = Recursive_ave_filter(&Vfilter, raw_data, 20);
     // data->volatage = get_rms(&voltage_ave, voltage_ac);
-    arm_rms_f32(current_ac ,SAMPLING_LENS, &data->current);
-    arm_rms_f32(voltage_ac ,SAMPLING_LENS, &data->volatage);
 }
 
 void collection_stop(void)
@@ -117,36 +114,60 @@ float Recursive_ave_filter_init(Recursive_ave_filter_type_t *filter)
     filter->sum = 0;
     return 0;
 }
+// ADC2--IN4(AC3_v)        IN11(AC2_V)
+//     --IN5(AC3_I)        IN12(AC1_I)
+// ADC3--IN1(AC1_V)        /***********IN5(DC1_V)
+//     --IN12(AC2_I)
+float piont = 0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     if(hadc==&hadc2)
     {
-        static uint8_t cnt2 = 0;
+        static uint16_t cnt2 = 0;
+        uint16_t sum1 = 0;
         uint16_t sum2 = 0;
-        uint16_t sum_ = 0;
+        uint16_t sum3 = 0;
+        uint16_t sum4 = 0;
         for(uint8_t i = 0;i<ROW;i++)
         {
-            // sum_ += adc2_data[i*4 ];
-            sum2 += adc2_data[i*4 + 3];
+            sum1 += adc2_data[i * 4 ];
+            sum2 += adc2_data[i * 4 + 1];
+            sum3 += adc2_data[i * 4 + 2];
+            sum4 += adc2_data[i * 4 + 3];
         }
-        current_ac[cnt2] = (sum2 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49)*8;
-        if (cnt2 >= SAMPLING_LENS)
+        current_ac[0][cnt2] = (sum4 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) * 8; //ac1_i
+        current_ac[2][cnt2] = (sum2 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49)*8; //ac3_i
+        voltage_ac[2][cnt2] = (sum1 / ROW / ADC_MAX_VALUE * VOL_REF -0.1- 1.60) * 18.9f; 
+        voltage_ac[1][cnt2] = (sum3 / ROW / ADC_MAX_VALUE * VOL_REF -0.09- 1.60) * 18.85f;
+        if (++cnt2 >= SAMPLING_LENS)
         {
+            arm_rms_f32((const float *)voltage_ac[1], SAMPLING_LENS, &data->volatage[1]);
+            arm_rms_f32((const float *)voltage_ac[2], SAMPLING_LENS, &data->volatage[2]);
+            arm_rms_f32((const float *)current_ac[0], SAMPLING_LENS, &data->current[0]);
+            arm_rms_f32((const float *)current_ac[2], SAMPLING_LENS, &data->current[2]);
             cnt2 = 0;
         }
     }
     else if (hadc==&hadc3)
     {
-        static uint8_t cnt3 = 0;
+        static uint16_t cnt3 = 0;
+        uint16_t sum1 = 0;
+        // uint16_t sum2 = 0;
         uint16_t sum3 = 0;
         for (uint8_t i = 0; i < ROW; i++)
         {
-            sum3 += adc3_data[i * 3];
+            sum1 += adc3_data[i * 3];
+            // sum2 += adc3_data[i * 3+1];
+            sum3 += adc3_data[i * 3+2];
         }
-        // test = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF);
-        voltage_ac[cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 50;
-        if (cnt3 >= SAMPLING_LENS)
+        voltage_ac[0][cnt3] = ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 18.9f;
+        current_ac[1][cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) * 8;
+        piont = ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 18.85f;
+        if (++cnt3 >= SAMPLING_LENS)
         {
+            arm_rms_f32((const float *)voltage_ac[0], SAMPLING_LENS, &data->volatage[0]);
+            data->volatage[0] += 0.075;
+            arm_rms_f32((const float *)current_ac[1], SAMPLING_LENS, &data->current[1]);
             cnt3 = 0;
         }
     }

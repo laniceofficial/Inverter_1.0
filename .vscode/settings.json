@@ -8,7 +8,13 @@
     "compare": "c",
     "type_traits": "c",
     "hrtim.h": "c",
-    "collection.h": "c"
+    "collection.h": "c",
+    "svpwm.h": "c",
+    "arm_math.h": "c",
+    "gpio.h": "c",
+    "tim.h": "c",
+    "oled_config.h": "c",
+    "bsp_soft_iic.h": "c"
   },
   "cmake.cmakePath": "D:\\msys2\\ucrt64\\bin\\cmake.exe"
 }

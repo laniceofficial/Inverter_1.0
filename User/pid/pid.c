@@ -70,7 +70,7 @@ inline void step_in(PID *pid)
 {
     //需保证last_ref和ref的不同
     float kFactor = 0.0f;
-    if (abs(pid->last_ref - pid->ref) <= pid->stepin)
+    if (user_abs(pid->last_ref - pid->ref) <= pid->stepin)
     {
         return;
     }

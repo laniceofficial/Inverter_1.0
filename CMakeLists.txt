@@ -62,6 +62,10 @@ USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
+
+#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oledlib)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC
         stm32cubemx

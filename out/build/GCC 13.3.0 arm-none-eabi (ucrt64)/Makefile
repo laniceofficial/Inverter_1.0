@@ -848,6 +848,30 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
 
+User/bsp_soft_iic/bsp_soft_iic.obj: User/bsp_soft_iic/bsp_soft_iic.c.obj
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.obj
+
+# target to build an object file
+User/bsp_soft_iic/bsp_soft_iic.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.c.obj
+
+User/bsp_soft_iic/bsp_soft_iic.i: User/bsp_soft_iic/bsp_soft_iic.c.i
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.i
+
+# target to preprocess a source file
+User/bsp_soft_iic/bsp_soft_iic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.i
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.c.i
+
+User/bsp_soft_iic/bsp_soft_iic.s: User/bsp_soft_iic/bsp_soft_iic.c.s
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.s
+
+# target to generate assembly for a file
+User/bsp_soft_iic/bsp_soft_iic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.s
+.PHONY : User/bsp_soft_iic/bsp_soft_iic.c.s
+
 User/collection/collection.obj: User/collection/collection.c.obj
 .PHONY : User/collection/collection.obj
 
@@ -919,6 +943,30 @@ User/pr_ctr/pr.s: User/pr_ctr/pr.c.s
 User/pr_ctr/pr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s
 .PHONY : User/pr_ctr/pr.c.s
+
+User/svpwm/svpwm.obj: User/svpwm/svpwm.c.obj
+.PHONY : User/svpwm/svpwm.obj
+
+# target to build an object file
+User/svpwm/svpwm.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+.PHONY : User/svpwm/svpwm.c.obj
+
+User/svpwm/svpwm.i: User/svpwm/svpwm.c.i
+.PHONY : User/svpwm/svpwm.i
+
+# target to preprocess a source file
+User/svpwm/svpwm.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.i
+.PHONY : User/svpwm/svpwm.c.i
+
+User/svpwm/svpwm.s: User/svpwm/svpwm.c.s
+.PHONY : User/svpwm/svpwm.s
+
+# target to generate assembly for a file
+User/svpwm/svpwm.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.s
+.PHONY : User/svpwm/svpwm.c.s
 
 User/task/task.obj: User/task/task.c.obj
 .PHONY : User/task/task.obj
@@ -1051,6 +1099,9 @@ help:
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s
+	@echo ... User/bsp_soft_iic/bsp_soft_iic.obj
+	@echo ... User/bsp_soft_iic/bsp_soft_iic.i
+	@echo ... User/bsp_soft_iic/bsp_soft_iic.s
 	@echo ... User/collection/collection.obj
 	@echo ... User/collection/collection.i
 	@echo ... User/collection/collection.s
@@ -1060,6 +1111,9 @@ help:
 	@echo ... User/pr_ctr/pr.obj
 	@echo ... User/pr_ctr/pr.i
 	@echo ... User/pr_ctr/pr.s
+	@echo ... User/svpwm/svpwm.obj
+	@echo ... User/svpwm/svpwm.i
+	@echo ... User/svpwm/svpwm.s
 	@echo ... User/task/task.obj
 	@echo ... User/task/task.i
 	@echo ... User/task/task.s

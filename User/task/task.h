@@ -1,7 +1,7 @@
 #ifndef TASK_H
 #define TASK_H
 
-
+#define user_abs(x) ((x) > (0) ? (x) : (-(x)))
 
 void task_init();
 void task_loop();

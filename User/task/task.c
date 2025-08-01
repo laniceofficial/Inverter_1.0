@@ -20,9 +20,9 @@ float M_duty = 0.8f; // 调制比
 //测试闭环svpwm效果
 //实在不行就测试采集Udc后进行闭环
 
-static int32_t sin_table1[SIN_ALL_PIONT] = {0};
-static int32_t sin_table2[SIN_ALL_PIONT] = {0};
-static int32_t sin_table3[SIN_ALL_PIONT] = {0};
+// static int32_t sin_table1[SIN_ALL_PIONT] = {0};
+// static int32_t sin_table2[SIN_ALL_PIONT] = {0};
+// static int32_t sin_table3[SIN_ALL_PIONT] = {0};
 
 PID voltage_PID;
 PID current_PID;
@@ -31,6 +31,7 @@ float X_voltage_ref = 26.1; // 32*sqrt(2/3)
 float current_ref = 0;
 float voltage_fdb = 0;
 float current_fdb = 0;
+float add_freq = 0;
 collect_data_t *collect_data = NULL;
 svpwm_t svpwm_v;
  void task_init()
@@ -47,7 +48,7 @@ svpwm_t svpwm_v;
     //  DrawRect1(20, 16, 20 + 16, 63);
     //  DrawRect1(40, 16, 40 + 16, 63);
 
-     sinTab_genarate();
+    //  sinTab_genarate();
      svpwm_init(&svpwm_v, 0, 50, 20000);
      collect_data = collection_init();
      pid_init(&voltage_PID, PID_POSITION, 0.01, 0, 0, 0.5, 2, 0);
@@ -60,18 +61,18 @@ svpwm_t svpwm_v;
      voltage_PID.ref = X_voltage_ref; // 有效值为15V
  }
 
- inline void sinTab_genarate()
- {
-     for (uint16_t i = 0; i < SIN_ALL_PIONT; i++)
-     {
-         // 每个周期覆盖完整的2π (360°)
-         float angle = 2.0f * PI * i / SIN_ALL_PIONT;
-         sin_table1[i] = (int32_t)(arm_sin_f32(angle) * HRTIM_1per4_CNT);
-         sin_table2[i] = (int32_t)(arm_sin_f32(angle - 2.0f * PI / 3.0f) * HRTIM_1per4_CNT);
-         sin_table3[i] = (int32_t)(arm_sin_f32(angle + 2.0f * PI / 3.0f) * HRTIM_1per4_CNT);
-     }
-}
-float invSqrt(float x) // 平方根倒数速算法
+//  inline void sinTab_genarate()
+//  {
+//      for (uint16_t i = 0; i < SIN_ALL_PIONT; i++)
+//      {
+//          // 每个周期覆盖完整的2π (360°)
+//          float angle = 2.0f * PI * i / SIN_ALL_PIONT;
+//          sin_table1[i] = (int32_t)(arm_sin_f32(angle) * HRTIM_1per4_CNT);
+//          sin_table2[i] = (int32_t)(arm_sin_f32(angle - 2.0f * PI / 3.0f) * HRTIM_1per4_CNT);
+//          sin_table3[i] = (int32_t)(arm_sin_f32(angle + 2.0f * PI / 3.0f) * HRTIM_1per4_CNT);
+//      }
+// }
+static float invSqrt(float x) // 平方根倒数速算法
 {
     float halfx = 0.5f * x;
     float y = x;
@@ -86,20 +87,18 @@ inline void PID_Seyduty()
     // float U_alpha = invSqrt(3/2)*(collect_data->volatage[0]-collect_data->volatage[1] /2-collect_data->volatage[2]/2);
     // float U_beta = invSqrt(3 / 2) * (invSqrt(4 / 3) * collect_data->volatage[1] - invSqrt(4 / 3) *collect_data->volatage[2]);
     // voltage_PID.ref =arm_sin_f32(PI * cnt_temp / (SIN_ALL_PIONT/2)); //对有效值进行闭环
-    float temp = (collect_data->volatage[0] + collect_data->volatage[2] + collect_data->volatage[1]);
+    float temp = pow(collect_data->volatage[0] + collect_data->volatage[2] + collect_data->volatage[1],2);
     //平方
-    temp *= temp;
-    temp+= collect_data->volatage[0]*collect_data->volatage[1]+collect_data->volatage[0]*collect_data->volatage[2]+collect_data->volatage[1]*collect_data->volatage[2];
+    temp += collect_data->volatage[0] * collect_data->volatage[1] + collect_data->volatage[0] * collect_data->volatage[2] + collect_data->volatage[1] * collect_data->volatage[2];
     temp *= 0.444444f;
     float Uab = 0;
-    arm_sqrt_f32(temp, &Uab);
-
-    pid_calculate(&voltage_PID, voltage_fdb);
+    Uab = invSqrt(1 / temp);
+    pid_calculate(&voltage_PID, Uab);
     // current_ref = voltage_PID.output;
     // pid_calculate(&current_PID, current_fdb);
     //解算
     // svpwm_v.Uref = voltage_PID.output;
-    svpwm_v.Uref = 0.5; //开环
+    svpwm_v.Uref = 0.2; //开环
     svpwm_calculate(&svpwm_v);
 }
 // static int32_t d1 = 0;
@@ -108,35 +107,34 @@ inline void PID_Seyduty()
 uint64_t aaa= 0;
 inline void duty_update()
 {
-    // float modulation_index = current_PID.output;
-    static uint16_t cnt_temp = 0;
-    int32_t duty = (sin_table1[cnt_temp] * M_duty);
-    int32_t duty2 = (sin_table2[cnt_temp] * M_duty);
-    int32_t duty3 = (sin_table3[cnt_temp] * M_duty);
-    cnt_temp++;
-    if (cnt_temp >= SIN_ALL_PIONT)
-    {
-        cnt_temp = 0;
-    }
+    // static uint16_t cnt_temp = 0;
+    // int32_t duty = (sin_table1[cnt_temp] * M_duty);
+    // int32_t duty2 = (sin_table2[cnt_temp] * M_duty);
+    // int32_t duty3 = (sin_table3[cnt_temp] * M_duty);
+    // cnt_temp++;
+    // if (cnt_temp >= SIN_ALL_PIONT)
+    // {
+    //     cnt_temp = 0;
+    // }
     //单相逆变
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT + duty);
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT - duty);
     //三相逆变
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty2);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty2);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty3);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty3);
-
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT * svpwm_v.duty_a);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT * svpwm_v.duty_a);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT * svpwm_v.duty_b);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT * svpwm_v.duty_b);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT * svpwm_v.duty_c);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT * svpwm_v.duty_c);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty2);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty2);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty3);
+    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty3);
+    // svpwm 三相
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_M_HALF_CNT * svpwm_v.duty_a);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_M_HALF_CNT * svpwm_v.duty_a);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_M_HALF_CNT * svpwm_v.duty_b);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_M_HALF_CNT * svpwm_v.duty_b);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_M_HALF_CNT * svpwm_v.duty_c);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_M_HALF_CNT * svpwm_v.duty_c);
     aaa++;
 }
 inline void task_loop()
@@ -159,7 +157,7 @@ inline void task_loop()
         HAL_HRTIM_WaveformOutputStop(&hhrtim1, HRTIM_OUTPUT_TB1 | HRTIM_OUTPUT_TB2);
     }
     // UpdateScreen();
-    collection_update();
+    // collection_update();
     PID_Seyduty();
     duty_update();
 }
@@ -168,5 +166,24 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim == &htim6) // tim6负责20khz计算
     {
         task_loop(); // 任务循环
+    }
+    else if(htim==&htim5)
+    {
+        static uint8_t detect_flag = 0;
+        if (detect_flag == 1) //
+        {
+            if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET) // 读取电平是否发生变化
+            {
+                // HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1); // 电平反转
+                detect_flag = 0;
+            }
+        }
+        else if (detect_flag == 0) //
+        {
+            if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_SET) // 读取电平是否发生变化
+            {
+                detect_flag = 1;
+            }
+        }
     }
 }

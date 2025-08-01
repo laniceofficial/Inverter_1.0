@@ -6,7 +6,7 @@
 #include "arm_math.h"
 #include "stdlib.h"
 #define ROW 4
-#define SAMPLING_LENS 1000
+#define SAMPLING_LENS 900
 // uint16_t adc1_data[9] = {0};
 uint16_t adc2_data[16] = {0};
 uint16_t adc3_data[12] = {0};
@@ -118,7 +118,7 @@ float Recursive_ave_filter_init(Recursive_ave_filter_type_t *filter)
 //     --IN5(AC3_I)        IN12(AC1_I)
 // ADC3--IN1(AC1_V)        /***********IN5(DC1_V)
 //     --IN12(AC2_I)
-float piont = 0;
+// float piont = 0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     if(hadc==&hadc2)
@@ -162,7 +162,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         }
         voltage_ac[0][cnt3] = ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 18.9f;
         current_ac[1][cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) * 8;
-        piont = ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 18.85f;
         if (++cnt3 >= SAMPLING_LENS)
         {
             arm_rms_f32((const float *)voltage_ac[0], SAMPLING_LENS, &data->volatage[0]);

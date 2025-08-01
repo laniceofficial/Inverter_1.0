@@ -44,18 +44,16 @@ D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/li
                               D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o) (_fflush_r)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
                               D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
-C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
-                              CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj (arm_rms_f32)
 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
-                              CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj (arm_sin_f32)
+                              CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj (arm_sin_f32)
 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
                               CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj (arm_cos_f32)
 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
                               C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o) (sinTable_f32)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
-                              CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj (__aeabi_dmul)
+                              CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj (__aeabi_dmul)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
-                              CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj (__aeabi_dsub)
+                              CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj (__aeabi_dsub)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
                               CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj (__aeabi_ddiv)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
@@ -66,16 +64,24 @@ D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/li
                               CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj (malloc)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
                               CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj (__errno)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+                              CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj (pow)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
                               CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj (sqrt)
-D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
-                              CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj (sqrtf)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o) (finite)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
                               D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o) (__ieee754_sqrt)
-D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
-                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o) (__ieee754_sqrtf)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o) (__ieee754_pow)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o) (fabs)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o) (scalbn)
+D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o) (__math_uflow)
 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
-                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o) (__aeabi_dcmpun)
+                              D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o) (__aeabi_dcmpun)
 
 Discarded input sections
 
@@ -419,6 +425,12 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .data          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .bss.current_ac
+                0x00000000     0x2a30 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .bss.voltage_ac
+                0x00000000     0x2a30 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .text.collection_update
+                0x00000000        0xe CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .text.collection_stop
                 0x00000000       0x30 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .text.get_rms  0x00000000       0x9c CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
@@ -496,13 +508,16 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .data          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .data.M_duty   0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .data.L_voltage_ref
                 0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .bss.current_ref
                 0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .bss.voltage_fdb
+                0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .bss.current_fdb
                 0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .text.invSqrt  0x00000000       0x78 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .bss.add_freq  0x00000000        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_macro   0x00000000      0xad8 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_macro   0x00000000       0x22 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_macro   0x00000000       0x8e CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
@@ -1232,7 +1247,7 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .text.HAL_TIM_Base_MspDeInit
-                0x00000000       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x00000000       0x58 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .debug_macro   0x00000000      0xad8 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .debug_macro   0x00000000      0x161 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .debug_macro   0x00000000       0x2e CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
@@ -2573,8 +2588,6 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
  .text.HAL_GPIO_DeInit
                 0x00000000      0x1c4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .text.HAL_GPIO_ReadPin
-                0x00000000       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
  .text.HAL_GPIO_TogglePin
                 0x00000000       0x34 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
  .text.HAL_GPIO_LockPin
@@ -3868,8 +3881,6 @@ Discarded input sections
                 0x00000000       0x4e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.HAL_TIM_ConfigOCrefClear
                 0x00000000      0x3ec CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .text.HAL_TIM_ConfigClockSource
-                0x00000000      0x22c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.HAL_TIM_ConfigTI1Input
                 0x00000000       0x38 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.HAL_TIM_SlaveConfigSynchro
@@ -3942,20 +3953,12 @@ Discarded input sections
                 0x00000000      0x1c0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.TIM_TI1_SetConfig
                 0x00000000       0xe8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .text.TIM_TI1_ConfigInputStage
-                0x00000000       0x5e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.TIM_TI2_SetConfig
                 0x00000000       0x7a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .text.TIM_TI2_ConfigInputStage
-                0x00000000       0x60 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.TIM_TI3_SetConfig
                 0x00000000       0x78 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.TIM_TI4_SetConfig
                 0x00000000       0x7a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .text.TIM_ITRx_SetConfig
-                0x00000000       0x3a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .text.TIM_ETR_SetConfig
-                0x00000000       0x40 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .text.TIM_CCxChannelCmd
                 0x00000000       0x4a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_macro   0x00000000      0xad8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
@@ -4464,9 +4467,6 @@ Discarded input sections
  .text          0x00000000       0x14 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
  .data          0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
  .bss           0x00000000        0x0 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
- .text          0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .data          0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .bss           0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
  .text          0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
  .data          0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
  .bss           0x00000000        0x0 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
@@ -4741,6 +4741,13 @@ Discarded input sections
  .text          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
  .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
  .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+ .debug_loclists
+                0x00000000       0x70 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+ .debug_frame   0x00000000       0x44 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+ .ARM.attributes
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
  .text          0x00000000       0x68 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
  .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
  .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
@@ -4749,17 +4756,13 @@ Discarded input sections
  .debug_frame   0x00000000       0x48 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
  .ARM.attributes
                 0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_sqrt.o)
- .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
- .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
- .debug_loclists
-                0x00000000       0x46 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
- .debug_frame   0x00000000       0x44 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
+ .debug_frame   0x00000000       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
  .ARM.attributes
-                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
- .text          0x00000000      0x1e4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
  .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
- .rodata        0x00000000       0x10 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  .debug_loclists
                 0x00000000      0x412 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  .debug_rnglists
@@ -4767,16 +4770,38 @@ Discarded input sections
  .debug_frame   0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  .ARM.attributes
                 0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
- .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
- .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
  .debug_loclists
-                0x00000000       0x32 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
+                0x00000000      0xf4f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
  .debug_rnglists
-                0x00000000       0x13 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
- .debug_frame   0x00000000       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
+                0x00000000       0xb6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
+ .debug_frame   0x00000000       0x80 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
  .ARM.attributes
-                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
- .text          0x00000000       0x2c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+ .debug_loclists
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+ .debug_frame   0x00000000       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+ .ARM.attributes
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .debug_loclists
+                0x00000000      0x13d D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .debug_rnglists
+                0x00000000       0x24 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .debug_frame   0x00000000       0x2c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .ARM.attributes
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+ .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+ .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+ .debug_loclists
+                0x00000000      0x217 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+ .debug_frame   0x00000000      0x14c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+ .ARM.attributes
+                0x00000000       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
  .data          0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
  .bss           0x00000000        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
  .debug_line    0x00000000       0x57 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
@@ -4867,7 +4892,7 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crt
                 0x08000000                g_pfnVectors
                 0x080001d8                        . = ALIGN (0x4)
 
-.text           0x080001d8     0x8c14
+.text           0x080001d8     0x9d18
                 0x080001d8                        . = ALIGN (0x4)
  *(.text)
  .text          0x080001d8       0xa4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
@@ -4939,629 +4964,662 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crt
                 0x08000e90                free
  .text          0x08000ea0        0xc D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
                 0x08000ea0                __errno
- .text          0x08000eac       0x44 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-wf_sqrt.o)
-                0x08000eac                sqrtf
- .text          0x08000ef0        0x8 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_sqrt.o)
-                0x08000ef0                __ieee754_sqrtf
+ *fill*         0x08000eac        0x4 
+ .text          0x08000eb0       0xf0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-w_pow.o)
+                0x08000eb0                pow
+ .text          0x08000fa0       0x18 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_finite.o)
+                0x08000fa0                finite
+ .text          0x08000fb8      0x1e4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
+                0x08000fb8                __ieee754_sqrt
+ *fill*         0x0800119c        0x4 
+ .text          0x080011a0      0xc14 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_pow.o)
+                0x080011a0                __ieee754_pow
+ .text          0x08001db4       0x10 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_fabs.o)
+                0x08001db4                fabs
+ *fill*         0x08001dc4        0x4 
+ .text          0x08001dc8      0x114 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-s_scalbn.o)
+                0x08001dc8                scalbn
+ *fill*         0x08001edc        0x4 
+ .text          0x08001ee0      0x180 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-math_err.o)
+                0x08001f38                __math_uflow
+                0x08001f48                __math_may_uflow
+                0x08001f58                __math_oflow
+                0x08001f68                __math_divzero
+                0x08001f9c                __math_invalid
+                0x08001fe8                __math_check_uflow
+                0x08002020                __math_check_oflow
+ .text          0x08002060       0x2c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_unorddf2.o)
+                0x08002060                __unorddf2
+                0x08002060                __aeabi_dcmpun
  *(.text*)
  .text.__do_global_dtors_aux
-                0x08000ef8       0x24 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800208c       0x24 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
  .text.frame_dummy
-                0x08000f1c       0x1c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080020b0       0x1c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
  .text.pid_calculate
-                0x08000f38      0x1de CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
-                0x08000f38                pid_calculate
+                0x080020cc      0x1de CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
+                0x080020cc                pid_calculate
  .text.pid_init
-                0x08001116       0xb4 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
-                0x08001116                pid_init
- *fill*         0x080011ca        0x2 
- .text.step_in  0x080011cc       0xd8 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
-                0x080011cc                step_in
+                0x080022aa       0xb4 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
+                0x080022aa                pid_init
+ *fill*         0x0800235e        0x2 
+ .text.step_in  0x08002360       0xd8 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
+                0x08002360                step_in
  .text.collection_init
-                0x080012a4       0x78 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
-                0x080012a4                collection_init
- .text.collection_update
-                0x0800131c        0xe CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
-                0x0800131c                collection_update
+                0x08002438       0x78 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+                0x08002438                collection_init
  .text.Recursive_ave_filter_init
-                0x0800132a       0x2e CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
-                0x0800132a                Recursive_ave_filter_init
+                0x080024b0       0x2e CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+                0x080024b0                Recursive_ave_filter_init
  .text.HAL_ADC_ConvCpltCallback
-                0x08001358      0x524 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
-                0x08001358                HAL_ADC_ConvCpltCallback
+                0x080024de       0x14 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+                0x080024de                HAL_ADC_ConvCpltCallback
+ *fill*         0x080024f2        0x2 
  .text.task_init
-                0x0800187c       0xd0 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x0800187c                task_init
- .text.sinTab_genarate
-                0x0800194c       0xe4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x0800194c                sinTab_genarate
+                0x080024f4       0xcc CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x080024f4                task_init
+ .text.invSqrt  0x080025c0       0x78 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .text.PID_Seyduty
-                0x08001a30      0x10c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x08001a30                PID_Seyduty
+                0x08002638      0x10c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x08002638                PID_Seyduty
  .text.duty_update
-                0x08001b3c      0x134 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x08001b3c                duty_update
+                0x08002744      0x114 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x08002744                duty_update
  .text.task_loop
-                0x08001c70       0x8c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x08001c70                task_loop
+                0x08002858       0x88 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x08002858                task_loop
  .text.HAL_TIM_PeriodElapsedCallback
-                0x08001cfc       0x20 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x08001cfc                HAL_TIM_PeriodElapsedCallback
+                0x080028e0       0x74 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x080028e0                HAL_TIM_PeriodElapsedCallback
  .text.svpwm_init
-                0x08001d1c       0x4c CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x08001d1c                svpwm_init
+                0x08002954       0x4c CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x08002954                svpwm_init
  .text.calcu_UaUb
-                0x08001d68       0xa0 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x08001d68                calcu_UaUb
+                0x080029a0       0xa0 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x080029a0                calcu_UaUb
  .text.judge_area
-                0x08001e08      0x108 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x08001e08                judge_area
+                0x08002a40      0x160 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x08002a40                judge_area
  .text.Cacu_Time
-                0x08001f10      0x1e4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x08001f10                Cacu_Time
- .text.CacuPWMDuty
-                0x080020f4      0x2d0 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x080020f4                CacuPWMDuty
+                0x08002ba0      0x55c CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x08002ba0                Cacu_Time
  .text.svpwm_calculate
-                0x080023c4       0x28 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-                0x080023c4                svpwm_calculate
- .text.main     0x080023ec       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
-                0x080023ec                main
+                0x080030fc       0x22 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x080030fc                svpwm_calculate
+ .text.main     0x0800311e       0x38 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+                0x0800311e                main
  .text.SystemClock_Config
-                0x08002420       0x92 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
-                0x08002420                SystemClock_Config
+                0x08003156       0x92 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+                0x08003156                SystemClock_Config
  .text.Error_Handler
-                0x080024b2        0xc CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
-                0x080024b2                Error_Handler
- *fill*         0x080024be        0x2 
+                0x080031e8        0xc CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+                0x080031e8                Error_Handler
  .text.MX_GPIO_Init
-                0x080024c0       0xdc CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
-                0x080024c0                MX_GPIO_Init
+                0x080031f4       0xf8 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+                0x080031f4                MX_GPIO_Init
  .text.MX_ADC2_Init
-                0x0800259c      0x130 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x0800259c                MX_ADC2_Init
+                0x080032ec      0x130 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x080032ec                MX_ADC2_Init
  .text.MX_ADC3_Init
-                0x080026cc      0x134 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x080026cc                MX_ADC3_Init
+                0x0800341c      0x134 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x0800341c                MX_ADC3_Init
  .text.MX_ADC4_Init
-                0x08002800      0x110 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x08002800                MX_ADC4_Init
+                0x08003550      0x110 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x08003550                MX_ADC4_Init
  .text.MX_ADC5_Init
-                0x08002910       0xf0 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x08002910                MX_ADC5_Init
+                0x08003660       0xf0 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x08003660                MX_ADC5_Init
  .text.HAL_ADC_MspInit
-                0x08002a00      0x468 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x08002a00                HAL_ADC_MspInit
+                0x08003750      0x468 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x08003750                HAL_ADC_MspInit
  .text.MX_DMA_Init
-                0x08002e68       0x84 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
-                0x08002e68                MX_DMA_Init
+                0x08003bb8       0x84 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+                0x08003bb8                MX_DMA_Init
  .text.MX_HRTIM1_Init
-                0x08002eec      0x4ec CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
-                0x08002eec                MX_HRTIM1_Init
+                0x08003c3c      0x4ec CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x08003c3c                MX_HRTIM1_Init
  .text.HAL_HRTIM_MspInit
-                0x080033d8       0x40 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
-                0x080033d8                HAL_HRTIM_MspInit
+                0x08004128       0x40 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x08004128                HAL_HRTIM_MspInit
  .text.HAL_HRTIM_MspPostInit
-                0x08003418       0xcc CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
-                0x08003418                HAL_HRTIM_MspPostInit
+                0x08004168       0xcc CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x08004168                HAL_HRTIM_MspPostInit
+ .text.MX_TIM5_Init
+                0x08004234       0x9c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x08004234                MX_TIM5_Init
  .text.MX_TIM6_Init
-                0x080034e4       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
-                0x080034e4                MX_TIM6_Init
+                0x080042d0       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x080042d0                MX_TIM6_Init
  .text.HAL_TIM_Base_MspInit
-                0x08003550       0x4c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
-                0x08003550                HAL_TIM_Base_MspInit
+                0x0800433c       0x84 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x0800433c                HAL_TIM_Base_MspInit
  .text.NMI_Handler
-                0x0800359c        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x0800359c                NMI_Handler
+                0x080043c0        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043c0                NMI_Handler
  .text.HardFault_Handler
-                0x080035a4        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035a4                HardFault_Handler
+                0x080043c8        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043c8                HardFault_Handler
  .text.MemManage_Handler
-                0x080035ac        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035ac                MemManage_Handler
+                0x080043d0        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043d0                MemManage_Handler
  .text.BusFault_Handler
-                0x080035b4        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035b4                BusFault_Handler
+                0x080043d8        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043d8                BusFault_Handler
  .text.UsageFault_Handler
-                0x080035bc        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035bc                UsageFault_Handler
+                0x080043e0        0x8 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043e0                UsageFault_Handler
  .text.SVC_Handler
-                0x080035c4        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035c4                SVC_Handler
+                0x080043e8        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043e8                SVC_Handler
  .text.DebugMon_Handler
-                0x080035d2        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035d2                DebugMon_Handler
+                0x080043f6        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x080043f6                DebugMon_Handler
  .text.PendSV_Handler
-                0x080035e0        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035e0                PendSV_Handler
+                0x08004404        0xe CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004404                PendSV_Handler
  .text.SysTick_Handler
-                0x080035ee        0xc CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035ee                SysTick_Handler
- *fill*         0x080035fa        0x2 
+                0x08004412        0xc CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004412                SysTick_Handler
+ *fill*         0x0800441e        0x2 
  .text.DMA1_Channel2_IRQHandler
-                0x080035fc       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x080035fc                DMA1_Channel2_IRQHandler
+                0x08004420       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004420                DMA1_Channel2_IRQHandler
  .text.DMA1_Channel3_IRQHandler
-                0x08003610       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x08003610                DMA1_Channel3_IRQHandler
+                0x08004434       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004434                DMA1_Channel3_IRQHandler
  .text.DMA1_Channel4_IRQHandler
-                0x08003624       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x08003624                DMA1_Channel4_IRQHandler
+                0x08004448       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004448                DMA1_Channel4_IRQHandler
  .text.DMA1_Channel5_IRQHandler
-                0x08003638       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x08003638                DMA1_Channel5_IRQHandler
+                0x0800445c       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x0800445c                DMA1_Channel5_IRQHandler
+ .text.TIM5_IRQHandler
+                0x08004470       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004470                TIM5_IRQHandler
  .text.TIM6_DAC_IRQHandler
-                0x0800364c       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
-                0x0800364c                TIM6_DAC_IRQHandler
+                0x08004484       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x08004484                TIM6_DAC_IRQHandler
  .text.HAL_MspInit
-                0x08003660       0x48 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
-                0x08003660                HAL_MspInit
+                0x08004498       0x48 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+                0x08004498                HAL_MspInit
  .text.LL_ADC_SetCommonClock
-                0x080036a8       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080044e0       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetCommonPathInternalCh
-                0x080036ce       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004506       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_GetCommonPathInternalCh
-                0x080036f4       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x0800452c       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetOffset
-                0x08003710       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004548       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_GetOffsetChannel
-                0x08003758       0x2c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004590       0x2c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetOffsetState
-                0x08003784       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080045bc       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetOffsetSign
-                0x080037ba       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080045f2       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetOffsetSaturation
-                0x080037f0       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004628       0x36 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetSamplingTimeCommonConfig
-                0x08003826       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x0800465e       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_REG_IsTriggerSourceSWStart
-                0x0800384c       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004684       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_REG_SetSequencerRanks
-                0x08003872       0x58 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080046aa       0x58 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetChannelSamplingTime
-                0x080038ca       0x56 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004702       0x56 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_SetChannelSingleDiff
-                0x08003920       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004758       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_GetMultimode
-                0x08003968       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080047a0       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_DisableDeepPowerDown
-                0x08003984       0x24 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080047bc       0x24 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_IsDeepPowerDownEnabled
-                0x080039a8       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080047e0       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_EnableInternalRegulator
-                0x080039d0       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004808       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_IsInternalRegulatorEnabled
-                0x080039f8       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004830       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_Enable
-                0x08003a20       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004858       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_Disable
-                0x08003a48       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004880       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_IsEnabled
-                0x08003a70       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080048a8       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_IsDisableOngoing
-                0x08003a96       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080048ce       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_REG_StartConversion
-                0x08003abc       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080048f4       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_REG_IsConversionOngoing
-                0x08003ae4       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x0800491c       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.LL_ADC_INJ_IsConversionOngoing
-                0x08003b0a       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004942       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .text.HAL_ADC_Init
-                0x08003b30      0x378 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08003b30                HAL_ADC_Init
+                0x08004968      0x378 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004968                HAL_ADC_Init
  .text.HAL_ADC_Start_DMA
-                0x08003ea8      0x1a8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08003ea8                HAL_ADC_Start_DMA
+                0x08004ce0      0x1a8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004ce0                HAL_ADC_Start_DMA
  .text.HAL_ADC_ConvHalfCpltCallback
-                0x08004050       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004050                HAL_ADC_ConvHalfCpltCallback
+                0x08004e88       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004e88                HAL_ADC_ConvHalfCpltCallback
  .text.HAL_ADC_ErrorCallback
-                0x08004064       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004064                HAL_ADC_ErrorCallback
+                0x08004e9c       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004e9c                HAL_ADC_ErrorCallback
  .text.HAL_ADC_ConfigChannel
-                0x08004078      0x880 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004078                HAL_ADC_ConfigChannel
+                0x08004eb0      0x880 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08004eb0                HAL_ADC_ConfigChannel
  .text.ADC_Enable
-                0x080048f8      0x12c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x080048f8                ADC_Enable
+                0x08005730      0x12c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08005730                ADC_Enable
  .text.ADC_Disable
-                0x08004a24       0xbe CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004a24                ADC_Disable
+                0x0800585c       0xbe CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x0800585c                ADC_Disable
  .text.ADC_DMAConvCplt
-                0x08004ae2       0xd8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004ae2                ADC_DMAConvCplt
+                0x0800591a       0xd8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x0800591a                ADC_DMAConvCplt
  .text.ADC_DMAHalfConvCplt
-                0x08004bba       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004bba                ADC_DMAHalfConvCplt
+                0x080059f2       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x080059f2                ADC_DMAHalfConvCplt
  .text.ADC_DMAError
-                0x08004bd6       0x34 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                0x08004bd6                ADC_DMAError
+                0x08005a0e       0x34 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x08005a0e                ADC_DMAError
  .text.LL_ADC_IsEnabled
-                0x08004c0a       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005a42       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
  .text.LL_ADC_StartCalibration
-                0x08004c30       0x32 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005a68       0x32 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
  .text.LL_ADC_IsCalibrationOnGoing
-                0x08004c62       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005a9a       0x28 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
  .text.LL_ADC_REG_IsConversionOngoing
-                0x08004c8a       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005ac2       0x26 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
  .text.HAL_ADCEx_Calibration_Start
-                0x08004cb0       0xc4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-                0x08004cb0                HAL_ADCEx_Calibration_Start
+                0x08005ae8       0xc4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005ae8                HAL_ADCEx_Calibration_Start
  .text.HAL_ADCEx_MultiModeConfigChannel
-                0x08004d74      0x210 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-                0x08004d74                HAL_ADCEx_MultiModeConfigChannel
+                0x08005bac      0x210 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x08005bac                HAL_ADCEx_MultiModeConfigChannel
  .text.HAL_Init
-                0x08004f84       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08004f84                HAL_Init
+                0x08005dbc       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08005dbc                HAL_Init
  .text.HAL_InitTick
-                0x08004fb4       0x74 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08004fb4                HAL_InitTick
+                0x08005dec       0x74 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08005dec                HAL_InitTick
  .text.HAL_IncTick
-                0x08005028       0x24 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x08005028                HAL_IncTick
+                0x08005e60       0x24 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08005e60                HAL_IncTick
  .text.HAL_GetTick
-                0x0800504c       0x18 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x0800504c                HAL_GetTick
+                0x08005e84       0x18 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x08005e84                HAL_GetTick
  .text.HAL_RCC_OscConfig
-                0x08005064      0x624 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08005064                HAL_RCC_OscConfig
+                0x08005e9c      0x624 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08005e9c                HAL_RCC_OscConfig
  .text.HAL_RCC_ClockConfig
-                0x08005688      0x278 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08005688                HAL_RCC_ClockConfig
+                0x080064c0      0x278 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x080064c0                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x08005900       0xc4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                0x08005900                HAL_RCC_GetSysClockFreq
+                0x08006738       0xc4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x08006738                HAL_RCC_GetSysClockFreq
  .text.RCC_GetSysClockFreqFromPLLSource
-                0x080059c4       0x8c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x080067fc       0x8c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x08005a50      0x49c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
-                0x08005a50                HAL_RCCEx_PeriphCLKConfig
+                0x08006888      0x49c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+                0x08006888                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_GPIO_Init
-                0x08005eec      0x304 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x08005eec                HAL_GPIO_Init
+                0x08006d24      0x304 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x08006d24                HAL_GPIO_Init
+ .text.HAL_GPIO_ReadPin
+                0x08007028       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x08007028                HAL_GPIO_ReadPin
  .text.HAL_GPIO_WritePin
-                0x080061f0       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                0x080061f0                HAL_GPIO_WritePin
+                0x08007058       0x30 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x08007058                HAL_GPIO_WritePin
  .text.HAL_DMA_Init
-                0x08006220      0x150 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08006220                HAL_DMA_Init
+                0x08007088      0x150 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08007088                HAL_DMA_Init
  .text.HAL_DMA_Start_IT
-                0x08006370       0xf6 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08006370                HAL_DMA_Start_IT
+                0x080071d8       0xf6 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x080071d8                HAL_DMA_Start_IT
  .text.HAL_DMA_IRQHandler
-                0x08006466      0x15e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                0x08006466                HAL_DMA_IRQHandler
+                0x080072ce      0x15e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x080072ce                HAL_DMA_IRQHandler
  .text.DMA_SetConfig
-                0x080065c4       0x7c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x0800742c       0x7c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .text.DMA_CalcDMAMUXChannelBaseAndMask
-                0x08006640       0x7c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x080074a8       0x7c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .text.DMA_CalcDMAMUXRequestGenBaseAndMask
-                0x080066bc       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x08007524       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .text.HAL_PWREx_ControlVoltageScaling
-                0x08006704      0x148 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
-                0x08006704                HAL_PWREx_ControlVoltageScaling
+                0x0800756c      0x148 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x0800756c                HAL_PWREx_ControlVoltageScaling
  .text.HAL_PWREx_DisableUCPDDeadBattery
-                0x0800684c       0x20 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
-                0x0800684c                HAL_PWREx_DisableUCPDDeadBattery
+                0x080076b4       0x20 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x080076b4                HAL_PWREx_DisableUCPDDeadBattery
  .text.__NVIC_SetPriorityGrouping
-                0x0800686c       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x080076d4       0x48 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .text.__NVIC_GetPriorityGrouping
-                0x080068b4       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x0800771c       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .text.__NVIC_EnableIRQ
-                0x080068d0       0x3c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08007738       0x3c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .text.__NVIC_SetPriority
-                0x0800690c       0x54 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08007774       0x54 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .text.NVIC_EncodePriority
-                0x08006960       0x66 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- *fill*         0x080069c6        0x2 
+                0x080077c8       0x66 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ *fill*         0x0800782e        0x2 
  .text.SysTick_Config
-                0x080069c8       0x44 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08007830       0x44 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08006a0c       0x16 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08006a0c                HAL_NVIC_SetPriorityGrouping
+                0x08007874       0x16 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x08007874                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x08006a22       0x34 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08006a22                HAL_NVIC_SetPriority
+                0x0800788a       0x34 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x0800788a                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08006a56       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08006a56                HAL_NVIC_EnableIRQ
+                0x080078be       0x1c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x080078be                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x08006a72       0x18 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                0x08006a72                HAL_SYSTICK_Config
- *fill*         0x08006a8a        0x2 
+                0x080078da       0x18 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x080078da                HAL_SYSTICK_Config
+ *fill*         0x080078f2        0x2 
  .text.HAL_HRTIM_Init
-                0x08006a8c      0x1a0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08006a8c                HAL_HRTIM_Init
+                0x080078f4      0x1a0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080078f4                HAL_HRTIM_Init
  .text.HAL_HRTIM_DLLCalibrationStart
-                0x08006c2c       0xb0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08006c2c                HAL_HRTIM_DLLCalibrationStart
+                0x08007a94       0xb0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08007a94                HAL_HRTIM_DLLCalibrationStart
  .text.HAL_HRTIM_PollForDLLCalibration
-                0x08006cdc       0x68 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08006cdc                HAL_HRTIM_PollForDLLCalibration
+                0x08007b44       0x68 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08007b44                HAL_HRTIM_PollForDLLCalibration
  .text.HAL_HRTIM_TimeBaseConfig
-                0x08006d44       0x50 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08006d44                HAL_HRTIM_TimeBaseConfig
+                0x08007bac       0x50 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08007bac                HAL_HRTIM_TimeBaseConfig
  .text.HAL_HRTIM_ADCTriggerConfig
-                0x08006d94      0x3d8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08006d94                HAL_HRTIM_ADCTriggerConfig
+                0x08007bfc      0x3d8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08007bfc                HAL_HRTIM_ADCTriggerConfig
  .text.HAL_HRTIM_ADCPostScalerConfig
-                0x0800716c      0x294 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x0800716c                HAL_HRTIM_ADCPostScalerConfig
+                0x08007fd4      0x294 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08007fd4                HAL_HRTIM_ADCPostScalerConfig
  .text.HAL_HRTIM_WaveformTimerConfig
-                0x08007400      0x11a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08007400                HAL_HRTIM_WaveformTimerConfig
+                0x08008268      0x11a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008268                HAL_HRTIM_WaveformTimerConfig
  .text.HAL_HRTIM_WaveformTimerControl
-                0x0800751a       0x66 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x0800751a                HAL_HRTIM_WaveformTimerControl
+                0x08008382       0x66 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008382                HAL_HRTIM_WaveformTimerControl
  .text.HAL_HRTIM_DeadTimeConfig
-                0x08007580      0x100 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08007580                HAL_HRTIM_DeadTimeConfig
+                0x080083e8      0x100 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080083e8                HAL_HRTIM_DeadTimeConfig
  .text.HAL_HRTIM_WaveformCompareConfig
-                0x08007680      0x2dc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08007680                HAL_HRTIM_WaveformCompareConfig
+                0x080084e8      0x2dc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080084e8                HAL_HRTIM_WaveformCompareConfig
  .text.HAL_HRTIM_WaveformOutputConfig
-                0x0800795c       0x62 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x0800795c                HAL_HRTIM_WaveformOutputConfig
+                0x080087c4       0x62 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080087c4                HAL_HRTIM_WaveformOutputConfig
  .text.HAL_HRTIM_WaveformOutputStart
-                0x080079be       0x5a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x080079be                HAL_HRTIM_WaveformOutputStart
+                0x08008826       0x5a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008826                HAL_HRTIM_WaveformOutputStart
  .text.HAL_HRTIM_WaveformOutputStop
-                0x08007a18       0x5a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08007a18                HAL_HRTIM_WaveformOutputStop
+                0x08008880       0x5a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008880                HAL_HRTIM_WaveformOutputStop
  .text.HAL_HRTIM_WaveformCountStart
-                0x08007a72       0x56 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
-                0x08007a72                HAL_HRTIM_WaveformCountStart
+                0x080088da       0x56 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080088da                HAL_HRTIM_WaveformCountStart
  .text.HRTIM_MasterBase_Config
-                0x08007ac8       0x5e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008930       0x5e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_TimingUnitBase_Config
-                0x08007b26       0x80 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x0800898e       0x80 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_MasterWaveform_Config
-                0x08007ba6      0x13a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008a0e      0x13a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_TimingUnitWaveform_Config
-                0x08007ce0      0x30c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008b48      0x30c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_TimingUnitWaveform_Control
-                0x08007fec       0xc0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008e54       0xc0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_OutputConfig
-                0x080080ac      0x1d0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x08008f14      0x1d0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HRTIM_ForceRegistersUpdate
-                0x0800827c       0xdc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x080090e4       0xdc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .text.HAL_TIM_Base_Init
-                0x08008358       0xae CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x08008358                HAL_TIM_Base_Init
- *fill*         0x08008406        0x2 
+                0x080091c0       0xae CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x080091c0                HAL_TIM_Base_Init
+ *fill*         0x0800926e        0x2 
  .text.HAL_TIM_Base_Start_IT
-                0x08008408       0xf0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x08008408                HAL_TIM_Base_Start_IT
+                0x08009270       0xf0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009270                HAL_TIM_Base_Start_IT
  .text.HAL_TIM_IRQHandler
-                0x080084f8      0x29e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x080084f8                HAL_TIM_IRQHandler
+                0x08009360      0x29e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009360                HAL_TIM_IRQHandler
+ *fill*         0x080095fe        0x2 
+ .text.HAL_TIM_ConfigClockSource
+                0x08009600      0x22c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009600                HAL_TIM_ConfigClockSource
  .text.HAL_TIM_OC_DelayElapsedCallback
-                0x08008796       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x08008796                HAL_TIM_OC_DelayElapsedCallback
+                0x0800982c       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x0800982c                HAL_TIM_OC_DelayElapsedCallback
  .text.HAL_TIM_IC_CaptureCallback
-                0x080087aa       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x080087aa                HAL_TIM_IC_CaptureCallback
+                0x08009840       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009840                HAL_TIM_IC_CaptureCallback
  .text.HAL_TIM_PWM_PulseFinishedCallback
-                0x080087be       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x080087be                HAL_TIM_PWM_PulseFinishedCallback
+                0x08009854       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009854                HAL_TIM_PWM_PulseFinishedCallback
  .text.HAL_TIM_TriggerCallback
-                0x080087d2       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x080087d2                HAL_TIM_TriggerCallback
- *fill*         0x080087e6        0x2 
+                0x08009868       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009868                HAL_TIM_TriggerCallback
  .text.TIM_Base_SetConfig
-                0x080087e8      0x168 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                0x080087e8                TIM_Base_SetConfig
+                0x0800987c      0x168 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x0800987c                TIM_Base_SetConfig
+ .text.TIM_TI1_ConfigInputStage
+                0x080099e4       0x5e CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .text.TIM_TI2_ConfigInputStage
+                0x08009a42       0x60 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .text.TIM_ITRx_SetConfig
+                0x08009aa2       0x3a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .text.TIM_ETR_SetConfig
+                0x08009adc       0x40 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x08009adc                TIM_ETR_SetConfig
  .text.HAL_TIMEx_MasterConfigSynchronization
-                0x08008950      0x12c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008950                HAL_TIMEx_MasterConfigSynchronization
+                0x08009b1c      0x12c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009b1c                HAL_TIMEx_MasterConfigSynchronization
  .text.HAL_TIMEx_CommutCallback
-                0x08008a7c       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008a7c                HAL_TIMEx_CommutCallback
+                0x08009c48       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009c48                HAL_TIMEx_CommutCallback
  .text.HAL_TIMEx_BreakCallback
-                0x08008a90       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008a90                HAL_TIMEx_BreakCallback
+                0x08009c5c       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009c5c                HAL_TIMEx_BreakCallback
  .text.HAL_TIMEx_Break2Callback
-                0x08008aa4       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008aa4                HAL_TIMEx_Break2Callback
+                0x08009c70       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009c70                HAL_TIMEx_Break2Callback
  .text.HAL_TIMEx_EncoderIndexCallback
-                0x08008ab8       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008ab8                HAL_TIMEx_EncoderIndexCallback
+                0x08009c84       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009c84                HAL_TIMEx_EncoderIndexCallback
  .text.HAL_TIMEx_DirectionChangeCallback
-                0x08008acc       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008acc                HAL_TIMEx_DirectionChangeCallback
+                0x08009c98       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009c98                HAL_TIMEx_DirectionChangeCallback
  .text.HAL_TIMEx_IndexErrorCallback
-                0x08008ae0       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008ae0                HAL_TIMEx_IndexErrorCallback
+                0x08009cac       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009cac                HAL_TIMEx_IndexErrorCallback
  .text.HAL_TIMEx_TransitionErrorCallback
-                0x08008af4       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                0x08008af4                HAL_TIMEx_TransitionErrorCallback
+                0x08009cc0       0x14 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x08009cc0                HAL_TIMEx_TransitionErrorCallback
  .text.SystemInit
-                0x08008b08       0x24 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
-                0x08008b08                SystemInit
- .text._sbrk    0x08008b2c       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
-                0x08008b2c                _sbrk
+                0x08009cd4       0x24 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+                0x08009cd4                SystemInit
+ .text._sbrk    0x08009cf8       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+                0x08009cf8                _sbrk
  .text.Reset_Handler
-                0x08008b98       0x50 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
-                0x08008b98                Reset_Handler
+                0x08009d64       0x50 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+                0x08009d64                Reset_Handler
  .text.Default_Handler
-                0x08008be8        0x2 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
-                0x08008be8                RTC_Alarm_IRQHandler
-                0x08008be8                EXTI2_IRQHandler
-                0x08008be8                TIM8_TRG_COM_IRQHandler
-                0x08008be8                TIM8_CC_IRQHandler
-                0x08008be8                HRTIM1_Master_IRQHandler
-                0x08008be8                SPI4_IRQHandler
-                0x08008be8                FDCAN3_IT0_IRQHandler
-                0x08008be8                TIM1_CC_IRQHandler
-                0x08008be8                HRTIM1_FLT_IRQHandler
-                0x08008be8                HRTIM1_TIMF_IRQHandler
-                0x08008be8                USB_HP_IRQHandler
-                0x08008be8                CORDIC_IRQHandler
-                0x08008be8                HRTIM1_TIMD_IRQHandler
-                0x08008be8                DMA2_Channel8_IRQHandler
-                0x08008be8                EXTI3_IRQHandler
-                0x08008be8                I2C3_ER_IRQHandler
-                0x08008be8                EXTI0_IRQHandler
-                0x08008be8                I2C2_EV_IRQHandler
-                0x08008be8                FPU_IRQHandler
-                0x08008be8                FDCAN1_IT1_IRQHandler
-                0x08008be8                TIM1_UP_TIM16_IRQHandler
-                0x08008be8                ADC1_2_IRQHandler
-                0x08008be8                HRTIM1_TIME_IRQHandler
-                0x08008be8                SPI1_IRQHandler
-                0x08008be8                HRTIM1_TIMC_IRQHandler
-                0x08008be8                TIM8_UP_IRQHandler
-                0x08008be8                DMA2_Channel2_IRQHandler
-                0x08008be8                TIM20_TRG_COM_IRQHandler
-                0x08008be8                USART3_IRQHandler
-                0x08008be8                DMA1_Channel7_IRQHandler
-                0x08008be8                UART5_IRQHandler
-                0x08008be8                ADC3_IRQHandler
-                0x08008be8                TIM4_IRQHandler
-                0x08008be8                DMA2_Channel1_IRQHandler
-                0x08008be8                QUADSPI_IRQHandler
-                0x08008be8                I2C1_EV_IRQHandler
-                0x08008be8                DMA1_Channel6_IRQHandler
-                0x08008be8                UART4_IRQHandler
-                0x08008be8                DMA2_Channel4_IRQHandler
-                0x08008be8                TIM3_IRQHandler
-                0x08008be8                RCC_IRQHandler
-                0x08008be8                TIM20_UP_IRQHandler
-                0x08008be8                DMA1_Channel1_IRQHandler
-                0x08008be8                Default_Handler
-                0x08008be8                DMA2_Channel7_IRQHandler
-                0x08008be8                RTC_TAMP_LSECSS_IRQHandler
-                0x08008be8                FMAC_IRQHandler
-                0x08008be8                EXTI15_10_IRQHandler
-                0x08008be8                DMA1_Channel8_IRQHandler
-                0x08008be8                HRTIM1_TIMA_IRQHandler
-                0x08008be8                TIM7_DAC_IRQHandler
-                0x08008be8                FDCAN3_IT1_IRQHandler
-                0x08008be8                TIM5_IRQHandler
-                0x08008be8                UCPD1_IRQHandler
-                0x08008be8                I2C3_EV_IRQHandler
-                0x08008be8                EXTI9_5_IRQHandler
-                0x08008be8                RTC_WKUP_IRQHandler
-                0x08008be8                PVD_PVM_IRQHandler
-                0x08008be8                SPI2_IRQHandler
-                0x08008be8                ADC5_IRQHandler
-                0x08008be8                DMA2_Channel5_IRQHandler
-                0x08008be8                CRS_IRQHandler
-                0x08008be8                USB_LP_IRQHandler
-                0x08008be8                EXTI4_IRQHandler
-                0x08008be8                RNG_IRQHandler
-                0x08008be8                HRTIM1_TIMB_IRQHandler
-                0x08008be8                TIM1_TRG_COM_TIM17_IRQHandler
-                0x08008be8                FDCAN2_IT1_IRQHandler
-                0x08008be8                ADC4_IRQHandler
-                0x08008be8                WWDG_IRQHandler
-                0x08008be8                I2C4_EV_IRQHandler
-                0x08008be8                FDCAN2_IT0_IRQHandler
-                0x08008be8                LPUART1_IRQHandler
-                0x08008be8                DMA2_Channel6_IRQHandler
-                0x08008be8                FDCAN1_IT0_IRQHandler
-                0x08008be8                TIM2_IRQHandler
-                0x08008be8                COMP7_IRQHandler
-                0x08008be8                COMP1_2_3_IRQHandler
-                0x08008be8                EXTI1_IRQHandler
-                0x08008be8                USART2_IRQHandler
-                0x08008be8                COMP4_5_6_IRQHandler
-                0x08008be8                TIM20_BRK_IRQHandler
-                0x08008be8                I2C2_ER_IRQHandler
-                0x08008be8                TIM8_BRK_IRQHandler
-                0x08008be8                FLASH_IRQHandler
-                0x08008be8                TIM20_CC_IRQHandler
-                0x08008be8                USART1_IRQHandler
-                0x08008be8                SPI3_IRQHandler
-                0x08008be8                I2C1_ER_IRQHandler
-                0x08008be8                FMC_IRQHandler
-                0x08008be8                LPTIM1_IRQHandler
-                0x08008be8                DMAMUX_OVR_IRQHandler
-                0x08008be8                I2C4_ER_IRQHandler
-                0x08008be8                USBWakeUp_IRQHandler
-                0x08008be8                SAI1_IRQHandler
-                0x08008be8                DMA2_Channel3_IRQHandler
-                0x08008be8                TIM1_BRK_TIM15_IRQHandler
- *fill*         0x08008bea        0x2 
- .text.arm_rms_f32
-                0x08008bec       0xc8 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
-                0x08008bec                arm_rms_f32
+                0x08009db4        0x2 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+                0x08009db4                RTC_Alarm_IRQHandler
+                0x08009db4                EXTI2_IRQHandler
+                0x08009db4                TIM8_TRG_COM_IRQHandler
+                0x08009db4                TIM8_CC_IRQHandler
+                0x08009db4                HRTIM1_Master_IRQHandler
+                0x08009db4                SPI4_IRQHandler
+                0x08009db4                FDCAN3_IT0_IRQHandler
+                0x08009db4                TIM1_CC_IRQHandler
+                0x08009db4                HRTIM1_FLT_IRQHandler
+                0x08009db4                HRTIM1_TIMF_IRQHandler
+                0x08009db4                USB_HP_IRQHandler
+                0x08009db4                CORDIC_IRQHandler
+                0x08009db4                HRTIM1_TIMD_IRQHandler
+                0x08009db4                DMA2_Channel8_IRQHandler
+                0x08009db4                EXTI3_IRQHandler
+                0x08009db4                I2C3_ER_IRQHandler
+                0x08009db4                EXTI0_IRQHandler
+                0x08009db4                I2C2_EV_IRQHandler
+                0x08009db4                FPU_IRQHandler
+                0x08009db4                FDCAN1_IT1_IRQHandler
+                0x08009db4                TIM1_UP_TIM16_IRQHandler
+                0x08009db4                ADC1_2_IRQHandler
+                0x08009db4                HRTIM1_TIME_IRQHandler
+                0x08009db4                SPI1_IRQHandler
+                0x08009db4                HRTIM1_TIMC_IRQHandler
+                0x08009db4                TIM8_UP_IRQHandler
+                0x08009db4                DMA2_Channel2_IRQHandler
+                0x08009db4                TIM20_TRG_COM_IRQHandler
+                0x08009db4                USART3_IRQHandler
+                0x08009db4                DMA1_Channel7_IRQHandler
+                0x08009db4                UART5_IRQHandler
+                0x08009db4                ADC3_IRQHandler
+                0x08009db4                TIM4_IRQHandler
+                0x08009db4                DMA2_Channel1_IRQHandler
+                0x08009db4                QUADSPI_IRQHandler
+                0x08009db4                I2C1_EV_IRQHandler
+                0x08009db4                DMA1_Channel6_IRQHandler
+                0x08009db4                UART4_IRQHandler
+                0x08009db4                DMA2_Channel4_IRQHandler
+                0x08009db4                TIM3_IRQHandler
+                0x08009db4                RCC_IRQHandler
+                0x08009db4                TIM20_UP_IRQHandler
+                0x08009db4                DMA1_Channel1_IRQHandler
+                0x08009db4                Default_Handler
+                0x08009db4                DMA2_Channel7_IRQHandler
+                0x08009db4                RTC_TAMP_LSECSS_IRQHandler
+                0x08009db4                FMAC_IRQHandler
+                0x08009db4                EXTI15_10_IRQHandler
+                0x08009db4                DMA1_Channel8_IRQHandler
+                0x08009db4                HRTIM1_TIMA_IRQHandler
+                0x08009db4                TIM7_DAC_IRQHandler
+                0x08009db4                FDCAN3_IT1_IRQHandler
+                0x08009db4                UCPD1_IRQHandler
+                0x08009db4                I2C3_EV_IRQHandler
+                0x08009db4                EXTI9_5_IRQHandler
+                0x08009db4                RTC_WKUP_IRQHandler
+                0x08009db4                PVD_PVM_IRQHandler
+                0x08009db4                SPI2_IRQHandler
+                0x08009db4                ADC5_IRQHandler
+                0x08009db4                DMA2_Channel5_IRQHandler
+                0x08009db4                CRS_IRQHandler
+                0x08009db4                USB_LP_IRQHandler
+                0x08009db4                EXTI4_IRQHandler
+                0x08009db4                RNG_IRQHandler
+                0x08009db4                HRTIM1_TIMB_IRQHandler
+                0x08009db4                TIM1_TRG_COM_TIM17_IRQHandler
+                0x08009db4                FDCAN2_IT1_IRQHandler
+                0x08009db4                ADC4_IRQHandler
+                0x08009db4                WWDG_IRQHandler
+                0x08009db4                I2C4_EV_IRQHandler
+                0x08009db4                FDCAN2_IT0_IRQHandler
+                0x08009db4                LPUART1_IRQHandler
+                0x08009db4                DMA2_Channel6_IRQHandler
+                0x08009db4                FDCAN1_IT0_IRQHandler
+                0x08009db4                TIM2_IRQHandler
+                0x08009db4                COMP7_IRQHandler
+                0x08009db4                COMP1_2_3_IRQHandler
+                0x08009db4                EXTI1_IRQHandler
+                0x08009db4                USART2_IRQHandler
+                0x08009db4                COMP4_5_6_IRQHandler
+                0x08009db4                TIM20_BRK_IRQHandler
+                0x08009db4                I2C2_ER_IRQHandler
+                0x08009db4                TIM8_BRK_IRQHandler
+                0x08009db4                FLASH_IRQHandler
+                0x08009db4                TIM20_CC_IRQHandler
+                0x08009db4                USART1_IRQHandler
+                0x08009db4                SPI3_IRQHandler
+                0x08009db4                I2C1_ER_IRQHandler
+                0x08009db4                FMC_IRQHandler
+                0x08009db4                LPTIM1_IRQHandler
+                0x08009db4                DMAMUX_OVR_IRQHandler
+                0x08009db4                I2C4_ER_IRQHandler
+                0x08009db4                USBWakeUp_IRQHandler
+                0x08009db4                SAI1_IRQHandler
+                0x08009db4                DMA2_Channel3_IRQHandler
+                0x08009db4                TIM1_BRK_TIM15_IRQHandler
+ *fill*         0x08009db6        0x2 
  .text.arm_sin_f32
-                0x08008cb4       0x8c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
-                0x08008cb4                arm_sin_f32
+                0x08009db8       0x8c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+                0x08009db8                arm_sin_f32
  .text.arm_cos_f32
-                0x08008d40       0x94 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
-                0x08008d40                arm_cos_f32
+                0x08009e44       0x94 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+                0x08009e44                arm_cos_f32
  *(.glue_7)
- .glue_7        0x08008dd4        0x0 linker stubs
+ .glue_7        0x08009ed8        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08008dd4        0x0 linker stubs
+ .glue_7t       0x08009ed8        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08008dd4        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08009ed8        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x08008dd4        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crti.o
-                0x08008dd4                _init
- .init          0x08008dd8        0x8 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08009ed8        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crti.o
+                0x08009ed8                _init
+ .init          0x08009edc        0x8 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08008de0        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crti.o
-                0x08008de0                _fini
- .fini          0x08008de4        0x8 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
-                0x08008dec                        . = ALIGN (0x4)
-                0x08008dec                        _etext = .
+ .fini          0x08009ee4        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crti.o
+                0x08009ee4                _fini
+ .fini          0x08009ee8        0x8 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
+                0x08009ef0                        . = ALIGN (0x4)
+                0x08009ef0                        _etext = .
 
-.vfp11_veneer   0x08008dec        0x0
- .vfp11_veneer  0x08008dec        0x0 linker stubs
+.vfp11_veneer   0x08009ef0        0x0
+ .vfp11_veneer  0x08009ef0        0x0 linker stubs
 
-.v4_bx          0x08008dec        0x0
- .v4_bx         0x08008dec        0x0 linker stubs
+.v4_bx          0x08009ef0        0x0
+ .v4_bx         0x08009ef0        0x0 linker stubs
 
-.iplt           0x08008dec        0x0
- .iplt          0x08008dec        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x08009ef0        0x0
+ .iplt          0x08009ef0        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08008dec      0x814
-                0x08008dec                        . = ALIGN (0x4)
+.rodata         0x08009ef0      0x824
+                0x08009ef0                        . = ALIGN (0x4)
  *(.rodata)
+ .rodata        0x08009ef0       0x10 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-e_sqrt.o)
  *(.rodata*)
  .rodata.AHBPrescTable
-                0x08008dec       0x10 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
-                0x08008dec                AHBPrescTable
+                0x08009f00       0x10 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+                0x08009f00                AHBPrescTable
  .rodata.sinTable_f32
-                0x08008dfc      0x804 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
-                0x08008dfc                sinTable_f32
-                0x08009600                        . = ALIGN (0x4)
+                0x08009f10      0x804 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x08009f10                sinTable_f32
+                0x0800a714                        . = ALIGN (0x4)
 
-.rel.dyn        0x08009600        0x0
- .rel.iplt      0x08009600        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0800a714        0x0
+ .rel.iplt      0x0800a714        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08009600        0x0
-                0x08009600                        __exidx_start = .
+.ARM            0x0800a714        0x0
+                0x0800a714                        __exidx_start = .
  *(.ARM.exidx*)
-                0x08009600                        __exidx_end = .
+                0x0800a714                        __exidx_end = .
 
-.preinit_array  0x08009600        0x0
-                0x08009600                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800a714        0x0
+                0x0800a714                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08009600                        PROVIDE (__preinit_array_end = .)
+                0x0800a714                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08009600        0x4
-                0x08009600                        PROVIDE (__init_array_start = .)
+.init_array     0x0800a714        0x4
+                0x0800a714                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08009600        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08009604                        PROVIDE (__init_array_end = .)
+ .init_array    0x0800a714        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800a718                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x08009604        0x4
-                0x08009604                        PROVIDE (__fini_array_start = .)
+.fini_array     0x0800a718        0x4
+                0x0800a718                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08009604        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08009608                        PROVIDE (__fini_array_end = .)
-                0x08009608                        _sidata = LOADADDR (.data)
+ .fini_array    0x0800a718        0x4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800a71c                        PROVIDE (__fini_array_end = .)
+                0x0800a71c                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x68 load address 0x08009608
+.data           0x20000000       0x64 load address 0x0800a71c
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -5569,31 +5627,29 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crt
                 0x20000000                _impure_ptr
                 0x20000004                _impure_data
  *(.data*)
- .data.M_duty   0x20000050        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x20000050                M_duty
  .data.X_voltage_ref
-                0x20000054        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x20000054                X_voltage_ref
- .data.is_PWD.0
-                0x20000058        0x1 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- *fill*         0x20000059        0x3 
+                0x20000050        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x20000050                X_voltage_ref
+ .data.is_PWD.1
+                0x20000054        0x1 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ *fill*         0x20000055        0x3 
  .data.uwTickPrio
-                0x2000005c        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x2000005c                uwTickPrio
+                0x20000058        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x20000058                uwTickPrio
  .data.uwTickFreq
-                0x20000060        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x20000060                uwTickFreq
+                0x2000005c        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x2000005c                uwTickFreq
  .data.SystemCoreClock
-                0x20000064        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
-                0x20000064                SystemCoreClock
-                0x20000068                        . = ALIGN (0x4)
-                0x20000068                        _edata = .
+                0x20000060        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+                0x20000060                SystemCoreClock
+                0x20000064                        . = ALIGN (0x4)
+                0x20000064                        _edata = .
 
-.igot.plt       0x20000068        0x0 load address 0x08009670
- .igot.plt      0x20000068        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
-                0x20000068                        . = ALIGN (0x4)
+.igot.plt       0x20000064        0x0 load address 0x0800a780
+ .igot.plt      0x20000064        0x0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtbegin.o
+                0x20000064                        . = ALIGN (0x4)
 
-.bss            0x20000068     0x7944 load address 0x08009670
+.bss            0x20000068      0x900 load address 0x0800a780
                 0x20000068                        _sbss = .
                 0x20000068                        __bss_start__ = _sbss
  *(.bss)
@@ -5632,90 +5688,74 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crt
                 0x20000228                Vfilter
  .bss.Cfilter   0x200002f8       0xd0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
                 0x200002f8                Cfilter
- .bss.current_ac
-                0x200003c8     0x2ee0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .bss.voltage_ac
-                0x200032a8     0x2ee0 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .bss.piont     0x20006188        0x4 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
-                0x20006188                piont
- .bss.cnt2.1    0x2000618c        0x2 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .bss.cnt3.0    0x2000618e        0x2 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .bss.sin_table1
-                0x20006190      0x640 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .bss.sin_table2
-                0x200067d0      0x640 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .bss.sin_table3
-                0x20006e10      0x640 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .bss.voltage_PID
-                0x20007450       0x44 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x20007450                voltage_PID
+                0x200003c8       0x44 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x200003c8                voltage_PID
  .bss.current_PID
-                0x20007494       0x44 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x20007494                current_PID
- .bss.voltage_fdb
-                0x200074d8        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x200074d8                voltage_fdb
+                0x2000040c       0x44 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x2000040c                current_PID
  .bss.collect_data
-                0x200074dc        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x200074dc                collect_data
- .bss.svpwm_v   0x200074e0       0x2c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x200074e0                svpwm_v
- *fill*         0x2000750c        0x4 
- .bss.aaa       0x20007510        0x8 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
-                0x20007510                aaa
- .bss.cnt_temp.2
-                0x20007518        0x2 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .bss.temp_cnt.1
-                0x2000751a        0x2 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .bss.Dx        0x2000751c        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .bss.Dy        0x20007520        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .bss.Dz        0x20007524        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .bss.hadc2     0x20007528       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x20007528                hadc2
- .bss.hadc3     0x20007594       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x20007594                hadc3
- .bss.hadc4     0x20007600       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x20007600                hadc4
- .bss.hadc5     0x2000766c       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x2000766c                hadc5
+                0x20000450        0x4 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x20000450                collect_data
+ .bss.svpwm_v   0x20000454       0x2c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x20000454                svpwm_v
+ .bss.aaa       0x20000480        0x8 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x20000480                aaa
+ .bss.temp_cnt.2
+                0x20000488        0x2 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .bss.detect_flag.0
+                0x2000048a        0x1 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ *fill*         0x2000048b        0x1 
+ .bss.Dx.2      0x2000048c        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .bss.Dy.1      0x20000490        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .bss.Dz.0      0x20000494        0x4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .bss.hadc2     0x20000498       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000498                hadc2
+ .bss.hadc3     0x20000504       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000504                hadc3
+ .bss.hadc4     0x20000570       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000570                hadc4
+ .bss.hadc5     0x200005dc       0x6c CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x200005dc                hadc5
  .bss.hdma_adc2
-                0x200076d8       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x200076d8                hdma_adc2
+                0x20000648       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000648                hdma_adc2
  .bss.hdma_adc3
-                0x20007738       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x20007738                hdma_adc3
+                0x200006a8       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x200006a8                hdma_adc3
  .bss.hdma_adc4
-                0x20007798       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x20007798                hdma_adc4
+                0x20000708       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000708                hdma_adc4
  .bss.hdma_adc5
-                0x200077f8       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
-                0x200077f8                hdma_adc5
+                0x20000768       0x60 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x20000768                hdma_adc5
  .bss.HAL_RCC_ADC345_CLK_ENABLED
-                0x20007858        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .bss.hhrtim1   0x2000785c       0xfc CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
-                0x2000785c                hhrtim1
- .bss.htim6     0x20007958       0x4c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
-                0x20007958                htim6
- .bss.uwTick    0x200079a4        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                0x200079a4                uwTick
+                0x200007c8        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .bss.hhrtim1   0x200007cc       0xfc CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x200007cc                hhrtim1
+ .bss.htim5     0x200008c8       0x4c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x200008c8                htim5
+ .bss.htim6     0x20000914       0x4c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x20000914                htim6
+ .bss.uwTick    0x20000960        0x4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x20000960                uwTick
  .bss.__sbrk_heap_end
-                0x200079a8        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+                0x20000964        0x4 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
  *(COMMON)
-                0x200079ac                        . = ALIGN (0x4)
-                0x200079ac                        _ebss = .
-                0x200079ac                        __bss_end__ = _ebss
+                0x20000968                        . = ALIGN (0x4)
+                0x20000968                        _ebss = .
+                0x20000968                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200079ac     0x6004 load address 0x08009670
-                0x200079b0                        . = ALIGN (0x8)
- *fill*         0x200079ac        0x4 
+                0x20000968     0x6000 load address 0x0800a780
+                0x20000968                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x200079b0                        PROVIDE (_end = .)
-                0x200099b0                        . = (. + _Min_Heap_Size)
- *fill*         0x200079b0     0x2000 
-                0x2000d9b0                        . = (. + _Min_Stack_Size)
- *fill*         0x200099b0     0x4000 
-                0x2000d9b0                        . = ALIGN (0x8)
+                0x20000968                        PROVIDE (_end = .)
+                0x20002968                        . = (. + _Min_Heap_Size)
+ *fill*         0x20000968     0x2000 
+                0x20006968                        . = (. + _Min_Stack_Size)
+ *fill*         0x20002968     0x4000 
+                0x20006968                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -5808,27 +5848,25 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .ARM.attributes
                 0x000007a6       0x21 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
  .ARM.attributes
-                0x000007c7       0x34 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
+                0x000007c7       0x34 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
  .ARM.attributes
-                0x000007fb       0x34 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+                0x000007fb       0x34 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
  .ARM.attributes
-                0x0000082f       0x34 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+                0x0000082f       0x39 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
  .ARM.attributes
-                0x00000863       0x39 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x00000868       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x0000089c       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x0000088a       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x000008be       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x000008ac       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x000008e0       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x000008ce       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
-                0x00000902       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                0x000008f0       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
  .ARM.attributes
-                0x00000924       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+                0x00000924       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
  .ARM.attributes
-                0x00000958       0x34 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .ARM.attributes
-                0x0000098c       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
+                0x00000958       0x22 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard/crtn.o
 
 .comment        0x00000000       0x8b
  .comment       0x00000000       0x8b D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
@@ -5868,14 +5906,13 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .comment       0x0000008b       0x13 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
  .comment       0x0000008b       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
  .comment       0x0000008b       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .comment       0x0000008b       0x7a C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
  .comment       0x0000008b       0x7a C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
  .comment       0x0000008b       0x7a C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
  .comment       0x0000008b       0x7a C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
  .comment       0x0000008b       0x13 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
  .comment       0x0000008b       0x13 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
-.debug_info     0x00000000    0x242c3
+.debug_info     0x00000000    0x2362b
  .debug_info    0x00000000     0x10c4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_info    0x000010c4      0x135 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
  .debug_info    0x000011f9      0x8a9 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
@@ -5887,44 +5924,43 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_info    0x00003723      0x76b D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
  .debug_info    0x00003e8e      0x782 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .debug_info    0x00004610      0x465 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
- .debug_info    0x00004a75      0xd0a CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .debug_info    0x0000577f     0x1587 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_info    0x00006d06      0x32f CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_info    0x00007035      0x2f9 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_info    0x0000732e      0x47f CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_info    0x000077ad     0x116b CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_info    0x00008918      0x5ac CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_info    0x00008ec4     0x152c CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_info    0x0000a3f0      0xe2c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_info    0x0000b21c      0x8f2 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_info    0x0000bb0e      0x2da CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_info    0x0000bde8     0x2063 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_info    0x0000de4b     0x1d80 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_info    0x0000fbcb      0xb95 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_info    0x00010760      0xbe0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_info    0x00011340      0xc45 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_info    0x00011f85      0x763 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_info    0x000126e8      0x85f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_info    0x00012f47      0x93f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_info    0x00013886      0xdf9 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_info    0x0001467f     0x3f23 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_info    0x000185a2     0x2c52 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_info    0x0001b1f4     0x1d95 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_info    0x0001cf89      0x58e CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_info    0x0001d517      0x168 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_info    0x0001d67f       0x30 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
- .debug_info    0x0001d6af      0xbc3 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_info    0x0001e272     0x1874 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_info    0x0001fae6     0x1874 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
- .debug_info    0x0002135a     0x1e86 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_info    0x000231e0       0xd3 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x000232b3       0x57 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x0002330a       0xdf D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_info    0x000233e9       0x3f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_info    0x00023428      0x7a0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_info    0x00023bc8      0x6fb D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_info    0x00004a75      0xbed CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .debug_info    0x00005662     0x1507 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .debug_info    0x00006b69      0x30a CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_info    0x00006e73      0x300 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_info    0x00007173      0x47f CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_info    0x000075f2     0x116b CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_info    0x0000875d      0x5ac CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_info    0x00008d09     0x152c CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_info    0x0000a235      0xef9 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_info    0x0000b12e      0x90b CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_info    0x0000ba39      0x2da CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_info    0x0000bd13     0x2063 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_info    0x0000dd76     0x1d80 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_info    0x0000faf6      0xb95 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_info    0x0001068b      0xbe0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_info    0x0001126b      0xc45 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_info    0x00011eb0      0x763 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_info    0x00012613      0x85f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_info    0x00012e72      0x93f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_info    0x000137b1      0xdf9 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_info    0x000145aa     0x3f23 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_info    0x000184cd     0x2c52 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_info    0x0001b11f     0x1d95 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_info    0x0001ceb4      0x58e CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_info    0x0001d442      0x168 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x0001d5aa       0x30 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+ .debug_info    0x0001d5da     0x1874 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_info    0x0001ee4e     0x1874 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+ .debug_info    0x000206c2     0x1e86 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_info    0x00022548       0xd3 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0002261b       0x57 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x00022672       0xdf D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x00022751       0x3f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_info    0x00022790      0x7a0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+ .debug_info    0x00022f30      0x6fb D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
-.debug_abbrev   0x00000000     0x548a
+.debug_abbrev   0x00000000     0x5189
  .debug_abbrev  0x00000000      0x446 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_abbrev  0x00000446       0xb7 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
  .debug_abbrev  0x000004fd      0x1ee D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
@@ -5936,42 +5972,41 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_abbrev  0x00000ea5      0x1bf D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
  .debug_abbrev  0x00001064      0x1da D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .debug_abbrev  0x0000123e      0x15e CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
- .debug_abbrev  0x0000139c      0x295 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .debug_abbrev  0x00001631      0x345 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_abbrev  0x00001976      0x11f CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_abbrev  0x00001a95      0x17c CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_abbrev  0x00001c11      0x152 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x00001d63      0x239 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_abbrev  0x00001f9c      0x109 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_abbrev  0x000020a5      0x23e CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_abbrev  0x000022e3      0x226 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x00002509      0x1de CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_abbrev  0x000026e7       0xd9 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_abbrev  0x000027c0      0x2d3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_abbrev  0x00002a93      0x2ee CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_abbrev  0x00002d81      0x271 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_abbrev  0x00002ff2      0x2c9 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_abbrev  0x000032bb      0x258 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_abbrev  0x00003513      0x1cb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_abbrev  0x000036de      0x1e2 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_abbrev  0x000038c0      0x22c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_abbrev  0x00003aec      0x31c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_abbrev  0x00003e08      0x285 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_abbrev  0x0000408d      0x2a7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_abbrev  0x00004334      0x2c5 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000045f9      0x11a CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_abbrev  0x00004713       0xbc CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x000047cf       0x24 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
- .debug_abbrev  0x000047f3      0x286 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_abbrev  0x00004a79      0x22c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_abbrev  0x00004ca5      0x22c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
- .debug_abbrev  0x00004ed1      0x1ec C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_abbrev  0x000050bd       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x000050e5       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x0000510d       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_abbrev  0x00005135       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_abbrev  0x0000515d      0x1cf D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_abbrev  0x0000532c      0x15e D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_abbrev  0x0000139c      0x265 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .debug_abbrev  0x00001601      0x2ea CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .debug_abbrev  0x000018eb      0x11e CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_abbrev  0x00001a09      0x17c CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x00001b85      0x152 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x00001cd7      0x239 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_abbrev  0x00001f10      0x109 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_abbrev  0x00002019      0x23e CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_abbrev  0x00002257      0x235 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x0000248c      0x1e0 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_abbrev  0x0000266c       0xd9 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_abbrev  0x00002745      0x2d3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_abbrev  0x00002a18      0x2ee CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_abbrev  0x00002d06      0x271 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_abbrev  0x00002f77      0x2c9 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00003240      0x258 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_abbrev  0x00003498      0x1cb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_abbrev  0x00003663      0x1e2 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_abbrev  0x00003845      0x22c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_abbrev  0x00003a71      0x31c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_abbrev  0x00003d8d      0x285 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_abbrev  0x00004012      0x2a7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_abbrev  0x000042b9      0x2c5 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x0000457e      0x11a CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_abbrev  0x00004698       0xbc CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x00004754       0x24 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+ .debug_abbrev  0x00004778      0x22c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_abbrev  0x000049a4      0x22c C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+ .debug_abbrev  0x00004bd0      0x1ec C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_abbrev  0x00004dbc       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x00004de4       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x00004e0c       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x00004e34       0x28 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_abbrev  0x00004e5c      0x1cf D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+ .debug_abbrev  0x0000502b      0x15e D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
 .debug_loclists
                 0x00000000      0xa1b
@@ -5996,7 +6031,7 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_loclists
                 0x000009d1       0x4a D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
 
-.debug_aranges  0x00000000     0x1aa8
+.debug_aranges  0x00000000     0x1a88
  .debug_aranges
                 0x00000000       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_aranges
@@ -6022,23 +6057,23 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_aranges
                 0x000001a0       0x50 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .debug_aranges
-                0x000001f0       0x50 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x000001f0       0x48 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_aranges
-                0x00000240       0x50 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x00000238       0x48 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
  .debug_aranges
-                0x00000290       0x30 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+                0x00000280       0x30 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
  .debug_aranges
-                0x000002c0       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+                0x000002b0       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
  .debug_aranges
-                0x000002e0       0x48 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x000002d0       0x48 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
  .debug_aranges
-                0x00000328       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+                0x00000318       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
  .debug_aranges
-                0x00000348       0x38 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x00000338       0x38 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
  .debug_aranges
-                0x00000380       0x30 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x00000370       0x38 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .debug_aranges
-                0x000003b0       0x88 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x000003a8       0x90 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
  .debug_aranges
                 0x00000438       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_aranges
@@ -6072,28 +6107,26 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_aranges
                 0x00001948       0x28 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
  .debug_aranges
-                0x00001970       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
+                0x00001970       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
  .debug_aranges
-                0x00001990       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+                0x00001990       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
  .debug_aranges
-                0x000019b0       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+                0x000019b0       0x18 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
  .debug_aranges
-                0x000019d0       0x18 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+                0x000019c8       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .debug_aranges
-                0x000019e8       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                0x000019e8       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .debug_aranges
-                0x00001a08       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x00001a08       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .debug_aranges
-                0x00001a28       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+                0x00001a28       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .debug_aranges
-                0x00001a48       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                0x00001a48       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
  .debug_aranges
-                0x00001a68       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_aranges
-                0x00001a88       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+                0x00001a68       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
 .debug_rnglists
-                0x00000000     0x1385
+                0x00000000     0x1390
  .debug_rnglists
                 0x00000000       0x9f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_rnglists
@@ -6103,59 +6136,59 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_rnglists
                 0x000000d0       0x4d CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
  .debug_rnglists
-                0x0000011d       0x3a CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+                0x0000011d       0x39 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .debug_rnglists
-                0x00000157       0x3c CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+                0x00000156       0x41 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_rnglists
-                0x00000193       0x3b CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+                0x00000197       0x34 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
  .debug_rnglists
-                0x000001ce       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+                0x000001cb       0x20 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
  .debug_rnglists
-                0x000001ee       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+                0x000001eb       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
  .debug_rnglists
-                0x00000202       0x37 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+                0x000001ff       0x37 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
  .debug_rnglists
-                0x00000239       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+                0x00000236       0x14 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
  .debug_rnglists
-                0x0000024d       0x27 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+                0x0000024a       0x27 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
  .debug_rnglists
-                0x00000274       0x1f CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+                0x00000271       0x27 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
  .debug_rnglists
-                0x00000293       0x61 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+                0x00000298       0x67 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
  .debug_rnglists
-                0x000002f4       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+                0x000002ff       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_rnglists
-                0x00000307      0x1c0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                0x00000312      0x1c0 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
  .debug_rnglists
-                0x000004c7      0x15a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                0x000004d2      0x15a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
  .debug_rnglists
-                0x00000621       0xf1 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                0x0000062c       0xf1 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
  .debug_rnglists
-                0x00000712       0x74 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                0x0000071d       0x74 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
  .debug_rnglists
-                0x00000786       0x87 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+                0x00000791       0x87 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
  .debug_rnglists
-                0x0000080d       0x3f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                0x00000818       0x3f CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
  .debug_rnglists
-                0x0000084c       0x71 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                0x00000857       0x71 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
  .debug_rnglists
-                0x000008bd       0xf1 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                0x000008c8       0xf1 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
  .debug_rnglists
-                0x000009ae       0xda CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                0x000009b9       0xda CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
  .debug_rnglists
-                0x00000a88      0x3c3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+                0x00000a93      0x3c3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
  .debug_rnglists
-                0x00000e4b      0x328 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                0x00000e56      0x328 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
  .debug_rnglists
-                0x00001173      0x1cc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                0x0000117e      0x1cc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
  .debug_rnglists
-                0x0000133f       0x1a CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+                0x0000134a       0x1a CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
  .debug_rnglists
-                0x00001359       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+                0x00001364       0x13 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
  .debug_rnglists
-                0x0000136c       0x19 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+                0x00001377       0x19 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
 
-.debug_line     0x00000000    0x1be18
+.debug_line     0x00000000    0x1b9fb
  .debug_line    0x00000000      0x66c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_line    0x0000066c      0x1c9 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
  .debug_line    0x00000835      0x284 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
@@ -6167,94 +6200,92 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_line    0x000014d6      0x161 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
  .debug_line    0x00001637      0x19c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .debug_line    0x000017d3      0x466 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
- .debug_line    0x00001c39      0xa5d CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .debug_line    0x00002696      0xa63 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_line    0x000030f9      0x5ce CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_line    0x000036c7      0x6e5 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_line    0x00003dac      0x617 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_line    0x000043c3      0xa61 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_line    0x00004e24      0x5fc CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_line    0x00005420      0x90a CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_line    0x00005d2a      0x65c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_line    0x00006386      0x720 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_line    0x00006aa6      0x5fa CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_line    0x000070a0     0x2101 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_line    0x000091a1     0x1a59 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_line    0x0000abfa      0xa32 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_line    0x0000b62c      0xeb5 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_line    0x0000c4e1     0x112a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_line    0x0000d60b      0xa0b CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_line    0x0000e016      0xd31 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_line    0x0000ed47      0xb91 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_line    0x0000f8d8      0xb97 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_line    0x0001046f     0x41a4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_line    0x00014613     0x3ecb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_line    0x000184de     0x1f39 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_line    0x0001a417      0x666 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_line    0x0001aa7d      0x24a CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_line    0x0001acc7       0x7b CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
- .debug_line    0x0001ad42      0x332 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_line    0x0001b074      0x284 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_line    0x0001b2f8      0x287 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
- .debug_line    0x0001b57f      0x1f7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_line    0x0001b776      0x16f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x0001b8e5      0x184 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x0001ba69       0xa6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x0001bb0f       0x76 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_line    0x0001bb85      0x174 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_line    0x0001bcf9      0x11f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_line    0x00001c39      0x8c9 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .debug_line    0x00002502      0x9d0 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .debug_line    0x00002ed2      0x666 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_line    0x00003538      0x6e6 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_line    0x00003c1e      0x621 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_line    0x0000423f      0xa61 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_line    0x00004ca0      0x5fc CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_line    0x0000529c      0x90a CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_line    0x00005ba6      0x6dd CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_line    0x00006283      0x738 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_line    0x000069bb      0x5fa CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_line    0x00006fb5     0x2101 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_line    0x000090b6     0x1a59 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_line    0x0000ab0f      0xa32 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_line    0x0000b541      0xeb5 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_line    0x0000c3f6     0x112a CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_line    0x0000d520      0xa0b CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_line    0x0000df2b      0xd31 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_line    0x0000ec5c      0xb91 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_line    0x0000f7ed      0xb97 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_line    0x00010384     0x41a4 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_line    0x00014528     0x3ecb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_line    0x000183f3     0x1f39 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_line    0x0001a32c      0x666 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_line    0x0001a992      0x24a CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x0001abdc       0x7b CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+ .debug_line    0x0001ac57      0x284 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_line    0x0001aedb      0x287 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+ .debug_line    0x0001b162      0x1f7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_line    0x0001b359      0x16f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x0001b4c8      0x184 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0001b64c       0xa6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x0001b6f2       0x76 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_line    0x0001b768      0x174 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+ .debug_line    0x0001b8dc      0x11f D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
-.debug_str      0x00000000   0x12f8a6
- .debug_str     0x00000000   0x12f8a6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+.debug_str      0x00000000   0x12f77a
+ .debug_str     0x00000000   0x12f77a D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
                                 0x729 (size before relaxing)
- .debug_str     0x0012f8a6      0x19a D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
- .debug_str     0x0012f8a6      0x4c5 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
- .debug_str     0x0012f8a6      0x4a6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
- .debug_str     0x0012f8a6      0x1e7 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
- .debug_str     0x0012f8a6      0x31d D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
- .debug_str     0x0012f8a6      0x526 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
- .debug_str     0x0012f8a6      0x587 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
- .debug_str     0x0012f8a6      0x528 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
- .debug_str     0x0012f8a6      0x4af D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
- .debug_str     0x0012f8a6     0x3fb1 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
- .debug_str     0x0012f8a6   0x12607d CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .debug_str     0x0012f8a6   0x12669d CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_str     0x0012f8a6     0x911d CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_str     0x0012f8a6   0x121374 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_str     0x0012f8a6   0x1212fc CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_str     0x0012f8a6   0x121c12 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_str     0x0012f8a6   0x121888 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_str     0x0012f8a6   0x121f47 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_str     0x0012f8a6   0x121fbf CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_str     0x0012f8a6   0x12184f CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_str     0x0012f8a6   0x121252 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_str     0x0012f8a6   0x122106 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_str     0x0012f8a6   0x1220ac CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_str     0x0012f8a6   0x121deb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_str     0x0012f8a6   0x1217f8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_str     0x0012f8a6   0x121822 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_str     0x0012f8a6   0x121264 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_str     0x0012f8a6   0x1214b3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_str     0x0012f8a6   0x1215c7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_str     0x0012f8a6   0x121aa7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_str     0x0012f8a6   0x1234d3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_str     0x0012f8a6   0x1225d7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_str     0x0012f8a6   0x12224b CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_str     0x0012f8a6   0x1210d9 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_str     0x0012f8a6     0x713d CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_str     0x0012f8a6       0x96 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
- .debug_str     0x0012f8a6      0x721 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_str     0x0012f8a6      0xfb7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_str     0x0012f8a6      0xfb7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
- .debug_str     0x0012f8a6      0xf92 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
- .debug_str     0x0012f8a6      0x12e D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_str     0x0012f8a6       0xae D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_str     0x0012f8a6      0x137 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_str     0x0012f8a6       0x9b D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_str     0x0012f8a6      0x4cb D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_str     0x0012f8a6      0x4a0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_str     0x0012f77a      0x19a D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .debug_str     0x0012f77a      0x4c5 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_str     0x0012f77a      0x4a6 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-impure.o)
+ .debug_str     0x0012f77a      0x1e7 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .debug_str     0x0012f77a      0x31d D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_str     0x0012f77a      0x526 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .debug_str     0x0012f77a      0x587 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_str     0x0012f77a      0x528 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_str     0x0012f77a      0x4af D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_str     0x0012f77a     0x3fb1 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
+ .debug_str     0x0012f77a   0x126030 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
+ .debug_str     0x0012f77a   0x1265e9 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .debug_str     0x0012f77a     0x912f CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_str     0x0012f77a   0x121381 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_str     0x0012f77a   0x1212fc CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_str     0x0012f77a   0x121c12 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_str     0x0012f77a   0x121888 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_str     0x0012f77a   0x121f47 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_str     0x0012f77a   0x12204b CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_str     0x0012f77a   0x121865 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_str     0x0012f77a   0x121252 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_str     0x0012f77a   0x122106 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_str     0x0012f77a   0x1220ac CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_str     0x0012f77a   0x121deb CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_str     0x0012f77a   0x1217f8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_str     0x0012f77a   0x121822 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_str     0x0012f77a   0x121264 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_str     0x0012f77a   0x1214b3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_str     0x0012f77a   0x1215c7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_str     0x0012f77a   0x121aa7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_str     0x0012f77a   0x1234d3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_str     0x0012f77a   0x1225d7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_str     0x0012f77a   0x12224b CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_str     0x0012f77a   0x1210d9 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_str     0x0012f77a     0x713d CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x0012f77a       0x96 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
+ .debug_str     0x0012f77a      0xfb7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_str     0x0012f77a      0xfb7 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+ .debug_str     0x0012f77a      0xf92 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_common_tables.o)
+ .debug_str     0x0012f77a      0x12e D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_str     0x0012f77a       0xae D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_str     0x0012f77a      0x137 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_str     0x0012f77a       0x9b D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_str     0x0012f77a      0x4cb D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+ .debug_str     0x0012f77a      0x4a0 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
-.debug_frame    0x00000000     0x6d70
+.debug_frame    0x00000000     0x6d1c
  .debug_frame   0x00000000      0x13c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_frame   0x0000013c       0x2c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
  .debug_frame   0x00000168       0x40 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
@@ -6266,41 +6297,40 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_frame   0x0000035c       0x2c D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .debug_frame   0x00000388      0x19c CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
  .debug_frame   0x00000524      0x104 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
- .debug_frame   0x00000628      0x104 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_frame   0x0000072c      0x130 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_frame   0x0000085c       0x68 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_frame   0x000008c4       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_frame   0x000008f8       0xec CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_frame   0x000009e4       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_frame   0x00000a18       0xac CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_frame   0x00000ac4       0x7c CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_frame   0x00000b40      0x190 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_frame   0x00000cd0       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_frame   0x00000d04      0xacc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_frame   0x000017d0      0x81c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_frame   0x00001fec      0x500 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_frame   0x000024ec      0x23c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_frame   0x00002728      0x2ac CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_frame   0x000029d4      0x14c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_frame   0x00002b20      0x24c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_frame   0x00002d6c      0x4fc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_frame   0x00003268      0x4e8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_frame   0x00003750     0x164c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_frame   0x00004d9c     0x1220 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_frame   0x00005fbc      0xa70 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_frame   0x00006a2c       0x58 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_frame   0x00006a84       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_frame   0x00006ab8       0x44 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_frame   0x00006afc       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_frame   0x00006b1c       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
- .debug_frame   0x00006b3c       0xac D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00006be8       0x50 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00006c38       0xc4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
- .debug_frame   0x00006cfc       0x24 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x00006d20       0x30 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
- .debug_frame   0x00006d50       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_frame   0x00000628       0xd8 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+ .debug_frame   0x00000700      0x10c CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_frame   0x0000080c       0x68 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_frame   0x00000874       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_frame   0x000008a8       0xec CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_frame   0x00000994       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_frame   0x000009c8       0xac CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_frame   0x00000a74       0xa0 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_frame   0x00000b14      0x1ac CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_frame   0x00000cc0       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_frame   0x00000cf4      0xacc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_frame   0x000017c0      0x81c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_frame   0x00001fdc      0x500 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_frame   0x000024dc      0x23c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_frame   0x00002718      0x2ac CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_frame   0x000029c4      0x14c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_frame   0x00002b10      0x24c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_frame   0x00002d5c      0x4fc CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_frame   0x00003258      0x4e8 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_frame   0x00003740     0x164c CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_frame   0x00004d8c     0x1220 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_frame   0x00005fac      0xa70 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_frame   0x00006a1c       0x58 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_frame   0x00006a74       0x34 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_frame   0x00006aa8       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_frame   0x00006ac8       0x20 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+ .debug_frame   0x00006ae8       0xac D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00006b94       0x50 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00006be4       0xc4 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+ .debug_frame   0x00006ca8       0x24 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00006ccc       0x30 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00006cfc       0x20 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
 
-.debug_macro    0x00000000    0x2b8d1
+.debug_macro    0x00000000    0x2b8dd
  .debug_macro   0x00000000       0x79 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
  .debug_macro   0x00000079      0xad8 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
  .debug_macro   0x00000b51       0x22 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
@@ -6369,34 +6399,34 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_macro   0x00028476       0x29 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
  .debug_macro   0x0002849f      0x3a1 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
  .debug_macro   0x00028840       0x10 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
- .debug_macro   0x00028850      0x1b8 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
- .debug_macro   0x00028a08      0x235 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
- .debug_macro   0x00028c3d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
- .debug_macro   0x00028e3d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
- .debug_macro   0x0002903d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
- .debug_macro   0x0002923d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
- .debug_macro   0x0002943d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
- .debug_macro   0x0002963d      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_macro   0x0002983d      0x1f6 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_macro   0x00029a33      0x204 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
- .debug_macro   0x00029c37      0x1f3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
- .debug_macro   0x00029e2a      0x235 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
- .debug_macro   0x0002a05f      0x229 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
- .debug_macro   0x0002a288      0x211 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
- .debug_macro   0x0002a499      0x1ee CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
- .debug_macro   0x0002a687      0x1e7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
- .debug_macro   0x0002a86e      0x211 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
- .debug_macro   0x0002aa7f      0x1e7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
- .debug_macro   0x0002ac66      0x204 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
- .debug_macro   0x0002ae6a      0x1ef CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
- .debug_macro   0x0002b059      0x1ed CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
- .debug_macro   0x0002b246      0x1e7 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
- .debug_macro   0x0002b42d       0xff CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002b52c       0x10 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002b53c       0x6e CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002b5aa       0x94 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002b63e       0x57 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002b695      0x23c CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x00028850      0x1c4 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
+ .debug_macro   0x00028a14      0x235 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj
+ .debug_macro   0x00028c49      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj
+ .debug_macro   0x00028e49      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj
+ .debug_macro   0x00029049      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj
+ .debug_macro   0x00029249      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj
+ .debug_macro   0x00029449      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj
+ .debug_macro   0x00029649      0x200 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_macro   0x00029849      0x1f6 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_macro   0x00029a3f      0x204 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+ .debug_macro   0x00029c43      0x1f3 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+ .debug_macro   0x00029e36      0x235 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+ .debug_macro   0x0002a06b      0x229 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+ .debug_macro   0x0002a294      0x211 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+ .debug_macro   0x0002a4a5      0x1ee CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+ .debug_macro   0x0002a693      0x1e7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+ .debug_macro   0x0002a87a      0x211 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+ .debug_macro   0x0002aa8b      0x1e7 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+ .debug_macro   0x0002ac72      0x204 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj
+ .debug_macro   0x0002ae76      0x1ef CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+ .debug_macro   0x0002b065      0x1ed CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+ .debug_macro   0x0002b252      0x1e7 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj
+ .debug_macro   0x0002b439       0xff CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002b538       0x10 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002b548       0x6e CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002b5b6       0x94 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002b64a       0x57 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002b6a1      0x23c CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj
 
 .debug_line_str
                 0x00000000       0xf2
@@ -6412,12 +6442,10 @@ LOAD D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\lib
  .debug_line_str
                 0x000000f2       0x76 D:/msys2/ucrt64/bin/../lib/gcc/arm-none-eabi/13.3.0/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
 
-.debug_loc      0x00000000      0x5be
- .debug_loc     0x00000000      0x3ca C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_loc     0x000003ca       0xfa C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_loc     0x000004c4       0xfa C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+.debug_loc      0x00000000      0x1f4
+ .debug_loc     0x00000000       0xfa C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_loc     0x000000fa       0xfa C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
 
-.debug_ranges   0x00000000       0x58
- .debug_ranges  0x00000000       0x38 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_rms_f32.o)
- .debug_ranges  0x00000038       0x10 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
- .debug_ranges  0x00000048       0x10 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)
+.debug_ranges   0x00000000       0x20
+ .debug_ranges  0x00000000       0x10 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_sin_f32.o)
+ .debug_ranges  0x00000010       0x10 C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx/../../Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a(arm_cos_f32.o)

@@ -26,7 +26,6 @@ void judge_area(svpwm_t *spwm);
 void change_freq(svpwm_t *spwm, float freq);
 void calcu_UaUb(svpwm_t *spwm);
 void Cacu_Time(svpwm_t *svpwm_v) ;
-void CacuPWMDuty(svpwm_t *svpwm_v);
 void svpwm_calculate(svpwm_t *spwm);
 #endif // !SVPWM_H
 

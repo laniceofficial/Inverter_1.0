@@ -64,6 +64,7 @@ USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oled)
 
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oledlib)
 
@@ -84,3 +85,5 @@ set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--no-warn-rwx-segments")
 #再输入  ninja -C build
 #即可编译
 #######软浮点输出
+#set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -mfloat-abi=soft")
+set(CMAKE_CXX_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,-u, _printf_float")

@@ -109,6 +109,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+    show_screen();
 
     /* USER CODE BEGIN 3 */
   }

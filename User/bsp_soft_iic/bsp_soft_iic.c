@@ -4,8 +4,8 @@
  *功能说明 : I2C总线位延迟，最快400KHz;参考野火
  *形 参：无
  *返 回 值 : 无*/
-static uint16_t WAIT_TIME_ = 100; // 延时循环次数，越小SCL频率越高，最大400KHz
-static void SI2C_Delay(void)
+static uint16_t WAIT_TIME_ = 80; // 延时循环次数，越小SCL频率越高，最大400KHz
+inline static void SI2C_Delay(void)
 {
     uint8_t i;
 
@@ -18,20 +18,20 @@ static void SI2C_Delay(void)
     for (i = 0; i < WAIT_TIME_; i++)
         ;
 }
-void SI2C_W_SCL(unsigned char x) // 控制scl电平
+inline void SI2C_W_SCL(unsigned char x) // 控制scl电平
 {
 
     HAL_GPIO_WritePin(SI2C_SCL_PORT, SI2C_SCL_PIN, (GPIO_PinState)x);
     SI2C_Delay();
 }
 
-void SI2C_W_SDA(unsigned char x) // 控制sda电平
+inline void SI2C_W_SDA(unsigned char x) // 控制sda电平
 {
 
     HAL_GPIO_WritePin(SI2C_SDA_PORT, SI2C_SDA_PIN, (GPIO_PinState)x);
     SI2C_Delay();
 }
-unsigned char SI2C_R_SDA(void) // 读取sda电平
+inline unsigned char SI2C_R_SDA(void) // 读取sda电平
 {
     unsigned char u8;
     u8 = HAL_GPIO_ReadPin(SI2C_SCL_PORT, SI2C_SCL_PIN);
@@ -76,7 +76,7 @@ void SI2C_Stop(void)
  * 输    入         : uint8_t dat,要发送的数据
  * 输    出         : 无
  *******************************************************************************/
-void SI2C_SendByte(uint8_t Byte)
+inline void SI2C_SendByte(uint8_t Byte)
 {
     uint8_t i;
 
@@ -102,7 +102,7 @@ void SI2C_SendByte(uint8_t Byte)
 * 返 回 值: 读到的数据
 **********************************************
 */
-uint8_t SI2C_ReadByte(void)
+inline uint8_t SI2C_ReadByte(void)
 {
     uint8_t i;
     uint8_t value;
@@ -133,7 +133,7 @@ CPU产生一个时钟，并读取器件的ACK应答信号
 * 返 回 值: 返回0表示正确应答，1表示无器件响应
 *************************************************
 */
-uint8_t SI2C_WaitAck(void)
+inline uint8_t SI2C_WaitAck(void)
 {
     uint8_t re;
 
@@ -163,7 +163,7 @@ uint8_t SI2C_WaitAck(void)
 * 返 回 值: 无
 ************************************************
 */
-void SI2C_Ack(void)
+inline void SI2C_Ack(void)
 {
     SI2C_W_SDA(0); /* CPU驱动SDA = 0 */
     SI2C_Delay();
@@ -182,7 +182,7 @@ void SI2C_Ack(void)
 * 返 回 值: 无
 **********************************************
 */
-void SI2C_NAck(void)
+inline void SI2C_NAck(void)
 {
     SI2C_W_SDA(1); /* CPU驱动SDA = 1 */
     SI2C_Delay();
@@ -217,7 +217,7 @@ void SI2C_Delay_init(void)
  * @note     nus取值范围：0 ~ (2^32 / fac_us)(fac_us一般等于系统主频)
  * @retval   无
  */
-void SSI2C_Delay_us(uint32_t nus)
+inline void SSI2C_Delay_us(uint32_t nus)
 {
     uint32_t ticks;
     uint32_t told, tnow, tcnt = 0;

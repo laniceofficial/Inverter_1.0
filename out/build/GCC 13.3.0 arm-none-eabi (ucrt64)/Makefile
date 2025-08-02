@@ -896,6 +896,30 @@ User/collection/collection.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.s
 .PHONY : User/collection/collection.c.s
 
+User/oled/oled.obj: User/oled/oled.c.obj
+.PHONY : User/oled/oled.obj
+
+# target to build an object file
+User/oled/oled.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj
+.PHONY : User/oled/oled.c.obj
+
+User/oled/oled.i: User/oled/oled.c.i
+.PHONY : User/oled/oled.i
+
+# target to preprocess a source file
+User/oled/oled.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.i
+.PHONY : User/oled/oled.c.i
+
+User/oled/oled.s: User/oled/oled.c.s
+.PHONY : User/oled/oled.s
+
+# target to generate assembly for a file
+User/oled/oled.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.s
+.PHONY : User/oled/oled.c.s
+
 User/pid/pid.obj: User/pid/pid.c.obj
 .PHONY : User/pid/pid.obj
 
@@ -1105,6 +1129,9 @@ help:
 	@echo ... User/collection/collection.obj
 	@echo ... User/collection/collection.i
 	@echo ... User/collection/collection.s
+	@echo ... User/oled/oled.obj
+	@echo ... User/oled/oled.i
+	@echo ... User/oled/oled.s
 	@echo ... User/pid/pid.obj
 	@echo ... User/pid/pid.i
 	@echo ... User/pid/pid.s

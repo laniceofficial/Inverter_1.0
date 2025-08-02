@@ -63,6 +63,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj.d"
   "CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj"
   "CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj.d"
+  "CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj"
+  "CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj.d"
   "CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj"
   "CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj.d"
   "CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj"

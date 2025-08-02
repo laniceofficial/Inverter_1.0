@@ -1,8 +1,8 @@
 #include "svpwm.h"
 #define PI2 6.2831853f
 #define Sqrt3 1.7320508075688772935
-#define MAX_Duty 0.95f
-#define MIN_Duty 0.05f
+#define MAX_Duty 0.98f
+#define MIN_Duty 0.02f
 // 当调制比接近或超过极限值（约 0.577）时，零矢量时间Dz可能会变成负数，此时就需要进行过调制处理。
 // Udc > Uref/0.577
 void svpwm_init(svpwm_t *spwm, float Uref, float target_freq_, float carrier_freq_)
@@ -13,6 +13,7 @@ void svpwm_init(svpwm_t *spwm, float Uref, float target_freq_, float carrier_fre
 }
 void change_freq(svpwm_t *spwm, float freq)
 {
+    freq = (freq > 100) ? 100 : (freq < 20 ? 20 : freq);
     spwm->target_freq = freq;
     spwm->deltaTheta = PI2 * freq / spwm->carrier_freq;
 }

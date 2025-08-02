@@ -704,7 +704,7 @@ void OLED_Printf(uint8_t X, uint8_t Y, uint8_t FontSize,const char *format, ...)
     char String[30];                         // 定义字符数组
     va_list arg;                             // 定义可变参数列表数据类型的变量arg
     va_start(arg, format);                   // 从format开始，接收参数列表到arg变量
-    vsprintf(String, format, arg);           // 使用vsprintf打印格式化字符串和参数列表到字符数组中
+    sprintf(String, format, arg);           // 使用vsprintf打印格式化字符串和参数列表到字符数组中
     va_end(arg);                             // 结束变量arg
     OLED_ShowString(X, Y, String, FontSize); // OLED显示字符数组（字符串）
 }

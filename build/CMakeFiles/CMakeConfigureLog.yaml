@@ -71,7 +71,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
       
       The C compiler identification is GNU, found in:
-        C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/build/CMakeFiles/4.0.2/CompilerIdC/CMakeCCompilerId.o
+        D:/ace/diansai/Inverter_1.0/build/CMakeFiles/4.0.2/CompilerIdC/CMakeCCompilerId.o
       
   -
     kind: "message-v1"
@@ -135,7 +135,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
       
       The CXX compiler identification is GNU, found in:
-        C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/build/CMakeFiles/4.0.2/CompilerIdCXX/CMakeCXXCompilerId.o
+        D:/ace/diansai/Inverter_1.0/build/CMakeFiles/4.0.2/CompilerIdCXX/CMakeCXXCompilerId.o
       
   -
     kind: "message-v1"

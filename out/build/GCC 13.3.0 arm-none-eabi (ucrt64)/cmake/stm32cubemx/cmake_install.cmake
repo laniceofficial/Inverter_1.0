@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/cmake/stm32cubemx
+# Install script for directory: D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/install/GCC 13.3.0 arm-none-eabi (ucrt64)")
+  set(CMAKE_INSTALL_PREFIX "D:/ace/stm_cpp/WirelessCharge/out/install/GCC 13.3.0 arm-none-eabi (ucrt64)")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,12 +34,12 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/86178/.eide/tools/gcc_arm/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake/stm32cubemx/install_local_manifest.txt"
+  file(WRITE "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake/stm32cubemx/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

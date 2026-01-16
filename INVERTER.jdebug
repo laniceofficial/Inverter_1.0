@@ -4,9 +4,9 @@
 *                         www.segger.com                             *
 **********************************************************************
 
-File          : C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/INVERTER.jdebug
-Created       : 28 Jul 2025 22:25
-Ozone Version : V3.38f
+File          : 
+Created       : 15. Jan 2026 00:17
+Ozone Version : V3.40e
 */
 
 /*********************************************************************
@@ -22,10 +22,10 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("C:/Users/86178/Desktop/ace/diansai/Inverter_1.0", "$(ProjectDir)");
-  Project.AddPathSubstitute ("c:/users/86178/desktop/ace/diansai/inverter_1.0", "$(ProjectDir)");
+  Project.AddPathSubstitute ("D:/ace/diansai/Inverter_1.0", "$(ProjectDir)");
+  Project.AddPathSubstitute ("d:/ace/diansai/inverter_1.0", "$(ProjectDir)");
   Project.SetDevice ("STM32G474RB");
-  Project.SetHostIF ("USB", "69401233");
+  Project.SetHostIF ("USB", "69409622");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M4F.svd");
@@ -33,7 +33,6 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  Edit.SysVar (VAR_HSS_SPEED, FREQ_500_HZ);
   File.Open ("$(ProjectDir)/build/Inverter_1.0.elf");
 }
 

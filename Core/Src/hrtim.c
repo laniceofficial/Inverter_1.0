@@ -70,9 +70,9 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pTimeBaseCfg.Period = 34000;
+  pTimeBaseCfg.Period = 54400;
   pTimeBaseCfg.RepetitionCounter = 0x00;
-  pTimeBaseCfg.PrescalerRatio = HRTIM_PRESCALERRATIO_MUL4;
+  pTimeBaseCfg.PrescalerRatio = HRTIM_PRESCALERRATIO_MUL16;
   pTimeBaseCfg.Mode = HRTIM_MODE_CONTINUOUS;
   if (HAL_HRTIM_TimeBaseConfig(&hhrtim1, HRTIM_TIMERINDEX_MASTER, &pTimeBaseCfg) != HAL_OK)
   {
@@ -97,7 +97,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pCompareCfg.CompareValue = 0xFFFB;
+  pCompareCfg.CompareValue = 0xFFEF;
   if (HAL_HRTIM_WaveformCompareConfig(&hhrtim1, HRTIM_TIMERINDEX_MASTER, HRTIM_COMPAREUNIT_1, &pCompareCfg) != HAL_OK)
   {
     Error_Handler();

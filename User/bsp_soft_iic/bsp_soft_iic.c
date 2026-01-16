@@ -4,7 +4,7 @@
  *功能说明 : I2C总线位延迟，最快400KHz;参考野火
  *形 参：无
  *返 回 值 : 无*/
-static uint16_t WAIT_TIME_ = 80; // 延时循环次数，越小SCL频率越高，最大400KHz
+static uint16_t WAIT_TIME_ = 300; // 延时循环次数，越小SCL频率越高，最大400KHz
 inline static void SI2C_Delay(void)
 {
     uint8_t i;

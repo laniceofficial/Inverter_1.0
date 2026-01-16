@@ -35,7 +35,7 @@ rule C_COMPILER__Inverter_1.2e0_unscanned_Debug
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__Inverter_1.2e0_Debug
-  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $FLAGS -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -T "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/stm32g474rbtx_flash.ld" --specs=nano.specs -Wl,-Map=Inverter_1.0.map -Wl,--gc-sections -Wl,--start-group -lc -lm -Wl,--end-group -Wl,--print-memory-usage -Wl,--no-warn-rwx-segments $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $FLAGS -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard  -T "D:/ace/diansai/Inverter_1.0/stm32g474rbtx_flash.ld" --specs=nano.specs -Wl,-Map=Inverter_1.0.map -Wl,--gc-sections -Wl,--start-group -lc -lm -Wl,--end-group -Wl,--print-memory-usage -Wl,--no-warn-rwx-segments $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -52,7 +52,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\msys2\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\86178\Desktop\ace\diansai\Inverter_1.0 -BC:\Users\86178\Desktop\ace\diansai\Inverter_1.0\build
+  command = D:\msys2\ucrt64\bin\cmake.exe --regenerate-during-build -SD:\ace\diansai\Inverter_1.0 -BD:\ace\diansai\Inverter_1.0\build
   description = Re-running CMake...
   generator = 1
 

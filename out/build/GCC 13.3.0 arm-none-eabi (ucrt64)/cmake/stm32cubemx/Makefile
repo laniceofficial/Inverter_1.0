@@ -47,27 +47,27 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\msys2\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake.exe
 
 # The command to remove a file.
-RM = D:\msys2\ucrt64\bin\cmake.exe -E rm -f
+RM = C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\86178\Desktop\ace\diansai\Inverter_1.0
+CMAKE_SOURCE_DIR = D:\ace\stm_cpp\WirelessCharge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)"
+CMAKE_BINARY_DIR = "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)"
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	D:\msys2\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+	C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake-gui.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	D:\msys2\ucrt64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\cmake\stm32cubemx\\CMakeFiles\progress.marks"
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" 0
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -E cmake_progress_start "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\cmake\stm32cubemx\\CMakeFiles\progress.marks"
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/clean
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,17 +102,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/preinstall
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/preinstall
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 cmake/stm32cubemx/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -134,6 +134,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\86178\Desktop\ace\diansai\INVERT~1.0\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d D:\ace\stm_cpp\WIRELE~1\out\build\GCC133~1.0AR && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

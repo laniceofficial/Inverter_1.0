@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\msys2\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake.exe
 
 # The command to remove a file.
-RM = D:\msys2\ucrt64\bin\cmake.exe -E rm -f
+RM = C:\Users\86178\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\86178\Desktop\ace\diansai\Inverter_1.0
+CMAKE_SOURCE_DIR = D:\ace\stm_cpp\WirelessCharge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)"
+CMAKE_BINARY_DIR = "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Inverter_1.0.dir/depend.make
@@ -72,535 +72,535 @@ CMakeFiles/Inverter_1.0.dir/codegen:
 .PHONY : CMakeFiles/Inverter_1.0.dir/codegen
 
 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/pid/pid.c
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pid/pid.c
 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pid\pid.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c
 
 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pid\pid.c > CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c > CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pid\pid.c -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/pr_ctr/pr.c
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pr_ctr/pr.c
 CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pr_ctr\pr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c
 
 CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pr_ctr\pr.c > CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c > CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\pr_ctr\pr.c -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/collection/collection.c
+CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: D:/ace/stm_cpp/WirelessCharge/User/collection/collection.c
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\collection\collection.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\collection\collection.c
 
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\collection\collection.c > CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\collection\collection.c > CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\collection\collection.c -o CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\collection\collection.c -o CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/task/task.c
+CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: D:/ace/stm_cpp/WirelessCharge/User/task/task.c
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\task\task.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\task\task.c
 
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/task/task.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\task\task.c > CMakeFiles\Inverter_1.0.dir\User\task\task.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\task\task.c > CMakeFiles\Inverter_1.0.dir\User\task\task.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/task/task.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\task\task.c -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\task\task.c -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/svpwm/svpwm.c
+CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: D:/ace/stm_cpp/WirelessCharge/User/svpwm/svpwm.c
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\svpwm\svpwm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\svpwm\svpwm.c
 
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\svpwm\svpwm.c > CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\svpwm\svpwm.c > CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\svpwm\svpwm.c -o CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\svpwm\svpwm.c -o CMakeFiles\Inverter_1.0.dir\User\svpwm\svpwm.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/bsp_soft_iic/bsp_soft_iic.c
+CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj: D:/ace/stm_cpp/WirelessCharge/User/bsp_soft_iic/bsp_soft_iic.c
 CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\bsp_soft_iic\bsp_soft_iic.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\bsp_soft_iic\bsp_soft_iic.c
 
 CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\bsp_soft_iic\bsp_soft_iic.c > CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\bsp_soft_iic\bsp_soft_iic.c > CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\bsp_soft_iic\bsp_soft_iic.c -o CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\bsp_soft_iic\bsp_soft_iic.c -o CMakeFiles\Inverter_1.0.dir\User\bsp_soft_iic\bsp_soft_iic.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/User/oled/oled.c
+CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj: D:/ace/stm_cpp/WirelessCharge/User/oled/oled.c
 CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\oled\oled.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\oled\oled.c
 
 CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\oled\oled.c > CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\oled\oled.c > CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.i
 
 CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\User\oled\oled.c -o CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\oled\oled.c -o CMakeFiles\Inverter_1.0.dir\User\oled\oled.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/main.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/main.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\main.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\main.c > CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\main.c > CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/main.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\main.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\main.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\main.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/gpio.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/gpio.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\gpio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\gpio.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\gpio.c > CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\gpio.c > CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/gpio.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\gpio.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\gpio.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\gpio.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/adc.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/adc.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\adc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\adc.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\adc.c > CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\adc.c > CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/adc.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\adc.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\adc.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\adc.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/dma.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/dma.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\dma.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\dma.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\dma.c > CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\dma.c > CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/dma.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\dma.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\dma.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\dma.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/hrtim.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/hrtim.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\hrtim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\hrtim.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\hrtim.c > CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\hrtim.c > CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\hrtim.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\hrtim.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\hrtim.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/tim.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/tim.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\tim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\tim.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\tim.c > CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\tim.c > CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\tim.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\tim.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\tim.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/stm32g4xx_it.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/stm32g4xx_it.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_it.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_it.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_it.c > CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_it.c > CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_it.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_it.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_it.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_it.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/stm32g4xx_hal_msp.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/stm32g4xx_hal_msp.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_hal_msp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_hal_msp.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_hal_msp.c > CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_hal_msp.c > CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/stm32g4xx_hal_msp.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\stm32g4xx_hal_msp.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\stm32g4xx_hal_msp.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\stm32g4xx_hal_msp.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_adc_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_adc.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_hrtim.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim.c.s
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
+CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj -MF CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.obj -c D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c > CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.i
 
 CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c -o CMakeFiles\Inverter_1.0.dir\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_tim_ex.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/system_stm32g4xx.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/system_stm32g4xx.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\system_stm32g4xx.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\system_stm32g4xx.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\system_stm32g4xx.c > CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\system_stm32g4xx.c > CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/system_stm32g4xx.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\system_stm32g4xx.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\system_stm32g4xx.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\system_stm32g4xx.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/sysmem.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/sysmem.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\sysmem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\sysmem.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\sysmem.c > CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\sysmem.c > CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/sysmem.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\sysmem.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\sysmem.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\sysmem.c.s
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/Core/Src/syscalls.c
+CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj: D:/ace/stm_cpp/WirelessCharge/Core/Src/syscalls.c
 CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\syscalls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj -MF CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.obj.d -o CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.obj -c D:\ace\stm_cpp\WirelessCharge\Core\Src\syscalls.c
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\syscalls.c > CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\Core\Src\syscalls.c > CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.i
 
 CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\Core\Src\syscalls.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\Core\Src\syscalls.c -o CMakeFiles\Inverter_1.0.dir\Core\Src\syscalls.c.s
 
 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj: C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/startup_stm32g474xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.obj -c C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\startup_stm32g474xx.s
+CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj: D:/ace/stm_cpp/WirelessCharge/startup_stm32g474xx.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Building ASM object CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.obj -c D:\ace\stm_cpp\WirelessCharge\startup_stm32g474xx.s
 
 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.i"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\startup_stm32g474xx.s > CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.i
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\startup_stm32g474xx.s > CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.i
 
 CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.s"
-	D:\msys2\ucrt64\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\startup_stm32g474xx.s -o CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.s
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\startup_stm32g474xx.s -o CMakeFiles\Inverter_1.0.dir\startup_stm32g474xx.s.s
 
 # Object files for target Inverter_1.0
 Inverter_1_0_OBJECTS = \
@@ -686,12 +686,12 @@ Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/Core/Src/syscalls.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/build.make
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_39) "Linking C executable Inverter_1.0.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_39) "Linking C executable Inverter_1.0.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Inverter_1.0.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building hex & bin file..."
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "EXCUTABLE SIZE:"
-	arm-none-eabi-objcopy -Oihex "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.hex"
-	arm-none-eabi-objcopy -Obinary "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "C:/Users/86178/Desktop/ace/diansai/Inverter_1.0/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.bin"
+	arm-none-eabi-objcopy -Oihex "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.hex"
+	arm-none-eabi-objcopy -Obinary "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.bin"
 	Inverter_1.0.elf
 
 # Rule to build all files generated by this target.
@@ -703,6 +703,6 @@ CMakeFiles/Inverter_1.0.dir/clean:
 .PHONY : CMakeFiles/Inverter_1.0.dir/clean
 
 CMakeFiles/Inverter_1.0.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\86178\Desktop\ace\diansai\Inverter_1.0 C:\Users\86178\Desktop\ace\diansai\Inverter_1.0 "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)" "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)" "C:\Users\86178\Desktop\ace\diansai\Inverter_1.0\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles\Inverter_1.0.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\ace\stm_cpp\WirelessCharge D:\ace\stm_cpp\WirelessCharge "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)" "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)" "D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles\Inverter_1.0.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/Inverter_1.0.dir/depend
 

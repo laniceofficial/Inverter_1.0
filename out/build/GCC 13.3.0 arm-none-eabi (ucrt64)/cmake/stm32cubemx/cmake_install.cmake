@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "D:/ace/stm_cpp/WirelessCharge/out/install/GCC 13.3.0 arm-none-eabi (ucrt64)")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Inverter_1.0")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -1,8 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/ace/diansai/Inverter_1.0/build/cmake_install.cmake",
-		"D:/ace/diansai/Inverter_1.0/build/cmake/stm32cubemx/cmake_install.cmake"
+		"D:/ace/stm_cpp/WirelessCharge/build/cmake_install.cmake",
+		"D:/ace/stm_cpp/WirelessCharge/build/cmake/stm32cubemx/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

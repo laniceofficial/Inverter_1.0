@@ -45,13 +45,10 @@ CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
-
-//No help, variable specified on the command line.
-CMAKE_COMMAND:UNINITIALIZED=cube-cmake
 
 //CXX compiler
 CMAKE_CXX_COMPILER:STRING=C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-g++.exe
@@ -127,7 +124,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/CMakeFiles/pkgRedirects
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=D:/ace/stm_cpp/WirelessCharge/out/install/GCC 13.3.0 arm-none-eabi (ucrt64)
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Inverter_1.0
 
 //Path to a program.
 CMAKE_MAKE_PROGRAM:FILEPATH=D:/msys2/ucrt64/bin/mingw32-make.exe
@@ -284,6 +281,8 @@ CMAKE_CACHE_MINOR_VERSION:INTERNAL=0
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
+//Path to CMake executable.
+CMAKE_COMMAND:INTERNAL=C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/bin/cmake.exe
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/bin/cpack.exe
 //Path to ctest program executable.

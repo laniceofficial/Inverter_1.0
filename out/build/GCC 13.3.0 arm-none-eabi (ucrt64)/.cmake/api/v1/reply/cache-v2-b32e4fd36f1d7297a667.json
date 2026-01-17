@@ -167,7 +167,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -239,11 +239,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Path to CMake executable."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "cube-cmake"
+			"type" : "INTERNAL",
+			"value" : "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -739,7 +739,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "D:/ace/stm_cpp/WirelessCharge/out/install/GCC 13.3.0 arm-none-eabi (ucrt64)"
+			"value" : "C:/Program Files (x86)/Inverter_1.0"
 		},
 		{
 			"name" : "CMAKE_LIST_FILE_NAME",

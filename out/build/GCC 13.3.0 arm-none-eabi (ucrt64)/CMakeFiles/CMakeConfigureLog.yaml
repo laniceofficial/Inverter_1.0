@@ -8,7 +8,7 @@ events:
       - "CMakeLists.txt:31 (project)"
     message: |
       The target system is: Generic -  - arm
-      The host system is: Windows - 10.0.26100 - AMD64
+      The host system is: Windows - 10.0.26200 - AMD64
   -
     kind: "message-v1"
     backtrace:

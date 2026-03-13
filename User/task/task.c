@@ -15,13 +15,14 @@
 #define HRTIM_M_CNT (27200)
 #define HRTIM_M_HALF_CNT (HRTIM_M_CNT / 2)
 #define HRTIM_1per4_CNT (HRTIM_M_CNT / 4)
-#define SIN_ALL_PIONT 1000
+#define HRTIM_1per8_CNT (HRTIM_M_CNT / 8) //中心对称需要除以8
+#define SIN_ALL_PIONT 100 //100hz
 #define SQRT_2_3 0.8165f      // sqrt(2.0/3.0)
 #define PI_2_3 2.0944f        // 2*PI/3
 #define SQRT3_DIV_3 0.57735f  // 1.732f/3
 asm(".global _printf_float"); // oled使用printf
 
-float M_duty = 0.85f; // 调制比
+float M_duty = 0.9f; // 调制比
 
 // todo 测试公式 Uab是否准确计算
 // 测试闭环svpwm效果
@@ -51,7 +52,7 @@ void task_init() {
   //  OLED_Update();
   sinTab_genarate();
   //  svpwm_init(&svpwm_v, 0, 50, 10000);
-  //  collect_data = collection_init();
+   collect_data = collection_init();
   pid_init(&voltage_PID, PID_DELTA, V_KP, V_KI, 0, 0.5, 0.57, 0);
   //  pid_init(&current_PID, PID_DELTA, 0.01, 0, 0, 0.5, 1.2, 0);
   HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_MASTER);
@@ -61,6 +62,7 @@ void task_init() {
   HAL_TIM_Base_Start_IT(&htim6);
   //  HAL_TIM_Base_Start_IT(&htim5);
   voltage_PID.ref = L_voltage_ref; // 有效值为15V
+  // SCB->SCR &= ~SCB_SCR_SLEEPDEEP_Msk;
 }
 
 void sinTab_genarate() {
@@ -119,26 +121,26 @@ void duty_update() {
     cnt_temp = 0;
   }
   // 单相逆变
-  //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-  //  HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
-  //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-  //  HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
-  //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-  //  HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT + duty);
-  //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-  //  HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT - duty);
-  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-                         HRTIM_COMPAREUNIT_1,
-                         HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
-  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-                         HRTIM_COMPAREUNIT_3,
-                         HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
-  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-                         HRTIM_COMPAREUNIT_1,
-                         HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
-  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-                         HRTIM_COMPAREUNIT_3,
-                         HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
+   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
+   HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
+   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
+   HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
+   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
+   HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
+   __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
+   HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
+  // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
+  //                        HRTIM_COMPAREUNIT_1,
+  //                        HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
+  // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
+  //                        HRTIM_COMPAREUNIT_3,
+  //                        HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
+  // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
+  //                        HRTIM_COMPAREUNIT_1,
+  //                        HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
+  // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
+  //                        HRTIM_COMPAREUNIT_3,
+  //                        HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
   // 三相逆变
   //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
   //  HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);

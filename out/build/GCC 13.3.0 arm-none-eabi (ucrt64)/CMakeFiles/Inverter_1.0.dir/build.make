@@ -71,38 +71,10 @@ include CMakeFiles/Inverter_1.0.dir/flags.make
 CMakeFiles/Inverter_1.0.dir/codegen:
 .PHONY : CMakeFiles/Inverter_1.0.dir/codegen
 
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pid/pid.c
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c
-
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c > CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.i
-
-CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.s
-
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pr_ctr/pr.c
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c
-
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c > CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.i
-
-CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s"
-	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.s
-
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: D:/ace/stm_cpp/WirelessCharge/User/collection/collection.c
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj"
 	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\collection\collection.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\collection\collection.c
 
 CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.i: cmake_force
@@ -116,7 +88,7 @@ CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.s: cmake_force
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: D:/ace/stm_cpp/WirelessCharge/User/task/task.c
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj"
 	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\task\task.c
 
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.i: cmake_force
@@ -126,6 +98,34 @@ CMakeFiles/Inverter_1.0.dir/User/task/task.c.i: cmake_force
 CMakeFiles/Inverter_1.0.dir/User/task/task.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/task/task.c.s"
 	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\task\task.c -o CMakeFiles\Inverter_1.0.dir\User\task\task.c.s
+
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pid/pid.c
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c
+
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.i"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c > CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.i
+
+CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pid\pid.c -o CMakeFiles\Inverter_1.0.dir\User\pid\pid.c.s
+
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: D:/ace/stm_cpp/WirelessCharge/User/pr_ctr/pr.c
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj: CMakeFiles/Inverter_1.0.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\ace\stm_cpp\WirelessCharge\out\build\GCC 13.3.0 arm-none-eabi (ucrt64)\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj -MF CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj.d -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.obj -c D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c
+
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c > CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.i
+
+CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s"
+	C:\Users\86178\AppData\Local\stm32cube\bundles\gnu-tools-for-stm32\14.3.1+st.2\bin\arm-none-eabi-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\ace\stm_cpp\WirelessCharge\User\pr_ctr\pr.c -o CMakeFiles\Inverter_1.0.dir\User\pr_ctr\pr.c.s
 
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: CMakeFiles/Inverter_1.0.dir/flags.make
 CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj: D:/ace/stm_cpp/WirelessCharge/User/svpwm/svpwm.c
@@ -604,10 +604,10 @@ CMakeFiles/Inverter_1.0.dir/startup_stm32g474xx.s.s: cmake_force
 
 # Object files for target Inverter_1.0
 Inverter_1_0_OBJECTS = \
-"CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj" \
-"CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj" \
 "CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj" \
 "CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj" \
+"CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj" \
+"CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj" \
 "CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj" \
 "CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj" \
 "CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj" \
@@ -646,10 +646,10 @@ Inverter_1_0_OBJECTS = \
 # External object files for target Inverter_1.0
 Inverter_1_0_EXTERNAL_OBJECTS =
 
-Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
-Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/task/task.c.obj
+Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.obj
+Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/bsp_soft_iic/bsp_soft_iic.c.obj
 Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/User/oled/oled.c.obj
@@ -692,7 +692,7 @@ Inverter_1.0.elf: CMakeFiles/Inverter_1.0.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "EXCUTABLE SIZE:"
 	arm-none-eabi-objcopy -Oihex "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.hex"
 	arm-none-eabi-objcopy -Obinary "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.elf" "D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/Inverter_1.0.bin"
-	Inverter_1.0.elf
+	arm-none-eabi-size Inverter_1.0.elf
 
 # Rule to build all files generated by this target.
 CMakeFiles/Inverter_1.0.dir/build: Inverter_1.0.elf

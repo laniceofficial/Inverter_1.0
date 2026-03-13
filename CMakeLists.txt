@@ -11,7 +11,11 @@ cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
-
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+set(SIZE arm-none-eabi-size)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Define the build type
 if(NOT CMAKE_BUILD_TYPE)
@@ -32,7 +36,7 @@ project(${CMAKE_PROJECT_NAME})
 message("Build type: " ${CMAKE_BUILD_TYPE})
 
 # Enable CMake support for ASM and C languages
-enable_language(C ASM)
+enable_language(C CXX ASM)
 
 
 # Create an executable object type
@@ -47,6 +51,8 @@ function(USER_ADD_DIR dir)
     file(GLOB USER_SOURCE
             ${dir}/*.h
             ${dir}/*.c
+            ${dir}/*.hpp
+        #     ${dir}/*.cpp
             ${dir}/*.cc
     )
     target_sources(${CMAKE_PROJECT_NAME} PUBLIC ${USER_SOURCE})
@@ -58,13 +64,22 @@ endfunction()
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/djimotor)
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/dwt)
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/filter_alg)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oled)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/control)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/wpc)
+
+target_sources(${CMAKE_PROJECT_NAME} PUBLIC
+        # ${CMAKE_SOURCE_DIR}/User/task/task.cpp
+)
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
+        ${CMAKE_SOURCE_DIR}/User/task
+)
 
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oledlib)
 
@@ -86,4 +101,4 @@ set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--no-warn-rwx-segments")
 #即可编译
 #######软浮点输出
 #set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -mfloat-abi=soft")
-set(CMAKE_CXX_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,-u, _printf_float")
+set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,-u,_printf_float")

@@ -21,13 +21,14 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "D:/ace/stm_cpp/WirelessCharge/User/pid"
-  "D:/ace/stm_cpp/WirelessCharge/User/pr_ctr"
   "D:/ace/stm_cpp/WirelessCharge/User/collection"
   "D:/ace/stm_cpp/WirelessCharge/User/task"
+  "D:/ace/stm_cpp/WirelessCharge/User/pid"
+  "D:/ace/stm_cpp/WirelessCharge/User/pr_ctr"
   "D:/ace/stm_cpp/WirelessCharge/User/svpwm"
   "D:/ace/stm_cpp/WirelessCharge/User/bsp_soft_iic"
   "D:/ace/stm_cpp/WirelessCharge/User/oled"
+  "D:/ace/stm_cpp/WirelessCharge/User/control"
   "D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx/../../Core/Inc"
   "D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc"
   "D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx/../../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy"

@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:200 (message)"
-      - "CMakeLists.txt:31 (project)"
+      - "CMakeLists.txt:35 (project)"
     message: |
       The target system is: Generic -  - arm
       The host system is: Windows - 10.0.26200 - AMD64
@@ -15,7 +15,7 @@ events:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:31 (project)"
+      - "CMakeLists.txt:35 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
       Compiler: C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gcc.exe 
@@ -57,7 +57,7 @@ events:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:31 (project)"
+      - "CMakeLists.txt:35 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gcc.exe 
@@ -79,7 +79,7 @@ events:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:31 (project)"
+      - "CMakeLists.txt:35 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
       Compiler: C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-g++.exe 
@@ -121,7 +121,7 @@ events:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:31 (project)"
+      - "CMakeLists.txt:35 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: C:/Users/86178/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-g++.exe 
@@ -142,7 +142,7 @@ events:
     backtrace:
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1230 (message)"
       - "C:/Users/86178/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineASMCompiler.cmake:139 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:35 (enable_language)"
+      - "CMakeLists.txt:39 (enable_language)"
     message: |
       Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
       arm-none-eabi-gcc.exe (GNU Tools for STM32 14.3.rel1.20251027-0700) 14.3.1 20250623

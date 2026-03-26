@@ -59,8 +59,8 @@ inline void collection_update(void) {
   // current_ac = Recursive_ave_filter(&Cfilter, raw_data, 10);
   // data->current = get_rms(&currunt_ave, current_ac);
   data->volatage[0] = Recursive_ave_filter(&Vfilter1, data->volatage[0], 20);
-  data->volatage[1] = Recursive_ave_filter(&Vfilter2, data->volatage[1], 20);
-  data->volatage[2] = Recursive_ave_filter(&Vfilter2, data->volatage[2], 20);
+  // data->volatage[1] = Recursive_ave_filter(&Vfilter2, data->volatage[1], 20);
+  // data->volatage[2] = Recursive_ave_filter(&Vfilter2, data->volatage[2], 20);
 
   // data->volatage = get_rms(&voltage_ave, voltage_ac);
 }
@@ -163,10 +163,12 @@ float Recursive_ave_filter_init(Recursive_ave_filter_type_t *filter) {
 // ADC3--IN1(AC1_V)        /***********IN5(DC1_V)
 //     --IN12(AC2_I)
 float sour_v = 0;
+float sour_v_b=0;
 float cal_v = 0;
 float base_v = 0;
 float cal_without_base_v = 0;
 float factor = 17.241f;
+uint8_t filter_n = 25;
 // uint16_t SUM_T=0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
   //   collection_stop();
@@ -178,7 +180,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
   static const float VOLTAGE_FACTOR_2 = 18.85f;
   static const float CURRENT_OFFSET = 2.49f;
   static const float VOLTAGE_OFFSET_1 = 1.60f;
-  static const float VOLTAGE_OFFSET_2 = 1.268f + 0.0f; ///////1.268v
+  static const float VOLTAGE_OFFSET_2 = 1.22f + 0.0f; ///////1.268v
   static const float VOLTAGE_OFFSET_3 = 1.60f + 0.09f;
   static const float VOLTAGE_BASE_OFFSET = 1.133f;
   if (hadc == &hadc2) {
@@ -194,64 +196,74 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
       sum4 += adc2_data[i * 4 + 3];
     }
 
-//1.41 -- 1.461  0.058
-    // current_ac[0][cnt2] = (sum4 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) * 8;
-    // //ac1_i current_ac[2][cnt2] = (sum2 / ROW / ADC_MAX_VALUE * VOL_REF
-    // - 2.49)*8; //ac3_i voltage_ac[2][cnt2] = (sum1 / ROW / ADC_MAX_VALUE *
-    // VOL_REF -0.1- 1.60) * 18.9f; voltage_ac[1][cnt2] = (sum3 / ROW /
-    // ADC_MAX_VALUE * VOL_REF -0.09- 1.60) * 18.85f; 使用预计算常量减少计算量
+    // 1.41 -- 1.461  0.058
+    //  current_ac[0][cnt2] = (sum4 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) * 8;
+    //  //ac1_i current_ac[2][cnt2] = (sum2 / ROW / ADC_MAX_VALUE * VOL_REF
+    //  - 2.49)*8; //ac3_i voltage_ac[2][cnt2] = (sum1 / ROW / ADC_MAX_VALUE *
+    //  VOL_REF -0.1- 1.60) * 18.9f; voltage_ac[1][cnt2] = (sum3 / ROW /
+    //  ADC_MAX_VALUE * VOL_REF -0.09- 1.60) * 18.85f; 使用预计算常量减少计算量
     current_ac[0][cnt2] =
         (sum4 * ADC2_SCALE - CURRENT_OFFSET) * CURRENT_FACTOR; // ac1_i
     current_ac[2][cnt2] =
         (sum2 * ADC2_SCALE - CURRENT_OFFSET) * CURRENT_FACTOR; // ac3_i
     // voltage_ac[2][cnt2] =
     // (sum1 * ADC2_SCALE - VOLTAGE_OFFSET_2) * VOLTAGE_FACTOR_1;
+    sour_v_b = Recursive_ave_filter(&Vfilter2, sum3, filter_n) * ADC2_SCALE;
+
     sum3 = LPF_Update(&FOFilter, sum3);
     sum4 = LPF_Update(&FOFilter1, sum4);
     // SUM_T = sum3;
 
-    base_v = (sum4*ADC2_SCALE);
+    base_v = (sum4 * ADC2_SCALE);
     // float now_base = base_v/ (ROW * ADC_MAX_VALUE);
     sour_v = (sum3 * ADC2_SCALE);
     cal_v = (sum3 * ADC2_SCALE - VOLTAGE_OFFSET_2 + (1.112 - base_v)) * factor;
     cal_without_base_v = (sum3 * ADC2_SCALE - VOLTAGE_OFFSET_2) * factor;
     voltage_ac[1][cnt2] = cal_v;
-    // (sum3 * ADC2_SCALE - VOLTAGE_OFFSET_3) * VOLTAGE_FACTOR_2;
-    if (++cnt2 >= SAMPLING_2_LENS) {
+        // (sum3 * ADC2_SCALE - VOLTAGE_OFFSET_3) * VOLTAGE_FACTOR_2;
+        if (++cnt2 >= SAMPLING_2_LENS) {
       arm_rms_f32((const float *)voltage_ac[1], SAMPLING_2_LENS,
                   &data->volatage[1]);
-      arm_rms_f32((const float *)voltage_ac[2],
-      SAMPLING_2_LENS, &data->volatage[2]);
-        arm_rms_f32((const float *)current_ac[0], SAMPLING_2_LENS,
-                    &data->current[0]);
-        arm_rms_f32((const float *)current_ac[2], SAMPLING_2_LENS,
-                    &data->current[2]);
+      arm_rms_f32((const float *)voltage_ac[2], SAMPLING_2_LENS,
+                  &data->volatage[2]);
+      arm_rms_f32((const float *)current_ac[0], SAMPLING_2_LENS,
+                  &data->current[0]);
+      arm_rms_f32((const float *)current_ac[2], SAMPLING_2_LENS,
+                  &data->current[2]);
       cnt2 = 0;
     }
   } else if (hadc == &hadc3) {
 
-  static uint16_t cnt3 = 0;
+    static uint16_t cnt3 = 0;
     uint32_t sum1 = 0;
     float sum2 = 0;
     uint32_t sum3 = 0;
     for (uint8_t i = 0; i < ROW; i++) {
       sum1 += adc3_data[i * 3];
-      sum2 += adc3_data[i * 3+1];
+      sum2 += adc3_data[i * 3 + 1];
       sum3 += adc3_data[i * 3 + 2];
     }
-    // voltage_ac[0][cnt3] = ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF
-    // - 1.60) * 18.9f; current_ac[1][cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE
-    // * VOL_REF - 2.49) * 8; 使用预计算常量
+    voltage_ac[0][cnt3] =
+        ((float)sum1 / ROW / ADC_MAX_VALUE * VOL_REF - 1.60) * 18.9f;
+    current_ac[1][cnt3] = ((float)sum3 / ROW / ADC_MAX_VALUE * VOL_REF - 2.49) *
+                          8; // 使用预计算常量
     voltage_ac[0][cnt3] =
         (sum1 * ADC3_SCALE - VOLTAGE_OFFSET_1) * VOLTAGE_FACTOR_1;
     current_ac[1][cnt3] = (sum3 * ADC3_SCALE - CURRENT_OFFSET) * CURRENT_FACTOR;
     if (++cnt3 >= SAMPLING_3_LENS) {
-    //   arm_rms_f32((const float *)voltage_ac[0], SAMPLING_3_LENS,
-    //               &data->volatage[0]);
-    //   data->volatage[0] += 0.075;
-    //   arm_rms_f32((const float *)current_ac[1], SAMPLING_3_LENS,
-    //               &data->current[1]);
+      //   arm_rms_f32((const float *)voltage_ac[0], SAMPLING_3_LENS,
+      //               &data->volatage[0]);
+      //   data->volatage[0] += 0.075;
+      //   arm_rms_f32((const float *)current_ac[1], SAMPLING_3_LENS,
+      //               &data->current[1]);
       cnt3 = 0;
     }
   }
+  // HAL_SuspendTick();
+
+  // // __HAL_RCC_HRTIM1_CLK_SLEEP_ENABLE();
+
+  // HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+  // HAL_ResumeTick();
+  // __HAL_RCC_HRTIM1_CLK_SLEEP_DISABLE();
 }

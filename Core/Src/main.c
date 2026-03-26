@@ -21,6 +21,7 @@
 #include "adc.h"
 #include "dma.h"
 #include "hrtim.h"
+#include "lptim.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -99,6 +100,8 @@ int main(void)
   MX_ADC4_Init();
   MX_ADC5_Init();
   MX_TIM5_Init();
+  MX_LPTIM1_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   task_init();
 
@@ -106,8 +109,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1) {
+    // HAL_SuspendTick();
+
+    // // __HAL_RCC_HRTIM1_CLK_SLEEP_ENABLE();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

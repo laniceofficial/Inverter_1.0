@@ -224,6 +224,30 @@ Core/Src/hrtim.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/hrtim.c.s
 .PHONY : Core/Src/hrtim.c.s
 
+Core/Src/lptim.obj: Core/Src/lptim.c.obj
+.PHONY : Core/Src/lptim.obj
+
+# target to build an object file
+Core/Src/lptim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/lptim.c.obj
+.PHONY : Core/Src/lptim.c.obj
+
+Core/Src/lptim.i: Core/Src/lptim.c.i
+.PHONY : Core/Src/lptim.i
+
+# target to preprocess a source file
+Core/Src/lptim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/lptim.c.i
+.PHONY : Core/Src/lptim.c.i
+
+Core/Src/lptim.s: Core/Src/lptim.c.s
+.PHONY : Core/Src/lptim.s
+
+# target to generate assembly for a file
+Core/Src/lptim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/lptim.c.s
+.PHONY : Core/Src/lptim.c.s
+
 Core/Src/main.obj: Core/Src/main.c.obj
 .PHONY : Core/Src/main.obj
 
@@ -680,6 +704,30 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c.s
 
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c.s
+
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj
 
@@ -1045,6 +1093,9 @@ help:
 	@echo ... Core/Src/hrtim.obj
 	@echo ... Core/Src/hrtim.i
 	@echo ... Core/Src/hrtim.s
+	@echo ... Core/Src/lptim.obj
+	@echo ... Core/Src/lptim.i
+	@echo ... Core/Src/lptim.s
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
@@ -1102,6 +1153,9 @@ help:
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.s
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.obj
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.i
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.s
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.s

@@ -1,13 +1,13 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    tim.h
+  * @file    lptim.h
   * @brief   This file contains all the function prototypes for
-  *          the tim.c file
+  *          the lptim.c file
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2026 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -18,8 +18,8 @@
   */
 /* USER CODE END Header */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __TIM_H__
-#define __TIM_H__
+#ifndef __LPTIM_H__
+#define __LPTIM_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,21 +32,13 @@ extern "C" {
 
 /* USER CODE END Includes */
 
-extern TIM_HandleTypeDef htim1;
-
-extern TIM_HandleTypeDef htim5;
-
-extern TIM_HandleTypeDef htim6;
+extern LPTIM_HandleTypeDef hlptim1;
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-void MX_TIM1_Init(void);
-void MX_TIM5_Init(void);
-void MX_TIM6_Init(void);
-
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+void MX_LPTIM1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
@@ -56,5 +48,5 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 }
 #endif
 
-#endif /* __TIM_H__ */
+#endif /* __LPTIM_H__ */
 

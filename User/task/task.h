@@ -16,7 +16,6 @@ void task_loop();
 void sinTab_genarate();
 void PID_Seyduty();
 void duty_update();
-void show_screen();
 
 #ifdef __cplusplus
 }

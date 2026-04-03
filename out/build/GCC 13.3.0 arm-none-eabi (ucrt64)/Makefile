@@ -896,6 +896,30 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.s
 
+User/ask/ask.obj: User/ask/ask.c.obj
+.PHONY : User/ask/ask.obj
+
+# target to build an object file
+User/ask/ask.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/ask/ask.c.obj
+.PHONY : User/ask/ask.c.obj
+
+User/ask/ask.i: User/ask/ask.c.i
+.PHONY : User/ask/ask.i
+
+# target to preprocess a source file
+User/ask/ask.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/ask/ask.c.i
+.PHONY : User/ask/ask.c.i
+
+User/ask/ask.s: User/ask/ask.c.s
+.PHONY : User/ask/ask.s
+
+# target to generate assembly for a file
+User/ask/ask.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/ask/ask.c.s
+.PHONY : User/ask/ask.c.s
+
 User/bsp_soft_iic/bsp_soft_iic.obj: User/bsp_soft_iic/bsp_soft_iic.c.obj
 .PHONY : User/bsp_soft_iic/bsp_soft_iic.obj
 
@@ -943,6 +967,30 @@ User/collection/collection.s: User/collection/collection.c.s
 User/collection/collection.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/collection/collection.c.s
 .PHONY : User/collection/collection.c.s
+
+User/delaytrigger/delaytrigger.obj: User/delaytrigger/delaytrigger.c.obj
+.PHONY : User/delaytrigger/delaytrigger.obj
+
+# target to build an object file
+User/delaytrigger/delaytrigger.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/delaytrigger/delaytrigger.c.obj
+.PHONY : User/delaytrigger/delaytrigger.c.obj
+
+User/delaytrigger/delaytrigger.i: User/delaytrigger/delaytrigger.c.i
+.PHONY : User/delaytrigger/delaytrigger.i
+
+# target to preprocess a source file
+User/delaytrigger/delaytrigger.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/delaytrigger/delaytrigger.c.i
+.PHONY : User/delaytrigger/delaytrigger.c.i
+
+User/delaytrigger/delaytrigger.s: User/delaytrigger/delaytrigger.c.s
+.PHONY : User/delaytrigger/delaytrigger.s
+
+# target to generate assembly for a file
+User/delaytrigger/delaytrigger.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/delaytrigger/delaytrigger.c.s
+.PHONY : User/delaytrigger/delaytrigger.c.s
 
 User/oled/oled.obj: User/oled/oled.c.obj
 .PHONY : User/oled/oled.obj
@@ -1177,12 +1225,18 @@ help:
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s
+	@echo ... User/ask/ask.obj
+	@echo ... User/ask/ask.i
+	@echo ... User/ask/ask.s
 	@echo ... User/bsp_soft_iic/bsp_soft_iic.obj
 	@echo ... User/bsp_soft_iic/bsp_soft_iic.i
 	@echo ... User/bsp_soft_iic/bsp_soft_iic.s
 	@echo ... User/collection/collection.obj
 	@echo ... User/collection/collection.i
 	@echo ... User/collection/collection.s
+	@echo ... User/delaytrigger/delaytrigger.obj
+	@echo ... User/delaytrigger/delaytrigger.i
+	@echo ... User/delaytrigger/delaytrigger.s
 	@echo ... User/oled/oled.obj
 	@echo ... User/oled/oled.i
 	@echo ... User/oled/oled.s

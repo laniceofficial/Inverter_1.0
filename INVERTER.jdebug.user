@@ -1,45 +1,53 @@
 
 
-Breakpoint=D:/ace/stm_cpp/WirelessCharge/User/task/task.c:256:21, State=BP_STATE_DISABLED
-GraphedExpression="cal_v", Color=#e56a6f, Show=0
-GraphedExpression="sour_v", Color=#35792b, Show=0
-GraphedExpression="sour_v_b", Color=#769dda
-GraphedExpression="base_v", Color=#b14f0d, Show=0
-OpenDocument="main.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/main.c", Line=59
-OpenDocument="startup_stm32g474xx.s", FilePath="D:/ace/stm_cpp/WirelessCharge/startup_stm32g474xx.s", Line=50
-OpenDocument="task.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/task/task.c", Line=98
+Breakpoint=D:/ace/stm_cpp/WirelessCharge/User/task/task.c:210:23, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge/User/task/task.c:277:1, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge/User/task/task.c:281, State=BP_STATE_DISABLED
+GraphedExpression="sour_v", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#e56a6f, Show=0
+GraphedExpression="arr_value", Color=#35792b, Show=0
+GraphedExpression="sour_v_f", Color=#769dda, Show=0
+GraphedExpression="sum_t", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#b14f0d, Show=0
+GraphedExpression="now_bits", Color=#b3c38e, Show=0
+GraphedExpression="test_freq", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#ab7b05
+OpenDocument="startup_stm32g474xx.s", FilePath="D:/ace/stm_cpp/WirelessCharge/startup_stm32g474xx.s", Line=52
+OpenDocument="task.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/task/task.c", Line=172
+OpenDocument="collection.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/collection/collection.c", Line=204
+OpenDocument="main.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/main.c", Line=103
+OpenDocument="stm32g4xx_hal_dma.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c", Line=761
+OpenDocument="stm32g4xx_hal_pwr.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c", Line=474
+OpenDocument="ask.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/ask/ask.c", Line=6
+OpenDocument="stm32g4xx_ll_adc.h", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h", Line=4687
+OpenDocument="delaytrigger.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/delaytrigger/delaytrigger.c", Line=15
+OpenDocument="stm32g4xx_hal_lptim.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_lptim.c", Line=2322
+OpenDocument="adc.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/adc.c", Line=188
+OpenDocument="ask.h", FilePath="D:/ace/stm_cpp/WirelessCharge/User/ask/ask.h", Line=0
 OpenDocument="tim.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/tim.c", Line=130
-OpenDocument="stm32g4xx_it.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/stm32g4xx_it.c", Line=265
-OpenDocument="stm32g4xx_hal_dma.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c", Line=773
-OpenDocument="stm32g4xx_hal_pwr.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c", Line=472
-OpenDocument="pid.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/pid/pid.c", Line=24
-OpenDocument="collection.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/collection/collection.c", Line=156
+OpenDocument="stm32g4xx_it.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/stm32g4xx_it.c", Line=85
+OpenDocument="pid.c", FilePath="D:/ace/stm_cpp/WirelessCharge/User/pid/pid.c", Line=31
+OpenDocument="stm32g4xx_hal_adc.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c", Line=3651
+OpenDocument="cmsis_version.h", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/CMSIS/Include/cmsis_version.h", Line=0
+OpenDocument="collection.h", FilePath="D:/ace/stm_cpp/WirelessCharge/User/collection/collection.h", Line=0
 OpenDocument="stm32g4xx_hal.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c", Line=137
 OpenDocument="stm32g4xx_hal_tim.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c", Line=3904
 OpenDocument="stm32g4xx_hal_hrtim.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_hrtim.c", Line=6369
 OpenDocument="hrtim.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Core/Src/hrtim.c", Line=57
-OpenDocument="stm32g4xx_hal_adc.c", FilePath="D:/ace/stm_cpp/WirelessCharge/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c", Line=3582
 OpenToolbar="File", Floating=0, x=2, y=0
 OpenToolbar="View", Floating=0, x=1, y=0
 OpenToolbar="Debug", Floating=0, x=0, y=0
-OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=0, w=572, h=498, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Source Files", DockArea=LEFT, x=0, y=1, w=687, h=472, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=0, w=687, h=556, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VectorCatchIndexMask=0
-OpenWindow="Watched Data 1", DockArea=RIGHT, x=0, y=1, w=572, h=530, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=2216, h=160, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=0, w=687, h=224, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=1, w=687, h=418, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=0, w=687, h=467, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VectorCatchIndexMask=0
+OpenWindow="Watched Data 1", DockArea=RIGHT, x=0, y=1, w=687, h=661, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=2216, h=303, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Timeline", DockArea=FLOATING, x=489, y=257, w=1541, h=864, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="1 s / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="1272;0", DataGraphShowNamesAtCursor=0, PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="1272;-77", CodeGraphLegendShown=0, CodeGraphLegendPosition="1293;0"
 SmartViewPlugin="", Page="", Toolbar="Hidden", Window="SmartView 1"
 TableHeader="Vector Catches", SortCol="", SortOrder="ASCENDING", VisibleCols=["";"Vector Catch";"Description"], ColWidths=[50;300;500]
-TableHeader="Break & Tracepoints", SortCol="Extras", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[100;100;100;514]
+TableHeader="Break & Tracepoints", SortCol="Extras", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[100;100;100;387]
 TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[189;153;187;100;130;118]
 TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[223;100;100;100;934]
-TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" cal_v";" sour_v";" sour_v_b";" base_v"], ColWidths=[100;100;100;100;100;100]
-TableHeader="Data Sampling Setup", SortCol="Max. Change", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[578;100;170;146;146;158;128;158;606]
+TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" sour_v";" arr_value";" sour_v_f";" sum_t";" now_bits";" test_freq"], ColWidths=[100;100;100;100;100;100;100;100]
+TableHeader="Data Sampling Setup", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[578;170;100;182;194;108;128;148;608]
 TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
-TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Location";"Value";"Refresh";"Type"], ColWidths=[168;98;162;100;266]
+TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Location";"Value";"Refresh";"Type"], ColWidths=[207;98;169;100;170]
 TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
-TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;340]
-WatchedExpression="allow_PWD", Window=Watched Data 1
-WatchedExpression="FOFilter", Window=Watched Data 1
-WatchedExpression="filter_n", Window=Watched Data 1
-WatchedExpression="temp_cnt", RefreshRate=2, Window=Watched Data 1
 WatchedExpression="flag", Window=Watched Data 1

@@ -14,6 +14,7 @@
 ************************** Dongguan-University of Technology -ACE***************************/
 #include "bsp_adc.hpp"
 #include "stdlib.h"
+#if defined(HAL_ADC_MODULE_ENABLED)
 
 namespace BSP_n
 {
@@ -59,3 +60,4 @@ namespace BSP_n
     }
 
 }
+#endif

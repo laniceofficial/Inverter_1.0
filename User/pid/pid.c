@@ -10,13 +10,13 @@
     }
 inline void pid_calculate(PID *pid, float fdb)
 {
-    if(pid->stepin)
+    if (pid->stepin)
     {
         step_in(pid);
     }
     pid->fdb = fdb;
-    pid->error[2] = pid->error[1];       // 上上次误差
-    pid->error[1] = pid->error[0];       // 上次误差
+    pid->error[2] = pid->error[1]; // 上上次误差
+    pid->error[1] = pid->error[0]; // 上次误差
     pid->error[0] = pid->ref - pid->fdb; // 本次误差
     if (pid->PID_Mode == PID_POSITION)
     {
@@ -32,10 +32,11 @@ inline void pid_calculate(PID *pid, float fdb)
     else if (pid->PID_Mode == PID_DELTA)
     {
         pid->output += pid->KP * (pid->error[0] - pid->error[1]) +
-                       pid->KD * (pid->error[0] - 2.0f * pid->error[1] + pid->error[2]) + pid->KI * pid->error[0] + pid->feedforward;
+            pid->KD * (pid->error[0] - 2.0f * pid->error[1] + pid->error[2]) + pid->KI * pid->error[0] +
+            pid->feedforward;
     }
     // 输出上限控制
-    pid->last_ref =  pid->ref; // 保存上次反馈值
+    pid->last_ref = pid->ref; // 保存上次反馈值
     if (pid->output > pid->outputmax)
         pid->output = pid->outputmax;
     else if (pid->output < pid->outputmin)
@@ -43,7 +44,8 @@ inline void pid_calculate(PID *pid, float fdb)
     return;
 }
 
-void pid_init(PID *pid, PID_MODE PID_Mode, float KP, float KI, float KD, float error_max, float outputmax, float outputmin)
+void pid_init(
+    PID *pid, PID_MODE PID_Mode, float KP, float KI, float KD, float error_max, float outputmax, float outputmin)
 {
     pid->PID_Mode = PID_Mode;
     pid->KP = KP;
@@ -68,7 +70,7 @@ void pid_init(PID *pid, PID_MODE PID_Mode, float KP, float KI, float KD, float e
 
 inline void step_in(PID *pid)
 {
-    //需保证last_ref和ref的不同
+    // 需保证last_ref和ref的不同
     float kFactor = 0.0f;
     if (user_abs(pid->last_ref - pid->ref) <= pid->stepin)
     {
@@ -106,7 +108,7 @@ inline void PID_Clear_Integral(PID *pid)
     pid->error_sum = 0;
     pid->output = 0;
 }
- inline void pid_setfeedforward(PID *pid, float feedforward)
+inline void pid_setfeedforward(PID *pid, float feedforward)
 {
     pid->feedforward = feedforward;
 }
@@ -140,7 +142,7 @@ float mppt_calculate(float vol, float cur)
     static float direction = 1; // 初始方向:增加
     static float power_ref = 0;
     static float power_pre = 0; // 先前的功率
-    power_ref = vol * cur;      // 当前功率
+    power_ref = vol * cur; // 当前功率
     if (power_pre == 0)
     {
         power_pre = power_ref;
@@ -148,11 +150,11 @@ float mppt_calculate(float vol, float cur)
         return 0;
     }
     float delta_power = power_ref - power_pre; // 功率变化量
-    power_pre = power_ref;                     // 更新先前功率
+    power_pre = power_ref; // 更新先前功率
     direction = (delta_power > 0) ? 1 : -1; // 根据功率变化确定方向
     if (user_abs(delta_power) < 0.5)
     {
-        return 0.02f*direction; 
+        return 0.02f * direction;
     }
     else
     {

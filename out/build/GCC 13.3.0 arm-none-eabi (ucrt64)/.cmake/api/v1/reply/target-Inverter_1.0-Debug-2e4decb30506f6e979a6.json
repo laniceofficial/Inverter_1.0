@@ -35,7 +35,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 86,
+				"line" : 89,
 				"parent" : 0
 			},
 			{
@@ -144,6 +144,30 @@
 				"parent" : 19
 			},
 			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 21
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 76,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 23
+			},
+			{
 				"command" : 4,
 				"file" : 0,
 				"line" : 58,
@@ -190,6 +214,18 @@
 				"file" : 0,
 				"line" : 58,
 				"parent" : 19
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 21
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 23
 			}
 		]
 	},
@@ -252,6 +288,14 @@
 					"path" : "D:/ace/stm_cpp/WirelessCharge/User/control"
 				},
 				{
+					"backtrace" : 22,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/ask"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/delaytrigger"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx/../../Core/Inc"
 				},
@@ -295,9 +339,7 @@
 				10,
 				12,
 				16,
-				17,
 				18,
-				19,
 				20,
 				21,
 				22,
@@ -325,7 +367,11 @@
 				44,
 				45,
 				46,
-				47
+				47,
+				48,
+				49,
+				50,
+				51
 			]
 		},
 		{
@@ -385,6 +431,14 @@
 					"path" : "D:/ace/stm_cpp/WirelessCharge/User/control"
 				},
 				{
+					"backtrace" : 22,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/ask"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/delaytrigger"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "D:/ace/stm_cpp/WirelessCharge/cmake/stm32cubemx/../../Core/Inc"
 				},
@@ -412,7 +466,7 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				48
+				52
 			]
 		}
 	],
@@ -459,9 +513,7 @@
 				10,
 				12,
 				16,
-				17,
 				18,
-				19,
 				20,
 				21,
 				22,
@@ -489,7 +541,11 @@
 				44,
 				45,
 				46,
-				47
+				47,
+				48,
+				49,
+				50,
+				51
 			]
 		},
 		{
@@ -504,104 +560,128 @@
 				11,
 				13,
 				14,
-				15
+				15,
+				17,
+				19
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				48
+				52
 			]
 		}
 	],
 	"sources" : 
 	[
 		{
-			"backtrace" : 21,
+			"backtrace" : 25,
 			"compileGroupIndex" : 0,
 			"path" : "User/collection/collection.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 21,
+			"backtrace" : 25,
 			"path" : "User/collection/collection.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 22,
+			"backtrace" : 26,
 			"compileGroupIndex" : 0,
 			"path" : "User/task/task.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 22,
+			"backtrace" : 26,
 			"path" : "User/task/task.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 23,
+			"backtrace" : 27,
 			"compileGroupIndex" : 0,
 			"path" : "User/pid/pid.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 23,
+			"backtrace" : 27,
 			"path" : "User/pid/pid.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 24,
+			"backtrace" : 28,
 			"compileGroupIndex" : 0,
 			"path" : "User/pr_ctr/pr.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 24,
+			"backtrace" : 28,
 			"path" : "User/pr_ctr/pr.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 25,
+			"backtrace" : 29,
 			"compileGroupIndex" : 0,
 			"path" : "User/svpwm/svpwm.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 25,
+			"backtrace" : 29,
 			"path" : "User/svpwm/svpwm.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 26,
+			"backtrace" : 30,
 			"compileGroupIndex" : 0,
 			"path" : "User/bsp_soft_iic/bsp_soft_iic.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 26,
+			"backtrace" : 30,
 			"path" : "User/bsp_soft_iic/bsp_soft_iic.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 27,
+			"backtrace" : 31,
 			"compileGroupIndex" : 0,
 			"path" : "User/oled/oled.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 27,
+			"backtrace" : 31,
 			"path" : "User/oled/oled.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 27,
+			"backtrace" : 31,
 			"path" : "User/oled/oled_front.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 28,
+			"backtrace" : 32,
 			"path" : "User/control/incremental_pid.hpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 33,
+			"compileGroupIndex" : 0,
+			"path" : "User/ask/ask.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 33,
+			"path" : "User/ask/ask.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 34,
+			"compileGroupIndex" : 0,
+			"path" : "User/delaytrigger/delaytrigger.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 34,
+			"path" : "User/delaytrigger/delaytrigger.h",
 			"sourceGroupIndex" : 1
 		},
 		{

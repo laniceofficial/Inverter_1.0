@@ -1,23 +1,33 @@
-#ifndef  COLLECTION_H
-#define  COLLECTION_H
+#ifndef COLLECTION_H
+#define COLLECTION_H
 #include "adc.h"
-#define VOL_REF 3.306f        // 参考电压
+#define VOL_REF 3.306f // 参考电压
 #define ADC_MAX_VALUE 4095.0f // ADC最大值
+// 运行几次发送一次
+#define CONTROL_SEND_HZ(HZ)    \
+    {                          \
+        static int16_t hz = 0; \
+        hz++;                  \
+        if (hz < HZ)           \
+            return;            \
+        hz = 0;                \
+    }
 typedef struct collect_data
 {
     float volatage[3];
     float current[3];
 } collect_data_t;
 typedef struct ave_process
-{
+{ 
     float ave_data;
     float sum;
     uint16_t cnt;
 } ave_process_t;
-typedef struct {
-  float alpha;         // 滤波系数 (0~1)
-  float last_output;   // 上次输出值
-  uint8_t initialized; // 初始化标志
+typedef struct
+{
+    float alpha; // 滤波系数 (0~1)
+    float last_output; // 上次输出值
+    uint8_t initialized; // 初始化标志
 } FirstOrderLPF;
 /**
  * @brief 初始化一阶低通滤波器
@@ -43,7 +53,7 @@ float LPF_Update(FirstOrderLPF *filter, float input);
 void LPF_Reset(FirstOrderLPF *filter, float new_value);
 
 // 递推平均滤波参数
-typedef  struct
+typedef struct
 {
     int32_t count_num;
     float fifo[50];

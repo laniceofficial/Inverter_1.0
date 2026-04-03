@@ -102,6 +102,8 @@ int main(void)
   MX_TIM5_Init();
   MX_LPTIM1_Init();
   MX_TIM1_Init();
+  MX_TIM8_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
   task_init();
 
@@ -110,8 +112,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-    // HAL_SuspendTick();
-
+      // HAL_SuspendTick();
+      // if (GetNowState() == LOW_POWER)
+      // {
+      // HAL_TIM_Base_Stop_IT(&htim6);
+    //     HAL_LPTIM_TimeOut_Start_IT(&hlptim1, 17000, 17000);
+    //     HAL_SuspendTick();
+    //     HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+    // }
     // // __HAL_RCC_HRTIM1_CLK_SLEEP_ENABLE();
     /* USER CODE END WHILE */
 

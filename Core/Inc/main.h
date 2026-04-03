@@ -59,8 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define AC3_V_Pin GPIO_PIN_7
 #define AC3_V_GPIO_Port GPIOA
-#define AC3_I_Pin GPIO_PIN_4
-#define AC3_I_GPIO_Port GPIOC
 #define AC2_V_Pin GPIO_PIN_5
 #define AC2_V_GPIO_Port GPIOC
 #define AC2_I_Pin GPIO_PIN_0

@@ -9,30 +9,30 @@
  * 典型用法如下，示例中启用 TIMER_B 和 TIMER_E：
  *
  * @code{.cpp}
- * HRTIM::Config config;
+ * BSP::Config config;
  * config.slaveTimerMask =
  *     HRTIM_TIMERID_TIMER_B | HRTIM_TIMERID_TIMER_E;
  * config.enableMasterRepetitionInterrupt = true;
  * config.period = 40000U;
  * config.phase = 0.25f;
  *
- * if (HRTIM::configure(config))
+ * if (BSP::configure(config))
  * {
  *   // 先启动主定时器和已配置的从定时器计数器
- *   HRTIM::startTimer();
+ *   BSP::startTimer();
  *
  *   // 根据需要打开高边或低边输出
- *   HRTIM::enableHighSideOutputs();
- *   // HRTIM::enableLowSideOutputs();
+ *   BSP::enableHighSideOutputs();
+ *   // BSP::enableLowSideOutputs();
  *
  *   // 运行过程中可单独调整周期和移相
- *   HRTIM::setPeriod(38000U);
- *   HRTIM::setPhase(0.35f);
+ *   BSP::setPeriod(38000U);
+ *   BSP::setPhase(0.35f);
  * }
  *
  * // 需要停机时，先关闭输出并停止计数器
- * HRTIM::disableOutputs();
- * HRTIM::stopTimer();
+ * BSP::disableOutputs();
+ * BSP::stopTimer();
  * @endcode
  *
  * @copyright Copyright (c) 2025
@@ -43,7 +43,7 @@
 #include "hrtim.h"
 
 #if defined(HAL_HRTIM_MODULE_ENABLED)
-namespace HRTIM
+namespace BSP
 {
 namespace
 {
@@ -146,7 +146,7 @@ void applyPeriodToConfiguredTimers(const uint16_t period, const uint32_t timerMa
     }
 }
 
-void setMasterRepetitionInterruptEnabled(const bool enable)
+void setMasterRepetitionInterrupt(const bool enable)
 {
     if (enable)
     {
@@ -189,7 +189,7 @@ bool configure(const Config& config)
         disableOutputs();
         HAL_HRTIM_WaveformCountStop(&hhrtim1, HRTIM_TIMERID_MASTER);
         stopConfiguredTimers(previousTimerMask);
-        setMasterRepetitionInterruptEnabled(false);
+        setMasterRepetitionInterrupt(false);
         hrtimStatus.timerEnabled = false;
     }
     else if (hrtimStatus.outputEnabled)
@@ -262,7 +262,7 @@ void startTimer()
 {
     HAL_HRTIM_WaveformCountStart(&hhrtim1, HRTIM_TIMERID_MASTER);
     startConfiguredTimers(hrtimStatus.slaveTimerMask);
-    setMasterRepetitionInterruptEnabled(hrtimStatus.masterRepetitionInterruptEnabled);
+    setMasterRepetitionInterrupt(hrtimStatus.masterRepetitionInterruptEnabled);
     hrtimStatus.timerEnabled = true;
 }
 
@@ -271,7 +271,7 @@ void stopTimer()
     disableOutputs();
     HAL_HRTIM_WaveformCountStop(&hhrtim1, HRTIM_TIMERID_MASTER);
     stopConfiguredTimers(hrtimStatus.slaveTimerMask);
-    setMasterRepetitionInterruptEnabled(false);
+    setMasterRepetitionInterrupt(false);
     hrtimStatus.timerEnabled = false;
 }
 

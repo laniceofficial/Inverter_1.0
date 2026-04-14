@@ -115,6 +115,32 @@ inline void pid_setfeedforward(PID *pid, float feedforward)
 inline void pid_setStepIn(PID *pid, float stepin)
 {
     pid->stepin = stepin;
+} // PID预载积分，防止初始积分太大/太小引起初始输出与实际差异过大引起爆炸
+// InitialInput为预载积分的一个参数，设置为Vcap，可以使积分设置为Vcap/Vbat*最大输出，即占空比约为Vcap/Vbat*100%
+inline void PID_Preload_Integral(PID *PID, float InitialInput)
+{
+    // if (PID->FirstCompute)
+    // {
+    //     // 因为PID最后的输出PID_OutPut = Integral +Ki * Error +Kp * Error，主要取决于Integral数值的大小
+    //     // PID计算的输出值会直接赋值给PWM的比较值，直接作用于占空比
+    //     // 当两边电压不确定的时候，integral正常初始化是0，会导致前几次进入PID时，integral需要多次计算累积，PID会一直输出较小的值，导致半桥开关的升降压比与实际电压比不同，就会爆炸
+    //     // 所以首次进入PID计算的时候，我们需要初始化他的Integral，使首次PID计算的输出值作用于占空比的时候，让占空比约为输出输入占空比
+    //     // 0.04是默认电池电压为25V，乘法以提高速度，有一点误差影响不是很大
+
+    //     if (PID->ControllerDirection == DIRECT)
+    //     {
+    //         PID->error_sum = InitialInput * PID->outputmax * 0.04f;
+    //     }
+    //     else if (PID->ControllerDirection == REVERSE)
+    //     {
+    //         PID->error_sum = PID->outputmax - InitialInput * PID->outputmax * 0.04f;
+    //     }
+    //     if (PID->error_sum > PID->outputmax)
+    //         PID->error_sum = PID->outputmax;
+    //     else if (PID->error_sum < PID->outputmin)
+    //         PID->error_sum = PID->outputmin;
+    //     PID->FirstCompute = 0;
+    // }
 }
 // 环路竞争，用于保护CC，CV，CP保护，Buck模式下使用，取小的值作为PWM占空比以达到保护目的
 inline void Loop_Competition_Buck(uint32_t Loop1, uint32_t Loop2, uint32_t *OutputCompare)

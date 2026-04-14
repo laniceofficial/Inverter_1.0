@@ -992,6 +992,30 @@ User/delaytrigger/delaytrigger.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/delaytrigger/delaytrigger.c.s
 .PHONY : User/delaytrigger/delaytrigger.c.s
 
+User/halfbridge_controller/halfbridge_ctrl.obj: User/halfbridge_controller/halfbridge_ctrl.c.obj
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.obj
+
+# target to build an object file
+User/halfbridge_controller/halfbridge_ctrl.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/halfbridge_controller/halfbridge_ctrl.c.obj
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.c.obj
+
+User/halfbridge_controller/halfbridge_ctrl.i: User/halfbridge_controller/halfbridge_ctrl.c.i
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.i
+
+# target to preprocess a source file
+User/halfbridge_controller/halfbridge_ctrl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/halfbridge_controller/halfbridge_ctrl.c.i
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.c.i
+
+User/halfbridge_controller/halfbridge_ctrl.s: User/halfbridge_controller/halfbridge_ctrl.c.s
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.s
+
+# target to generate assembly for a file
+User/halfbridge_controller/halfbridge_ctrl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/halfbridge_controller/halfbridge_ctrl.c.s
+.PHONY : User/halfbridge_controller/halfbridge_ctrl.c.s
+
 User/oled/oled.obj: User/oled/oled.c.obj
 .PHONY : User/oled/oled.obj
 
@@ -1040,54 +1064,6 @@ User/pid/pid.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/pid/pid.c.s
 .PHONY : User/pid/pid.c.s
 
-User/pr_ctr/pr.obj: User/pr_ctr/pr.c.obj
-.PHONY : User/pr_ctr/pr.obj
-
-# target to build an object file
-User/pr_ctr/pr.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.obj
-.PHONY : User/pr_ctr/pr.c.obj
-
-User/pr_ctr/pr.i: User/pr_ctr/pr.c.i
-.PHONY : User/pr_ctr/pr.i
-
-# target to preprocess a source file
-User/pr_ctr/pr.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.i
-.PHONY : User/pr_ctr/pr.c.i
-
-User/pr_ctr/pr.s: User/pr_ctr/pr.c.s
-.PHONY : User/pr_ctr/pr.s
-
-# target to generate assembly for a file
-User/pr_ctr/pr.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/pr_ctr/pr.c.s
-.PHONY : User/pr_ctr/pr.c.s
-
-User/svpwm/svpwm.obj: User/svpwm/svpwm.c.obj
-.PHONY : User/svpwm/svpwm.obj
-
-# target to build an object file
-User/svpwm/svpwm.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.obj
-.PHONY : User/svpwm/svpwm.c.obj
-
-User/svpwm/svpwm.i: User/svpwm/svpwm.c.i
-.PHONY : User/svpwm/svpwm.i
-
-# target to preprocess a source file
-User/svpwm/svpwm.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.i
-.PHONY : User/svpwm/svpwm.c.i
-
-User/svpwm/svpwm.s: User/svpwm/svpwm.c.s
-.PHONY : User/svpwm/svpwm.s
-
-# target to generate assembly for a file
-User/svpwm/svpwm.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/svpwm/svpwm.c.s
-.PHONY : User/svpwm/svpwm.c.s
-
 User/task/task.obj: User/task/task.c.obj
 .PHONY : User/task/task.obj
 
@@ -1111,6 +1087,30 @@ User/task/task.s: User/task/task.c.s
 User/task/task.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/task/task.c.s
 .PHONY : User/task/task.c.s
+
+User/user_math/user_math.obj: User/user_math/user_math.c.obj
+.PHONY : User/user_math/user_math.obj
+
+# target to build an object file
+User/user_math/user_math.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/user_math/user_math.c.obj
+.PHONY : User/user_math/user_math.c.obj
+
+User/user_math/user_math.i: User/user_math/user_math.c.i
+.PHONY : User/user_math/user_math.i
+
+# target to preprocess a source file
+User/user_math/user_math.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/user_math/user_math.c.i
+.PHONY : User/user_math/user_math.c.i
+
+User/user_math/user_math.s: User/user_math/user_math.c.s
+.PHONY : User/user_math/user_math.s
+
+# target to generate assembly for a file
+User/user_math/user_math.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/user_math/user_math.c.s
+.PHONY : User/user_math/user_math.c.s
 
 startup_stm32g474xx.obj: startup_stm32g474xx.s.obj
 .PHONY : startup_stm32g474xx.obj
@@ -1237,21 +1237,21 @@ help:
 	@echo ... User/delaytrigger/delaytrigger.obj
 	@echo ... User/delaytrigger/delaytrigger.i
 	@echo ... User/delaytrigger/delaytrigger.s
+	@echo ... User/halfbridge_controller/halfbridge_ctrl.obj
+	@echo ... User/halfbridge_controller/halfbridge_ctrl.i
+	@echo ... User/halfbridge_controller/halfbridge_ctrl.s
 	@echo ... User/oled/oled.obj
 	@echo ... User/oled/oled.i
 	@echo ... User/oled/oled.s
 	@echo ... User/pid/pid.obj
 	@echo ... User/pid/pid.i
 	@echo ... User/pid/pid.s
-	@echo ... User/pr_ctr/pr.obj
-	@echo ... User/pr_ctr/pr.i
-	@echo ... User/pr_ctr/pr.s
-	@echo ... User/svpwm/svpwm.obj
-	@echo ... User/svpwm/svpwm.i
-	@echo ... User/svpwm/svpwm.s
 	@echo ... User/task/task.obj
 	@echo ... User/task/task.i
 	@echo ... User/task/task.s
+	@echo ... User/user_math/user_math.obj
+	@echo ... User/user_math/user_math.i
+	@echo ... User/user_math/user_math.s
 	@echo ... startup_stm32g474xx.obj
 .PHONY : help
 

@@ -9,10 +9,10 @@
 
 #include "main.h"
 
-#include <cstdint>
+// #include <cstdint>
 
 #if defined(HAL_HRTIM_MODULE_ENABLED)
-namespace HRTIM
+namespace BSP
 {
 struct Config
 {

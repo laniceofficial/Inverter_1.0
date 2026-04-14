@@ -1,6 +1,8 @@
 #include "task.h"
+
 #include <stdint.h>
 #include <sys/types.h>
+
 #include "arm_math.h"
 #include "collection.h"
 #include "dma.h"
@@ -10,143 +12,153 @@
 #include "main.h"
 #include "oled.h"
 #include "pid.h"
+#include "stm32_hal_legacy.h"
 #include "stm32g474xx.h"
 #include "stm32g4xx_hal_gpio.h"
 #include "stm32g4xx_hal_tim.h"
 #include "tim.h"
 
-
-// #include "draw_api.h"
-// PC6--F1，PC8--E1
-// 开关频率f = 6.8E8 / (2*HRTIM_M_HALF_CNT)
 #define HRTIM_M_CNT (54400)
 #define HRTIM_M_HALF_CNT (HRTIM_M_CNT / 2)
 #define HRTIM_1per4_CNT (HRTIM_M_CNT / 4)
-#define HRTIM_1per8_CNT (HRTIM_M_CNT / 8) // 中心对称需要除以8
-#define SIN_ALL_PIONT 100 // 100hz
-#define SQRT_2_3 0.8165f // sqrt(2.0/3.0)
-#define PI_2_3 2.0944f // 2*PI/3
-#define SQRT3_DIV_3 0.57735f // 1.732f/3
-asm(".global _printf_float"); // oled使用printf
+#define HRTIM_1per8_CNT (HRTIM_M_CNT / 8)
+#define SIN_ALL_PIONT 100
+#define SQRT_2_3 0.8165f
+#define PI_2_3 2.0944f
+#define SQRT3_DIV_3 0.57735f
+#define LOW_POWER_LPTIM_TICKS 500U
+#define ASK_PROBE_WINDOW_TICKS 200U
+#define CHARGE_BUTTON_GPIO_Port GPIOC
+#define CHARGE_BUTTON_Pin GPIO_PIN_10
+
+extern void SystemClock_Config(void);
+
 static void SlowEnable(void);
-float M_duty = 0.9f; // 调制比
+static uint8_t is_charge_button_pressed(void);
+static void ensure_tim6_started(void);
+static void ensure_tim6_stopped(void);
+static void enter_low_power_mode(void);
+static void start_low_power_probe(void);
+static void resume_active_mode(void);
+static void set_normal_waveform(void);
+static void power_stage_enable_low_power_probe(void);
+static void power_stage_enable_charging(void);
+static void power_stage_disable(void);
 
-
-// static int32_t sin_table1[SIN_ALL_PIONT] = {0};
-PID voltage_PID;
-PID current_PID;
-float L_voltage_ref = 9; // 线电压有效值参考值
-float X_voltage_ref = 26.1; // 32*sqrt(2/3) 相电压最大值
-float current_ref = 0;
-float voltage_fdb = 0;
-float current_fdb = 0;
-float add_freq = 0;
-collect_data_t *collect_data = NULL;
+float M_duty = 0.9f;
+float add_freq = 0.0f;
 
 static ChangeState_e now_state = LOW_POWER;
+static uint8_t g_tim6_running = 0U;
+static uint8_t g_lptim_running = 0U;
+static uint8_t g_collection_running = 0U;
+static uint16_t g_probe_ticks = 0U;
 
-void task_init()
-{
-    pid_init(&voltage_PID, PID_DELTA, V_KP, V_KI, 0, 0.5, 0.57, 0);
-    //  pid_init(&current_PID, PID_DELTA, 0.01, 0, 0, 0.5, 1.2, 0);
-    HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_MASTER);
-    HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_TIMER_E);
-    HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_TIMER_F);
-    // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERID_MASTER, HRTIM_COMPAREUNIT_1,
-    //                        HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
-    //  HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_TIMER_B);
-    //  HAL_TIM_Base_Start_IT(&htim5);
-    voltage_PID.ref = L_voltage_ref; // 有效值为15V
-    HAL_TIM_Base_Start_IT(&htim6);
-    collect_data = collection_init();
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
-    HAL_HRTIM_WaveformOutputStart(&hhrtim1,
-                                  HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2);
-    HAL_HRTIM_WaveformOutputStart(&hhrtim1,
-                                  HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2);
-    // HAL_LPTIM_TimeOut_Start_IT(&hlptim1, 17000, 17000);
-    // HAL_SuspendTick();
-    // HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-
-    // HAL_ResumeTick();
-    // HAL_LPTIM_TimeOut_Start_IT(&hlptim1,100,1000);
-    // SCB->SCR &= ~SCB_SCR_SLEEPDEEP_Msk;
-    // HAL_SuspendTick(); // 关闭系统systick中断，防止睡眠被systick中断打断
-    // HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON,
-    //                        PWR_SLEEPENTRY_WFI); // 进入WFI睡眠模式
-}
-
-float actual_uab = 0;
-uint16_t freq = 0;
-uint8_t flag = 0;
-uint8_t arr_value = 0;
+uint16_t freq = 0U;
+uint8_t flag = 0U;
+uint8_t arr_value = 0U;
+uint8_t allow_PWD = 1U;
+uint32_t cnt = 0U;
 uint8_t ask_arr[] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
-uint32_t aa = 0;
-void task_loop()
+
+void task_init(void)
 {
-    // SlowEnable();
+    collection_init();
+    g_collection_running = 1U;
 
-    PID_Seyduty();
-    duty_update();
-    aa++;
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
 
-    if (aa >= 50)
+    enter_low_power_mode();
+}
+
+void task_loop(void)
+{
+    switch (now_state)
     {
-        now_state = LOW_POWER;
+        case LOW_POWER:
+            enter_low_power_mode();
+            return;
+
+        case PreDetect:
+            start_low_power_probe();
+            return;
+
+        case ASKDetect:
+            cnt++;
+            if ((get_ask_valid() != 0U) && (is_charge_button_pressed() != 0U))
+            {
+                resume_active_mode();
+                return;
+            }
+
+            if (g_probe_ticks > 0U)
+            {
+                g_probe_ticks--;
+            }
+
+            if (g_probe_ticks == 0U)
+            {
+                enter_low_power_mode();
+            }
+            return;
+
+        case PreChange:
+            if ((get_ask_valid() == 0U) || (is_charge_button_pressed() == 0U))
+            {
+                enter_low_power_mode();
+                return;
+            }
+
+            now_state = Changing;
+            duty_update();
+            return;
+
+        case Changing:
+            if ((get_ask_valid() == 0U) || (is_charge_button_pressed() == 0U))
+            {
+                enter_low_power_mode();
+                return;
+            }
+
+            duty_update();
+            return;
+
+        default:
+            enter_low_power_mode();
+            return;
     }
 }
-void PID_Seyduty()
-{
-    voltage_PID.ref = L_voltage_ref; // 有效值为15V
-    // voltage_PID.ref =arm_sin_f32(PI * cnt_temp / (SIN_ALL_PIONT/2));
-    // //对有效值进行闭环 Uab = 0.0047f * Uab + Uab + 0.0009f;
-    actual_uab = (collect_data->volatage[0] + collect_data->volatage[2] + collect_data->volatage[1]) * SQRT3_DIV_3;
-    pid_calculate(&voltage_PID, actual_uab);
-    // current_ref = voltage_PID.output;
-    // pid_calculate(&current_PID, current_fdb);
-    // 解算
-}
 
-
-void duty_update()
+void duty_update(void)
 {
-    // 使用局部变量减少内存访问
-    static float cnt_temp = 0;
-    uint8_t allow_ = 0;
-    // int32_t duty = (sin_table1[cnt_temp] * M_duty);
-    // int32_t duty2 = (sin_table2[cnt_temp] * M_duty);
-    // int32_t duty3 = (sin_table3[cnt_temp] * M_duty);
-    // if (cnt_temp >= SIN_ALL_PIONT) {
-    // cnt_temp = 0;
-    // }
+    static float cnt_temp = 0.0f;
+    uint8_t allow_ = 0U;
+
     freq++;
-    if (freq > 10000)
+    if (freq > 10000U)
     {
-        freq = 0;
+        freq = 0U;
     }
 
-    if (freq % 100 == 0)
-    { // 20hz
-        allow_ = 1;
-    }
-    else
+    if ((freq % 100U) == 0U)
     {
-        allow_ = 0;
+        allow_ = 1U;
     }
-    if (flag && allow_)
+
+    if ((flag != 0U) && (allow_ != 0U))
     {
-        cnt_temp += 0.01;
+        cnt_temp += 0.01f;
         if (cnt_temp >= 0.2f)
         {
-            cnt_temp = 0;
+            cnt_temp = 0.0f;
         }
-        arr_value = ask_arr[(uint8_t)(cnt_temp * 100)];
-        if (ask_arr[(uint8_t)(cnt_temp * 100)])
-        {
 
+        arr_value = ask_arr[(uint8_t)(cnt_temp * 100.0f)];
+        if (ask_arr[(uint8_t)(cnt_temp * 100.0f)] != 0U)
+        {
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_SET);
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_SET);
         }
@@ -156,88 +168,135 @@ void duty_update()
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
         }
     }
-    // 单相逆变
-    //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-    //  HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
-    //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E,
-    //  HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
-    //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-    //  HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT - duty);
-    //  __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F,
-    //  HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT + duty);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
-    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3, HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
+
+    set_normal_waveform();
 }
-uint8_t allow_PWD = 1;
+
+void task_try_enter_low_power(void)
+{
+    if (now_state != LOW_POWER)
+    {
+        return;
+    }
+
+    if (g_lptim_running == 0U)
+    {
+        if (HAL_LPTIM_TimeOut_Start_IT(&hlptim1, LOW_POWER_LPTIM_TICKS, LOW_POWER_LPTIM_TICKS) == HAL_OK)
+        {
+            g_lptim_running = 1U;
+        }
+    }
+
+    if (g_lptim_running == 0U)
+    {
+        return;
+    }
+
+    HAL_SuspendTick();
+    HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+    SystemClock_Config();
+    HAL_ResumeTick();
+
+    if (now_state == PreDetect)
+    {
+        ensure_tim6_started();
+    }
+}
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if (htim == &htim6) // tim6负责10khz计算
+    if (htim == &htim6)
     {
-        task_loop(); // 任务循环
-    }
-    else if (htim == &htim5)
-    {
-        // 常低按下高
-        static uint8_t detect_flag = 0;
-        if (detect_flag == 0) //
-        {
-            if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == GPIO_PIN_SET)
-            {
-                // HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1); // 电平反转
-                detect_flag = 1;
-            }
-            else if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) == GPIO_PIN_SET) // 读取电平是否发生变化)
-            {
-                detect_flag = 2;
-            }
-            else if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) == GPIO_PIN_SET) // 读取电平是否发生变化)
-            {
-                detect_flag = 3;
-            }
-        }
-        else
-        {
-            if ((HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == GPIO_PIN_RESET) && detect_flag == 1) // 读取电平是否发生变化
-            {
-                detect_flag = 0;
-                // change_freq(&svpwm_v, svpwm_v.target_freq + 1);
-            }
-            else if ((HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) == GPIO_PIN_RESET) && detect_flag == 2)
-            {
-                detect_flag = 0;
-                // change_freq(&svpwm_v, svpwm_v.target_freq - 1);
-            }
-            else if ((HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_12) == GPIO_PIN_RESET) && detect_flag == 3)
-            {
-                detect_flag = 0;
-                // change_freq(&svpwm_v, 50);
-            }
-        }
+        task_loop();
     }
 }
+
+void HAL_LPTIM_CompareMatchCallback(LPTIM_HandleTypeDef *hlptim)
+{
+    if (hlptim != &hlptim1)
+    {
+        return;
+    }
+
+    HAL_LPTIM_TimeOut_Stop_IT(hlptim);
+    g_lptim_running = 0U;
+    now_state = PreDetect;
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if (GPIO_Pin != CHARGE_BUTTON_Pin)
+    {
+        return;
+    }
+
+    if (HAL_GPIO_ReadPin(CHARGE_BUTTON_GPIO_Port, CHARGE_BUTTON_Pin) != GPIO_PIN_SET)
+    {
+        return;
+    }
+
+    if (g_lptim_running != 0U)
+    {
+        HAL_LPTIM_TimeOut_Stop_IT(&hlptim1);
+        g_lptim_running = 0U;
+    }
+
+    now_state = PreDetect;
+}
+
+ChangeState_e GetNowState(void)
+{
+    return now_state;
+}
+
+void SetNowState(ChangeState_e state)
+{
+    now_state = state;
+}
+
 static void SlowEnable(void)
 {
-    static uint8_t is_PWD = 1;
-    static uint16_t temp_cnt = 0;
-    if (is_PWD && allow_PWD)
+    static uint8_t is_PWD = 1U;
+    static uint16_t temp_cnt = 0U;
+
+    if ((is_PWD != 0U) && (allow_PWD != 0U))
     {
-        temp_cnt = 0;
-        is_PWD = 0;
+        temp_cnt = 0U;
+        is_PWD = 0U;
         HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2);
         HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2);
-        // HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TB1 |
-        // HRTIM_OUTPUT_TB2);
     }
-    else if (is_PWD || !allow_PWD)
+    else if ((is_PWD != 0U) || (allow_PWD == 0U))
     {
         temp_cnt++;
         HAL_HRTIM_WaveformOutputStop(&hhrtim1, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2);
         HAL_HRTIM_WaveformOutputStop(&hhrtim1, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2);
     }
 }
+
+static uint8_t is_charge_button_pressed(void)
+{
+    return (uint8_t)(HAL_GPIO_ReadPin(CHARGE_BUTTON_GPIO_Port, CHARGE_BUTTON_Pin) == GPIO_PIN_SET);
+}
+
+static void ensure_tim6_started(void)
+{
+    if (g_tim6_running == 0U)
+    {
+        HAL_TIM_Base_Start_IT(&htim6);
+        g_tim6_running = 1U;
+    }
+}
+
+static void ensure_tim6_stopped(void)
+{
+    if (g_tim6_running != 0U)
+    {
+        HAL_TIM_Base_Stop_IT(&htim6);
+        g_tim6_running = 0U;
+    }
+}
+
 static void power_stage_enable_low_power_probe(void)
 {
     HAL_HRTIM_WaveformCounterStart(&hhrtim1, HRTIM_TIMERID_MASTER);
@@ -247,7 +306,6 @@ static void power_stage_enable_low_power_probe(void)
     HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2);
     HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2);
 
-    // 这里放低功率 probe 参数
     __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1, 13600);
     __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3, 40800);
     __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1, 13600);
@@ -262,6 +320,7 @@ static void power_stage_enable_charging(void)
 
     HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2);
     HAL_HRTIM_WaveformOutputStart(&hhrtim1, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2);
+    set_normal_waveform();
 }
 
 static void power_stage_disable(void)
@@ -273,33 +332,54 @@ static void power_stage_disable(void)
     HAL_HRTIM_WaveformCountStop(&hhrtim1, HRTIM_TIMERID_TIMER_F);
     HAL_HRTIM_WaveformCountStop(&hhrtim1, HRTIM_TIMERID_MASTER);
 }
-void HAL_LPTIM_CompareMatchCallback(LPTIM_HandleTypeDef *hlptim)
-{
-    if ((HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == GPIO_PIN_SET))
-    {
-        now_state = PreDetect;
-        return;
-    }
-    HAL_ResumeTick();
-    HAL_LPTIM_TimeOut_Stop_IT(hlptim);
-    SetNowState(PreDetect);
-    HAL_TIM_Base_Start_IT(&htim6);
 
-    // HAL_LPTIM_TimeOut_Start_IT(hlptim, 170, 1000);
-    // HAL_SuspendTick();
-    // HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-    // HAL_LPTIM_MspDeInit(&hlptim1); // 关闭LP定时器
-    // SystemClock_Config();          // 配置系统时钟
-    // SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk |
-    //                 SysTick_CTRL_ENABLE_Msk; // 打开Systick的中断
-    // SCB->SCR &= ~SCB_SCR_SLEEPONEXIT_Msk;    //
-    // 退出中断时不再自动进入低功耗模式
-}
-ChangeState_e GetNowState(void)
+static void enter_low_power_mode(void)
 {
-    return now_state;
+    power_stage_disable();
+
+    if (g_collection_running != 0U)
+    {
+        collection_stop();
+        g_collection_running = 0U;
+    }
+
+    collection_reset_ask_valid();
+    ensure_tim6_stopped();
+
+    g_probe_ticks = 0U;
+    now_state = LOW_POWER;
 }
-void SetNowState(ChangeState_e state)
+
+static void start_low_power_probe(void)
 {
-    now_state = state;
+    collection_reset_ask_valid();
+    collection_start();
+    g_collection_running = 1U;
+
+    power_stage_enable_low_power_probe();
+    ensure_tim6_started();
+
+    g_probe_ticks = ASK_PROBE_WINDOW_TICKS;
+    now_state = ASKDetect;
+}
+
+static void resume_active_mode(void)
+{
+    power_stage_enable_charging();
+    ensure_tim6_started();
+
+    g_probe_ticks = 0U;
+    now_state = PreChange;
+}
+
+static void set_normal_waveform(void)
+{
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_1,
+                           HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, HRTIM_COMPAREUNIT_3,
+                           HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_1,
+                           HRTIM_M_HALF_CNT - HRTIM_1per4_CNT);
+    __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_F, HRTIM_COMPAREUNIT_3,
+                           HRTIM_M_HALF_CNT + HRTIM_1per4_CNT);
 }

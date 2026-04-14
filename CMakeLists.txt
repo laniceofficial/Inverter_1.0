@@ -67,21 +67,25 @@ endfunction()
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oled)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/control)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/ask)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/delaytrigger)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/user_math)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/halfbridge_controller)
 
 # USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/wpc)
 
 target_sources(${CMAKE_PROJECT_NAME} PUBLIC
         # ${CMAKE_SOURCE_DIR}/User/task/task.cpp
+        # ${CMAKE_SOURCE_DIR}/User/BSP/bsp_adc.cpp
 )
 target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
         ${CMAKE_SOURCE_DIR}/User/task
+        # ${CMAKE_SOURCE_DIR}/User/BSP
 )
 
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oledlib)

@@ -79,10 +79,6 @@ void Error_Handler(void);
 #define DC3_I_GPIO_Port GPIOA
 #define DC3_V_Pin GPIO_PIN_9
 #define DC3_V_GPIO_Port GPIOA
-#define ADD_Pin GPIO_PIN_10
-#define ADD_GPIO_Port GPIOC
-#define SUB_Pin GPIO_PIN_11
-#define SUB_GPIO_Port GPIOC
 #define RESET_Pin GPIO_PIN_12
 #define RESET_GPIO_Port GPIOC
 

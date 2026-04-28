@@ -22,17 +22,19 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
-  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge", "$(ProjectDir)");
   Project.SetDevice ("STM32G474RB");
   Project.SetHostIF ("USB", "");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("8 MHz");
+  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
+  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge", "$(ProjectDir)");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M4F.svd");
   Project.AddSvdFile ("C:/Program Files/SEGGER/svd_file/STM32G474.svd");
   //
   // User settings
   //
+  Edit.Preference (PREF_TIMESTAMP_FORMAT, TIMESTAMP_FORMAT_INST_CNT);
+  Edit.SysVar (VAR_HSS_SPEED, FREQ_2_KHZ);
   File.Open ("$(ProjectDir)/build/Inverter_1.0.elf");
 }
 

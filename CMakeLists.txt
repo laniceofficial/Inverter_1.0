@@ -75,6 +75,7 @@ USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/control)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/ask)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/delaytrigger)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/user_math)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/jlink_rtt)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/halfbridge_controller)
 
 # USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/wpc)

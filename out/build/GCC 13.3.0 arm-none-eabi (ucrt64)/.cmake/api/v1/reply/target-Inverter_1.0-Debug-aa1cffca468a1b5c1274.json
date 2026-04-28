@@ -35,7 +35,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 93,
+				"line" : 94,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 64,
+				"line" : 67,
 				"parent" : 3
 			},
 			{
@@ -168,6 +168,18 @@
 				"parent" : 23
 			},
 			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 79,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 25
+			},
+			{
 				"command" : 4,
 				"file" : 0,
 				"line" : 58,
@@ -226,6 +238,12 @@
 				"file" : 0,
 				"line" : 58,
 				"parent" : 23
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 25
 			}
 		]
 	},
@@ -293,6 +311,10 @@
 				},
 				{
 					"backtrace" : 24,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/jlink_rtt"
+				},
+				{
+					"backtrace" : 26,
 					"path" : "D:/ace/stm_cpp/WirelessCharge/User/halfbridge_controller"
 				},
 				{
@@ -339,11 +361,8 @@
 				12,
 				14,
 				16,
-				18,
-				20,
-				21,
+				19,
 				22,
-				23,
 				24,
 				25,
 				26,
@@ -371,7 +390,14 @@
 				48,
 				49,
 				50,
-				51
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58
 			]
 		},
 		{
@@ -436,6 +462,10 @@
 				},
 				{
 					"backtrace" : 24,
+					"path" : "D:/ace/stm_cpp/WirelessCharge/User/jlink_rtt"
+				},
+				{
+					"backtrace" : 26,
 					"path" : "D:/ace/stm_cpp/WirelessCharge/User/halfbridge_controller"
 				},
 				{
@@ -466,7 +496,7 @@
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				52
+				59
 			]
 		}
 	],
@@ -513,11 +543,8 @@
 				12,
 				14,
 				16,
-				18,
-				20,
-				21,
+				19,
 				22,
-				23,
 				24,
 				25,
 				26,
@@ -545,7 +572,14 @@
 				48,
 				49,
 				50,
-				51
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58
 			]
 		},
 		{
@@ -562,125 +596,149 @@
 				13,
 				15,
 				17,
-				19
+				18,
+				20,
+				21,
+				23
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				52
+				59
 			]
 		}
 	],
 	"sources" : 
 	[
 		{
-			"backtrace" : 25,
+			"backtrace" : 27,
 			"compileGroupIndex" : 0,
 			"path" : "User/collection/collection.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 25,
+			"backtrace" : 27,
 			"path" : "User/collection/collection.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 26,
+			"backtrace" : 28,
 			"compileGroupIndex" : 0,
 			"path" : "User/task/task.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 26,
+			"backtrace" : 28,
 			"path" : "User/task/task.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 27,
+			"backtrace" : 29,
 			"compileGroupIndex" : 0,
 			"path" : "User/pid/pid.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 27,
+			"backtrace" : 29,
 			"path" : "User/pid/pid.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 28,
+			"backtrace" : 30,
 			"compileGroupIndex" : 0,
 			"path" : "User/bsp_soft_iic/bsp_soft_iic.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 28,
+			"backtrace" : 30,
 			"path" : "User/bsp_soft_iic/bsp_soft_iic.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 29,
+			"backtrace" : 31,
 			"compileGroupIndex" : 0,
 			"path" : "User/oled/oled.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 29,
+			"backtrace" : 31,
 			"path" : "User/oled/oled.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 29,
+			"backtrace" : 31,
 			"path" : "User/oled/oled_front.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 30,
+			"backtrace" : 32,
 			"path" : "User/control/incremental_pid.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 31,
+			"backtrace" : 33,
 			"compileGroupIndex" : 0,
 			"path" : "User/ask/ask.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 31,
+			"backtrace" : 33,
 			"path" : "User/ask/ask.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 32,
+			"backtrace" : 34,
 			"compileGroupIndex" : 0,
 			"path" : "User/delaytrigger/delaytrigger.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 32,
+			"backtrace" : 34,
 			"path" : "User/delaytrigger/delaytrigger.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 33,
+			"backtrace" : 35,
 			"compileGroupIndex" : 0,
 			"path" : "User/user_math/user_math.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 33,
+			"backtrace" : 35,
 			"path" : "User/user_math/user_math.h",
 			"sourceGroupIndex" : 1
 		},
 		{
-			"backtrace" : 34,
+			"backtrace" : 36,
+			"path" : "User/jlink_rtt/SEGGER.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 36,
+			"compileGroupIndex" : 0,
+			"path" : "User/jlink_rtt/SEGGER_RTT.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 36,
+			"path" : "User/jlink_rtt/SEGGER_RTT.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 36,
+			"path" : "User/jlink_rtt/SEGGER_RTT_Conf.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
 			"compileGroupIndex" : 0,
 			"path" : "User/halfbridge_controller/halfbridge_ctrl.c",
 			"sourceGroupIndex" : 0
 		},
 		{
-			"backtrace" : 34,
+			"backtrace" : 37,
 			"path" : "User/halfbridge_controller/halfbridge_ctrl.h",
 			"sourceGroupIndex" : 1
 		},
@@ -724,6 +782,12 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "Core/Src/tim.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Core/Src/usart.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -856,6 +920,18 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c",
 			"sourceGroupIndex" : 0
 		},
 		{

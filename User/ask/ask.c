@@ -1,29 +1,48 @@
 #include "ask.h"
+
 #include <stdint.h>
+
 #include "stm32g4xx_hal_def.h"
 #include "stm32g4xx_hal_tim.h"
 
-// const uint8_t stratSequense[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0,
-//                                  1, 0, 1, 0, 1, 0, 1, 0, 1, 1};
+// const uint8_t stratSequense[] = {
+//     0, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+//     1, 0, 1, 0, 1, 0, 1, 0, 1, 1,
+// };
+
 const uint8_t stratSequense[] = {
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
 };
 const uint8_t stratSequenseLength = sizeof(stratSequense) / sizeof(stratSequense[0]);
+
 uint32_t now_bits = 0;
 static ask_com_t *CommunicationStatus = NULL;
+
+static void ask_debug_set_pb3(uint8_t level)
+{
+    if (level != 0U)
+    {
+        GPIOB->BSRR = GPIO_PIN_3;
+    }
+    else
+    {
+        GPIOB->BSRR = (uint32_t)GPIO_PIN_3 << 16U;
+    }
+}
+
 void ASK_Decode(ask_com_t *ins)
 {
     for (uint8_t i = 0; i < ins->communicationBufferLength; i++)
     {
         now_bits = ins->communicationBuffer[i];
-        // 新 ADC 值突破当前 Dynamic Min/Max 就带滤波地更新, 否则衰减
+
         if (ins->communicationBuffer[i] > ins->dynamicMax)
         {
             ins->dynamicMax = ins->dynamicMax * 0.2f + ins->communicationBuffer[i] * 0.8f;
         }
         else
         {
-            ins->dynamicMax = (COMMUNICATION_MIDDLE_THRESHOLD + 150) * 0.003f + ins->dynamicMax * 0.997f;
+            ins->dynamicMax = (COMMUNICATION_MIDDLE_THRESHOLD + 200) * 0.003f + ins->dynamicMax * 0.997f;
         }
 
         if (ins->communicationBuffer[i] < ins->dynamicMin)
@@ -32,30 +51,33 @@ void ASK_Decode(ask_com_t *ins)
         }
         else
         {
-            ins->dynamicMin = (COMMUNICATION_MIDDLE_THRESHOLD - 150) * 0.005f + ins->dynamicMin * 0.995f;
+            ins->dynamicMin = (COMMUNICATION_MIDDLE_THRESHOLD - 200) * 0.005f + ins->dynamicMin * 0.995f;
         }
 
-        // 把 threshold 设置为 dynamicMin/Max 的 70%
         ins->upperThreshold = COMMUNICATION_MIDDLE_THRESHOLD * 0.3f + ins->dynamicMax * 0.7f;
         ins->lowerThreshold = COMMUNICATION_MIDDLE_THRESHOLD * 0.3f + ins->dynamicMin * 0.7f;
 
         if (DelayedTrigger_Update(&ins->upperDelayedTrigger, ins->communicationBuffer[i] > ins->upperThreshold))
         {
-            DelayedTrigger_Reset(&ins->upperDelayedTrigger);
+            DelayedTrigger_Reset(&ins->lowerDelayedTrigger);
 
-            if (ins->currentBitLevel == 0)
+            if (ins->currentBitLevel == 0U)
             {
-                ins->currentBitLevel = 1; // 0变1
-                commuResultFlipCallback(1); // 实测发送和接收电平是反向的
+                ins->currentBitLevel = 1U;
+                ask_debug_set_pb3(1U);
+                commuResultFlipCallback(1U);
             }
         }
+
         if (DelayedTrigger_Update(&ins->lowerDelayedTrigger, ins->communicationBuffer[i] < ins->lowerThreshold))
         {
             DelayedTrigger_Reset(&ins->upperDelayedTrigger);
-            if (ins->currentBitLevel == 1)
+
+            if (ins->currentBitLevel == 1U)
             {
-                ins->currentBitLevel = 0;
-                commuResultFlipCallback(0); // 实测发送和接收电平是反向的
+                ins->currentBitLevel = 0U;
+                ask_debug_set_pb3(0U);
+                commuResultFlipCallback(0U);
             }
         }
     }
@@ -67,55 +89,52 @@ void ASK_Decode(ask_com_t *ins)
         if (ins->disconnectCounter ==
             COMMUNICATION_DISCONNECT_TIMEOUT * POWER_CONTROLLER_HIGH_FREQ / POWER_CONTROLLER_LOW_FREQ)
         {
-            // 反向通信丢失, 断开连接
-            ins->isConnected = 0;
-            ins->isValid = 0;
+            ins->isConnected = 0U;
+            ins->isValid = 0U;
         }
     }
 }
+
 void ask_init(ask_com_t *ins, uint16_t *Buffer, uint8_t BufferLength)
 {
     ins->communicationBufferLength = BufferLength;
     ins->communicationBuffer = Buffer;
-    ins->currentBitLevel = 0;
+    ins->currentBitLevel = 0U;
 
-    ins->_40BitsBufferPointer = 0; // 指示下一个 write 的位置, 0 - 39
-    //   ins->data20Bits[20];           // Packet body 的 20 bit
-    //   ins->raw10Bit[10];             // 2 bit 合一解码后的发送端原始数据
+    ins->_40BitsBufferPointer = 0U;
 
-    // ins->backwardCommunicationData;
+    ins->dynamicMax = COMMUNICATION_MIDDLE_THRESHOLD;
+    ins->dynamicMin = COMMUNICATION_MIDDLE_THRESHOLD;
+    ins->upperThreshold = COMMUNICATION_MIDDLE_THRESHOLD + COMMUNICATION_UPPER_THRESHOLD;
+    ins->lowerThreshold = COMMUNICATION_MIDDLE_THRESHOLD - COMMUNICATION_LOWER_THRESHOLD;
 
-    ins->dynamicMax = 1500;
-    ins->dynamicMin = 500;
-    ins->upperThreshold = 1000 + 250; // 上限阈值
-    ins->lowerThreshold = 1000 - 250; // 下限阈值
+    ins->disconnectCounter = 0U;
+    ins->isConnected = 0U;
+    ins->isValid = 0U;
 
-    // 解码正确才算 connected
-    ins->disconnectCounter = 0;
-    ins->isConnected = 0;
+    DelayedTrigger_Init(&ins->lowerDelayedTrigger, COMMUNICATION_TRIGGER_TIMEOUT, 1U, 1U);
+    DelayedTrigger_Init(&ins->upperDelayedTrigger, COMMUNICATION_TRIGGER_TIMEOUT, 1U, 1U);
 
-    ins->isValid = 0;
-    DelayedTrigger_Init(&ins->lowerDelayedTrigger, COMMUNICATION_TRIGGER_TIMEOUT, 1, 1);
-    DelayedTrigger_Init(&ins->upperDelayedTrigger, COMMUNICATION_TRIGGER_TIMEOUT, 1, 1);
     CommunicationStatus = ins;
+    ask_debug_set_pb3(0U);
     HAL_TIM_Base_Init(&COMUNICATION_TIM);
+    HAL_TIM_Base_Start(&COMUNICATION_TIM);
+    __HAL_TIM_SET_COUNTER(&COMUNICATION_TIM, 0U);
 }
+
 void commuResultFlipCallback(uint8_t lastLevel)
 {
-    uint32_t dt = __HAL_TIM_GetCounter(&COMUNICATION_TIM); // 获取计数器值
-    __HAL_TIM_SET_COUNTER(&COMUNICATION_TIM, 0); // 无论后续解码如何都重置计数器
+    uint32_t dt = __HAL_TIM_GetCounter(&COMUNICATION_TIM);
+    __HAL_TIM_SET_COUNTER(&COMUNICATION_TIM, 0U);
 
-    // if (dt < 125 || dt > 625) {
-    //   // 采样到错误的时间间隔
-    //   CommunicationStatus->_40BitsBufferPointer = 0;
-    //   return;
-    // }
-
-    // 250us 为 1 的翻转半周期
-    // 500us 为 0 的翻转半周期
-    if (dt < 375)
+    if (dt < 125U || dt > 625U) // 合法窗口
     {
-        // 250us 小周期翻转, 不管是前半部分还是后半部分都记录
+        CommunicationStatus->_40BitsBufferPointer = 0U;
+        return;
+    }
+
+    if (dt < 375U)
+    {
         newBitCome(lastLevel);
     }
     else
@@ -124,141 +143,87 @@ void commuResultFlipCallback(uint8_t lastLevel)
         newBitCome(lastLevel);
     }
 }
+
 void newBitCome(uint8_t lastLevel)
 {
-    //<20
     if (CommunicationStatus->_40BitsBufferPointer < stratSequenseLength)
     {
-        // 如果当前 bit 是 header, 则需要匹配 header.
         if (stratSequense[CommunicationStatus->_40BitsBufferPointer] == lastLevel)
         {
-            CommunicationStatus->_40BitsBufferPointer += 1;
+            CommunicationStatus->_40BitsBufferPointer += 1U;
         }
         else
         {
-            CommunicationStatus->_40BitsBufferPointer = 0;
+            CommunicationStatus->_40BitsBufferPointer = 0U;
         }
     }
     else
     {
-        // 不是 header, 直接记录
-        CommunicationStatus->data20Bits[CommunicationStatus->_40BitsBufferPointer - stratSequenseLength] = lastLevel;
-        CommunicationStatus->_40BitsBufferPointer += 1;
+        CommunicationStatus->data20Bits[CommunicationStatus->_40BitsBufferPointer - stratSequenseLength] =
+            lastLevel;
+        CommunicationStatus->_40BitsBufferPointer += 1U;
     }
-    if (CommunicationStatus->_40BitsBufferPointer == 40)
+
+    if (CommunicationStatus->_40BitsBufferPointer == 40U)
     {
-        CommunicationStatus->_40BitsBufferPointer = 0;
+        CommunicationStatus->_40BitsBufferPointer = 0U;
         decode20BitsBuffer();
     }
 }
-void decode20BitsBuffer()
-{
-    CommunicationStatus->disconnectCounter = 0;
-    CommunicationStatus->isConnected = 1;
 
-    // 两个原始 bit 对应 4bit, 这四个 bit 的 bit[1] bit[2] 必然不同, 否则就是寄了
-    for (uint8_t i = 0; i < 9; i++)
+void decode20BitsBuffer(void)
+{
+    CommunicationStatus->disconnectCounter = 0U;
+    CommunicationStatus->isConnected = 1U;
+
+    for (uint8_t i = 0U; i < 9U; i++)
     {
-        if (CommunicationStatus->data20Bits[i * 2 + 1] == CommunicationStatus->data20Bits[i * 2 + 2])
+        if (CommunicationStatus->data20Bits[i * 2U + 1U] == CommunicationStatus->data20Bits[i * 2U + 2U])
         {
-            // bit 间无跳变
-            CommunicationStatus->isValid = 0;
+            CommunicationStatus->isValid = 0U;
             return;
         }
     }
 
-    // 两个 bit 合二为一
-    for (uint8_t i = 0; i < 10; i++)
+    for (uint8_t i = 0U; i < 10U; i++)
     {
-        if (CommunicationStatus->data20Bits[i * 2] == CommunicationStatus->data20Bits[i * 2 + 1])
+        if (CommunicationStatus->data20Bits[i * 2U] == CommunicationStatus->data20Bits[i * 2U + 1U])
         {
-            CommunicationStatus->raw10Bit[i] = 0;
+            CommunicationStatus->raw10Bit[i] = 0U;
         }
         else
         {
-            CommunicationStatus->raw10Bit[i] = 1;
+            CommunicationStatus->raw10Bit[i] = 1U;
         }
     }
 
     uint8_t requiredPowerSelection = CommunicationStatus->raw10Bit[0];
-    uint8_t rawPowerFeedback = 0;
+    uint8_t rawPowerFeedback = 0U;
     float powerFeedback = 0.0f;
-    float efficiency = 0.5f;
 
-    for (uint8_t i = 0; i < 8; i++)
+    for (uint8_t i = 0U; i < 8U; i++)
     {
-        rawPowerFeedback |= (CommunicationStatus->raw10Bit[i + 1] << i);
+        rawPowerFeedback |= (uint8_t)(CommunicationStatus->raw10Bit[i + 1U] << i);
     }
 
-    uint16_t parity = requiredPowerSelection | (rawPowerFeedback << 1);
-    parity ^= (parity >> 8);
-    parity ^= (parity >> 4);
-    parity ^= (parity >> 2);
-    parity ^= (parity >> 1);
-    if ((parity & 0x01) != CommunicationStatus->raw10Bit[9])
-    {
-        // 奇偶校验错误
-        CommunicationStatus->isValid = 0;
-        return;
-    }
+    // uint16_t parity = requiredPowerSelection | (rawPowerFeedback << 1U);
+    // parity ^= (parity >> 8U);
+    // parity ^= (parity >> 4U);
+    // parity ^= (parity >> 2U);
+    // parity ^= (parity >> 1U);
+    // if ((parity & 0x01U) != CommunicationStatus->raw10Bit[9])
+    // {
+    //     CommunicationStatus->isValid = 0U;
+    //     return;
+    // }
 
     powerFeedback = (float)rawPowerFeedback / 255.0f * 150.0f;
-    // efficiency = powerFeedback / Analog::adcData.pTX;
-    if (efficiency < 0.2f || efficiency > 0.9f)
-    {
-        // 效率异常
-        CommunicationStatus->isValid = 0;
-        return;
-    }
 
     CommunicationStatus->backwardCommunicationData.requiredPowerSelection = requiredPowerSelection;
     CommunicationStatus->backwardCommunicationData.rawPowerFeedback = rawPowerFeedback;
     CommunicationStatus->backwardCommunicationData.powerFeedback = powerFeedback;
     CommunicationStatus->backwardCommunicationData.transmitEfficiency =
-        efficiency * 0.5f + CommunicationStatus->backwardCommunicationData.transmitEfficiency * 0.5f;
+        0.5f * CommunicationStatus->backwardCommunicationData.transmitEfficiency;
 
-    CommunicationStatus->isValid = 1;
+    CommunicationStatus->isValid = 1U;
 }
-
-// void askLoop() // 在4k循环中调用
-// {
-//   if (!askData.enableASK) {
-//     HAL_GPIO_WritePin(COMM1_GPIO_Port, COMM1_Pin, GPIO_PIN_RESET);
-//     askData.askLoopIndex = 0;
-//     return;
-//   }
-
-//   switch (askData.askLoopIndex) {
-//   case 0:
-//     COMM1_GPIO_Port->BSRR = (uint32_t)COMM1_Pin; // 起始位一定为双高
-//     packData(adcData.pWPTlf, askData.powerRequirement);
-//     askData.askLoopIndex++;
-//     break;
-//   case 1:
-//     askData.askLoopIndex++;
-//     break;
-//   case 22:
-//     COMM1_GPIO_Port->BSRR = (uint32_t)COMM1_Pin << 16U; // 停止位一定位双低
-//     askData.askLoopIndex++;
-//     break;
-//   case 23:
-//     askData.askLoopIndex++;
-//     break;
-//   case 39:
-//     COMM1_GPIO_Port->BSRR = (uint32_t)COMM1_Pin << 16U; // 重新开始计数
-//     askData.askLoopIndex = 0;
-//     break;
-//   default:
-//     if (askData.askLoopIndex & 0b1) {
-//       if (askData.askLoopIndex > 23 ||
-//           ((askData.txMessage >> ((askData.askLoopIndex >> 1) - 1)) & 0b1)) {
-//         HAL_GPIO_TogglePin(COMM1_GPIO_Port, COMM1_Pin);
-//       }
-//     } else {
-//       HAL_GPIO_TogglePin(COMM1_GPIO_Port, COMM1_Pin);
-//     }
-
-//     askData.askLoopIndex++;
-//     break;
-//   }
-// }

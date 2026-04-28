@@ -8,8 +8,11 @@
 
 #define HALFBRIDGE_24KTO50MS_TICKS 1200U // 24kto 50ms
 #define HALFBRIDGE_24KTO25MS_TICKS 600U // 24kto 25ms
+#define HALFBRIDGE_ADC4_SCAN_TICKS 7107U //adc采样时间
+#define HALFBRIDGE_ADC_GUARD_TICKS 1000U
 
 static uint8_t HalfBridge_UpdateFaultBit(DelayedTrigger_t *trigger, uint8_t currentFault);
+static uint32_t HalfBridge_CalcAdcTriggerCmp4(uint32_t cmp3);
 
 void HalfBridge_init(HalfBridge_ctrl_t *HalfBridge_ctrl)
 {
@@ -82,6 +85,8 @@ void HalfBridge_boost_cal(HalfBridge_ctrl_t *HalfBridge_ctrl,
 }
 void HalfBridge_set_duty(HalfBridge_ctrl_t *HalfBridge_ctrl, float duty)
 {
+    uint32_t cmp3;
+
     // float duty_adjust = DutyAdjust(HalfBridge_ctrl);
     // if (duty_adjust > duty)
     // {
@@ -96,15 +101,17 @@ void HalfBridge_set_duty(HalfBridge_ctrl_t *HalfBridge_ctrl, float duty)
         duty = HalfBridge_ctrl->Min_duty;
     }
     HalfBridge_ctrl->duty = duty;
+    cmp3 = (uint32_t)(HalfBridge_PREIOD * duty);
     __HAL_HRTIM_SETCOMPARE(HalfBridge_HRTIM, HalfBridge_TIMER_IDDEX, HRTIM_COMPAREUNIT_1, 0);
+    __HAL_HRTIM_SETCOMPARE(HalfBridge_HRTIM, HalfBridge_TIMER_IDDEX, HRTIM_COMPAREUNIT_3, cmp3);
     __HAL_HRTIM_SETCOMPARE(
-        HalfBridge_HRTIM, HalfBridge_TIMER_IDDEX, HRTIM_COMPAREUNIT_3, (uint32_t)(HalfBridge_PREIOD * duty));
+        HalfBridge_HRTIM, HalfBridge_TIMER_IDDEX, HRTIM_COMPAREUNIT_4, HalfBridge_CalcAdcTriggerCmp4(cmp3));
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_1, 0);
     // __HAL_HRTIM_SETCOMPARE(&hhrtim1, HRTIM_TIMERINDEX_TIMER_B, HRTIM_COMPAREUNIT_3, 27200 * duty);
 }
-#define BAT_UVP_THRESHOLD 15.3f // 电池欠压阈值
+#define BAT_UVP_THRESHOLD 20.3f // 电池欠压阈值
 #define CAP_OVP_THRESHOLD 23.0f // 电容组过压阈值
-#define BAT_OVP_THRESHOLD 26.0f // 电池过压阈值
+#define BAT_OVP_THRESHOLD 30.0f // 电池过压阈值
 #define CURRENT_OCP_THRESHOLD 15.0f // 电流过流阈值
 #define CURRENT_REVERSE_THRESHOLD -0.3f
 Power_state_bit_t *state_judge(HalfBridge_ctrl_t *instance)
@@ -151,7 +158,12 @@ Power_state_bit_t *state_judge(HalfBridge_ctrl_t *instance)
 float set_ = 2;
 void HB_PowerLoop(HalfBridge_ctrl_t *instance) // 此处默认电流电压已经做完采样了
 {
-
+    if (instance->POWER_ON != 1)
+    {
+        HalfBridge_start(instance);
+    }
+    HalfBridge_set_duty(instance, 0.2);
+return;
     if (instance == NULL)
     {
         return;
@@ -271,4 +283,47 @@ static uint8_t HalfBridge_UpdateFaultBit(DelayedTrigger_t *trigger, uint8_t curr
     }
 
     return DelayedTrigger_Update(trigger, currentFault);
+}
+
+static uint32_t HalfBridge_CalcAdcTriggerCmp4(uint32_t cmp3)
+{
+    const uint32_t period = HalfBridge_PREIOD;
+    const uint32_t on_ticks = cmp3;
+    const uint32_t off_ticks = period - cmp3;
+    const uint32_t required_window = HALFBRIDGE_ADC4_SCAN_TICKS + (2U * HALFBRIDGE_ADC_GUARD_TICKS);
+    uint32_t cmp4;
+
+    /*
+     * ADC4 一次触发会顺扫 3 个通道，因此不能只让“触发点”避开开关边沿，
+     * 而是要让整段扫描时间都落在导通区或关断区的安静窗口内部。
+     */
+    if ((off_ticks >= required_window) && ((off_ticks >= on_ticks) || (on_ticks < required_window)))
+    {
+        cmp4 = cmp3 + HALFBRIDGE_ADC_GUARD_TICKS +
+               ((off_ticks - required_window) / 2U);
+    }
+    else if (on_ticks >= required_window)
+    {
+        cmp4 = HALFBRIDGE_ADC_GUARD_TICKS +
+               ((on_ticks - required_window) / 2U);
+    }
+    else if (off_ticks >= HALFBRIDGE_ADC4_SCAN_TICKS)
+    {
+        cmp4 = cmp3 + ((off_ticks - HALFBRIDGE_ADC4_SCAN_TICKS) / 2U);
+    }
+    else if (on_ticks >= HALFBRIDGE_ADC4_SCAN_TICKS)
+    {
+        cmp4 = (on_ticks - HALFBRIDGE_ADC4_SCAN_TICKS) / 2U;
+    }
+    else
+    {
+        cmp4 = cmp3;
+    }
+
+    if (cmp4 >= period)
+    {
+        cmp4 = period - 1U;
+    }
+
+    return cmp4;
 }

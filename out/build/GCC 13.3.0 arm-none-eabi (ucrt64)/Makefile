@@ -416,6 +416,30 @@ Core/Src/tim.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/tim.c.s
 .PHONY : Core/Src/tim.c.s
 
+Core/Src/usart.obj: Core/Src/usart.c.obj
+.PHONY : Core/Src/usart.obj
+
+# target to build an object file
+Core/Src/usart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/usart.c.obj
+.PHONY : Core/Src/usart.c.obj
+
+Core/Src/usart.i: Core/Src/usart.c.i
+.PHONY : Core/Src/usart.i
+
+# target to preprocess a source file
+Core/Src/usart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/usart.c.i
+.PHONY : Core/Src/usart.c.i
+
+Core/Src/usart.s: Core/Src/usart.c.s
+.PHONY : Core/Src/usart.s
+
+# target to generate assembly for a file
+Core/Src/usart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Core/Src/usart.c.s
+.PHONY : Core/Src/usart.c.s
+
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.obj
 
@@ -872,6 +896,54 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.s
 
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c.s
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.obj
+
+# target to build an object file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.obj
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.i: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.i
+
+# target to preprocess a source file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.i
+
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.s: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.s
+
+# target to generate assembly for a file
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
+.PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c.s
+
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj: Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
 .PHONY : Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj
 
@@ -1015,6 +1087,30 @@ User/halfbridge_controller/halfbridge_ctrl.s: User/halfbridge_controller/halfbri
 User/halfbridge_controller/halfbridge_ctrl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/halfbridge_controller/halfbridge_ctrl.c.s
 .PHONY : User/halfbridge_controller/halfbridge_ctrl.c.s
+
+User/jlink_rtt/SEGGER_RTT.obj: User/jlink_rtt/SEGGER_RTT.c.obj
+.PHONY : User/jlink_rtt/SEGGER_RTT.obj
+
+# target to build an object file
+User/jlink_rtt/SEGGER_RTT.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/jlink_rtt/SEGGER_RTT.c.obj
+.PHONY : User/jlink_rtt/SEGGER_RTT.c.obj
+
+User/jlink_rtt/SEGGER_RTT.i: User/jlink_rtt/SEGGER_RTT.c.i
+.PHONY : User/jlink_rtt/SEGGER_RTT.i
+
+# target to preprocess a source file
+User/jlink_rtt/SEGGER_RTT.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/jlink_rtt/SEGGER_RTT.c.i
+.PHONY : User/jlink_rtt/SEGGER_RTT.c.i
+
+User/jlink_rtt/SEGGER_RTT.s: User/jlink_rtt/SEGGER_RTT.c.s
+.PHONY : User/jlink_rtt/SEGGER_RTT.s
+
+# target to generate assembly for a file
+User/jlink_rtt/SEGGER_RTT.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Inverter_1.0.dir\build.make CMakeFiles/Inverter_1.0.dir/User/jlink_rtt/SEGGER_RTT.c.s
+.PHONY : User/jlink_rtt/SEGGER_RTT.c.s
 
 User/oled/oled.obj: User/oled/oled.c.obj
 .PHONY : User/oled/oled.obj
@@ -1165,6 +1261,9 @@ help:
 	@echo ... Core/Src/tim.obj
 	@echo ... Core/Src/tim.i
 	@echo ... Core/Src/tim.s
+	@echo ... Core/Src/usart.obj
+	@echo ... Core/Src/usart.i
+	@echo ... Core/Src/usart.s
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.s
@@ -1222,6 +1321,12 @@ help:
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.s
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.obj
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.i
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.s
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.obj
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.i
+	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.s
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.obj
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.i
 	@echo ... Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.s
@@ -1240,6 +1345,9 @@ help:
 	@echo ... User/halfbridge_controller/halfbridge_ctrl.obj
 	@echo ... User/halfbridge_controller/halfbridge_ctrl.i
 	@echo ... User/halfbridge_controller/halfbridge_ctrl.s
+	@echo ... User/jlink_rtt/SEGGER_RTT.obj
+	@echo ... User/jlink_rtt/SEGGER_RTT.i
+	@echo ... User/jlink_rtt/SEGGER_RTT.s
 	@echo ... User/oled/oled.obj
 	@echo ... User/oled/oled.i
 	@echo ... User/oled/oled.s

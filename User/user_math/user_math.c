@@ -3,6 +3,21 @@
 #include <math.h>
 #include <stddef.h>
 
+static float user_math_clamp_alpha(float alpha)
+{
+    if (alpha <= 0.0f)
+    {
+        return 0.1f;
+    }
+
+    if (alpha >= 1.0f)
+    {
+        return 0.9f;
+    }
+
+    return alpha;
+}
+
 void LPF_Init(FirstOrderLPF *filter, float alpha, float init_value)
 {
     if (filter == NULL)
@@ -10,16 +25,7 @@ void LPF_Init(FirstOrderLPF *filter, float alpha, float init_value)
         return;
     }
 
-    if (alpha <= 0.0f)
-    {
-        alpha = 0.1f;
-    }
-    else if (alpha >= 1.0f)
-    {
-        alpha = 0.9f;
-    }
-
-    filter->alpha = alpha;
+    filter->alpha = user_math_clamp_alpha(alpha);
     filter->last_output = init_value;
     filter->initialized = 1U;
 }
@@ -47,6 +53,46 @@ void LPF_Reset(FirstOrderLPF *filter, float new_value)
     }
 
     filter->last_output = new_value;
+}
+
+void HPF_Init(FirstOrderHPF *filter, float alpha, float init_input)
+{
+    if (filter == NULL)
+    {
+        return;
+    }
+
+    filter->alpha = user_math_clamp_alpha(alpha);
+    filter->last_input = init_input;
+    filter->last_output = 0.0f;
+    filter->initialized = 1U;
+}
+
+float HPF_Update(FirstOrderHPF *filter, float input)
+{
+    /* 一阶高通适合去直流/慢变偏置：保留快速变化量。 */
+    float output;
+
+    if ((filter == NULL) || (filter->initialized == 0U))
+    {
+        return input;
+    }
+
+    output = filter->alpha * (filter->last_output + input - filter->last_input);
+    filter->last_input = input;
+    filter->last_output = output;
+    return output;
+}
+
+void HPF_Reset(FirstOrderHPF *filter, float new_input)
+{
+    if (filter == NULL)
+    {
+        return;
+    }
+
+    filter->last_input = new_input;
+    filter->last_output = 0.0f;
 }
 
 float get_rms(ave_process_t *ave_process, float value)

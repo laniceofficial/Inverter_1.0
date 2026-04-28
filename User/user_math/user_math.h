@@ -24,6 +24,15 @@ typedef struct
 
 typedef struct
 {
+    /* 一阶高通滤波器状态：y[n] = a*(y[n-1] + x[n] - x[n-1]) */
+    float alpha;
+    float last_input;
+    float last_output;
+    uint8_t initialized;
+} FirstOrderHPF;
+
+typedef struct
+{
     /* 环形缓冲递推平均，避免旧实现中每次更新都搬移整个 FIFO。 */
     float fifo[COLLECTION_FILTER_WINDOW_MAX];
     float sum;
@@ -36,6 +45,11 @@ typedef struct
 void LPF_Init(FirstOrderLPF *filter, float alpha, float init_value);
 float LPF_Update(FirstOrderLPF *filter, float input);
 void LPF_Reset(FirstOrderLPF *filter, float new_value);
+
+/* 一阶高通滤波器接口。 */
+void HPF_Init(FirstOrderHPF *filter, float alpha, float init_input);
+float HPF_Update(FirstOrderHPF *filter, float input);
+void HPF_Reset(FirstOrderHPF *filter, float new_input);
 
 /* 递推平均滤波器接口。 */
 void Recursive_ave_filter_init(Recursive_ave_filter_type_t *filter, uint16_t window, float init_value);

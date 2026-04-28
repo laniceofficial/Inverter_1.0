@@ -71,15 +71,6 @@ void MX_HRTIM1_Init(void)
     Error_Handler();
   }
   pADCTriggerCfg.UpdateSource = HRTIM_ADCTRIGGERUPDATE_TIMER_B;
-  pADCTriggerCfg.Trigger = HRTIM_ADCTRIGGEREVENT24_TIMERB_CMP4;
-  if (HAL_HRTIM_ADCTriggerConfig(&hhrtim1, HRTIM_ADCTRIGGER_2, &pADCTriggerCfg) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_HRTIM_ADCPostScalerConfig(&hhrtim1, HRTIM_ADCTRIGGER_2, 0x0) != HAL_OK)
-  {
-    Error_Handler();
-  }
   pADCTriggerCfg.Trigger = HRTIM_ADCTRIGGEREVENT13_TIMERB_CMP4;
   if (HAL_HRTIM_ADCTriggerConfig(&hhrtim1, HRTIM_ADCTRIGGER_3, &pADCTriggerCfg) != HAL_OK)
   {
@@ -89,7 +80,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pTimeBaseCfg.Period = 54400;
+  pTimeBaseCfg.Period = 38857;
   pTimeBaseCfg.RepetitionCounter = 4-1;
   pTimeBaseCfg.PrescalerRatio = HRTIM_PRESCALERRATIO_MUL16;
   pTimeBaseCfg.Mode = HRTIM_MODE_CONTINUOUS;
@@ -121,7 +112,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pCompareCfg.CompareValue = 40800-880;
+  pCompareCfg.CompareValue = 5000;
   if (HAL_HRTIM_WaveformCompareConfig(&hhrtim1, HRTIM_TIMERINDEX_MASTER, HRTIM_COMPAREUNIT_2, &pCompareCfg) != HAL_OK)
   {
     Error_Handler();
@@ -205,8 +196,6 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pDeadTimeCfg.RisingValue = 300;
-  pDeadTimeCfg.FallingValue = 300;
   if (HAL_HRTIM_DeadTimeConfig(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, &pDeadTimeCfg) != HAL_OK)
   {
     Error_Handler();
@@ -249,7 +238,7 @@ void MX_HRTIM1_Init(void)
   {
     Error_Handler();
   }
-  pTimeBaseCfg.Period = 54400;
+  pTimeBaseCfg.Period = 38857;
   if (HAL_HRTIM_TimeBaseConfig(&hhrtim1, HRTIM_TIMERINDEX_TIMER_E, &pTimeBaseCfg) != HAL_OK)
   {
     Error_Handler();

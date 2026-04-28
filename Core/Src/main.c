@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "dac.h"
 #include "dma.h"
 #include "hrtim.h"
 #include "lptim.h"
@@ -61,7 +62,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+float vlo = 1.42;
 /* USER CODE END 0 */
 
 /**
@@ -99,23 +100,37 @@ int main(void)
   MX_TIM6_Init();
   MX_ADC3_Init();
   MX_ADC4_Init();
-  MX_ADC5_Init();
   MX_TIM5_Init();
   MX_LPTIM1_Init();
-  MX_TIM1_Init();
   MX_TIM8_Init();
   MX_TIM7_Init();
   MX_USART2_UART_Init();
+  MX_DAC1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_Delay(2000);
+  HAL_DBGMCU_EnableDBGSleepMode();
+  HAL_DBGMCU_EnableDBGStopMode();
+  __HAL_DBGMCU_FREEZE_TIM1();
+  __HAL_DBGMCU_FREEZE_TIM2();
+  __HAL_DBGMCU_FREEZE_TIM5();
+  __HAL_DBGMCU_FREEZE_TIM6();
+  __HAL_DBGMCU_FREEZE_TIM7();
+  __HAL_DBGMCU_FREEZE_TIM8();
+  __HAL_DBGMCU_FREEZE_LPTIM1();
+  __HAL_DBGMCU_FREEZE_HRTIM1();
+
+  HAL_Delay(500); // Delay after flashing before starting the application.
+  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
+  HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
+
   task_init();
+  // Application startup is now complete.
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-    task_try_enter_low_power();
+    // task_try_enter_low_power();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

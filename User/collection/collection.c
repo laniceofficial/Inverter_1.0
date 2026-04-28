@@ -15,8 +15,8 @@
  * ADC3: 预留/兼容原始流程，当前回调里仅保留电源环调用
  * ADC4: 3 路序列采样，分别对应半桥输入电压、电流反馈、输出电压
  */
-#define ADC2_GROUP_DMA_LENGTH 12U
-#define ADC2_GROUP_CHANNEL_COUNT 3U
+#define ADC2_GROUP_DMA_LENGTH 4U
+#define ADC2_GROUP_CHANNEL_COUNT 1U
 #define ADC2_GROUP_SAMPLE_REPEAT 4U
 
 #define ADC3_GROUP_DMA_LENGTH 8U
@@ -36,7 +36,6 @@
 
 /* 源电压换算延续旧逻辑：先转电压，再减基准偏置，最后乘分压系数。 */
 #define SOURCE_VOLTAGE_OFFSET 1.22f
-#define SOURCE_VOLTAGE_FACTOR 17.241f
 
 _Static_assert(ADC2_GROUP_DMA_LENGTH == (ADC2_GROUP_CHANNEL_COUNT * ADC2_GROUP_SAMPLE_REPEAT),
                "ADC2 group config mismatch");
@@ -86,14 +85,21 @@ static uint16_t ask_adc_data[ASK_ADC_BUFFER_LENGTH];
 static ask_com_t g_ask_com;
 static HalfBridge_ctrl_t g_halfbridge_ctrl;
 
-static float g_channel_values[COLLECTION_CH_COUNT];
+static float g_channel_values[COLLECTION_CH_COUNT]; 
 static uint16_t g_channel_raw_avg[COLLECTION_CH_COUNT];
+static float g_channel_vol[COLLECTION_CH_COUNT];//未滤波前源电压
 
 static Recursive_ave_filter_type_t g_source_avg_filter;
 static FirstOrderLPF g_source_lpf;
 static Recursive_ave_filter_type_t g_halfbridge_in_avg_filter;
 static FirstOrderLPF g_halfbridge_i_lpf;
 static FirstOrderLPF g_halfbridge_out_v_lpf;
+
+volatile uint16_t g_ask_raw_last = 0U;
+volatile float g_ask_raw_voltage = 0.0f;
+volatile uint16_t g_ask_raw_min = 0U;
+volatile uint16_t g_ask_raw_max = 0U;
+volatile uint16_t g_ask_raw_peak_to_peak = 0U;
 
 static uint8_t g_allow_ask = 0U;
 static uint8_t g_ask_write_index = 0U;
@@ -106,6 +112,7 @@ static const collection_adc_group_t *collection_find_group(const ADC_HandleTypeD
 static uint8_t collection_validate_group(const collection_adc_group_t *group);
 static void collection_sum_samples(const collection_adc_group_t *group, uint32_t *sums);
 static void collection_feed_ask_buffer(uint16_t raw_sample, uint16_t sample_repeat);
+static void collection_capture_adc2_ask_raw(const collection_adc_group_t *group);
 static void collection_post_process_adc2(const collection_adc_group_t *group);
 static void collection_post_process_adc3(const collection_adc_group_t *group);
 static void collection_post_process_adc4(const collection_adc_group_t *group);
@@ -115,48 +122,48 @@ static void collection_post_process_adc4(const collection_adc_group_t *group);
  * 1. 同一份原始采样可以同时生成“低通结果”和“递推平均结果”
  * 2. 每个通道都以“原始平均 ADC 电压”为输入，再做线性换算和滤波
  */
-static const collection_channel_cfg_t g_adc2_channels[] = { //-ch4=V ，ch5=I，ch11=V
-    // {
-    //     COLLECTION_CH_SOURCE_VOLTAGE,
-    //     0U,
-    //     1.0f,
-    //     0.0f,
-    //     COLLECTION_FILTER_LPF,
-    //     &g_source_lpf,
-    // },
-    // {
-    //     COLLECTION_CH_SOURCE_VOLTAGE_AVG,
-    //     0U,
-    //     1.0f,
-    //     0.0f,
-    //     COLLECTION_FILTER_RECURSIVE_AVG,
-    //     &g_source_avg_filter,
-    // },
+#if 0
+static const collection_channel_cfg_t g_adc2_channels[] = {
+    //-ch11=ask，ch4=V ，ch5=I，
     {
-        COLLECTION_CH_HALFBRIDGE_IN_V, 
+    {
+        COLLECTION_CH_SOURCE_VOLTAGE,
         0U,
-        30.814f,
-        -0.0664f,
-        COLLECTION_FILTER_RECURSIVE_AVG,
-        &g_halfbridge_in_avg_filter,
+        1.0f,
+        0.0f,
+        COLLECTION_FILTER_NONE,
+        &g_source_lpf,
     },
     {
-        COLLECTION_CH_HALFBRIDGE_I,
-        1U,
-        9.0909f,
-        -1.8094f,
-        COLLECTION_FILTER_LPF,
-        &g_halfbridge_i_lpf,
+        COLLECTION_CH_SOURCE_CURRENT,
+        0U,
+        1.0f,
+        0.0f,
+        COLLECTION_FILTER_NONE,
+        &g_source_avg_filter,
     },
 
+
+};
+#endif
+
+static const collection_channel_cfg_t g_adc2_channel_cfg[] = {
     {
-        COLLECTION_CH_HALFBRIDGE_OUT_V,
-        2U,
-        10.919f,
-        -0.0731f,
-        COLLECTION_FILTER_LPF,
-        &g_halfbridge_out_v_lpf,
+        COLLECTION_ASK,
+        0U,
+        1.0f,
+        0.0f,
+        COLLECTION_FILTER_NONE,
+        &g_source_lpf,
     },
+    // {
+    //     COLLECTION_CH_SOURCE_CURRENT,
+    //     1U,
+    //     1.0f,
+    //     0.0f,
+    //     COLLECTION_FILTER_NONE,
+    //     &g_source_avg_filter,
+    // },
 };
 
 /*
@@ -166,33 +173,33 @@ static const collection_channel_cfg_t g_adc2_channels[] = { //-ch4=V ，ch5=I，
  * 2 -> 半桥输出电压
  * scale/offset 直接编码旧工程里的线性标定关系。
  */
-static const collection_channel_cfg_t g_adc4_channels[] = { //ch4=V -ch5=I，ch3=V
-    {
-        COLLECTION_CH_HALFBRIDGE_IN_V,
-        0U,
-        30.814f,
-        -0.0664f,
-        COLLECTION_FILTER_RECURSIVE_AVG,
-        &g_halfbridge_in_avg_filter,
-    },
-    {
-        COLLECTION_CH_HALFBRIDGE_I,
-        1U,
-        9.0909f,
-        -1.8094f,
-        COLLECTION_FILTER_LPF,
-        &g_halfbridge_i_lpf,
-    },
+// static const collection_channel_cfg_t g_adc4_channels[] = { //ch4=V -ch5=I，ch3=V
+//     {
+//         COLLECTION_CH_HALFBRIDGE_IN_V,
+//         0U,
+//         30.814f,
+//         -0.0664f,
+//         COLLECTION_FILTER_RECURSIVE_AVG,
+//         &g_halfbridge_in_avg_filter,
+//     },
+//     {
+//         COLLECTION_CH_HALFBRIDGE_I,
+//         1U,
+//         9.0909f,
+//         -1.8094f,
+//         COLLECTION_FILTER_LPF,
+//         &g_halfbridge_i_lpf,
+//     },
 
-    {
-        COLLECTION_CH_HALFBRIDGE_OUT_V,
-        2U,
-        10.919f,
-        -0.0731f,
-        COLLECTION_FILTER_LPF,
-        &g_halfbridge_out_v_lpf,
-    },
-};
+//     {
+//         COLLECTION_CH_HALFBRIDGE_OUT_V,
+//         2U,
+//         10.919f,
+//         -0.0731f,
+//         COLLECTION_FILTER_LPF,
+//         &g_halfbridge_out_v_lpf,
+//     },
+// };
 // static const collection_channel_cfg_t g_adc5_channels[] = {
 //     {
 //         COLLECTION_CH_HALFBRIDGE_I,
@@ -210,9 +217,9 @@ static const collection_adc_group_t g_adc_groups[] = {
         ADC2_GROUP_DMA_LENGTH,
         ADC2_GROUP_CHANNEL_COUNT,
         ADC2_GROUP_SAMPLE_REPEAT,
-        g_adc2_channels,
-        (uint8_t)(sizeof(g_adc2_channels) / sizeof(g_adc2_channels[0])),
-        collection_post_process_adc4,
+        g_adc2_channel_cfg,
+        (uint8_t)(sizeof(g_adc2_channel_cfg) / sizeof(g_adc2_channel_cfg[0])),
+        collection_post_process_adc2,
     },
     // {
     //     &hadc3,
@@ -255,6 +262,7 @@ void collection_init(void)
     memset(&g_halfbridge_ctrl, 0, sizeof(g_halfbridge_ctrl));
     memset(g_channel_values, 0, sizeof(g_channel_values));
     memset(g_channel_raw_avg, 0, sizeof(g_channel_raw_avg));
+    memset(g_channel_vol, 0, sizeof(g_channel_vol));
     memset(adc2_data, 0, sizeof(adc2_data));
     memset(adc3_data, 0, sizeof(adc3_data));
     memset(adc4_data, 0, sizeof(adc4_data));
@@ -263,6 +271,11 @@ void collection_init(void)
     g_allow_ask = 0U;
     g_ask_write_index = 0U;
     g_cal_without_base_v = 0.0f;
+    g_ask_raw_last = 0U;
+    g_ask_raw_voltage = 0.0f;
+    g_ask_raw_min = 0U;
+    g_ask_raw_max = 0U;
+    g_ask_raw_peak_to_peak = 0U;
 
     /* ADC 组配置统一校验，避免 DMA 长度、通道数和重复次数不一致。 */
     for (i = 0U; i < (uint32_t)(sizeof(g_adc_groups) / sizeof(g_adc_groups[0])); ++i)
@@ -283,7 +296,7 @@ void collection_init(void)
     /* 为不同业务量绑定各自滤波器：快环路偏向 LPF，慢变量可选递推平均。 */
     LPF_Init(&g_source_lpf, 0.25f, 0.0f);
     Recursive_ave_filter_init(&g_source_avg_filter, 20U, 0.0f);
-    Recursive_ave_filter_init(&g_halfbridge_in_avg_filter, 20U, 0.0f);
+    Recursive_ave_filter_init(&g_halfbridge_in_avg_filter, 25U, 0.0f);
     LPF_Init(&g_halfbridge_i_lpf, 0.25f, 0.0f);
     LPF_Init(&g_halfbridge_out_v_lpf, 0.25f, 0.0f);
 
@@ -327,6 +340,14 @@ void collection_reset_ask_valid(void)
     memset(ask_adc_data, 0, sizeof(ask_adc_data));
     g_allow_ask = 0U;
     g_ask_write_index = 0U;
+    g_ask_raw_last = 0U;
+    g_ask_raw_voltage = 0.0f;
+    g_ask_raw_min = 0U;
+    g_ask_raw_max = 0U;
+    g_ask_raw_peak_to_peak = 0U;
+    g_channel_raw_avg[COLLECTION_ASK] = 0U;
+    g_channel_values[COLLECTION_ASK] = 0.0f;
+    g_channel_vol[COLLECTION_ASK] = 0.0f;
     ask_init(&g_ask_com, ask_adc_data, (uint8_t)ADC2_GROUP_SAMPLE_REPEAT);
 }
 
@@ -348,6 +369,31 @@ uint16_t collection_get_channel_raw_average(collection_channel_id_t channel)
     }
 
     return g_channel_raw_avg[channel];
+}
+
+uint16_t collection_get_ask_raw_last(void)
+{
+    return g_ask_raw_last;
+}
+
+float collection_get_ask_raw_voltage(void)
+{
+    return g_ask_raw_voltage;
+}
+
+uint16_t collection_get_ask_raw_min(void)
+{
+    return g_ask_raw_min;
+}
+
+uint16_t collection_get_ask_raw_max(void)
+{
+    return g_ask_raw_max;
+}
+
+uint16_t collection_get_ask_raw_peak_to_peak(void)
+{
+    return g_ask_raw_peak_to_peak;
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
@@ -437,6 +483,7 @@ static void collection_process_group(const collection_adc_group_t *group)
             converted = adc_voltage * cfg->scale + cfg->offset;
 
             g_channel_raw_avg[cfg->id] = (uint16_t)raw_avg;
+            g_channel_vol[cfg->id]=adc_voltage;
             g_channel_values[cfg->id] = collection_apply_filter(cfg, converted);
         }
     }
@@ -541,55 +588,103 @@ static void collection_feed_ask_buffer(uint16_t raw_sample, uint16_t sample_repe
         ASK_Decode(&g_ask_com);
     }
 }
-
-static void collection_post_process_adc2(const collection_adc_group_t *group)
+// uint16_t aa=0;
+static void collection_capture_adc2_ask_raw(const collection_adc_group_t *group)
 {
-    const float source_v = g_channel_values[COLLECTION_CH_SOURCE_VOLTAGE];
+    // aa++;
+    uint16_t sample_index;
+    uint16_t raw_min;
+    uint16_t raw_max;
+    uint16_t last_raw;
 
+    if ((group == NULL) || (group->dma_buffer == NULL) || (group->sample_repeat == 0U) ||
+        (group->dma_channel_count == 0U))
+    {
+        return;
+    }
+
+    raw_min = UINT16_MAX;
+    raw_max = 0U;
+    last_raw = 0U;
+
+    for (sample_index = 0U; sample_index < group->sample_repeat; ++sample_index)
+    {
+        const uint16_t raw_sample =
+            group->dma_buffer[sample_index * group->dma_channel_count +
+                              (group->dma_channel_count - 1U)];
+
+        if (raw_sample < raw_min)
+        {
+            raw_min = raw_sample;
+        }
+        if (raw_sample > raw_max)
+        {
+            raw_max = raw_sample;
+        }
+
+        last_raw = raw_sample;
+        collection_feed_ask_buffer(raw_sample, group->sample_repeat);
+    }
+    g_ask_raw_last = last_raw;
+
+    g_ask_raw_min = raw_min;
+    g_ask_raw_max = raw_max;
+    g_ask_raw_peak_to_peak = (uint16_t)(raw_max - raw_min);
+    g_ask_raw_voltage = (float)last_raw * VOL_REF / ADC_MAX_VALUE;
+
+    g_channel_raw_avg[COLLECTION_ASK] = last_raw;
+    g_channel_vol[COLLECTION_ASK] = g_ask_raw_voltage;
+    g_channel_values[COLLECTION_ASK] = g_ask_raw_voltage;
+}
+
+static void collection_post_process_adc2(const collection_adc_group_t *group)//18khz
+{
     if ((group == NULL) || (group->sample_repeat == 0U))
     {
         return;
     }
 
     /* ADC2: 更新源电压派生量和 ASK 解码缓冲。 */
-    g_cal_without_base_v = (source_v - SOURCE_VOLTAGE_OFFSET) * SOURCE_VOLTAGE_FACTOR;
-    collection_feed_ask_buffer(g_channel_raw_avg[COLLECTION_CH_SOURCE_VOLTAGE], group->sample_repeat);
+
+    collection_capture_adc2_ask_raw(group);
 }
 
-static void collection_post_process_adc3(const collection_adc_group_t *group)
-{
-    (void)group;
+// static void collection_post_process_adc3(const collection_adc_group_t *group)
+// {
+//     (void)group;
 
-    /* ADC3 目前保留原有调用节奏，后续接入通道配置时可直接扩展。 */
-}
+//     /* ADC3 目前保留原有调用节奏，后续接入通道配置时可直接扩展。 */
+// }
 // uint32_t test_f=0;
-static void collection_post_process_adc4(const collection_adc_group_t *group)
-{
-    ChangeState_e state;
-
-    if (group == NULL)
-    {
-        return;
-    }
-
-    collection_feed_ask_buffer(g_channel_raw_avg[COLLECTION_CH_HALFBRIDGE_IN_V], group->sample_repeat);
-    state = GetNowState();
-
-    /* ADC4: 更新半桥控制环所需的 3 路反馈量，并立即驱动功率环。 */
-    g_halfbridge_ctrl.current_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_I];
-    g_halfbridge_ctrl.voltage_bat_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_IN_V];
-    g_halfbridge_ctrl.voltage_cap_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_OUT_V];
-    if ((state == PreChange) || (state == Changing))
-    {
-        HB_PowerLoop(&g_halfbridge_ctrl);
-    }
+// static void collection_post_process_adc4(const collection_adc_group_t *group)
+// {
+//     ChangeState_e state;
+//     if(group == NULL)
+//     {
+//         return;
+//     }
+//     // test_f++;
 
 
-    if (g_allow_ask)
-    {
-        g_allow_ask = 0U;
-    }
-}
+
+//     // collection_feed_ask_buffer(g_channel_raw_avg[COLLECTION_CH_HALFBRIDGE_IN_V], group->sample_repeat);
+//     state = GetNowState();
+
+//     /* ADC4: 更新半桥控制环所需的 3 路反馈量，并立即驱动功率环。 */
+//     g_halfbridge_ctrl.current_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_I];
+//     g_halfbridge_ctrl.voltage_bat_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_IN_V];
+//     g_halfbridge_ctrl.voltage_cap_feed = g_channel_values[COLLECTION_CH_HALFBRIDGE_OUT_V];
+//     if ((state == PreChange) || (state == Changing))
+//     {
+//         HB_PowerLoop(&g_halfbridge_ctrl);
+//     }
+
+
+//     if (g_allow_ask)
+//     {
+//         g_allow_ask = 0U;
+//     }
+// }
 
 uint8_t get_ask_valid(void)
 {

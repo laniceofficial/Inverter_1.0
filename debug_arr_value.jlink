@@ -1,28 +1,20 @@
 device STM32G474RB
 si SWD
-speed 4000
+speed 1000
 r
 loadfile build\Inverter_1.0.hex
 r
 g
-sleep 800
+sleep 1000
 h
-mem8 0x200004A4 1
-mem16 0x200004A2 1
-mem16 0x20000014 1
+mem32 0x40016814 1
+mem32 0x40016824 1
+mem16 0x20000054 8
+mem32 0x20000CA8 2
 g
-sleep 20
+sleep 500
 h
-mem8 0x200004A4 1
-mem16 0x200004A2 1
+mem16 0x20000054 8
+mem32 0x20000CA8 2
 g
-sleep 20
-h
-mem8 0x200004A4 1
-mem16 0x200004A2 1
-g
-sleep 20
-h
-mem8 0x200004A4 1
-mem16 0x200004A2 1
 qc

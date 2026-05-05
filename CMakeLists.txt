@@ -52,42 +52,48 @@ function(USER_ADD_DIR dir)
             ${dir}/*.h
             ${dir}/*.c
             ${dir}/*.hpp
-        #     ${dir}/*.cpp
+            ${dir}/*.cpp
             ${dir}/*.cc
     )
     target_sources(${CMAKE_PROJECT_NAME} PUBLIC ${USER_SOURCE})
     target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ${dir})
 endfunction()
 ###############################在此处添加你的文件路径
-#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/can_part)
-#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/cpp_files)
-#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/djimotor)
-#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/dwt)
-#USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/filter_alg)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
-# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
-# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oled)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/control)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/ask)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/delaytrigger)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/user_math)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/jlink_rtt)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/halfbridge_controller)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/collection)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/task)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pid)
+# # USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/pr_ctr)
+# # USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/svpwm)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/bsp_soft_iic)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oled)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/control)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/ask)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/delaytrigger)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/user_math)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/jlink_rtt)
+# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/halfbridge_controller)
 
-# USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/wpc)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/pid)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/bsp_adc)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/bsp_hrtim)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/ask)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/delaytrigger)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/user_math)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/jlink_rtt)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/halfbridge_controller)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/receiver_ask)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/sampling)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/wireless_charge)
+
 
 target_sources(${CMAKE_PROJECT_NAME} PUBLIC
         # ${CMAKE_SOURCE_DIR}/User/task/task.cpp
         # ${CMAKE_SOURCE_DIR}/User/BSP/bsp_adc.cpp
 )
-target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
-        ${CMAKE_SOURCE_DIR}/User/task
-        # ${CMAKE_SOURCE_DIR}/User/BSP
-)
+# target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
+#         ${CMAKE_SOURCE_DIR}/User_cpp/APP/wireless_charge
+#         # ${CMAKE_SOURCE_DIR}/User/BSP
+# )
 
 #USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User/oledlib)
 
@@ -109,4 +115,4 @@ set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--no-warn-rwx-segments")
 #即可编译
 #######软浮点输出
 #set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -mfloat-abi=soft")
-set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,-u,_printf_float")
+# set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,-u,_printf_float")

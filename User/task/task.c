@@ -179,8 +179,8 @@ void task_loop(void)
     }
 }
 volatile uint8_t allow_ = 0U;
-volatile uint16_t signal_freq = 1; // 默认1000hz
-// 10hz--100，50hz--20，100hz--10，200hz--5，500hz--4,2000hz--1
+volatile uint16_t signal_freq = 2; // 默认1000hz
+// 10hz--100，50hz--20，100hz--10，200hz--5，500hz--10,2000hz--1
 void duty_update(void)//4000hz
 {
     uint8_t next_value = 0U;

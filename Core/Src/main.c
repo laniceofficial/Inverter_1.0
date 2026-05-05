@@ -29,7 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "task.h"
+#include "task_cpp.h"
 
 /* USER CODE END Includes */
 
@@ -119,8 +119,8 @@ int main(void)
   __HAL_DBGMCU_FREEZE_HRTIM1();
 
   HAL_Delay(500); // Delay after flashing before starting the application.
-  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
-  HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
+  // HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
+  // HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
 
   task_init();
   // Application startup is now complete.

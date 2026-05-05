@@ -2,7 +2,7 @@
     "configurations": [
         {
             "name": "STM32",
-            "compileCommands": "${workspaceFolder}/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }
     ]
 }

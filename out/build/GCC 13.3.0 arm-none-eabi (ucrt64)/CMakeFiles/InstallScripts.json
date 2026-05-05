@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake_install.cmake",
-		"D:/ace/stm_cpp/WirelessCharge/out/build/GCC 13.3.0 arm-none-eabi (ucrt64)/cmake/stm32cubemx/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

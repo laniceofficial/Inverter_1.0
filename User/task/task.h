@@ -30,9 +30,9 @@ extern "C"
         PreChange,
         Changing,
     } ChangeState_e;
-    void task_init();
-    void task_loop();
-    void duty_update();
+    void task_init(void);
+    void task_loop(void);
+    void duty_update(void);
     void task_try_enter_low_power(void);
     ChangeState_e GetNowState(void);
     void SetNowState(ChangeState_e state);

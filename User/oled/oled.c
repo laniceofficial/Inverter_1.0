@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "oled_front.h"
+#include "oled_font.h"
 #include "bsp_soft_iic.h"
 //仿制江协
 /**

@@ -5,7 +5,7 @@
 **********************************************************************
 
 File          : 
-Created       : 10. Mar 2026 22:03
+Created       : 01. May 2026 16:25
 Ozone Version : V3.40e
 */
 
@@ -23,7 +23,7 @@ void OnProjectLoad (void) {
   // Dialog-generated settings
   //
   Project.SetDevice ("STM32G474RB");
-  Project.SetHostIF ("USB", "");
+  Project.SetHostIF ("USB", "69409622");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("8 MHz");
   Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
@@ -33,8 +33,6 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  Edit.Preference (PREF_TIMESTAMP_FORMAT, TIMESTAMP_FORMAT_INST_CNT);
-  Edit.SysVar (VAR_HSS_SPEED, FREQ_2_KHZ);
   File.Open ("$(ProjectDir)/build/Inverter_1.0.elf");
 }
 

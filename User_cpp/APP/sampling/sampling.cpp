@@ -26,9 +26,9 @@ constexpr uint8_t kAdc3DmaChannelCount = 2U;
 constexpr uint16_t kAdc3SampleRepeat = 2U;
 constexpr uint16_t kAdc3DmaLength = kAdc3DmaChannelCount * kAdc3SampleRepeat;
 
-constexpr uint8_t kAdc4DmaChannelCount = 3U;
-constexpr uint16_t kAdc4SampleRepeat = 4U;
-constexpr uint16_t kAdc4DmaLength = kAdc4DmaChannelCount * kAdc4SampleRepeat;
+// constexpr uint8_t kAdc4DmaChannelCount = 3U;
+// constexpr uint16_t kAdc4SampleRepeat = 4U;
+// constexpr uint16_t kAdc4DmaLength = kAdc4DmaChannelCount * kAdc4SampleRepeat;
 
 constexpr uint8_t kAskChannelIndex = static_cast<uint8_t>(SampleChannel::Ask);
 constexpr uint8_t kTransmitterVoltageIndex = static_cast<uint8_t>(SampleChannel::TransmitterVoltage);
@@ -117,17 +117,17 @@ void SamplingService::init()
     adc3Config.adcMaxValue = kAdcMaxValue;
     adc3Sampler_.init(adc3Config);
 
-    Driver::AdcSamplerConfig adc4Config;
-    adc4Config.hadc = &hadc4;
-    adc4Config.dmaBuffer = adc4Data_;
-    adc4Config.dmaLength = kAdc4DmaLength;
-    adc4Config.dmaChannelCount = kAdc4DmaChannelCount;
-    adc4Config.sampleRepeat = kAdc4SampleRepeat;
-    adc4Config.channels = adc4Channels;
-    adc4Config.channelCount = static_cast<uint8_t>(sizeof(adc4Channels) / sizeof(adc4Channels[0]));
-    adc4Config.vref = kVoltageRef;
-    adc4Config.adcMaxValue = kAdcMaxValue;
-    adc4Sampler_.init(adc4Config);
+    // Driver::AdcSamplerConfig adc4Config;
+    // adc4Config.hadc = &hadc4;
+    // adc4Config.dmaBuffer = adc4Data_;
+    // adc4Config.dmaLength = kAdc4DmaLength;
+    // adc4Config.dmaChannelCount = kAdc4DmaChannelCount;
+    // adc4Config.sampleRepeat = kAdc4SampleRepeat;
+    // adc4Config.channels = adc4Channels;
+    // adc4Config.channelCount = static_cast<uint8_t>(sizeof(adc4Channels) / sizeof(adc4Channels[0]));
+    // adc4Config.vref = kVoltageRef;
+    // adc4Config.adcMaxValue = kAdcMaxValue;
+    // adc4Sampler_.init(adc4Config);
 
     while (!adc2Sampler_.calibrate())
     {
@@ -135,12 +135,12 @@ void SamplingService::init()
     while (!adc3Sampler_.calibrate())
     {
     }
-    while (!adc4Sampler_.calibrate())
-    {
-    }
+    // while (!adc4Sampler_.calibrate())
+    // {
+    // }
 
     askDecoder_.init(askAdcData_, kAdc2SampleRepeat);
-    halfBridgeController_.init();
+    // halfBridgeController_.init();
     start();
 }
 
@@ -148,14 +148,14 @@ void SamplingService::start()
 {
     adc2Sampler_.start();
     adc3Sampler_.start();
-    adc4Sampler_.start();
+    // adc4Sampler_.start();
 }
 
 void SamplingService::stop()
 {
     adc2Sampler_.stop();
     adc3Sampler_.stop();
-    adc4Sampler_.stop();
+    // adc4Sampler_.stop();
 }
 
 void SamplingService::resetAskValid()
@@ -179,16 +179,16 @@ bool SamplingService::handleAdcConvCpltCallback(ADC_HandleTypeDef* hadc)
         return true;
     }
 
-    if (hadc == &hadc4)
-    {
-        if (!adc4Sampler_.processDmaBuffer())
-        {
-            return false;
-        }
+    // if (hadc == &hadc4)
+    // {
+    //     if (!adc4Sampler_.processDmaBuffer())
+    //     {
+    //         return false;
+    //     }
 
-        processAdc4(adc4Sampler_);
-        return true;
-    }
+    //     processAdc4(adc4Sampler_);
+    //     return true;
+    // }
 
     return false;
 }
@@ -279,6 +279,7 @@ void SamplingService::processAdc3(Driver::AdcSampler& sampler)
     transmitterVoltage_ = transmitterVoltageFilter_.update(voltage);
     transmitterCurrent_ = transmitterCurrentFilter_.update(current);
     transmitterPower = transmitterVoltage_ * transmitterCurrent_;
+    
 }
 
 void SamplingService::resetAdc3RawWindow()
@@ -324,23 +325,23 @@ float SamplingService::applyRawCalibration(
     return (rawAverage - bias) * gain;
 }
 
-void SamplingService::processAdc4(Driver::AdcSampler& sampler)
-{
-    halfBridgeInputVoltage_ =
-        halfBridgeInputVoltageFilter_.update(sampler.getValue(kHalfBridgeInputVoltageIndex));
-    halfBridgeCurrent_ = halfBridgeCurrentFilter_.update(sampler.getValue(kHalfBridgeCurrentIndex));
-    halfBridgeOutputVoltage_ =
-        halfBridgeOutputVoltageFilter_.update(sampler.getValue(kHalfBridgeOutputVoltageIndex));
+// void SamplingService::processAdc4(Driver::AdcSampler& sampler)
+// {
+//     halfBridgeInputVoltage_ =
+//         halfBridgeInputVoltageFilter_.update(sampler.getValue(kHalfBridgeInputVoltageIndex));
+//     halfBridgeCurrent_ = halfBridgeCurrentFilter_.update(sampler.getValue(kHalfBridgeCurrentIndex));
+//     halfBridgeOutputVoltage_ =
+//         halfBridgeOutputVoltageFilter_.update(sampler.getValue(kHalfBridgeOutputVoltageIndex));
 
-    halfBridgeController_.setFeedback(
-        halfBridgeCurrent_, halfBridgeOutputVoltage_, halfBridgeInputVoltage_);
+//     halfBridgeController_.setFeedback(
+//         halfBridgeCurrent_, halfBridgeOutputVoltage_, halfBridgeInputVoltage_);
 
-    const ChangeState_e state = GetNowState();
-    if ((state == PreChange) || (state == Changing))
-    {
-        halfBridgeController_.powerLoop();
-    }
-}
+//     const ChangeState_e state = GetNowState();
+//     if ((state == PreChange) || (state == Changing))
+//     {
+//         halfBridgeController_.powerLoop();
+//     }
+// }
 
 void SamplingService::feedAskBuffer(const uint16_t rawSample, const uint16_t sampleRepeat)
 {

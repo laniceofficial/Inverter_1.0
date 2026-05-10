@@ -38,6 +38,9 @@
         * Output
         * EVENT_OUT
         * EXTI
+     PB12   ------> ADC4_IN3
+     PB14   ------> ADC4_IN4
+     PB15   ------> ADC4_IN5
 */
 void MX_GPIO_Init(void)
 {
@@ -62,6 +65,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB12 PB14 PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_14|GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : OUT_LOWPOWER_Pin */
   GPIO_InitStruct.Pin = OUT_LOWPOWER_Pin;

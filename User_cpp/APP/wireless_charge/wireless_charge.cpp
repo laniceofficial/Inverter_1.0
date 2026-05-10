@@ -2,78 +2,79 @@
 
 #include "SEGGER_RTT.h"
 #include "bsp_hrtim.hpp"
+#include "pid.hpp"
 #include "receiver_ask.hpp"
 #include "sampling.hpp"
 
-extern "C" {
+extern "C"
+{
 #include "gpio.h"
 #include "lptim.h"
 #include "main.h"
 #include "tim.h"
 #include "usart.h"
-void SystemClock_Config(void);
+    void SystemClock_Config(void);
 }
 float test = 0.0f;
 float duty = 0.5f;
 namespace
 {
 
-constexpr uint16_t kLowPowerLptimTicks = 500U;
-constexpr uint16_t kAskProbeWindowTicks = 100U;
-constexpr float kAskDetectPowerTargetW = 1.0f;
-constexpr float kChangingPowerTargetW = 40.0f;
-constexpr float kPowerLoopDeadbandW = 0.3f;
-constexpr float kPowerLoopGain = 0.0006f;
-constexpr float kPowerLoopMaxStep = 0.002f;
-constexpr float kPowerLoopMinDuty = 0.02f;
-constexpr float kPowerLoopMaxDuty = 0.90f;
-GPIO_TypeDef* const kChargeButtonPort = GPIOC;
-constexpr uint16_t kChargeButtonPin = GPIO_PIN_15;
-// Master + E/F 组成无线充电全桥波形。
-constexpr uint32_t kWirelessTimerMask =
-    HRTIM_TIMERID_MASTER | HRTIM_TIMERID_TIMER_E | HRTIM_TIMERID_TIMER_F;
-constexpr uint32_t kWirelessOutputMask = HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2 | HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2;
+    constexpr uint16_t kLowPowerLptimTicks = 500U;
+    constexpr uint16_t kAskProbeWindowTicks = 100U;
+    constexpr float kAskDetectPowerTargetW = 1.0f;
+    constexpr float kChangingPowerTargetW = 40.0f;
+    constexpr float kPowerLoopDeadbandW = 0.3f;
+    constexpr float kPowerLoopGain = 0.0006f;
+    constexpr float kPowerLoopMaxStep = 0.002f;
+    constexpr float kPowerLoopMinDuty = 0.02f;
+    constexpr float kPowerLoopMaxDuty = 0.90f;
+    GPIO_TypeDef *const kChargeButtonPort = GPIOC;
+    constexpr uint16_t kChargeButtonPin = GPIO_PIN_15;
+    // Master + E/F 组成无线充电全桥波形。
+    constexpr uint32_t kWirelessTimerMask = HRTIM_TIMERID_MASTER | HRTIM_TIMERID_TIMER_E | HRTIM_TIMERID_TIMER_F;
+    constexpr uint32_t kWirelessOutputMask = HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2 | HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2;
 
-// 主任务对象：把低功耗探测、ASK 判定、PWM 波形和 HAL 回调集中管理。
-class WirelessChargeApp
-{
-public:
-    void init();
-    void loop();
-    void dutyUpdate();
-    void tryEnterLowPower();
-    void onTimPeriodElapsed(TIM_HandleTypeDef* htim);
-    void onLptimCompareMatch(LPTIM_HandleTypeDef* hlptim);
-    void onGpioExti(uint16_t gpioPin);
-    void onAdcConvCplt(ADC_HandleTypeDef* hadc);
-    ChangeState_e getNowState() const;
-    void setNowState(ChangeState_e state);
+    // 主任务对象：把低功耗探测、ASK 判定、PWM 波形和 HAL 回调集中管理。
+    class WirelessChargeApp
+    {
+    public:
+        void init();
+        void loop();
+        void dutyUpdate();
+        void tryEnterLowPower();
+        void onTimPeriodElapsed(TIM_HandleTypeDef *htim);
+        void onLptimCompareMatch(LPTIM_HandleTypeDef *hlptim);
+        void onGpioExti(uint16_t gpioPin);
+        void onAdcConvCplt(ADC_HandleTypeDef *hadc);
+        ChangeState_e getNowState() const;
+        void setNowState(ChangeState_e state);
 
-private:
-    bool isChargeButtonPressed() const;
-    void ensureTim6Started();
-    void ensureTim6Stopped();
-    void enterLowPowerMode();
-    void startLowPowerProbe();
-    void resumeActiveMode();
-    void setNormalWaveform();
-    void enableLowPowerProbe();
-    void enableCharging();
-    void disablePowerStage();
-    void powerClosedLoop(float targetPowerW);
+    private:
+        bool isChargeButtonPressed() const;
+        void ensureTim6Started();
+        void ensureTim6Stopped();
+        void enterLowPowerMode();
+        void startLowPowerProbe();
+        void resumeActiveMode();
+        void setNormalWaveform();
+        void enableLowPowerProbe();
+        void enableCharging();
+        void disablePowerStage();
+        void powerClosedLoop(float targetPowerW);
+        PID PIDpower;
+        ChangeState_e nowState_ = LOW_POWER;
+        uint8_t tim6Running_ = 0U; // TIM6 是否正在驱动调制/任务节拍
+        uint8_t lptimRunning_ = 0U; // LPTIM 是否正在低功耗唤醒计时
+        uint8_t samplingRunning_ = 0U; // ADC 采样服务是否开启
+        uint16_t probeTicks_ = 0U; // ASK 探测窗口剩余 tick
+    };
 
-    ChangeState_e nowState_ = LOW_POWER;
-    uint8_t tim6Running_ = 0U;       // TIM6 是否正在驱动调制/任务节拍
-    uint8_t lptimRunning_ = 0U;      // LPTIM 是否正在低功耗唤醒计时
-    uint8_t samplingRunning_ = 0U;   // ADC 采样服务是否开启
-    uint16_t probeTicks_ = 0U;       // ASK 探测窗口剩余 tick
-};
-
-WirelessChargeApp& app()
-{
-    static WirelessChargeApp instance;
-    return instance;
-}
+    WirelessChargeApp &app()
+    {
+        static WirelessChargeApp instance;
+        return instance;
+    }
 
 } // namespace
 
@@ -89,6 +90,8 @@ void WirelessChargeApp::init()
 {
     App::samplingService().init();
     App::ReceiverAsk::init();
+    pid_init(&PIDpower, PID_DELTA, 0.01, 0.1, 0.0f, 0.2f, 1, 0.0f);
+
     SEGGER_RTT_Init();
     samplingRunning_ = 1U;
 
@@ -139,7 +142,6 @@ void WirelessChargeApp::loop()
 
             nowState_ = Changing;
             powerClosedLoop(kChangingPowerTargetW);
-            dutyUpdate();
             return;
 
         case Changing:
@@ -150,7 +152,6 @@ void WirelessChargeApp::loop()
             }
 
             powerClosedLoop(kChangingPowerTargetW);
-            dutyUpdate();
             return;
 
         default:
@@ -163,46 +164,18 @@ void WirelessChargeApp::loop()
 void WirelessChargeApp::dutyUpdate()
 {
     // ASK 回传逻辑放在 receiver_ask 中，主任务只负责维持 E/F 功率波形。
-    App::ReceiverAsk::loop();
+    // App::ReceiverAsk::loop();
     Driver::setPhase(test);
-    
+
     setNormalWaveform();
 }
 
 void WirelessChargeApp::powerClosedLoop(const float targetPowerW)
 {
-    static float lastVoltageRaw = -1.0f;
-    static float lastCurrentRaw = -1.0f;
-
-    const auto& sampling = App::samplingService();
-    const float voltageRaw = sampling.getTransmitterVoltageRawAverage();
-    const float currentRaw = sampling.getTransmitterCurrentRawAverage();
-    if ((voltageRaw == lastVoltageRaw) && (currentRaw == lastCurrentRaw))
-    {
-        return;
-    }
-
-    lastVoltageRaw = voltageRaw;
-    lastCurrentRaw = currentRaw;
-
-    const float error = targetPowerW - sampling.getTransmitterPower();
-    if ((error < kPowerLoopDeadbandW) && (error > -kPowerLoopDeadbandW))
-    {
-        return;
-    }
-
-    float step = error * kPowerLoopGain;
-    if (step > kPowerLoopMaxStep)
-    {
-        step = kPowerLoopMaxStep;
-    }
-    else if (step < -kPowerLoopMaxStep)
-    {
-        step = -kPowerLoopMaxStep;
-    }
-
-    duty = Driver::clampDuty(duty + step, kPowerLoopMinDuty, kPowerLoopMaxDuty);
-    setNormalWaveform();
+    PIDpower.ref = targetPowerW;
+    pid_calculate(&PIDpower, App::samplingService().getTransmitterPower());
+    float phase = PIDpower.output;
+    Driver::setPhase(phase);
 }
 
 void WirelessChargeApp::tryEnterLowPower()
@@ -229,7 +202,7 @@ void WirelessChargeApp::tryEnterLowPower()
     HAL_ResumeTick();
 }
 
-void WirelessChargeApp::onTimPeriodElapsed(TIM_HandleTypeDef* htim)
+void WirelessChargeApp::onTimPeriodElapsed(TIM_HandleTypeDef *htim)
 {
     if (htim == &htim6)
     {
@@ -242,7 +215,7 @@ void WirelessChargeApp::onTimPeriodElapsed(TIM_HandleTypeDef* htim)
     }
 }
 
-void WirelessChargeApp::onLptimCompareMatch(LPTIM_HandleTypeDef* hlptim)
+void WirelessChargeApp::onLptimCompareMatch(LPTIM_HandleTypeDef *hlptim)
 {
     if (hlptim != &hlptim1)
     {
@@ -272,13 +245,16 @@ void WirelessChargeApp::onGpioExti(uint16_t)
 
     if (HAL_GPIO_ReadPin(FCHAN_GPIO_Port, FCHAN_Pin) == GPIO_PIN_SET)
     {
-        flag = 0U;
-        App::ReceiverAsk::reset();
+        // flag = 0U;
+        // App::ReceiverAsk::reset();
+        test+=0.1;
     }
     else if (HAL_GPIO_ReadPin(F100HZ_GPIO_Port, F100HZ_Pin) == GPIO_PIN_SET)
     {
-        flag = 1U;
-        App::ReceiverAsk::setDivider(10U);
+        test -= 0.1;
+        test= test<0?0:test;
+        // flag = 1U;
+        // App::ReceiverAsk::setDivider(10U);
     }
     else if (HAL_GPIO_ReadPin(F1KHZ_GPIO_Port, F1KHZ_Pin) == GPIO_PIN_SET)
     {
@@ -287,7 +263,7 @@ void WirelessChargeApp::onGpioExti(uint16_t)
     }
 }
 
-void WirelessChargeApp::onAdcConvCplt(ADC_HandleTypeDef* hadc)
+void WirelessChargeApp::onAdcConvCplt(ADC_HandleTypeDef *hadc)
 {
     App::samplingService().handleAdcConvCpltCallback(hadc);
 }
@@ -457,17 +433,17 @@ extern "C" void debug_trace_log(uint8_t type, uint8_t value)
     __set_PRIMASK(primask);
 }
 
-extern "C" void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+extern "C" void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     app().onAdcConvCplt(hadc);
 }
 
-extern "C" void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
+extern "C" void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     app().onTimPeriodElapsed(htim);
 }
 
-extern "C" void HAL_LPTIM_CompareMatchCallback(LPTIM_HandleTypeDef* hlptim)
+extern "C" void HAL_LPTIM_CompareMatchCallback(LPTIM_HandleTypeDef *hlptim)
 {
     app().onLptimCompareMatch(hlptim);
 }
@@ -477,16 +453,14 @@ extern "C" void HAL_GPIO_EXTI_Callback(uint16_t gpioPin)
     app().onGpioExti(gpioPin);
 }
 
-extern "C" void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart)
+extern "C" void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart == &huart2)
-    {
-    }
+    {}
 }
 
-extern "C" void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef* huart, uint16_t)
+extern "C" void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t)
 {
     if (huart == &huart2)
-    {
-    }
+    {}
 }

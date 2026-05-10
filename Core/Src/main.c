@@ -99,7 +99,6 @@ int main(void)
   MX_HRTIM1_Init();
   MX_TIM6_Init();
   MX_ADC3_Init();
-  MX_ADC4_Init();
   MX_TIM5_Init();
   MX_LPTIM1_Init();
   MX_TIM8_Init();

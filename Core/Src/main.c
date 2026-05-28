@@ -95,10 +95,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_ADC2_Init();
   MX_HRTIM1_Init();
   MX_TIM6_Init();
-  MX_ADC3_Init();
   MX_ADC4_Init();
   MX_TIM5_Init();
   MX_LPTIM1_Init();
@@ -121,7 +119,7 @@ int main(void)
   HAL_Delay(500); // Delay after flashing before starting the application.
   // HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
   // HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
-
+  
   task_init();
   // Application startup is now complete.
 

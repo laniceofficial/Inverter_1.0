@@ -5,7 +5,7 @@
 **********************************************************************
 
 File          : 
-Created       : 01. May 2026 16:25
+Created       : 10. May 2026 00:02
 Ozone Version : V3.40e
 */
 
@@ -23,16 +23,17 @@ void OnProjectLoad (void) {
   // Dialog-generated settings
   //
   Project.SetDevice ("STM32G474RB");
-  Project.SetHostIF ("USB", "69409622");
+  Project.SetHostIF ("USB", "69409253");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("8 MHz");
-  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
-  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge", "$(ProjectDir)");
+  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge_receiver", "$(ProjectDir)");
+  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge_receiver", "$(ProjectDir)");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M4F.svd");
   Project.AddSvdFile ("C:/Program Files/SEGGER/svd_file/STM32G474.svd");
   //
   // User settings
   //
+  Edit.SysVar (VAR_HSS_SPEED, FREQ_500_HZ);
   File.Open ("$(ProjectDir)/build/Inverter_1.0.elf");
 }
 
@@ -359,4 +360,12 @@ void _SetupTarget(void) {
   } else {
     Util.Error("Project script error: failed to set up entry point PC", 1);
   }
+
+  //
+  // 初始化 DWT 周期计数器，确保固件侧 DelayedTrigger 使用的时基在
+  // 调试 halt/resume 或软复位后仍然有效，不依赖 SysTick 中断。
+  //
+  Target.WriteU32(0xE000EDFC, Target.ReadU32(0xE000EDFC) | 0x01000000); // CoreDebug->DEMCR |= TRCENA
+  Target.WriteU32(0xE0001000, 0x00000001);                               // DWT->CTRL |= CYCCNTENA
+  Target.WriteU32(0xE0001004, 0x00000000);                               // DWT->CYCCNT = 0
 }

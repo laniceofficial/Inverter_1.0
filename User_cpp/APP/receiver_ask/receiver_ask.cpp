@@ -14,8 +14,8 @@ namespace
 
 constexpr float kMaxPackedPowerW = 150.0f; // 功率打包满量程，超过后按满量程发送
 // constexpr uint8_t kAskTxBitCount = 10U;    // 1 bit 需求 + 8 bit 功率 + 1 bit 校验
-GPIO_TypeDef* const kAskTxPort = GPIOC;    // 当前 PCB 上接收端 ASK 调制 GPIO 端口
-constexpr uint16_t kAskTxPins = GPIO_PIN_2 | GPIO_PIN_3; // 两个调制脚保持同相输出
+GPIO_TypeDef* const kAskTxPort = GPIOB;    // 当前 PCB 上接收端 ASK 调制 GPIO 端口
+constexpr uint16_t kAskTxPins = GPIO_PIN_4 | GPIO_PIN_3; // 两个调制脚保持同相输出
 
 uint16_t dividerTick = 0U; // 发送分频计数，降低 ASK 状态机推进频率
 
@@ -149,6 +149,18 @@ void loop()
         return;
     }
     dividerTick = 0U;
+    // if ((data.loopIndex & 0x01U))
+    // {
+    //         toggleAskLevel();
+    // }
+    // else
+    // {
+    //     toggleAskLevel();
+    // }
+    // ++data.loopIndex;
+    // if (data.loopIndex >= 40U)
+    //     {data.loopIndex = 0U;}
+    // return;
 
     switch (data.loopIndex)
     {

@@ -7,8 +7,6 @@
 extern "C" {
 #endif
 
-#define PI 3.14159f
-#define user_abs(x) ((x) > (0) ? (x) : (-(x)))
 #define DEBUG_TRACE_EVENT_COUNT 256U
 #define DEBUG_TRACE_TYPE_ARR 1U
 #define DEBUG_TRACE_TYPE_ASK_EDGE 2U
@@ -25,22 +23,7 @@ typedef struct
     uint8_t value;     // 事件附带值
 } DebugTraceEvent_t;
 
-// 主无线充电状态机。
-typedef enum ChangeState
-{
-    LOW_POWER = 0, // 低功耗等待唤醒
-    PreDetect = 1, // 启动低功耗探测前的过渡态
-    ASKDetect,     // 短窗口检测接收端 ASK
-    PreChange,     // 准备进入正式充电
-    Changing,      // 正式充电/通信运行态
-} ChangeState_e;
-
 void task_init(void);
-void task_loop(void);
-void duty_update(void);
-void task_try_enter_low_power(void);
-ChangeState_e GetNowState(void);
-void SetNowState(ChangeState_e state);
 void debug_trace_init(void);
 void debug_trace_log(uint8_t type, uint8_t value);
 

@@ -1,41 +1,78 @@
 #include "delaytrigger.hpp"
+#include "stm32g4xx.h"
 
 namespace Driver
 {
 
-void DelayedTrigger::init(const uint32_t timeout, const uint32_t increasingSpeed, const uint32_t decreasingSpeed)
+namespace
 {
-    timeout_ = timeout;
-    increasingSpeed_ = (increasingSpeed == 0U) ? 1U : increasingSpeed;
-    decreasingSpeed_ = (decreasingSpeed == 0U) ? 1U : decreasingSpeed;
+
+void ensureDwtEnabled()
+{
+    if ((DWT->CTRL & DWT_CTRL_CYCCNTENA_Msk) != 0U)
+    {
+        return;
+    }
+
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0U;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
+
+uint32_t msToCycles(const uint32_t ms)
+{
+    return static_cast<uint32_t>((static_cast<uint64_t>(ms) * SystemCoreClock) / 1000U);
+}
+
+} // namespace
+
+void DelayedTrigger::init(const uint32_t timeoutMs, const uint32_t releaseMs)
+{
+    ensureDwtEnabled();
+    timeoutCycles_ = msToCycles(timeoutMs);
+    releaseCycles_ = (releaseMs == 0U) ? timeoutCycles_ : msToCycles(releaseMs);
     reset();
 }
 
 bool DelayedTrigger::update(const bool currentStatus)
 {
+    const uint32_t now = DWT->CYCCNT;
+
     if (currentStatus)
     {
-        // 有效输入逐步累加，计数到达 timeout 后才真正置位。
-        if (counter_ < timeout_)
+        // 输入有效：按 DWT 周期累加，到达 timeout 后置位。
+        if (now != lastTick_)
         {
-            const uint32_t nextCounter = counter_ + increasingSpeed_;
-            counter_ = (nextCounter > timeout_) ? timeout_ : nextCounter;
+            accumulator_ += (now - lastTick_);
+            lastTick_ = now;
         }
-        else
+
+        if (accumulator_ >= timeoutCycles_)
         {
+            accumulator_ = timeoutCycles_;
             triggered_ = true;
         }
     }
     else
     {
-        // 无效输入逐步释放，避免采样抖动让故障位立即清零。
-        if (counter_ > decreasingSpeed_)
+        // 输入无效：按 DWT 周期递减，归零后释放。
+        if (now != lastTick_)
         {
-            counter_ -= decreasingSpeed_;
+            const uint32_t elapsed = now - lastTick_;
+            lastTick_ = now;
+
+            if (accumulator_ > elapsed)
+            {
+                accumulator_ -= elapsed;
+            }
+            else
+            {
+                accumulator_ = 0U;
+            }
         }
-        else
+
+        if (accumulator_ < releaseCycles_)
         {
-            counter_ = 0U;
             triggered_ = false;
         }
     }
@@ -45,8 +82,9 @@ bool DelayedTrigger::update(const bool currentStatus)
 
 void DelayedTrigger::reset()
 {
-    counter_ = 0U;
+    accumulator_ = 0U;
     triggered_ = false;
+    lastTick_ = DWT->CYCCNT;
 }
 
 } // namespace Driver

@@ -11,10 +11,8 @@ namespace App
 // 半桥功率状态位，故障位经过 DelayedTrigger 消抖后再更新。
 struct PowerStateBits
 {
-    uint8_t softStart = 0U; // 预留：软启动状态
-    uint8_t charge = 0U;    // 充电 Buck 模式
+    uint16_t errorbit = 0U; // 各故障位拼接，bit0:uvpBat bit1:uvpCap bit2:otpCap bit3:ocp bit4:ovpCap bit5:ovpBat
     uint8_t enable = 0U;    // 功率级允许工作
-    uint8_t discharge = 0U; // 放电 Boost 模式
     uint8_t uvpBat = 0U;    // 电池欠压
     uint8_t uvpCap = 0U;    // 超级电容欠压
     uint8_t otpCap = 0U;    // 超级电容过温
@@ -48,7 +46,7 @@ private:
     PowerStateBits state_ = {};
     float duty_ = 0.2f;     // 当前输出占空比
     float maxDuty_ = 0.85f; // 占空比上限
-    float minDuty_ = 0.05f; // 占空比下限
+    float minDuty_ = 0.1f; // 占空比下限
     float maxStep_ = 0.02f; // 单周期最大占空比变化量
     int16_t powerOn_ = 0;   // 上电延时计数，等于 1 表示已经开输出
     Driver::DelayedTrigger uvpBatTrigger_;

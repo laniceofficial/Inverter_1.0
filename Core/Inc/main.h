@@ -57,12 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ASK_Pin GPIO_PIN_5
-#define ASK_GPIO_Port GPIOC
-#define CHAR_I_Pin GPIO_PIN_0
-#define CHAR_I_GPIO_Port GPIOB
-#define CHAR_V_Pin GPIO_PIN_13
-#define CHAR_V_GPIO_Port GPIOB
 #define OUT_LOWPOWER_Pin GPIO_PIN_15
 #define OUT_LOWPOWER_GPIO_Port GPIOA
 #define OUT_LOWPOWER_EXTI_IRQn EXTI15_10_IRQn

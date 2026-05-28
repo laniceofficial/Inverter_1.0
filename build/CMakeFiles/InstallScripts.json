@@ -1,8 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/ace/stm_cpp/WirelessCharge/build/cmake_install.cmake",
-		"D:/ace/stm_cpp/WirelessCharge/build/cmake/stm32cubemx/cmake_install.cmake"
+		"D:/ace/stm_cpp/WirelessCharge_receiver/build/cmake_install.cmake",
+		"D:/ace/stm_cpp/WirelessCharge_receiver/build/cmake/stm32cubemx/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

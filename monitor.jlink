@@ -1,0 +1,98 @@
+device STM32G474RB
+si SWD
+speed 8000
+connect
+// === 闭环监控脚本 ===
+// halfBridgeController_ 基址: 0x20000364
+// setpiont 地址: 0x2000003c
+//
+// HalfBridgeController 成员偏移:
+//    currentFeed_    +0
+//    voltageCapFeed_ +4
+//    voltageBatFeed_ +8
+//    duty_          +24
+//    powerOn_       +40
+//    pidBuckI_.error[0] +296
+//    pidBuckI_.ref   +320
+//    pidBuckI_.output +328
+sleep 200
+halt
+// ---- 采样点 1 ----
+mem32 0x2000003c 1   // setpiont
+mem32 0x20000364 3   // currentFeed_, voltageCapFeed_, voltageBatFeed_
+mem32 0x2000037c 1   // duty_
+mem32 0x2000038c 1   // powerOn_
+mem32 0x2000048c 3   // pidBuckI_.error[0], error[1], error[2]
+mem32 0x200004a4 2   // pidBuckI_.ref, pidBuckI_.output
+go
+sleep 200
+halt
+// ---- 采样点 2 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 3 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 4 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 5 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 6 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 7 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+sleep 200
+halt
+// ---- 采样点 8 ----
+mem32 0x2000003c 1
+mem32 0x20000364 3
+mem32 0x2000037c 1
+mem32 0x2000038c 1
+mem32 0x2000048c 3
+mem32 0x200004a4 2
+go
+exit

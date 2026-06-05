@@ -31,6 +31,7 @@ public:
 
     bool isValid() const;
     bool isConnected() const;
+    uint8_t getBitBufferPointer() const;
     const BackwardCommunicationData& getBackwardData() const;
 
 private:

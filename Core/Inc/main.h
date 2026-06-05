@@ -57,21 +57,17 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define led_Pin GPIO_PIN_2
+#define led_GPIO_Port GPIOC
 #define ASK_Pin GPIO_PIN_5
 #define ASK_GPIO_Port GPIOC
-#define CHAR_I_Pin GPIO_PIN_0
-#define CHAR_I_GPIO_Port GPIOB
-#define CHAR_V_Pin GPIO_PIN_13
+#define CHAR_V_Pin GPIO_PIN_0
 #define CHAR_V_GPIO_Port GPIOB
-#define OUT_LOWPOWER_Pin GPIO_PIN_15
-#define OUT_LOWPOWER_GPIO_Port GPIOA
-#define OUT_LOWPOWER_EXTI_IRQn EXTI15_10_IRQn
-#define FCHAN_Pin GPIO_PIN_10
-#define FCHAN_GPIO_Port GPIOC
-#define FCHAN_EXTI_IRQn EXTI15_10_IRQn
-#define F100HZ_Pin GPIO_PIN_11
-#define F100HZ_GPIO_Port GPIOC
-#define F100HZ_EXTI_IRQn EXTI15_10_IRQn
+#define CHAR_I_Pin GPIO_PIN_13
+#define CHAR_I_GPIO_Port GPIOB
+#define charge_key_Pin GPIO_PIN_11
+#define charge_key_GPIO_Port GPIOC
+#define charge_key_EXTI_IRQn EXTI15_10_IRQn
 #define F1KHZ_Pin GPIO_PIN_12
 #define F1KHZ_GPIO_Port GPIOC
 #define F1KHZ_EXTI_IRQn EXTI15_10_IRQn

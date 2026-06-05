@@ -1,0 +1,62 @@
+/*********************************************************************
+ * J-Link Commander 数据采集脚本
+ *
+ * 使用方法:
+ *   1. 从 .map 文件找到下列地址:
+ *      - g_buffer    (DebugCapture::g_buffer)
+ *      - g_enable    (DebugCapture::g_enable)
+ *      - g_count     (DebugCapture::g_count)
+ *      - g_capacity  (DebugCapture::g_capacity)
+ *
+ *      在 .map 文件中搜索 "g_buffer" / "g_enable" 等关键字,
+ *      或在 build/Inverter_1.0.map 中:
+ *        cat build/Inverter_1.0.map | grep -E "g_buffer|g_enable|g_count|g_capacity"
+ *
+ *   2. 将下方 <ADDR> 替换为实际地址 (0x2000xxxx 格式)
+ *   3. 运行: JLink.exe -device STM32G474RB -if SWD -speed 8000 -autoconnect 1 capture.jlink
+ *
+ *   也可在 J-Link Commander 中逐条输入:
+ *     JLink> exec capture_start.jlink   (仅启动)
+ *     ...等待一段时间...
+ *     JLink> exec capture_stop.jlink    (停止并保存)
+ *********************************************************************/
+
+//
+// ====== 启动采集 (修改下方地址后使用) ======
+//
+// h                          // halt CPU
+// w4 <ADDR_g_count> 0        // 清零计数
+// w4 <ADDR_g_enable> 1       // 使能采集
+// g                          // continue
+//
+
+//
+// ====== 停止采集并保存 ======
+//
+// h                          // halt CPU
+// w4 <ADDR_g_enable> 0       // 停止采集
+// sleep 100                  // 等待缓冲写完
+// savebin capture_data.bin <ADDR_g_buffer> <SIZE>   // SIZE = g_count * 36
+// g                          // continue
+//
+
+//
+// ====== 完整一键脚本模板 (填好地址后取消注释) ======
+//
+// device STM32G474RB
+// si SWD
+// speed 8000
+// connect
+// h
+// w4 <ADDR_g_count> 0
+// w4 <ADDR_g_enable> 1
+// g
+// sleep 5000
+// h
+// w4 <ADDR_g_enable> 0
+// sleep 100
+// savebin capture_data.bin <ADDR_g_buffer> 0x4800
+// g
+// exit
+//
+// 说明: sleep 5000 = 采集 5 秒; 0x4800 = 512 * 36 = 18432 bytes 缓冲总大小

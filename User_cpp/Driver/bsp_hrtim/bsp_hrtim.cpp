@@ -9,7 +9,7 @@ namespace
 
 constexpr uint32_t kSupportedTimerMask =
     HRTIM_TIMERID_TIMER_B | HRTIM_TIMERID_TIMER_E | HRTIM_TIMERID_TIMER_F;
-constexpr uint16_t kMasterDefaultPeriod = 38857U;
+constexpr uint16_t kMasterDefaultPeriod = 22666U;
 
 struct TimerDescriptor
 {
@@ -22,8 +22,8 @@ struct TimerDescriptor
 
 TimerDescriptor g_timers[] = {
     {HrtimTimer::TimerB, HRTIM_TIMERID_TIMER_B, HRTIM_TIMERINDEX_TIMER_B, HRTIM_OUTPUT_TB1 | HRTIM_OUTPUT_TB2, 27200U},
-    {HrtimTimer::TimerE, HRTIM_TIMERID_TIMER_E, HRTIM_TIMERINDEX_TIMER_E, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2, 38857U},
-    {HrtimTimer::TimerF, HRTIM_TIMERID_TIMER_F, HRTIM_TIMERINDEX_TIMER_F, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2, 38857U},
+    {HrtimTimer::TimerE, HRTIM_TIMERID_TIMER_E, HRTIM_TIMERINDEX_TIMER_E, HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2, 22666U},
+    {HrtimTimer::TimerF, HRTIM_TIMERID_TIMER_F, HRTIM_TIMERINDEX_TIMER_F, HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2, 22666U},
 };
 
 uint32_t g_configuredTimerMask = 0U;
@@ -54,9 +54,9 @@ uint32_t clampCompare(const TimerDescriptor& descriptor, const uint32_t value)
 
 float clampPhaseValue(const float phase)
 {
-    if (phase < 0.0f)
+    if (phase < 0.1f)
     {
-        return 0.0f;
+        return 0.1f;
     }
 
     if (phase > 0.9f)
@@ -199,8 +199,8 @@ bool setCompare(const HrtimTimer timer, const uint32_t compareUnit, const uint32
     __HAL_HRTIM_SETCOMPARE(&hhrtim1, descriptor->timerIndex, compareUnit, clampCompare(*descriptor, value));
     return true;
 }
-// phase：0~0.5 之间从同相到反相(半周期)，1为错位1周期
-bool setPhase( float phase)// E，F相位设置:设置主定时器的compare1,3; 
+// phase=0 → E/F 180°反相（最大功率），phase=1 → E/F 同相（最小功率），单调递减。
+bool setPhase(float phase)
 {
     g_phase = clampPhaseValue(phase);
 
@@ -210,19 +210,19 @@ bool setPhase( float phase)// E，F相位设置:设置主定时器的compare1,3;
         masterPeriod = kMasterDefaultPeriod;
     }
 
-    // ADC3 的 HRTIM_TRG1 来自 Master CMP2，29813 是实测更接近万用表读数的安静采样点。
-    hhrtim1.Instance->sMasterRegs.MCMP2R = 15000U;
-
-    // Timer E/F 的复位源来自 Master CMP1/CMP3，修改这两个比较值即可改变相位。
+    // 沿用已验证的对称公式：MCMP1/3 绕 period/4 对称分布。
+    // 将用户 phase 映射到 old_phase：user=0→old=0.5(最大)，user=1→old=0(最小)
+    const float oldPhase = 0.5f * (g_phase);
     const int32_t center = static_cast<int32_t>(masterPeriod / 4U);
-    const int32_t offset = static_cast<int32_t>(static_cast<float>(masterPeriod) * g_phase * 0.5f);
+    const int32_t offset = static_cast<int32_t>(
+        static_cast<float>(masterPeriod) * oldPhase * 0.5f);
     int32_t cmp1 = center - offset;
     int32_t cmp3 = center + offset;
     const int32_t maxCompare = static_cast<int32_t>(masterPeriod - 1U);
 
-    if (cmp1 < 0)
+    if (cmp1 < 1)
     {
-        cmp1 = 0;
+        cmp1 = 1;  // 避免 MCMP=0 触发边沿问题
     }
     if (cmp3 > maxCompare)
     {
@@ -233,6 +233,7 @@ bool setPhase( float phase)// E，F相位设置:设置主定时器的compare1,3;
     hhrtim1.Instance->sMasterRegs.MCMP3R = static_cast<uint32_t>(cmp3);
     return true;
 }
+
 
 bool setComplementaryDuty(const HrtimTimer timer, const float duty, const uint32_t adcTriggerCompare)
 {

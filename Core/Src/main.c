@@ -24,7 +24,6 @@
 #include "hrtim.h"
 #include "lptim.h"
 #include "tim.h"
-#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -56,6 +55,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -103,8 +103,10 @@ int main(void)
   MX_LPTIM1_Init();
   MX_TIM8_Init();
   MX_TIM7_Init();
-  MX_USART2_UART_Init();
   MX_DAC1_Init();
+
+  /* Initialize interrupts */
+  MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
   HAL_DBGMCU_EnableDBGSleepMode();
   HAL_DBGMCU_EnableDBGStopMode();
@@ -120,7 +122,7 @@ int main(void)
   HAL_Delay(500); // Delay after flashing before starting the application.
   // HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
   // HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
-
+  
   task_init();
   // Application startup is now complete.
 
@@ -181,6 +183,17 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief NVIC Configuration.
+  * @retval None
+  */
+static void MX_NVIC_Init(void)
+{
+  /* TIM6_DAC_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
 }
 
 /* USER CODE BEGIN 4 */

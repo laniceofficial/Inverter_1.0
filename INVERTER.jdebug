@@ -22,12 +22,12 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
-  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge", "$(ProjectDir)");
   Project.SetDevice ("STM32G474RB");
   Project.SetHostIF ("USB", "69409253");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("8 MHz");
+  Project.AddPathSubstitute ("D:/ace/stm_cpp/WirelessCharge", "$(ProjectDir)");
+  Project.AddPathSubstitute ("d:/ace/stm_cpp/wirelesscharge", "$(ProjectDir)");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M4F.svd");
   Project.AddSvdFile ("C:/Program Files/SEGGER/svd_file/STM32G474.svd");
   //

@@ -129,6 +129,74 @@ void RecursiveAverageFilter::reset(const float initValue)
     }
 }
 
+void SlidingWindowU16::init(const uint8_t windowSize)
+{
+    uint8_t size = windowSize;
+    if (size == 0U)
+    {
+        size = 1U;
+    }
+    else if (size > kSlidingWindowU16Max)
+    {
+        size = kSlidingWindowU16Max;
+    }
+
+    windowSize_ = size;
+    reset();
+}
+
+float SlidingWindowU16::update(const uint16_t input)
+{
+    if (windowSize_ == 0U)
+    {
+        return static_cast<float>(input);
+    }
+
+    // 递推求和：减旧值、存新值、加新值
+    sum_ -= buffer_[index_];
+    buffer_[index_] = input;
+    sum_ += input;
+
+    ++index_;
+    if (index_ >= windowSize_)
+    {
+        index_ = 0U;
+    }
+
+    if (count_ < windowSize_)
+    {
+        ++count_;
+    }
+
+    return static_cast<float>(sum_) / static_cast<float>(count_);
+}
+
+void SlidingWindowU16::reset()
+{
+    sum_ = 0U;
+    index_ = 0U;
+    count_ = 0U;
+    for (uint8_t i = 0U; i < kSlidingWindowU16Max; ++i)
+    {
+        buffer_[i] = 0U;
+    }
+}
+
+float SlidingWindowU16::getAverage() const
+{
+    if (count_ == 0U)
+    {
+        return 0.0f;
+    }
+
+    return static_cast<float>(sum_) / static_cast<float>(count_);
+}
+
+uint8_t SlidingWindowU16::getCount() const
+{
+    return count_;
+}
+
 float RmsAccumulator::update(const float value)
 {
     // 保留旧实现的窗口节奏，便于后续交流量采样扩展。

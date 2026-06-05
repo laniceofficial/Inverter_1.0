@@ -6,6 +6,7 @@ namespace Driver
 {
 
 constexpr uint16_t kRecursiveAverageWindowMax = 50U;
+constexpr uint8_t kSlidingWindowU16Max = 128U;
 
 // 一阶低通滤波器，适合平滑电压/电流等慢变量。
 class FirstOrderLpf
@@ -50,6 +51,25 @@ private:
     uint16_t index_ = 0U;
     uint16_t count_ = 0U;
     uint16_t window_ = 0U;
+};
+
+// uint16_t 滑动窗口平均滤波器，适用于 ADC 原始码值的降噪。
+// 窗口大小在 init 时指定（≤128），内部维护环形缓冲 + 递推求和。
+class SlidingWindowU16
+{
+public:
+    void init(uint8_t windowSize);
+    float update(uint16_t input);
+    void reset();
+    float getAverage() const;
+    uint8_t getCount() const;
+
+private:
+    uint16_t buffer_[kSlidingWindowU16Max] = {};
+    uint32_t sum_ = 0U;
+    uint8_t index_ = 0U;
+    uint8_t count_ = 0U;
+    uint8_t windowSize_ = 0U;
 };
 
 // 固定窗口 RMS 累加器，目前保留旧逻辑的 1000 点节奏。

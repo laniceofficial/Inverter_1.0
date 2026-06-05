@@ -80,8 +80,8 @@ USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/ask)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/delaytrigger)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/user_math)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/jlink_rtt)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/halfbridge_controller)
-USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/receiver_ask)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/Driver/DWT)
+USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/debug_capture)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/sampling)
 USER_ADD_DIR(${CMAKE_SOURCE_DIR}/User_cpp/APP/wireless_charge)
 
@@ -114,5 +114,5 @@ set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -Wl,--no-warn-rwx-segments")
 #再输入  ninja -C build
 #即可编译
 #######软浮点输出
-#set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -mfloat-abi=soft")
-# set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,-u,_printf_float")
+# set(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} -mfloat-abi=soft")
+set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -Wl,-u,_printf_float")

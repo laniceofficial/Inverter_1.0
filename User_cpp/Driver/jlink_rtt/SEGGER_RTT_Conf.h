@@ -42,7 +42,7 @@
 *                                                                    *
 **********************************************************************
 *                                                                    *
-*       RTT version: 8.56a                                           *
+*       RTT version: 8.60                                           *
 *                                                                    *
 **********************************************************************
 
@@ -121,17 +121,6 @@ Revision: $Rev: 24316 $
 */
 #ifndef   SEGGER_RTT_MEMCPY_USE_BYTELOOP
   #define SEGGER_RTT_MEMCPY_USE_BYTELOOP              0 // 0: Use memcpy/SEGGER_RTT_MEMCPY, 1: Use a simple byte-loop
-#endif
-
-//
-// Use C implementation for maximum compatibility with toolchain/linker setup.
-//
-#ifndef   SEGGER_RTT_USE_ASM
-  #define SEGGER_RTT_USE_ASM                         0
-#endif
-
-#ifndef   RTT_USE_ASM
-  #define RTT_USE_ASM                                0
 #endif
 //
 // Example definition of SEGGER_RTT_MEMCPY to external memcpy with GCC toolchains and Cortex-A targets

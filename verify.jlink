@@ -1,0 +1,13 @@
+device STM32G474RE
+si SWD
+speed 4000
+loadfile build/Inverter_1.0.hex
+r
+g
+sleep 500
+w4 0x20003B24 1
+sleep 1000
+mem32 0x20003B24 1
+mem32 0x20003B28 1
+mem32 0x20004B38 8
+exit

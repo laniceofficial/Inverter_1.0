@@ -38,3 +38,6 @@ Rising Value：上升沿死区时钟数。死区时间=300*735ps = 220.05ns
 ## LPtim
 f_LPTIM ≈ LSI ≈ 32 kHz ，32分频 =1khz
 时间 ≈ 0.001s
+
+## 采样
+先采电压再电流

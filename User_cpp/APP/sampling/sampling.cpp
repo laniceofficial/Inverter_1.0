@@ -3,8 +3,11 @@
 
 extern "C" {
 #include "adc.h"
+#include "hrtim.h"
 #include "task_cpp.h"
 }
+#include "config.hpp"
+#include "debug_capture.hpp"
 float VVV = 0.0f;
 float III = 0.0f;
 // uint32_t tes = 0;
@@ -15,37 +18,22 @@ namespace App
 namespace
 {
 
-constexpr float kVoltageRef = 3.306f;
-constexpr float kAdcMaxValue = 4095.0f;
-
 constexpr uint8_t kAdc2DmaChannelCount = 1U;
 constexpr uint16_t kAdc2SampleRepeat = 4U;
 constexpr uint16_t kAdc2DmaLength = kAdc2DmaChannelCount * kAdc2SampleRepeat;
 
 constexpr uint8_t kAdc3DmaChannelCount = 2U;
-constexpr uint16_t kAdc3SampleRepeat = 2U;
+constexpr uint16_t kAdc3SampleRepeat = 4U;
 constexpr uint16_t kAdc3DmaLength = kAdc3DmaChannelCount * kAdc3SampleRepeat;
 
-// constexpr uint8_t kAdc4DmaChannelCount = 3U;
-// constexpr uint16_t kAdc4SampleRepeat = 4U;
-// constexpr uint16_t kAdc4DmaLength = kAdc4DmaChannelCount * kAdc4SampleRepeat;
 
 constexpr uint8_t kAskChannelIndex = static_cast<uint8_t>(SampleChannel::Ask);
 constexpr uint8_t kTransmitterVoltageIndex = static_cast<uint8_t>(SampleChannel::TransmitterVoltage);
 constexpr uint8_t kTransmitterCurrentIndex = static_cast<uint8_t>(SampleChannel::TransmitterCurrent);
-constexpr uint8_t kHalfBridgeInputVoltageIndex = static_cast<uint8_t>(SampleChannel::HalfBridgeInputVoltage);
-constexpr uint8_t kHalfBridgeCurrentIndex = static_cast<uint8_t>(SampleChannel::HalfBridgeCurrent);
-constexpr uint8_t kHalfBridgeOutputVoltageIndex = static_cast<uint8_t>(SampleChannel::HalfBridgeOutputVoltage);
+// constexpr uint8_t kTransmitterC = static_cast<uint8_t>(SampleChannel::TransmitterCurrentback);
+constexpr float kVoltageSampleFilterAlpha = 0.7f;
+constexpr float kCurrentSampleFilterAlpha = 0.15f; // 30kHz LPF fc≈1.1kHz, 配合 MA 零点消除 1kHz ASK
 
-constexpr float kPowerSampleFilterAlpha = 0.25f;
-constexpr uint16_t kHalfBridgeInputVoltageFilterWindow = 25U;
-
-// 发射端 ADC3 标定公式：工程量 = (raw平均值 - bias) * gain。
-// 当前先等效沿用旧的电压换算系数，后续可用万用表/电流表实测点重新修正 bias 和 gain。
-constexpr float kTransmitterVoltageRawGain = 15.0f / 1667.0f;
-constexpr float kTransmitterVoltageRawBias = 0.0f;
-constexpr float kTransmitterCurrentRawGain = 0.55f / (419.0f - 270.0f);
-constexpr float kTransmitterCurrentRawBias = 240.0f;
 
 } // namespace
 //1I,2V
@@ -60,19 +48,14 @@ void SamplingService::init()
 {
     std::memset(adc2Data_, 0, sizeof(adc2Data_));
     std::memset(adc3Data_, 0, sizeof(adc3Data_));
-    std::memset(adc4Data_, 0, sizeof(adc4Data_));
     std::memset(askAdcData_, 0, sizeof(askAdcData_));
-    resetAdc3RawWindow();
+    voltageRawWindow_.init(kVoltageRawWindowSize);
+    currentRawWindow_.init(kCurrentRawWindowSize);
     transmitterVoltage_ = 0.0f;
     transmitterCurrent_ = 0.0f;
-    halfBridgeInputVoltage_ = 0.0f;
-    halfBridgeCurrent_ = 0.0f;
-    halfBridgeOutputVoltage_ = 0.0f;
-    transmitterVoltageFilter_.init(kPowerSampleFilterAlpha, 0.0f);
-    transmitterCurrentFilter_.init(kPowerSampleFilterAlpha, 0.0f);
-    halfBridgeInputVoltageFilter_.init(kHalfBridgeInputVoltageFilterWindow, 0.0f);
-    halfBridgeCurrentFilter_.init(kPowerSampleFilterAlpha, 0.0f);
-    halfBridgeOutputVoltageFilter_.init(kPowerSampleFilterAlpha, 0.0f);
+
+    transmitterVoltageFilter_.init(kVoltageSampleFilterAlpha , 0.0f);
+    transmitterCurrentFilter_.init(kCurrentSampleFilterAlpha, 0.0f);
     resetAskValid();
 
     static const Driver::AdcChannelConfig adc2Channels[] = {
@@ -81,17 +64,14 @@ void SamplingService::init()
     };
 
     static const Driver::AdcChannelConfig adc3Channels[] = {
-        // ADC3 顺序由 Core/Src/adc.c 决定：Rank1 CH5 为发射端电压，Rank2 CH12 为发射端电流。
-        {kTransmitterCurrentIndex, 0U, 0.73F, 0.2f},
+        // ADC3 顺序由 Core/Src/adc.c 决定：Rank1 CH5 为发射端电LIU，Rank2 CH12 为发射端电压。
+        {kTransmitterCurrentIndex, 0U, 1.0F, 0.0f},
+
         {kTransmitterVoltageIndex, 1U, 1.0f, 0.0f},
+
+
     };
 
-    static const Driver::AdcChannelConfig adc4Channels[] = {
-        // ADC4 顺序由 Core/Src/adc.c 决定：Rank1 CH3、Rank2 CH4、Rank3 CH5。
-        {kHalfBridgeInputVoltageIndex, 0U, 30.814f, -0.0664f},
-        {kHalfBridgeCurrentIndex, 1U, 9.0909f, -1.8094f},
-        {kHalfBridgeOutputVoltageIndex, 2U, 10.919f, -0.0731f},
-    };
 
     Driver::AdcSamplerConfig adc2Config;
     adc2Config.hadc = &hadc2;
@@ -117,30 +97,14 @@ void SamplingService::init()
     adc3Config.adcMaxValue = kAdcMaxValue;
     adc3Sampler_.init(adc3Config);
 
-    // Driver::AdcSamplerConfig adc4Config;
-    // adc4Config.hadc = &hadc4;
-    // adc4Config.dmaBuffer = adc4Data_;
-    // adc4Config.dmaLength = kAdc4DmaLength;
-    // adc4Config.dmaChannelCount = kAdc4DmaChannelCount;
-    // adc4Config.sampleRepeat = kAdc4SampleRepeat;
-    // adc4Config.channels = adc4Channels;
-    // adc4Config.channelCount = static_cast<uint8_t>(sizeof(adc4Channels) / sizeof(adc4Channels[0]));
-    // adc4Config.vref = kVoltageRef;
-    // adc4Config.adcMaxValue = kAdcMaxValue;
-    // adc4Sampler_.init(adc4Config);
-
     while (!adc2Sampler_.calibrate())
     {
     }
     while (!adc3Sampler_.calibrate())
     {
     }
-    // while (!adc4Sampler_.calibrate())
-    // {
-    // }
 
-    askDecoder_.init(askAdcData_, kAdc2SampleRepeat);
-    // halfBridgeController_.init();
+    askDecoder_.init(adc2Data_, kAdc2SampleRepeat);
     start();
 }
 
@@ -148,14 +112,12 @@ void SamplingService::start()
 {
     adc2Sampler_.start();
     adc3Sampler_.start();
-    // adc4Sampler_.start();
 }
 
 void SamplingService::stop()
 {
     adc2Sampler_.stop();
     adc3Sampler_.stop();
-    // adc4Sampler_.stop();
 }
 
 void SamplingService::resetAskValid()
@@ -178,17 +140,6 @@ bool SamplingService::handleAdcConvCpltCallback(ADC_HandleTypeDef* hadc)
         processAdc3(adc3Sampler_);
         return true;
     }
-
-    // if (hadc == &hadc4)
-    // {
-    //     if (!adc4Sampler_.processDmaBuffer())
-    //     {
-    //         return false;
-    //     }
-
-    //     processAdc4(adc4Sampler_);
-    //     return true;
-    // }
 
     return false;
 }
@@ -229,34 +180,18 @@ float SamplingService::getTransmitterCurrentRawAverage() const
     return transmitterCurrentRawAverage_;
 }
 
-float SamplingService::getHalfBridgeInputVoltage() const
-{
-    return halfBridgeInputVoltage_;
-}
 
-float SamplingService::getHalfBridgeCurrent() const
-{
-    return halfBridgeCurrent_;
-}
-
-float SamplingService::getHalfBridgeOutputVoltage() const
-{
-    return halfBridgeOutputVoltage_;
-}
-
-HalfBridgeController& SamplingService::getHalfBridgeController()
-{
-    return halfBridgeController_;
-}
 
 void SamplingService::processAdc2(Driver::AdcSampler& sampler)
 {
-    for (uint16_t sampleIndex = 0U; sampleIndex < kAdc2SampleRepeat; ++sampleIndex)
-    {
-        // 当前 ADC2 只有一个通道，取最后一个通道偏移可兼容后续扩展。
-        const uint16_t rawSample = sampler.getRawSample(sampleIndex, sampler.getDmaChannelCount() - 1U);
-        feedAskBuffer(rawSample, sampler.getSampleRepeat());
-    }
+    askDecoder_.decode();
+    return;
+    // for (uint16_t sampleIndex = 0U; sampleIndex < kAdc2SampleRepeat; ++sampleIndex)
+    // {
+    //     // 当前 ADC2 只有一个通道，取最后一个通道偏移可兼容后续扩展。
+    //     const uint16_t rawSample = sampler.getRawSample(sampleIndex, sampler.getDmaChannelCount() - 1U);
+    //     feedAskBuffer(rawSample, sampler.getSampleRepeat());
+    // }
 }
 
 void SamplingService::processAdc3(Driver::AdcSampler& sampler)
@@ -265,83 +200,41 @@ void SamplingService::processAdc3(Driver::AdcSampler& sampler)
     processAdc2(adc2Sampler_);
     const uint16_t voltageRaw = sampler.getRawAverage(kTransmitterVoltageIndex);
     const uint16_t currentRaw = sampler.getRawAverage(kTransmitterCurrentIndex);
-    updateAdc3RawWindow(voltageRaw, currentRaw);
-
+    VVV = static_cast<float>(voltageRaw);
+    III = static_cast<float>(currentRaw);
+    transmitterCurrentRawAverage_ = currentRawWindow_.update(currentRaw);
+    transmitterVoltageRawAverage_ = voltageRawWindow_.update(voltageRaw);
     // 调试变量直接暴露 ADC raw 平均码值，方便用 J-Link/Ozone 和外部仪表做 bias/gain 标定。
-    // VVV = transmitterVoltageRawAverage_;
-    // III = transmitterCurrentRawAverage_;
 
     const float voltage = applyRawCalibration(
-        transmitterVoltageRawAverage_, kTransmitterVoltageRawBias, kTransmitterVoltageRawGain);
-    // const float current = applyRawCalibration(
-    //     transmitterCurrentRawAverage_, kTransmitterCurrentRawBias, kTransmitterCurrentRawGain);
-    const float current = (float)currentRaw /4095*3.3*0.25+0.2;
+        transmitterVoltageRawAverage_, TransmitterVoltageBias, TransmitterVoltageGain);
+    const float current =
+        applyRawCalibration(transmitterCurrentRawAverage_, TransmitterCurrentBias, TransmitterCurrentGain);
+    ;
     transmitterVoltage_ = transmitterVoltageFilter_.update(voltage);
     transmitterCurrent_ = transmitterCurrentFilter_.update(current);
     transmitterPower = transmitterVoltage_ * transmitterCurrent_;
-    
+
+    // DebugCapture::feed(
+    //     VVV, III, transmitterVoltage_, transmitterCurrent_, transmitterPower,
+    //     askDecoder_.getBitBufferPointer(),
+    //     askDecoder_.isValid() ? 1U : 0U);
 }
 
 void SamplingService::resetAdc3RawWindow()
 {
-    std::memset(adc3RawWindow_, 0, sizeof(adc3RawWindow_));
-    std::memset(adc3RawWindowSum_, 0, sizeof(adc3RawWindowSum_));
-    adc3RawWindowWriteIndex_ = 0U;
-    adc3RawWindowCount_ = 0U;
+    voltageRawWindow_.reset();
+    currentRawWindow_.reset();
     transmitterVoltageRawAverage_ = 0.0f;
     transmitterCurrentRawAverage_ = 0.0f;
 }
 
-void SamplingService::updateAdc3RawWindow(const uint16_t voltageRaw, const uint16_t currentRaw)
-{
-    adc3RawWindowSum_[0] -= adc3RawWindow_[0][adc3RawWindowWriteIndex_];
-    adc3RawWindowSum_[1] -= adc3RawWindow_[1][adc3RawWindowWriteIndex_];
-
-    adc3RawWindow_[0][adc3RawWindowWriteIndex_] = voltageRaw;
-    adc3RawWindow_[1][adc3RawWindowWriteIndex_] = currentRaw;
-
-    adc3RawWindowSum_[0] += voltageRaw;
-    adc3RawWindowSum_[1] += currentRaw;
-
-    if (adc3RawWindowCount_ < kAdc3RawWindowSize)
-    {
-        ++adc3RawWindowCount_;
-    }
-
-    ++adc3RawWindowWriteIndex_;
-    if (adc3RawWindowWriteIndex_ >= kAdc3RawWindowSize)
-    {
-        adc3RawWindowWriteIndex_ = 0U;
-    }
-
-    const float divisor = static_cast<float>(adc3RawWindowCount_);
-    transmitterVoltageRawAverage_ = static_cast<float>(adc3RawWindowSum_[0]) / divisor;
-    transmitterCurrentRawAverage_ = static_cast<float>(adc3RawWindowSum_[1]) / divisor;
-}
 
 float SamplingService::applyRawCalibration(
     const float rawAverage, const float bias, const float gain)
 {
-    return (rawAverage - bias) * gain;
+    return (rawAverage * gain + bias);
 }
-
-// void SamplingService::processAdc4(Driver::AdcSampler& sampler)
-// {
-//     halfBridgeInputVoltage_ =
-//         halfBridgeInputVoltageFilter_.update(sampler.getValue(kHalfBridgeInputVoltageIndex));
-//     halfBridgeCurrent_ = halfBridgeCurrentFilter_.update(sampler.getValue(kHalfBridgeCurrentIndex));
-//     halfBridgeOutputVoltage_ =
-//         halfBridgeOutputVoltageFilter_.update(sampler.getValue(kHalfBridgeOutputVoltageIndex));
-
-//     halfBridgeController_.setFeedback(
-//         halfBridgeCurrent_, halfBridgeOutputVoltage_, halfBridgeInputVoltage_);
-
-//     const ChangeState_e state = GetNowState();
-//     if ((state == PreChange) || (state == Changing))
-//     {
-//         halfBridgeController_.powerLoop();
-//     }
-// }
 
 void SamplingService::feedAskBuffer(const uint16_t rawSample, const uint16_t sampleRepeat)
 {

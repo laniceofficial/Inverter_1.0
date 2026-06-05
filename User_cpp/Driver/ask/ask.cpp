@@ -1,22 +1,24 @@
 #include "ask.hpp"
-
+#include <stdint.h>
+// uint32_t cout = 0;
 namespace Driver
 {
 namespace
 {
+    constexpr float kMaxPackedPowerW = 150.0f; // 功率打包满量程，超过后按满量程发送
+    constexpr uint16_t kMiddleThreshold = 2015U;
+    constexpr uint16_t kTriggerTimeout = 2U;
+    constexpr uint32_t kDisconnectTimeoutMs = 50U;
+    constexpr uint32_t kPowerControllerHighFreq = 30000U;
+    constexpr uint32_t kPowerControllerLowFreq = 1000U;
+    constexpr uint16_t kUpperThresholdOffset = 350U;
+    constexpr uint16_t kLowerThresholdOffset = 350U;
 
-constexpr uint16_t kMiddleThreshold = 2015U;
-constexpr uint16_t kTriggerTimeout = 2U;
-constexpr uint32_t kDisconnectTimeoutMs = 20U;
-constexpr uint32_t kPowerControllerHighFreq = 320000U;
-constexpr uint32_t kPowerControllerLowFreq = 1000U;
-constexpr uint16_t kUpperThresholdOffset = 300U;
-constexpr uint16_t kLowerThresholdOffset = 300U;
-
-// WPC ASK 前导码表现为连续 20 个交替电平，用来锁定后续数据位置。须注意这里和接收端的是反相的
-constexpr uint8_t kStartSequence[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1};
-
-constexpr uint8_t kStartSequenceLength = static_cast<uint8_t>(sizeof(kStartSequence) / sizeof(kStartSequence[0]));
+    // WPC ASK 前导码表现为连续 20 个交替电平，用来锁定后续数据位置。须注意这里和接收端的是反相的
+    // constexpr uint8_t kStartSequence[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+    //  0, 1, 0, 1, 0, 1, 0, 1, 1};//原版
+    constexpr uint8_t kStartSequence[] = {1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0};
+    constexpr uint8_t kStartSequenceLength = static_cast<uint8_t>(sizeof(kStartSequence) / sizeof(kStartSequence[0]));
 
 } // namespace
 
@@ -38,7 +40,7 @@ void AskDecoder::init(uint16_t* buffer, const uint8_t bufferLength)
     HAL_TIM_Base_Start(&htim8);
     __HAL_TIM_SET_COUNTER(&htim8, 0U);
 }
-
+// uint8_t aa=0;
 void AskDecoder::decode()
 {
     if (communicationBuffer_ == nullptr)
@@ -135,6 +137,11 @@ bool AskDecoder::isConnected() const
     return connected_;
 }
 
+uint8_t AskDecoder::getBitBufferPointer() const
+{
+    return bitBufferPointer_;
+}
+
 const BackwardCommunicationData& AskDecoder::getBackwardData() const
 {
     return backwardData_;
@@ -146,7 +153,7 @@ void AskDecoder::handleEdge(const uint8_t lastLevel)
     __HAL_TIM_SET_COUNTER(&htim8, 0U);
     //这里与ask频率挂钩
     // 边沿间隔过短/过长都认为不是合法 ASK 符号，直接重新同步前导码。
-    if ((dt < 250U) || (dt > 1250U)) //2k：125，625，375
+    if ((dt < 200U) || (dt > 1300U)) //2k周期：125，625，375
     {
         bitBufferPointer_ = 0U;
         return;
@@ -171,7 +178,11 @@ void AskDecoder::pushBit(const uint8_t lastLevel)
         }
         else
         {
-
+            // if (lastLevel == 0 && bitBufferPointer_ == 19)
+            // {
+            //     cout++;
+            // }
+            GPIOC->BSRR = static_cast<uint32_t>(GPIO_PIN_2) << 16U;
             bitBufferPointer_ = 0U;
         }
     }
@@ -216,21 +227,22 @@ void AskDecoder::decode20BitsBuffer()
 
     backwardData_.requiredPowerSelection = raw10Bit_[0];
     backwardData_.rawPowerFeedback = rawPowerFeedback;
-    backwardData_.powerFeedback = static_cast<float>(rawPowerFeedback) / 255.0f * 150.0f;
+    backwardData_.powerFeedback = static_cast<float>(rawPowerFeedback) / 255.0f * kMaxPackedPowerW;
     backwardData_.transmitEfficiency = 0.5f * backwardData_.transmitEfficiency;
     valid_ = true;
+    GPIOC->BSRR = GPIO_PIN_2;
 }
 
 void AskDecoder::setDebugPin(const uint8_t level)
 {
-    // PB3 用作示波器调试脚，直接观察软件判定出的 ASK 电平。
+    // PB3 用作示波器调试脚，直接观察软件判定出的 ASK 电平。需改
     if (level != 0U)
     {
-        GPIOB->BSRR = GPIO_PIN_3;
+        GPIOB->BSRR = GPIO_PIN_9;
     }
     else
     {
-        GPIOB->BSRR = static_cast<uint32_t>(GPIO_PIN_3) << 16U;
+        GPIOB->BSRR = static_cast<uint32_t>(GPIO_PIN_9) << 16U;
     }
 }
 

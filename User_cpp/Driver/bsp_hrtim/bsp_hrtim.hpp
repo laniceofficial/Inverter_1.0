@@ -23,7 +23,7 @@ enum class HrtimTimer : uint8_t
 struct HrtimConfig
 {
     uint32_t timerMask = 0U;                // 参与工作的 HRTIM_TIMERID_* 掩码
-    uint16_t period = 38857U;               // E/F 默认无线充电周期
+    uint16_t period = 22666U; // E/F 默认无线充电周期
     float phase = 0.0f;                     // E/F 相对主定时器复位相位
     bool masterRepetitionInterrupt = false; // 是否打开 Master 重复中断
 };

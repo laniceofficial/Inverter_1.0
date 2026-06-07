@@ -10,8 +10,8 @@
 #endif // DEBUG
 
 #ifdef Broad_1
-#define HB_OutputVoltageGain 0.0067f
-#define HB_OutputVoltageBias 0.5215f
+#define HB_OutputVoltageGain 0.0067f // 0.0088
+#define HB_OutputVoltageBias 0.5215f//0.5658
 #define HB_CurrentGain 0.0057f
 #define HB_Currentbias -1.4576f
 #define HB_InputVoltageGain 0.0188f

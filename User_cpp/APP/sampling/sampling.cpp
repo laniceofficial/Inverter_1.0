@@ -8,9 +8,10 @@ extern "C" {
 #include "adc.h"
 #include "task_cpp.h"
 }
-float VVV = 0.0f;
-float III = 0.0f;
-uint32_t tes = 0;
+// float VVV = 0.0f;
+// float III = 0.0f;
+float V_O=0.0f;
+// uint32_t tes = 0;
 #include <cstring>
 
 namespace App
@@ -48,8 +49,6 @@ SamplingService& samplingService()
 
 void SamplingService::init()
 {
-    std::memset(adc2Data_, 0, sizeof(adc2Data_));
-    std::memset(adc3Data_, 0, sizeof(adc3Data_));
     std::memset(adc4Data_, 0, sizeof(adc4Data_));
     std::memset(askAdcData_, 0, sizeof(askAdcData_));
     halfBridgeInputVoltage_ = 0.0f;
@@ -63,13 +62,16 @@ void SamplingService::init()
 
     static const Driver::AdcChannelConfig adc4Channels[] = {
         // ADC4 顺序由 Core/Src/adc.c 决定：Rank1 CH3、Rank2 CH4、Rank3 CH5。
+        // RawToValue 模式：scale/offset 直接 map raw→工程量，跳过电压中间计算。
 
-        {kHalfBridgeInputVoltageIndex, 0U, 30.814f, -0.0664f},
-        {kHalfBridgeOutputVoltageIndex, 1U, 10.919f, -0.0731f},
-        {kHalfBridgeCurrentIndex, 2U, 9.0909f, -1.8094f},
+        {kHalfBridgeInputVoltageIndex, 0U,
+         HB_InputVoltageGain, HB_InputVoltageBias, Driver::AdcCalMode::RawToValue},
+        {kHalfBridgeOutputVoltageIndex, 1U,
+         HB_OutputVoltageGain, HB_OutputVoltageBias, Driver::AdcCalMode::RawToValue},
+        {kHalfBridgeCurrentIndex, 2U,
+         HB_CurrentGain, HB_Currentbias, Driver::AdcCalMode::RawToValue},
 
     };
-
 
     Driver::AdcSamplerConfig adc4Config;
     adc4Config.hadc = &hadc4;
@@ -88,7 +90,6 @@ void SamplingService::init()
     {
     }
 
-    // askDecoder_.init(askAdcData_, kAdc2SampleRepeat);
     halfBridgeController_.init();
 
     // 控制环固定 4 kHz，与 ADC 采样率解耦
@@ -107,8 +108,6 @@ void SamplingService::start()
 
 void SamplingService::stop()
 {
-    // adc2Sampler_.stop();
-    // adc3Sampler_.stop();
     adc4Sampler_.stop();
 }
 
@@ -157,15 +156,16 @@ HalfBridgeController& SamplingService::getHalfBridgeController()
 
 void SamplingService::processAdc4(Driver::AdcSampler& sampler)
 {
-    VVV = sampler.getRawAverage(kHalfBridgeInputVoltageIndex); //*halfbridge_inV_gain + halfbridge_inV_bias;
-    III = sampler.getRawAverage(kHalfBridgeCurrentIndex) ;
-    //     kHalfBridgeOutputCurrentbias;
+    // VVV = sampler.getRawAverage(kHalfBridgeInputVoltageIndex); //*halfbridge_inV_gain + halfbridge_inV_bias;
+    // III = sampler.getRawAverage(kHalfBridgeCurrentIndex) ;
+    // V_O = sampler.getRawAverage(kHalfBridgeOutputVoltageIndex);// * OutputVoltageGain + OutputVoltageBias;
+    // RawToValue 模式
     halfBridgeInputVoltage_ = halfBridgeInputVoltageFilter_.update(
-        sampler.getRawAverage(kHalfBridgeInputVoltageIndex) * HB_InputVoltageGain + HB_InputVoltageBias);
+        sampler.getValue(kHalfBridgeInputVoltageIndex));
     halfBridgeCurrent_ = halfBridgeCurrentFilter_.update(
-        sampler.getRawAverage(kHalfBridgeCurrentIndex) * HB_CurrentGain + HB_Currentbias);
+        sampler.getValue(kHalfBridgeCurrentIndex));
     halfBridgeOutputVoltage_ = halfBridgeOutputVoltageFilter_.update(
-        sampler.getRawAverage(kHalfBridgeOutputVoltageIndex) * HB_OutputVoltageGain + HB_OutputVoltageBias);
+        sampler.getValue(kHalfBridgeOutputVoltageIndex));
 
     halfBridgeController_.setFeedback(
         halfBridgeCurrent_, halfBridgeOutputVoltage_, halfBridgeInputVoltage_);
@@ -176,9 +176,10 @@ void SamplingService::processAdc4(Driver::AdcSampler& sampler)
     if ((now - lastControlLoopTick_) >= controlLoopPeriodCycles_)
     {
         lastControlLoopTick_ = now;
-        tes++; halfBridgeController_.powerLoop();
+        // tes++;
+        halfBridgeController_.powerLoop();
     }
-}
 
+}
 
 } // namespace App

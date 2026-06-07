@@ -21,6 +21,7 @@
 #include "adc.h"
 #include "dac.h"
 #include "dma.h"
+#include "fdcan.h"
 #include "hrtim.h"
 #include "lptim.h"
 #include "tim.h"
@@ -104,6 +105,7 @@ int main(void)
   MX_TIM7_Init();
   MX_USART2_UART_Init();
   MX_DAC1_Init();
+  MX_FDCAN2_Init();
   /* USER CODE BEGIN 2 */
   HAL_DBGMCU_EnableDBGSleepMode();
   HAL_DBGMCU_EnableDBGStopMode();

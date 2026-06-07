@@ -1,6 +1,7 @@
 #include "task_cpp.h"
 
 #include "SEGGER_RTT.h"
+#include "fdcan_comm.h"
 #include "receiver_ask.hpp"
 #include "sampling.hpp"
 extern "C"
@@ -11,6 +12,7 @@ extern "C"
 #include "usart.h"
 }
 #define ReceiverAsk_TIMER &htim6
+
 // --- 调试环形缓冲 ----------------------------------------------------------------
 volatile DebugTraceEvent_t debug_trace_events[DEBUG_TRACE_EVENT_COUNT];
 volatile uint16_t debug_trace_write_index = 0U;
@@ -22,7 +24,8 @@ extern "C" void task_init(void)
     App::samplingService().init();
     App::ReceiverAsk::init();
     SEGGER_RTT_Init();
-    HAL_TIM_Base_Start_IT(ReceiverAsk_TIMER);
+    fdcan_comm_init();
+    HAL_TIM_Base_Start_IT(ReceiverAsk_TIMER); // 4kHz: ASK loop + FDCAN 1kHz send
 }
 
 // --- HAL 回调 ----------------------------------------------------------------
@@ -33,15 +36,22 @@ extern "C" void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 extern "C" void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if (htim == ReceiverAsk_TIMER)//4khz
+    if (htim == ReceiverAsk_TIMER) // 4kHz
     {
+        static uint8_t fdcan_divider = 0;
         App::ReceiverAsk::loop();
+
+        // 4kHz / 4 = 1kHz FDCAN 发送
+        if (++fdcan_divider >= 4)
+        {
+            fdcan_divider = 0;
+            fdcan_comm_send_status();
+        }
     }
-        // if (htim->Instance == TIM2)
-        // {
-        //     App::ReceiverAsk::loop();
-        //     HAL_IncTick();
-        // }
+    // if (htim->Instance == TIM2)
+    // {
+    //     HAL_IncTick();
+    // }
 }
 
 extern "C" void HAL_GPIO_EXTI_Callback(uint16_t gpioPin)

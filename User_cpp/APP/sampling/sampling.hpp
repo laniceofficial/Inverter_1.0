@@ -41,8 +41,6 @@ private:
     static constexpr uint8_t kAdc3RawWindowSize = 36U;
 
     void processAdc4(Driver::AdcSampler& sampler);
-    uint16_t adc2Data_[4] = {};
-    uint16_t adc3Data_[8] = {};
     uint16_t adc4Data_[12] = {};
     uint16_t askAdcData_[4] = {};
     Driver::AdcSampler adc4Sampler_;

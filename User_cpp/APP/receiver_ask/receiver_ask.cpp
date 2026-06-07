@@ -225,5 +225,5 @@ extern "C" {
 volatile uint16_t gSignalFreq = 2U; //2--1k,1--2k,
 volatile uint16_t freq = 0U;
 volatile uint8_t arr_value = 0U;
-//1k周期，0.5ms变化一次
+//1k周期，0.5ms变化一次,1ms为1bit 
 }

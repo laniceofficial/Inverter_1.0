@@ -107,11 +107,23 @@ bool AdcSampler::processDmaBuffer()
         }
 
         const float rawAverage = static_cast<float>(rawSum) / static_cast<float>(sampleRepeat_);
-        const float voltage = rawAverage * vref_ / adcMaxValue_;
 
         rawAverages_[channel.resultIndex] = static_cast<uint16_t>(rawAverage);
-        voltages_[channel.resultIndex] = voltage;
-        values_[channel.resultIndex] = (voltage * channel.scale) + channel.offset;
+
+        if (channel.calMode == AdcCalMode::RawToValue)
+        {
+            // 一步法：raw → value，跳过电压中间量（减少计算）
+            values_[channel.resultIndex] =
+                (rawAverage * channel.scale) + channel.offset;
+        }
+        else
+        {
+            // 两步法：raw → voltage → value（默认，保留电压可读）
+            const float voltage = rawAverage * vref_ / adcMaxValue_;
+            voltages_[channel.resultIndex] = voltage;
+            values_[channel.resultIndex] =
+                (voltage * channel.scale) + channel.offset;
+        }
         processed = true;
     }
 

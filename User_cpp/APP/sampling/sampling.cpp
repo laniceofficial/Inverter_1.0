@@ -8,8 +8,8 @@ extern "C" {
 }
 #include "config.hpp"
 #include "debug_capture.hpp"
-float VVV = 0.0f;
-float III = 0.0f;
+// float VVV = 0.0f;
+// float III = 0.0f;
 // uint32_t tes = 0;
 #include <cstring>
 
@@ -32,8 +32,14 @@ constexpr uint8_t kTransmitterVoltageIndex = static_cast<uint8_t>(SampleChannel:
 constexpr uint8_t kTransmitterCurrentIndex = static_cast<uint8_t>(SampleChannel::TransmitterCurrent);
 // constexpr uint8_t kTransmitterC = static_cast<uint8_t>(SampleChannel::TransmitterCurrentback);
 constexpr float kVoltageSampleFilterAlpha = 0.7f;
-constexpr float kCurrentSampleFilterAlpha = 0.15f; // 30kHz LPF fc≈1.1kHz, 配合 MA 零点消除 1kHz ASK
+constexpr float kCurrentSampleFilterAlpha = 0.1f; // 30kHz LPF fc≈1.1kHz, 配合 MA 零点消除 1kHz ASK
 
+
+// 供 ASK 解码器回调获取发射功率 — 函数指针注入，避免 ask.cpp 依赖 sampling.hpp
+static float getTransmitterPowerForAsk()
+{
+    return samplingService().getTransmitterPower();
+}
 
 } // namespace
 //1I,2V
@@ -51,6 +57,7 @@ void SamplingService::init()
     std::memset(askAdcData_, 0, sizeof(askAdcData_));
     voltageRawWindow_.init(kVoltageRawWindowSize);
     currentRawWindow_.init(kCurrentRawWindowSize);
+    currentNotchFilter_.init(30000.0f, kNotchFreq, kNotchQ);
     transmitterVoltage_ = 0.0f;
     transmitterCurrent_ = 0.0f;
 
@@ -65,9 +72,9 @@ void SamplingService::init()
 
     static const Driver::AdcChannelConfig adc3Channels[] = {
         // ADC3 顺序由 Core/Src/adc.c 决定：Rank1 CH5 为发射端电LIU，Rank2 CH12 为发射端电压。
-        {kTransmitterCurrentIndex, 0U, 1.0F, 0.0f},
+        {kTransmitterCurrentIndex, 0U, 1.0F, 0.0f, Driver::AdcCalMode::RawToValue},
 
-        {kTransmitterVoltageIndex, 1U, 1.0f, 0.0f},
+        {kTransmitterVoltageIndex, 1U, 1.0f, 0.0f, Driver::AdcCalMode::RawToValue},
 
 
     };
@@ -105,6 +112,7 @@ void SamplingService::init()
     }
 
     askDecoder_.init(adc2Data_, kAdc2SampleRepeat);
+    askDecoder_.setTransmitterPowerGetter(getTransmitterPowerForAsk);
     start();
 }
 
@@ -124,7 +132,6 @@ void SamplingService::resetAskValid()
 {
     std::memset(askAdcData_, 0, sizeof(askAdcData_));
     askWriteIndex_ = 0U;
-    askRawVoltage_ = 0.0f;
     askDecoder_.init(askAdcData_, kAdc2SampleRepeat);
 }
 
@@ -149,13 +156,10 @@ bool SamplingService::isAskValid() const
     return askDecoder_.isValid();
 }
 
-
-
-float SamplingService::getAskRawVoltage() const
+bool SamplingService::isRequirePower() const
 {
-    return askRawVoltage_;
+    return askDecoder_.getBackwardData().requiredPowerSelection;
 }
-
 float SamplingService::getTransmitterVoltage() const
 {
     return transmitterVoltage_;
@@ -200,19 +204,19 @@ void SamplingService::processAdc3(Driver::AdcSampler& sampler)
     processAdc2(adc2Sampler_);
     const uint16_t voltageRaw = sampler.getRawAverage(kTransmitterVoltageIndex);
     const uint16_t currentRaw = sampler.getRawAverage(kTransmitterCurrentIndex);
-    VVV = static_cast<float>(voltageRaw);
-    III = static_cast<float>(currentRaw);
+    // VVV = static_cast<float>(voltageRaw);
+    // III = static_cast<float>(currentRaw);
     transmitterCurrentRawAverage_ = currentRawWindow_.update(currentRaw);
     transmitterVoltageRawAverage_ = voltageRawWindow_.update(voltageRaw);
-    // 调试变量直接暴露 ADC raw 平均码值，方便用 J-Link/Ozone 和外部仪表做 bias/gain 标定。
 
     const float voltage = applyRawCalibration(
         transmitterVoltageRawAverage_, TransmitterVoltageBias, TransmitterVoltageGain);
     const float current =
         applyRawCalibration(transmitterCurrentRawAverage_, TransmitterCurrentBias, TransmitterCurrentGain);
-    ;
+    const float currentNotched = currentNotchFilter_.update(current);
+
     transmitterVoltage_ = transmitterVoltageFilter_.update(voltage);
-    transmitterCurrent_ = transmitterCurrentFilter_.update(current);
+    transmitterCurrent_ = transmitterCurrentFilter_.update(currentNotched);
     transmitterPower = transmitterVoltage_ * transmitterCurrent_;
 
     // DebugCapture::feed(

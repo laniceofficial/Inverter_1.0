@@ -18,13 +18,21 @@ constexpr uint8_t kAdcMaxInstanceCount = 8U;
 class AdcSampler;
 using AdcCallback = void (*)(AdcSampler& sampler);
 
+// ADC 标定模式
+enum class AdcCalMode : uint8_t
+{
+    VoltageToValue = 0U, // 两步法：raw → voltage → value（默认，scale/offset 是电压→工程量的系数）
+    RawToValue = 1U,     // 一步法：raw → value（scale/offset 是 raw→工程量的系数，跳过电压计算）
+};
+
 // 单个工程量通道的映射配置：从 DMA 序列中取样，换算到上层结果数组。
 struct AdcChannelConfig
 {
     uint8_t resultIndex = 0U;   // 上层结果数组下标
     uint8_t sampleOffset = 0U;  // DMA 序列中的通道偏移
-    float scale = 1.0f;         // ADC 电压到工程量的比例系数
-    float offset = 0.0f;        // ADC 电压到工程量的偏置
+    float scale = 1.0f;         // 标定系数（含义取决于 calMode）
+    float offset = 0.0f;        // 标定偏置（含义取决于 calMode）
+    AdcCalMode calMode = AdcCalMode::VoltageToValue; // 标定模式
 };
 
 // ADC + DMA 采样器配置，支持一个 ADC 实例对应多个工程量通道。

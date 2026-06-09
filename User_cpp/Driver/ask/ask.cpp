@@ -11,8 +11,8 @@ namespace
     constexpr uint32_t kDisconnectTimeoutMs = 50U;
     constexpr uint32_t kPowerControllerHighFreq = 30000U;
     constexpr uint32_t kPowerControllerLowFreq = 1000U;
-    constexpr uint16_t kUpperThresholdOffset = 350U;
-    constexpr uint16_t kLowerThresholdOffset = 350U;
+    constexpr uint16_t kUpperThresholdOffset = 300U;
+    constexpr uint16_t kLowerThresholdOffset = 300U;
 
     // WPC ASK 前导码表现为连续 20 个交替电平，用来锁定后续数据位置。须注意这里和接收端的是反相的
     // constexpr uint8_t kStartSequence[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
@@ -59,7 +59,7 @@ void AskDecoder::decode()
         }
         else
         {
-            dynamicMax_ = static_cast<float>(kMiddleThreshold + 200U) * 0.003f + dynamicMax_ * 0.997f;
+            dynamicMax_ = static_cast<float>(kMiddleThreshold + 200U) * 0.005f + dynamicMax_ * 0.995f;
         }
 
         if (sample < dynamicMin_)
@@ -68,7 +68,7 @@ void AskDecoder::decode()
         }
         else
         {
-            dynamicMin_ = static_cast<float>(kMiddleThreshold - 200U) * 0.005f + dynamicMin_ * 0.995f;
+            dynamicMin_ = static_cast<float>(kMiddleThreshold - 200U) * 0.01f + dynamicMin_ * 0.99f;
         }
 
         upperThreshold_ = static_cast<uint16_t>(static_cast<float>(kMiddleThreshold) * 0.3f + dynamicMax_ * 0.7f);
@@ -95,6 +95,7 @@ void AskDecoder::decode()
                 handleEdge(0U);
             }
         }
+        
     }
 
     const uint32_t disconnectLimit = kDisconnectTimeoutMs * kPowerControllerHighFreq / kPowerControllerLowFreq;
@@ -156,6 +157,7 @@ void AskDecoder::handleEdge(const uint8_t lastLevel)
     if ((dt < 200U) || (dt > 1300U)) //2k周期：125，625，375
     {
         bitBufferPointer_ = 0U;
+        GPIOC->BSRR = static_cast<uint32_t>(GPIO_PIN_2) << 16U;
         return;
     }
 
@@ -199,12 +201,31 @@ void AskDecoder::pushBit(const uint8_t lastLevel)
     }
 }
 
+// 偶校验：将 9-bit 值 (bit0=requiredPowerSelection, bit1-8=rawPowerFeedback) 折叠 XOR，
+// 与 raw10Bit_[9] 比较，不匹配则校验失败。
+static bool checkEvenParity(const uint8_t requiredPowerSelection, const uint8_t rawPowerFeedback,
+                            const uint8_t parityBit)
+{
+    uint16_t parity = static_cast<uint16_t>(requiredPowerSelection) |
+                      static_cast<uint16_t>(rawPowerFeedback << 1);
+    parity ^= (parity >> 8);
+    parity ^= (parity >> 4);
+    parity ^= (parity >> 2);
+    parity ^= (parity >> 1);
+    return (parity & 0x01U) == parityBit;
+}
+
+void AskDecoder::setTransmitterPowerGetter(const TransmitterPowerGetter getter)
+{
+    powerGetter_ = getter;
+}
+
 void AskDecoder::decode20BitsBuffer()
 {
     disconnectCounter_ = 0U;
     connected_ = true;
 
-    // Manchester 编码相邻两位必须翻转；不翻转说明本帧受到干扰。
+    // ---- Manchester 校验：相邻两位必须翻转 ----
     for (uint8_t i = 0U; i < 9U; ++i)
     {
         if (data20Bits_[i * 2U + 1U] == data20Bits_[i * 2U + 2U])
@@ -214,10 +235,13 @@ void AskDecoder::decode20BitsBuffer()
         }
     }
 
+    // ---- Manchester → 10 bit 原始数据 ----
     for (uint8_t i = 0U; i < 10U; ++i)
     {
         raw10Bit_[i] = (data20Bits_[i * 2U] == data20Bits_[i * 2U + 1U]) ? 0U : 1U;
     }
+
+    const uint8_t requiredPowerSelection = raw10Bit_[0];
 
     uint8_t rawPowerFeedback = 0U;
     for (uint8_t i = 0U; i < 8U; ++i)
@@ -225,10 +249,39 @@ void AskDecoder::decode20BitsBuffer()
         rawPowerFeedback |= static_cast<uint8_t>(raw10Bit_[i + 1U] << i);
     }
 
-    backwardData_.requiredPowerSelection = raw10Bit_[0];
+    // ---- 奇偶校验 ----
+    if (!checkEvenParity(requiredPowerSelection, rawPowerFeedback, raw10Bit_[9]))
+    {
+        valid_ = false;
+        return;
+    }
+
+    // ---- 功率换算 ----
+    const float powerFeedback = static_cast<float>(rawPowerFeedback) / 255.0f * kMaxPackedPowerW;
+
+    // ---- 效率校验（仅当上层注册了功率获取回调时执行）----
+    float efficiency = 0.0f;
+    if (powerGetter_ != nullptr)
+    {
+        const float pTX = powerGetter_();
+        if (pTX > 0.001f)
+        {
+            efficiency = powerFeedback / pTX;
+            if (efficiency < kMinEfficiency || efficiency > kMaxEfficiency)
+            {
+                // 效率超出合理范围，判定本帧无效
+                valid_ = false;
+                return;
+            }
+        }
+    }
+
+    // ---- 更新回传数据 ----
+    backwardData_.requiredPowerSelection = requiredPowerSelection;
     backwardData_.rawPowerFeedback = rawPowerFeedback;
-    backwardData_.powerFeedback = static_cast<float>(rawPowerFeedback) / 255.0f * kMaxPackedPowerW;
-    backwardData_.transmitEfficiency = 0.5f * backwardData_.transmitEfficiency;
+    backwardData_.powerFeedback = powerFeedback;
+    backwardData_.transmitEfficiency =
+        efficiency * 0.5f + backwardData_.transmitEfficiency * 0.5f;
     valid_ = true;
     GPIOC->BSRR = GPIO_PIN_2;
 }

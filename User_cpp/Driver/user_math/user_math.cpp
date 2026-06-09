@@ -197,6 +197,45 @@ uint8_t SlidingWindowU16::getCount() const
     return count_;
 }
 
+void NotchFilter::init(const float sampleRate, const float notchFreq, const float q)
+{
+    const float omega = 2.0f * 3.1415926f * notchFreq / sampleRate;
+    const float cosOmega = std::cos(omega);
+    const float sinOmega = std::sin(omega);
+    const float alpha = sinOmega / (2.0f * q);
+
+    const float a0Inv = 1.0f / (1.0f + alpha);
+
+    b0_ = 1.0f * a0Inv;
+    b1_ = -2.0f * cosOmega * a0Inv;
+    b2_ = 1.0f * a0Inv;
+    a1_ = -2.0f * cosOmega * a0Inv; // 同 b1_
+    a2_ = (1.0f - alpha) * a0Inv;
+
+    reset();
+}
+
+float NotchFilter::update(const float input)
+{
+    // y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2] - a1*y[n-1] - a2*y[n-2]
+    const float output = b0_ * input + b1_ * x1_ + b2_ * x2_ - a1_ * y1_ - a2_ * y2_;
+
+    x2_ = x1_;
+    x1_ = input;
+    y2_ = y1_;
+    y1_ = output;
+
+    return output;
+}
+
+void NotchFilter::reset()
+{
+    x1_ = 0.0f;
+    x2_ = 0.0f;
+    y1_ = 0.0f;
+    y2_ = 0.0f;
+}
+
 float RmsAccumulator::update(const float value)
 {
     // 保留旧实现的窗口节奏，便于后续交流量采样扩展。

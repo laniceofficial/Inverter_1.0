@@ -72,6 +72,22 @@ private:
     uint8_t windowSize_ = 0U;
 };
 
+// 二阶 IIR 陷波滤波器，精确消除指定频率的干扰。
+// 在 init 中给定采样率、陷波频率和 Q 值，自动计算系数。
+class NotchFilter
+{
+public:
+    void init(float sampleRate, float notchFreq, float q);
+    float update(float input);
+    void reset();
+
+private:
+    float b0_ = 1.0f, b1_ = 0.0f, b2_ = 0.0f;
+    float a1_ = 0.0f, a2_ = 0.0f;
+    float x1_ = 0.0f, x2_ = 0.0f;
+    float y1_ = 0.0f, y2_ = 0.0f;
+};
+
 // 固定窗口 RMS 累加器，目前保留旧逻辑的 1000 点节奏。
 class RmsAccumulator
 {

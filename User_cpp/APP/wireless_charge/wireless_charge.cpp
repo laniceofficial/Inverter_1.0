@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include "task_cpp.h"
 
 #include "SEGGER_RTT.h"
@@ -5,6 +6,7 @@
 #include "pid.hpp"
 
 #include "debug_capture.hpp"
+#include "delaytrigger.hpp"
 #include "sampling.hpp"
 
 extern "C"
@@ -13,45 +15,46 @@ extern "C"
 #include "lptim.h"
 #include "main.h"
 #include "tim.h"
-// #include "usart.h"
-    void SystemClock_Config(void);
+    // #include "usart.h"
+void SystemClock_Config(void);
 }
 // float test_times=0;
-float test = 0.9f;
+// float test = 0.9f;
+float kChangingPowerTargetW = 60.0f;
 float duty = 0.5f;
+
+uint8_t enable = 0;
 namespace
 {
 
-    constexpr uint16_t kLowPowerLptimTicks = 500U;
     constexpr uint16_t kAskProbeWindowTicks = 100U;
-    constexpr float kAskDetectPowerTargetW = 1.0f;
-    constexpr float kChangingPowerTargetW = 40.0f;
-    constexpr float kPowerLoopDeadbandW = 0.3f;
-    constexpr float kPowerLoopGain = 0.0006f;
-    constexpr float kPowerLoopMaxStep = 0.002f;
-    constexpr float kPowerLoopMinDuty = 0.02f;
-    constexpr float kPowerLoopMaxDuty = 0.90f;
+    constexpr float kAskDetectPowerTargetW = 35.0f;
     GPIO_TypeDef *const kChargeButtonPort = GPIOC;
     constexpr uint16_t kChargeButtonPin = GPIO_PIN_12;
     // Master + E/F 组成无线充电全桥波形。
     constexpr uint32_t kWirelessTimerMask = HRTIM_TIMERID_MASTER | HRTIM_TIMERID_TIMER_E | HRTIM_TIMERID_TIMER_F;
     constexpr uint32_t kWirelessOutputMask = HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2 | HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2;
 
+    // 发射端保护阈值（可根据实际硬件调整）
+    constexpr float kTransmitterUvpThreshold = 15.0f;   // 输入欠压保护阈值 [V]
+    constexpr float kTransmitterOvpThreshold = 30.0f;  // 输入过压保护阈值 [V]
+    constexpr float kTransmitterOcpThreshold = 10.0f;  // 输入过流保护阈值 [A]
+
     // 根据当前 MCMP1/MCMP3 和 Timer E 的 CMP1/CMP3 计算出 TE1/TF1 同时导通的中心点，
     // 使 ADC 触发落在 DC 总线电流导通重叠区的正中间，避开开关边沿噪声。
-    void updateAdcTrigger()
-    {
-        const uint32_t period = hhrtim1.Instance->sMasterRegs.MPER;
-        if (period == 0U) { return; }
+    // void updateAdcTrigger()
+    // {
+    //     const uint32_t period = hhrtim1.Instance->sMasterRegs.MPER;
+    //     if (period == 0U) { return; }
 
-        // MCMP1 固定为 0，Timer E 导通窗口始终在 [CMP1E, CMP3E]。
-        // ADC 触发放在 TE1 导通区的正中间，远离开关边沿。
-        const uint32_t cmp1 = hhrtim1.Instance->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_E].CMP1xR;
-        const uint32_t cmp3 = hhrtim1.Instance->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_E].CMP3xR;
+    //     // MCMP1 固定为 0，Timer E 导通窗口始终在 [CMP1E, CMP3E]。
+    //     // ADC 触发放在 TE1 导通区的正中间，远离开关边沿。
+    //     const uint32_t cmp1 = hhrtim1.Instance->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_E].CMP1xR;
+    //     const uint32_t cmp3 = hhrtim1.Instance->sTimerxRegs[HRTIM_TIMERINDEX_TIMER_E].CMP3xR;
 
-        const uint32_t trigger = (cmp1 + cmp3) / 2U;
-        hhrtim1.Instance->sMasterRegs.MCMP2R = trigger;
-    }
+    //     const uint32_t trigger = (cmp1 + cmp3) / 2U;
+    //     hhrtim1.Instance->sMasterRegs.MCMP2R = trigger;
+    // }
 
     // 主任务对象：把低功耗探测、ASK 判定、PWM 波形和 HAL 回调集中管理。
     class WirelessChargeApp
@@ -81,12 +84,21 @@ namespace
         void enableCharging();
         void disablePowerStage();
         void powerClosedLoop(float targetPowerW);
+        void checkProtection(); // 检查故障并在触发时关断功率输出
+
         PID PIDpower;
+        float phase = 0;
         ChangeState_e nowState_ = LOW_POWER;
         uint8_t tim6Running_ = 0U; // TIM6 是否正在驱动调制/任务节拍
         uint8_t lptimRunning_ = 0U; // LPTIM 是否正在低功耗唤醒计时
         uint8_t samplingRunning_ = 0U; // ADC 采样服务是否开启
         uint16_t probeTicks_ = 0U; // ASK 探测窗口剩余 tick
+
+        // 保护用延时触发器（TIM6 1kHz 时基，每 tick = 1ms）
+        Driver::DelayedTrigger uvpTrigger_;
+        Driver::DelayedTrigger ovpTrigger_;
+        Driver::DelayedTrigger ocpTrigger_;
+        uint8_t faultActive_ = 0U; // 故障锁存，用于边沿触发关断/恢复
     };
 
     WirelessChargeApp &app()
@@ -101,14 +113,13 @@ volatile DebugTraceEvent_t debug_trace_events[DEBUG_TRACE_EVENT_COUNT];
 volatile uint16_t debug_trace_write_index = 0U;
 volatile uint32_t debug_trace_seq = 0U;
 volatile uint8_t flag = 1U;
-uint8_t allow_PWD = 1U;
 // uint32_t cnt = 0U;
 uint8_t uart_buf[20] = {};
 
 void WirelessChargeApp::init()
 {
     App::samplingService().init();
-    pid_init(&PIDpower, PID_DELTA, 0.01, 0.1, 0.0f, 0.2f, 1, 0.0f);
+    pid_init(&PIDpower, PID_DELTA, 0.0f, 0.002f, 0.0f, 0.0, 0.5, -0.5f); // KP=0纯I, 消除ASK耦合
 
     SEGGER_RTT_Init();
     DebugCapture::init();
@@ -122,28 +133,37 @@ void WirelessChargeApp::init()
     };
     Driver::configure(hrtimConfig);
 
+    // 初始化保护触发器：25ms 确认 / 5ms 释放，过流用更长确认时间
+    uvpTrigger_.init(25U, 2U);
+    ovpTrigger_.init(25U, 2U);
+    ocpTrigger_.init(50U, 2U);
+
     // HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_buf, 20);
     enableCharging();
     ensureTim6Started();
+    nowState_ = ASKDetect;
 }
 
 void WirelessChargeApp::loop()
 {
+    checkProtection();
+
     // 状态机每次只处理当前状态的一小步，HAL 回调负责推进采样和计时。
     switch (nowState_)
     {
         case LOW_POWER:
-            enterLowPowerMode();
+            // enterLowPowerMode();
             return;
 
         case PreDetect:
             // SEGGER_RTT_TerminalOut(0, "ASK_DETECT\r\n");
-            startLowPowerProbe();
+            // startLowPowerProbe();
             return;
 
         case ASKDetect:
             powerClosedLoop(kAskDetectPowerTargetW);
-            if (App::samplingService().isAskValid() && isChargeButtonPressed())
+            if (App::samplingService().isAskValid() &&
+                App::samplingService().isRequirePower()) //&& isChargeButtonPressed())
             {
                 resumeActiveMode();
                 return;
@@ -156,15 +176,17 @@ void WirelessChargeApp::loop()
 
             if (probeTicks_ == 0U)
             {
-                enterLowPowerMode();
+                // enterLowPowerMode();
             }
             return;
 
         case PreChange:
-            SEGGER_RTT_TerminalOut(0, "START_CHARGE\r\n");
-            if (!App::samplingService().isAskValid() || !isChargeButtonPressed())
+            // SEGGER_RTT_TerminalOut(0, "START_CHARGE\r\n");
+            if (!App::samplingService().isAskValid() ||
+                !App::samplingService().isRequirePower()) //|| !isChargeButtonPressed())
             {
-                enterLowPowerMode();
+                // enterLowPowerMode();
+                nowState_ = ASKDetect;
                 return;
             }
 
@@ -173,9 +195,11 @@ void WirelessChargeApp::loop()
             return;
 
         case Changing:
-            if (!App::samplingService().isAskValid() || !isChargeButtonPressed())
+            if (!App::samplingService().isAskValid() ||
+                !App::samplingService().isRequirePower()) //|| !isChargeButtonPressed())
             {
-                enterLowPowerMode();
+                // enterLowPowerMode();
+                nowState_ = ASKDetect;
                 return;
             }
 
@@ -184,26 +208,26 @@ void WirelessChargeApp::loop()
 
         default:
             // SEGGER_RTT_TerminalOut(0, "ERROR\r\n");
-            enterLowPowerMode();
+            // enterLowPowerMode();
             return;
     }
 }
 
-void WirelessChargeApp::dutyUpdate()
-{
-    // ASK 回传逻辑放在 receiver_ask 中，主任务只负责维持 E/F 功率波形。
-    // App::ReceiverAsk::loop();
-    Driver::setPhase(test);
-
-    setNormalWaveform();
-    // updateAdcTrigger();
-}
 
 void WirelessChargeApp::powerClosedLoop(const float targetPowerW)
 {
     PIDpower.ref = targetPowerW;
     pid_calculate(&PIDpower, App::samplingService().getTransmitterPower());
-    float phase = PIDpower.output;
+    // DELTA PID 输出除以控制频率 → 等效纯 I 积分器，ASK 1kHz 纹波天然积零
+    phase += PIDpower.output / 1000.0f;
+    if (phase < 0.0f)
+    {
+        phase = 0.0f;
+    }
+    if (phase > 0.9f)
+    {
+        phase = 0.9f;
+    }
     Driver::setPhase(phase);
 
     // updateAdcTrigger();
@@ -232,13 +256,23 @@ void WirelessChargeApp::tryEnterLowPower()
     SystemClock_Config();
     HAL_ResumeTick();
 }
-
+void WirelessChargeApp::dutyUpdate()
+{
+    // Driver::setPhase(test);
+    setNormalWaveform();
+    // updateAdcTrigger();
+}
 void WirelessChargeApp::onTimPeriodElapsed(TIM_HandleTypeDef *htim)
 {
     if (htim == &htim6)
     {
-        dutyUpdate();
-        // powerClosedLoop(kChangingPowerTargetW);
+        // dutyUpdate();
+
+        loop();
+        // if (enable)
+        // {
+        //     powerClosedLoop(kChangingPowerTargetW);
+        // }
     }
 
     if (htim->Instance == TIM2)
@@ -376,8 +410,8 @@ void WirelessChargeApp::startLowPowerProbe()
 
 void WirelessChargeApp::resumeActiveMode()
 {
-    enableCharging();
-    ensureTim6Started();
+    // enableCharging();
+    // ensureTim6Started();
     probeTicks_ = 0U;
     nowState_ = PreChange;
 }
@@ -407,14 +441,51 @@ void WirelessChargeApp::enableCharging()
     Driver::enableOutputs(kWirelessOutputMask);
     setNormalWaveform();
     hhrtim1.Instance->sMasterRegs.MCMP2R = 16000;
-
-    // updateAdcTrigger();
 }
 
 void WirelessChargeApp::disablePowerStage()
 {
     Driver::disableOutputs(kWirelessOutputMask);
     Driver::stopTimers(kWirelessTimerMask);
+}
+
+void WirelessChargeApp::checkProtection()
+{
+    const float voltage = App::samplingService().getTransmitterVoltage();
+    const float current = App::samplingService().getTransmitterCurrent();
+
+    // 原始故障判定（阈值比较）
+    const bool uvpRaw = (voltage < kTransmitterUvpThreshold);
+    const bool ovpRaw = (voltage > kTransmitterOvpThreshold);
+    const bool ocpRaw = (current > kTransmitterOcpThreshold);
+
+    // 经延时触发器消抖后确认故障
+    const bool uvpFault = uvpTrigger_.update(uvpRaw);
+    const bool ovpFault = ovpTrigger_.update(ovpRaw);
+    const bool ocpFault = ocpTrigger_.update(ocpRaw);
+    const bool anyFault = (uvpFault || ovpFault || ocpFault);
+
+    if (anyFault && (faultActive_ == 0U))
+    {
+        // 上升沿：故障刚触发，关断输出
+        faultActive_ = 1U;
+        disablePowerStage();
+        pid_reset(&PIDpower);
+        phase = 0.0f;
+    }
+    else if (!anyFault && (faultActive_ != 0U))
+    {
+        // 下降沿：故障已消除，恢复输出
+        faultActive_ = 0U;
+        // if (nowState_ == ASKDetect)
+        // {
+        //     enableLowPowerProbe();
+        // }
+        // else
+        // {
+            enableCharging();
+        // }
+    }
 }
 
 extern "C" void task_init(void)

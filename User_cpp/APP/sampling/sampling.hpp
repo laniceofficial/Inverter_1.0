@@ -53,7 +53,7 @@ private:
 
     uint16_t adc2Data_[4] = {};
     uint16_t adc3Data_[8] = {};
-    uint16_t askAdcData_[4] = {};
+    // uint16_t askAdcData_[4] = {};
     Driver::AdcSampler adc2Sampler_;
     Driver::AdcSampler adc3Sampler_;
     Driver::AskDecoder askDecoder_;

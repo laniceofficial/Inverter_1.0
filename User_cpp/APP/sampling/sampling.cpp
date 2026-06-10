@@ -54,7 +54,6 @@ void SamplingService::init()
 {
     std::memset(adc2Data_, 0, sizeof(adc2Data_));
     std::memset(adc3Data_, 0, sizeof(adc3Data_));
-    std::memset(askAdcData_, 0, sizeof(askAdcData_));
     voltageRawWindow_.init(kVoltageRawWindowSize);
     currentRawWindow_.init(kCurrentRawWindowSize);
     currentNotchFilter_.init(30000.0f, kNotchFreq, kNotchQ);
@@ -130,9 +129,9 @@ void SamplingService::stop()
 
 void SamplingService::resetAskValid()
 {
-    std::memset(askAdcData_, 0, sizeof(askAdcData_));
+    std::memset(adc2Data_, 0, sizeof(adc2Data_));
     askWriteIndex_ = 0U;
-    askDecoder_.init(askAdcData_, kAdc2SampleRepeat);
+    askDecoder_.init(adc2Data_, kAdc2SampleRepeat);
 }
 
 bool SamplingService::handleAdcConvCpltCallback(ADC_HandleTypeDef* hadc)
@@ -247,7 +246,7 @@ void SamplingService::feedAskBuffer(const uint16_t rawSample, const uint16_t sam
         return;
     }
 
-    askAdcData_[askWriteIndex_] = rawSample;
+    adc2Data_[askWriteIndex_] = rawSample;
     ++askWriteIndex_;
 
     if (askWriteIndex_ >= sampleRepeat)

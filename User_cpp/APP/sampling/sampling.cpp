@@ -6,7 +6,6 @@ extern "C" {
 #include "hrtim.h"
 #include "task_cpp.h"
 }
-#include "config.hpp"
 #include "debug_capture.hpp"
 // float VVV = 0.0f;
 // float III = 0.0f;
@@ -189,12 +188,7 @@ void SamplingService::processAdc2(Driver::AdcSampler& sampler)
 {
     askDecoder_.decode();
     return;
-    // for (uint16_t sampleIndex = 0U; sampleIndex < kAdc2SampleRepeat; ++sampleIndex)
-    // {
-    //     // 当前 ADC2 只有一个通道，取最后一个通道偏移可兼容后续扩展。
-    //     const uint16_t rawSample = sampler.getRawSample(sampleIndex, sampler.getDmaChannelCount() - 1U);
-    //     feedAskBuffer(rawSample, sampler.getSampleRepeat());
-    // }
+
 }
 
 void SamplingService::processAdc3(Driver::AdcSampler& sampler)
@@ -237,24 +231,6 @@ float SamplingService::applyRawCalibration(
     const float rawAverage, const float bias, const float gain)
 {
     return (rawAverage * gain + bias);
-}
-
-void SamplingService::feedAskBuffer(const uint16_t rawSample, const uint16_t sampleRepeat)
-{
-    if (sampleRepeat == 0U)
-    {
-        return;
-    }
-
-    adc2Data_[askWriteIndex_] = rawSample;
-    ++askWriteIndex_;
-
-    if (askWriteIndex_ >= sampleRepeat)
-    {
-        // 凑满一个短窗口后立即解码，保证 ASK 边沿计时尽量贴近实时采样。
-        askWriteIndex_ = 0U;
-        askDecoder_.decode();
-    }
 }
 
 } // namespace App

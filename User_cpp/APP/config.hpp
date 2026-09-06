@@ -1,3 +1,5 @@
+// #define USE_LOW_POWER 1
+
 #define TransmitterVoltageGain 0.00887f
 #define TransmitterVoltageBias 0.64416f
 #define TransmitterCurrentGain 0.0015f

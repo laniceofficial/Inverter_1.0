@@ -28,9 +28,12 @@ namespace
 {
 
     constexpr uint16_t kAskProbeWindowTicks = 4000U;
-    constexpr float kAskDetectPowerTargetW = 40.0f;
+    constexpr float kAskDetectPowerTargetW = 10.0f;
     GPIO_TypeDef *const kChargeButtonPort = GPIOC;
     constexpr uint16_t kChargeButtonPin = GPIO_PIN_12;
+
+    GPIO_TypeDef *const rfidButtonPort = GPIOA;
+    constexpr uint16_t rfidButtonPin = GPIO_PIN_3;
     // Master + E/F 组成无线充电全桥波形。
     constexpr uint32_t kWirelessTimerMask = HRTIM_TIMERID_MASTER | HRTIM_TIMERID_TIMER_E | HRTIM_TIMERID_TIMER_F;
     constexpr uint32_t kWirelessOutputMask = HRTIM_OUTPUT_TE1 | HRTIM_OUTPUT_TE2 | HRTIM_OUTPUT_TF1 | HRTIM_OUTPUT_TF2;
@@ -62,7 +65,6 @@ namespace
     public:
         void init();
         void loop();
-        void dutyUpdate();
         void tryEnterLowPower();
         void onTimPeriodElapsed(TIM_HandleTypeDef *htim);
         void onLptimCompareMatch(LPTIM_HandleTypeDef *hlptim);
@@ -73,10 +75,9 @@ namespace
         void setNowState(ChangeState_e state);
 
     private:
-        bool isChargeButtonPressed() const;
         void ensureTim6Started();
         void ensureTim6Stopped();
-        void enterLowPowerMode();
+        void preEnterLowPower();
         void startLowPowerProbe();
         void setNormalWaveform();
         void enableLowPowerProbe();
@@ -139,26 +140,27 @@ void WirelessChargeApp::init()
     ocpTrigger_.init(50U, 2U);
 
     // HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_buf, 20);
-    enterLowPowerMode();
-    tryEnterLowPower(); // init() 时主循环尚未启动，需显式进入 STOP
-    // nowState_ = ASKDetect;
-    // stop_low_power_ = 1;
-    // enableCharging();
-    // ensureTim6Started();
+    // preEnterLowPower();
+    // tryEnterLowPower(); // init() 时主循环尚未启动，需显式进入 STOP
+    nowState_ = LOW_POWER;
+#ifndef USE_LOW_POWER
+    stop_low_power_ = 1;
+#endif // DEBUG
+    ensureTim6Started();
 }
 
 void WirelessChargeApp::loop()
 {
     checkProtection();
-    // if (stop_low_power_)
-    // {
-
-    // }
     // 状态机每次只处理当前状态的一小步，HAL 回调负责推进采样和计时。
     switch (nowState_)
     {
         case LOW_POWER:
-            enterLowPowerMode();
+#ifndef USE_LOW_POWER
+            nowState_ = PreDetect;
+            return;
+#endif // DEBUG
+            preEnterLowPower();
             return;
 
         case PreDetect:
@@ -182,19 +184,15 @@ void WirelessChargeApp::loop()
 
             if (probeTicks_ == 0U && stop_low_power_ == 0)
             {
-                enterLowPowerMode();
+#ifdef USE_LOW_POWER
+                preEnterLowPower();
+                return;
+#endif // DEBUG
             }
             return;
 
         case PreChange:
             // SEGGER_RTT_TerminalOut(0, "START_CHARGE\r\n");
-            if (!App::samplingService().isAskValid() || !App::samplingService().isRequirePower())
-            {
-                // enterLowPowerMode();
-                nowState_ = ASKDetect;
-                return;
-            }
-
             nowState_ = Changing;
             powerClosedLoop(kChangingPowerTargetW);
             return;
@@ -202,17 +200,21 @@ void WirelessChargeApp::loop()
         case Changing:
             if (!App::samplingService().isAskValid() || !App::samplingService().isRequirePower())
             {
-                // enterLowPowerMode();
-                nowState_ = ASKDetect;
+#ifdef USE_LOW_POWER
+                preEnterLowPower();
                 return;
+#endif
+#ifndef USE_LOW_POWER
+                nowState_ = PreDetect;
+                return;
+#endif 
             }
-
             powerClosedLoop(kChangingPowerTargetW);
             return;
 
         default:
             // SEGGER_RTT_TerminalOut(0, "ERROR\r\n");
-            // enterLowPowerMode();
+            // preEnterLowPower();
             return;
     }
 }
@@ -243,13 +245,14 @@ void WirelessChargeApp::tryEnterLowPower()
     {
         return;
     }
-
+    disablePowerStage();
+    ensureTim6Stopped();
     HAL_SuspendTick();
 
     // STOP 唤醒后系统时钟退回到 HSI（16 MHz），若此时立即执行 ISR，
     // 外设（TIM6/ADC）会在错误时钟域下启动。关中断保证 WFI 被 EXTI 唤醒后
     // 先执行 SystemClock_Config() 恢复 PLL 170MHz，再开中断让 ISR 正确运行。
-    // PRIMASK=1 时 WFI 仍能被 pending 中断唤醒，只是不执行 ISR 处理程序。
+    // PRIMASK=1 时 WFI 仍能被 pending EXTI中断唤醒，只是不执行 ISR 处理程序。
     __disable_irq();
     __DSB();
     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
@@ -259,18 +262,16 @@ void WirelessChargeApp::tryEnterLowPower()
     // 若 EXTI 已挂起，ISR 此时在正确时钟下执行
 
     HAL_ResumeTick();
+    enableCharging();
+    ensureTim6Started();
 }
-void WirelessChargeApp::dutyUpdate()
-{
-    // Driver::setPhase(test);
-    setNormalWaveform();
-    // updateAdcTrigger();
-}
+
 void WirelessChargeApp::onTimPeriodElapsed(TIM_HandleTypeDef *htim)
 {
     if (htim == &htim6)
     {
-        // dutyUpdate();
+        // setNormalWaveform();
+        // updateAdcTrigger();
 
         loop();
         // if (enable)
@@ -292,10 +293,11 @@ void WirelessChargeApp::onLptimCompareMatch(LPTIM_HandleTypeDef *hlptim)
     nowState_ = PreDetect;
 }
 
-void WirelessChargeApp::onGpioExti(uint16_t)
+void WirelessChargeApp::onGpioExti(uint16_t gpioPin)
 {
     // 充电按键唤醒后直接准备进入正式充电流程。
-    if (HAL_GPIO_ReadPin(kChargeButtonPort, kChargeButtonPin) == GPIO_PIN_SET) // 强制充电
+    if (HAL_GPIO_ReadPin(kChargeButtonPort, kChargeButtonPin) == GPIO_PIN_SET &&
+        gpioPin == kChargeButtonPin) // 强制充电
     {
         // if (lptimRunning_ != 0U)
         // {
@@ -310,12 +312,10 @@ void WirelessChargeApp::onGpioExti(uint16_t)
         }
         return;
     }
-    else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3) == GPIO_PIN_SET) // RFID
+    else if (HAL_GPIO_ReadPin(rfidButtonPort, rfidButtonPin) == GPIO_PIN_SET && gpioPin == rfidButtonPin) // RFID
     {
         // if (lptimRunning_ != 0U)
         // {
-
-
         //     lptimRunning_ = 0U;
         // }
         if (nowState_ == LOW_POWER)
@@ -342,11 +342,6 @@ void WirelessChargeApp::setNowState(const ChangeState_e state)
     nowState_ = state;
 }
 
-bool WirelessChargeApp::isChargeButtonPressed() const
-{
-    return HAL_GPIO_ReadPin(kChargeButtonPort, kChargeButtonPin) == GPIO_PIN_SET;
-}
-
 void WirelessChargeApp::ensureTim6Started()
 {
     if (tim6Running_ == 0U)
@@ -365,7 +360,7 @@ void WirelessChargeApp::ensureTim6Stopped()
     }
 }
 
-void WirelessChargeApp::enterLowPowerMode()
+void WirelessChargeApp::preEnterLowPower()
 {
     // 进入低功耗前必须先关功率输出和 ADC，避免 STOP 期间外设继续耗电。
     disablePowerStage();
@@ -391,7 +386,7 @@ void WirelessChargeApp::startLowPowerProbe()
     App::samplingService().start();
     samplingRunning_ = 1U;
     enableLowPowerProbe();
-    phase = 0.8;
+    phase = 0.7;
     Driver::setPhase(phase);
     probeTicks_ = kAskProbeWindowTicks;
     nowState_ = ASKDetect;
@@ -473,11 +468,6 @@ extern "C" void task_init(void)
 extern "C" void task_loop(void)
 {
     app().loop();
-}
-
-extern "C" void duty_update(void)
-{
-    app().dutyUpdate();
 }
 
 extern "C" void task_try_enter_low_power(void)

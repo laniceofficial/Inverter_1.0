@@ -47,7 +47,6 @@ private:
     void processAdc2(Driver::AdcSampler& sampler);
     void processAdc3(Driver::AdcSampler& sampler);
 
-    void feedAskBuffer(uint16_t rawSample, uint16_t sampleRepeat);
     void resetAdc3RawWindow();
     static float applyRawCalibration(float rawAverage, float bias, float gain);
 

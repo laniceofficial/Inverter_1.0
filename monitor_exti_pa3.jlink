@@ -1,0 +1,74 @@
+/*********************************************************************
+ * monitor_exti_pa3.jlink
+ *
+ * 用途：连续监控 PA3 (rfidButtonPin) 电平、EXTI3 挂起和 NVIC 状态
+ *       观察在 WFI/STOP 前后，PA3 是否一直在高电平导致误触发
+ *
+ * 使用方法（在 JLinkExe 中）：
+ *   1. 连接目标板并烧录程序
+ *   2. 运行程序后暂停：g → Ctrl+C → h
+ *   3. 执行脚本：r
+ *                monitor_exti_pa3.jlink
+ *
+ * 脚本会每 500ms 读取一次关键寄存器。
+ * 按 Ctrl+C 停止监控。
+ *********************************************************************/
+
+h
+
+print "============================================"
+print "  PA3 / EXTI3 调试监控"
+print "  按 Ctrl+C 停止"
+print "============================================"
+print ""
+
+print ">>> 初始快照 <<<"
+print ""
+
+print "--- GPIOA 寄存器 ---"
+print " MODER @ 0x48000000 (PA3=bit[7:6]: 00=输入 01=输出 10=AF 11=模拟)"
+mem32 0x48000000 1
+print " PUPDR @ 0x4800000C (PA3=bit[7:6]: 00=无 01=上拉 10=下拉)"
+mem32 0x4800000C 1
+print " IDR   @ 0x48000010 (PA3=bit3: 0=低电平 1=高电平) <<< 当前电平"
+mem32 0x48000010 1
+
+print ""
+print "--- EXTI 寄存器 ---"
+print " IMR1  @ 0x40010400 (bit3=EXTI3: 0=屏蔽 1=使能)"
+mem32 0x40010400 1
+print " RTSR1 @ 0x40010408 (上升沿触发, bit3)"
+mem32 0x40010408 1
+print " FTSR1 @ 0x4001040C (下降沿触发, bit3)"
+mem32 0x4001040C 1
+print " PR1   @ 0x40010414 (挂起标志, bit3=1 表示有中断未处理)"
+mem32 0x40010414 1
+
+print ""
+print "--- SYSCFG EXTICR1 ---"
+print " @ 0x40010008 (EXTI3端口 bit[15:12]: 0=PA 1=PB 2=PC)"
+mem32 0x40010008 1
+
+print ""
+print "--- NVIC ---"
+print " ISER0 @ 0xE000E100 (bit9=EXTI3_IRQn 使能)"
+mem32 0xE000E100 1
+print " ISPR0 @ 0xE000E200 (bit9=EXTI3_IRQn NVIC挂起)"
+mem32 0xE000E200 1
+
+print ""
+print "============================================"
+print "  >>> 开始连续监控，每 500ms 刷新 <<<"
+print "============================================"
+print " [计数器]  GPIOA_IDR  EXTI_PR1   NVIC_ISPR0"
+print "-------------------------------------------------"
+
+while (1)
+  sleep 500
+  mem32 0x48000010 1     // IDR: bit3 = PA3 当前电平
+  mem32 0x40010414 1     // PR1: bit3 = EXTI3 挂起
+  mem32 0xE000E200 1     // ISPR0: bit9 = NVIC 挂起
+  print "---"
+end
+
+g

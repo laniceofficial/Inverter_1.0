@@ -130,8 +130,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1) {
-    task_try_enter_low_power();
+  while (1)
+  {
+#ifdef USE_LOW_POWER
+      task_try_enter_low_power();
+#endif 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -1,7 +1,0 @@
-device STM32G474RE
-si SWD
-speed 4000
-loadfile build/Inverter_1.0.hex
-r
-go
-exit

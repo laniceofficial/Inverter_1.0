@@ -2,11 +2,13 @@
 #define USER_CPP_TASK_H
 
 #include <stdint.h>
-
+#include "config.hpp"
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+
+    
 #define PI 3.14159f
 #define user_abs(x) ((x) > (0) ? (x) : (-(x)))
 #define DEBUG_TRACE_EVENT_COUNT 256U

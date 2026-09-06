@@ -15,9 +15,9 @@ namespace
     constexpr uint16_t kLowerThresholdOffset = 300U;
 
     // WPC ASK 前导码表现为连续 20 个交替电平，用来锁定后续数据位置。须注意这里和接收端的是反相的
-    // constexpr uint8_t kStartSequence[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
-    //  0, 1, 0, 1, 0, 1, 0, 1, 1};//原版
-    constexpr uint8_t kStartSequence[] = {1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0};
+    constexpr uint8_t kStartSequence[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+     0, 1, 0, 1, 0, 1, 0, 1, 1};//原版
+    // constexpr uint8_t kStartSequence[] = {1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0};
     constexpr uint8_t kStartSequenceLength = static_cast<uint8_t>(sizeof(kStartSequence) / sizeof(kStartSequence[0]));
 
 } // namespace
@@ -106,6 +106,7 @@ void AskDecoder::decode()
         {
             connected_ = false;
             valid_ = false;
+            GPIOC->BSRR = static_cast<uint32_t>(GPIO_PIN_2) << 16U;
         }
     }
 }

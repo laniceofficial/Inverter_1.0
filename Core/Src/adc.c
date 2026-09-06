@@ -36,6 +36,7 @@ void MX_ADC4_Init(void)
   /* USER CODE END ADC4_Init 0 */
 
   ADC_ChannelConfTypeDef sConfig = {0};
+  ADC_AnalogWDGConfTypeDef AnalogWDGConfig = {0};
 
   /* USER CODE BEGIN ADC4_Init 1 */
 
@@ -94,6 +95,20 @@ void MX_ADC4_Init(void)
   {
     Error_Handler();
   }
+
+  /** Configure the channel to be monitored by WatchDog 2
+  */
+  // AnalogWDGConfig.WatchdogNumber = ADC_ANALOGWATCHDOG_2;
+  // AnalogWDGConfig.WatchdogMode = ADC_ANALOGWATCHDOG_SINGLE_REGINJEC;
+  // AnalogWDGConfig.Channel = ADC_CHANNEL_5;
+  // AnalogWDGConfig.ITMode = ENABLE;
+  // AnalogWDGConfig.HighThreshold = 3026;
+  // AnalogWDGConfig.LowThreshold = 0;
+  // AnalogWDGConfig.FilteringConfig = ADC_AWD_FILTERING_NONE;
+  // if (HAL_ADC_AnalogWDGConfig(&hadc4, &AnalogWDGConfig) != HAL_OK)
+  // {
+  //   Error_Handler();
+  // }
   /* USER CODE BEGIN ADC4_Init 2 */
 
   /* USER CODE END ADC4_Init 2 */
@@ -152,6 +167,9 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
 
     __HAL_LINKDMA(adcHandle,DMA_Handle,hdma_adc4);
 
+    /* ADC4 interrupt Init */
+    HAL_NVIC_SetPriority(ADC4_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(ADC4_IRQn);
   /* USER CODE BEGIN ADC4_MspInit 1 */
 
   /* USER CODE END ADC4_MspInit 1 */
@@ -178,6 +196,9 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
     /* ADC4 DMA DeInit */
     HAL_DMA_DeInit(adcHandle->DMA_Handle);
+
+    /* ADC4 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(ADC4_IRQn);
   /* USER CODE BEGIN ADC4_MspDeInit 1 */
 
   /* USER CODE END ADC4_MspDeInit 1 */

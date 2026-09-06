@@ -24,6 +24,7 @@
 #include "fdcan.h"
 #include "hrtim.h"
 #include "lptim.h"
+#include "stm32g4xx_hal.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -107,23 +108,24 @@ int main(void)
   MX_DAC1_Init();
   MX_FDCAN2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_DBGMCU_EnableDBGSleepMode();
-  HAL_DBGMCU_EnableDBGStopMode();
-  __HAL_DBGMCU_FREEZE_TIM1();
-  __HAL_DBGMCU_FREEZE_TIM2();
-  __HAL_DBGMCU_FREEZE_TIM5();
-  __HAL_DBGMCU_FREEZE_TIM6();
-  __HAL_DBGMCU_FREEZE_TIM7();
-  __HAL_DBGMCU_FREEZE_TIM8();
-  __HAL_DBGMCU_FREEZE_LPTIM1();
-  __HAL_DBGMCU_FREEZE_HRTIM1();
+  // HAL_DBGMCU_EnableDBGSleepMode();
+  // HAL_DBGMCU_EnableDBGStopMode();
+  // __HAL_DBGMCU_FREEZE_TIM1();
+  // __HAL_DBGMCU_FREEZE_TIM2();
+  // __HAL_DBGMCU_FREEZE_TIM5();
+  // __HAL_DBGMCU_FREEZE_TIM6();
+  // __HAL_DBGMCU_FREEZE_TIM7();
+  // __HAL_DBGMCU_FREEZE_TIM8();
+  // __HAL_DBGMCU_FREEZE_LPTIM1();
+  // __HAL_DBGMCU_FREEZE_HRTIM1();
 
   HAL_Delay(500); // Delay after flashing before starting the application.
   // HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, vlo/3.3*4095); // DAC configuration with Vout=1/2*Vpsr
   // HAL_DAC_Start(&hdac1,DAC_CHANNEL_1);  // DAC Start
   
   task_init();
-  // Application startup is now complete.
+  // Application startup is now complete.并且我现在正在让can分析仪每个1s发送ID为0x210，DLC为8，数据为01 00 01 00 00 00
+  // 00 00的数据，但是一直接收不到，帮我找出原因
 
   /* USER CODE END 2 */
 
@@ -132,7 +134,8 @@ int main(void)
   while (1) {
     // task_try_enter_low_power();
     /* USER CODE END WHILE */
-
+    // can_send();
+    // HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

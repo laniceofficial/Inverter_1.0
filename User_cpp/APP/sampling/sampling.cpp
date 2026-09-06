@@ -10,7 +10,7 @@ extern "C" {
 }
 // float VVV = 0.0f;
 // float III = 0.0f;
-float V_O=0.0f;
+// float V_O=0.0f;
 // uint32_t tes = 0;
 #include <cstring>
 
@@ -183,3 +183,16 @@ void SamplingService::processAdc4(Driver::AdcSampler& sampler)
 }
 
 } // namespace App
+
+// ============================================================
+// ADC4 模拟看门狗回调 — CH5 电容过压硬件保护
+// 由 ADC4_IRQHandler → HAL_ADC_IRQHandler 调用
+// ============================================================
+// extern "C" void HAL_ADCEx_LevelOutOfWindow2Callback(ADC_HandleTypeDef *hadc)
+// {
+
+//     if (hadc->Instance == ADC4)
+//     {
+//         App::samplingService().getHalfBridgeController().hardwareOvpStop();
+//     }
+// }

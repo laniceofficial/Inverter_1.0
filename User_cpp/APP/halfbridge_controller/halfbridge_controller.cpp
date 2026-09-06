@@ -1,11 +1,16 @@
 #include "halfbridge_controller.hpp"
 #include <cstdint>
 
+extern "C"
+{
+#include "adc.h"
+}
+#include "config.hpp"
 #include "bsp_hrtim.hpp"
 #include "receiver_ask.hpp"
 #include "stm32g474xx.h"
 #include "stm32g4xx_hal_gpio.h"
-float setpiont = 24.5;
+float setpiont = 25.5;
 namespace App
 {
 #define CONTROL_SEND_HZ(HZ)    \
@@ -26,7 +31,6 @@ namespace App
         constexpr uint32_t kAdc4ScanTicks = 7107U;
         constexpr uint32_t kAdcGuardTicks = 1000U;
         constexpr float kBatUvpThreshold = 12.0f; // UVP 触发阈值
-        constexpr float kBatUvpRecovery = 14.0f; // UVP 恢复阈值（回差防止反复跳变）
         constexpr float kCapOvpThreshold = 23.5f;
         constexpr float kBatOvpThreshold = 80.0f;
         constexpr float kCurrentOcpThreshold = 20.0f;
@@ -43,9 +47,9 @@ namespace App
         maxStep_ = 0.03f;
         // Vbat 恒压 PID：输出为前馈上的修正量 [-0.3, 0.3]，Vbat↓→输出↓→duty↓→减载→Vbat↑
         // Vbat 恒压 PID：输出为前馈上的修正量 [-0.3, 0.3]
-        pid_init(&pidBuckV_, PID_DELTA, 0.01f, 0.0002f, 0.0f, -0.3f, maxDuty_, minDuty_);
+        pid_init(&pidBuckV_, 0.01f, 0.0002f, 0.0f, -0.3f, maxDuty_, minDuty_);
         // 恒流 PID：低压阶段 1.5A 充电，输出占空比 [minDuty_, maxDuty_]
-        pid_init(&pidBuckI_, PID_DELTA, 0.005f, 0.002f, 0.0f, minDuty_, maxDuty_, minDuty_);
+        pid_init(&pidBuckI_, 0.005f, 0.002f, 0.0f, minDuty_, maxDuty_, minDuty_);
         currentOverload_ = 0.0f;
 
         uvpBatTrigger_.init(25U, 2U); // 25ms 确认触发, 2ms 释放
@@ -55,7 +59,23 @@ namespace App
         ovpCapTrigger_.init(25U, 2U);
 
         Driver::startTimers(Driver::getTimerId(Driver::HrtimTimer::TimerB));
-        state_.enable = 1U;
+
+        // // ADC4 看门狗阈值编程 — CH5 电容过压硬件保护
+        // raw = (Vcap_ovp - bias) / gain * (Vref_cal / Vref_actual)
+        // const uint32_t ovpRawThreshold = (kCapOvpThreshold - HB_OutputVoltageBias) / HB_OutputVoltageGain;
+        // ADC_AnalogWDGConfTypeDef awdConfig = {};
+        // awdConfig.WatchdogNumber = ADC_ANALOGWATCHDOG_2;
+        // awdConfig.WatchdogMode = ADC_ANALOGWATCHDOG_SINGLE_REGINJEC;
+        // awdConfig.Channel = ADC_CHANNEL_5;
+        // awdConfig.ITMode = ENABLE;
+        // awdConfig.HighThreshold = ovpRawThreshold;
+        // awdConfig.LowThreshold = 0;
+        // awdConfig.FilteringConfig = ADC_AWD_FILTERING_NONE;
+        // if (HAL_ADC_AnalogWDGConfig(&hadc4, &awdConfig) != HAL_OK)
+        // {
+        //     Error_Handler();
+        // }
+        state_.errorbit = 0U;
     }
 
     uint8_t HalfBridgeController::start()
@@ -77,9 +97,17 @@ namespace App
         pid_reset(&pidBuckV_);
         pid_reset(&pidBuckI_);
         currentOverload_ = 0.0f;
-        powerOn_ = 0;  
+        powerOn_ = 0;
         duty_ = 0.2f;
     }
+
+    // void HalfBridgeController::hardwareOvpStop()
+    // {
+    //     // ADC 看门狗硬件触发：设置 OVP 状态并立即关断
+    //     state_.ovpCap = 1U;
+    //     state_.errorbit |= (1U << 4); // bit4 = ovpCap
+    //     stop();
+    // }
 
     void HalfBridgeController::powerLoop() // 会有震荡可能是pid计算或者参数问题
     {
@@ -87,9 +115,7 @@ namespace App
         if (powerOn_ != 1)
         {
             start();
-            // return;
         }
-
         PowerStateBits &state = judgeState();
         ledStatus();
         if ((state.ocp != 0U) || (state.otpCap != 0U) || (state.ovpBat != 0U) || (state.ovpCap != 0U) ||
@@ -97,9 +123,9 @@ namespace App
         {
             stop();
         }
-        else if (state.enable != 0U)
+        else if (state.errorbit == 0U)
         {
-            if (voltageCapFeed_ >= 15 - 2)
+            if (voltageCapFeed_ >= 18)
             {
                 ReceiverAsk::setPowerRequirement(0);
             }
@@ -164,8 +190,6 @@ namespace App
         state_.ovpCap = updateFaultBit(ovpCapTrigger_, ovpCapRaw);
         state_.errorbit = (state_.uvpBat << 0) | (state_.uvpCap << 1) | (state_.otpCap << 2) | (state_.ocp << 3) |
             (state_.ovpCap << 4) | (state_.ovpBat << 5);
-        state_.enable =
-            static_cast<uint8_t>(!(state_.uvpBat || state_.uvpCap || state_.ocp || state_.ovpBat || state_.ovpCap));
 
         return state_;
     }
@@ -250,8 +274,10 @@ namespace App
             // ==================== 阶段 2: Vbat 恒压 ====================
             // 前馈（目标 Vbat）：不随实际 Vbat 波动
             float duty_ff = (voltageCapFeed_ / setpiont) + 0.01f;
-            if (duty_ff < minDuty_) duty_ff = minDuty_;
-            if (duty_ff > maxDuty_) duty_ff = maxDuty_;
+            if (duty_ff < minDuty_)
+                duty_ff = minDuty_;
+            if (duty_ff > maxDuty_)
+                duty_ff = maxDuty_;
 
             // Vbat PID: ref=Vbat, fdb=target → error=Vbat - target
             // Vbat > target → output↑ → duty↑ → Vbat↓  ✓
@@ -273,7 +299,8 @@ namespace App
             }
             // 反流下界
             const float dutyAntiRev = dutyAdjust();
-            if (targetDuty < dutyAntiRev) targetDuty = dutyAntiRev;
+            if (targetDuty < dutyAntiRev)
+                targetDuty = dutyAntiRev;
 
             // PID 抗饱和
             if (targetDuty != (duty_ff + pidBuckV_.output))
@@ -307,7 +334,7 @@ namespace App
         const uint16_t err = state_.errorbit;
         constexpr uint16_t kUvpMask = (1U << 0) | (1U << 1); // uvpBat | uvpCap
 
-        if (err == 0U && state_.enable != 0U)
+        if (err == 0U)
         {
             // 正常 Buck：常亮
             HAL_GPIO_WritePin(GPIOC, GPIO_PIN_2, GPIO_PIN_SET);

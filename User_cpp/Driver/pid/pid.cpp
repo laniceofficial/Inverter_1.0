@@ -23,30 +23,12 @@ void pid_calculate(PID* pid, const float fdb)
     pid->error[1] = pid->error[0];
     pid->error[0] = pid->ref - pid->fdb;
 
-    if (pid->PID_Mode == PID_POSITION)
-    {
-        const float errorDelta = pid->error[0] - pid->error[1];
-        pid->error_sum += pid->KI * pid->error[0];
 
-        // 位置式 PID 需要对积分项限幅，防止长时间误差造成积分饱和。
-        if (pid->error_sum > pid->error_max)
-        {
-            pid->error_sum = pid->error_max;
-        }
-        else if (pid->error_sum < -pid->error_max)
-        {
-            pid->error_sum = -pid->error_max;
-        }
-
-        pid->output = pid->KP * pid->error[0] + pid->error_sum + pid->KD * errorDelta + pid->feedforward;
-    }
-    else if (pid->PID_Mode == PID_DELTA)
-    {
         // 增量式 PID 在上次 output 基础上累加，适合占空比这类连续调节量。
         pid->output += pid->KP * (pid->error[0] - pid->error[1]) +
                        pid->KD * (pid->error[0] - 2.0f * pid->error[1] + pid->error[2]) +
                        pid->KI * pid->error[0] + pid->feedforward;
-    }
+    
 
     pid->last_ref = pid->ref;
 
@@ -62,7 +44,6 @@ void pid_calculate(PID* pid, const float fdb)
 }
 
 void pid_init(PID* pid,
-              const PID_MODE pidMode,
               const float kp,
               const float ki,
               const float kd,
@@ -70,7 +51,7 @@ void pid_init(PID* pid,
               const float outputMax,
               const float outputMin)
 {
-    pid->PID_Mode = pidMode;
+
     pid->KP = kp;
     pid->KI = ki;
     pid->KD = kd;

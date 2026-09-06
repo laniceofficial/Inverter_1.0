@@ -12,7 +12,6 @@ namespace App
     struct PowerStateBits
     {
         uint16_t errorbit = 0U; // 各故障位拼接，bit0:uvpBat bit1:uvpCap bit2:otpCap bit3:ocp bit4:ovpCap bit5:ovpBat
-        uint8_t enable = 0U; // 功率级允许工作
         uint8_t uvpBat = 0U; // 电池欠压
         uint8_t uvpCap = 0U; // 超级电容欠压
         uint8_t otpCap = 0U; // 超级电容过温
@@ -35,6 +34,7 @@ namespace App
         PowerStateBits &judgeState();
         uint16_t GetErrorbit();
         void ledStatus();
+        void hardwareOvpStop(); // ADC 看门狗硬件过压触发
 
     private:
         uint8_t updateFaultBit(Driver::DelayedTrigger &trigger, uint8_t currentFault);

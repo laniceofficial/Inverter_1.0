@@ -1,0 +1,289 @@
+// =============================================================================
+// FDCAN2 诊断脚本 — JLink Commander / Ozone Console
+// =============================================================================
+// 用法:
+//   JLinkExe -device STM32G474RB -if SWD -speed 4000 -CommanderScript diagnose_fdcan.jlink
+// 或粘贴到 Ozone Debug Console 逐行执行 (去掉 "//" 注释行)
+//
+// 检查项:
+//   1. FDCAN2 内核状态 (CCCR, PSR, ECR)
+//   2. TX FIFO / TXBAR 状态 (有无待发送消息)
+//   3. RX FIFO 状态 (有无接收消息)
+//   4. GPIO 引脚配置 (PB5=RX, PB6=TX)
+//   5. 时钟源与分频
+//   6. 中断使能 (NVIC)
+//   7. HAL 句柄状态
+//   8. 总线关闭恢复
+// =============================================================================
+
+device STM32G474RB
+si SWD
+speed 4000
+connect
+halt
+
+// =============================================================================
+// 1. FDCAN2 内核寄存器 (基址 0x40006800)
+// =============================================================================
+// 1-a. CCCR (偏移 0x18) — 控制器状态
+//   BIT0  INIT  — 0=运行, 1=初始化/总线关闭
+//   BIT1  CCE   — 配置修改使能 (INIT=1 时才能写其他寄存器)
+//   BIT2  ASM   — 受限模式
+//   BIT7  TEST  — 测试模式 (回环等)
+//   BIT8  MON   — 总线监控模式 (只收不发)
+//   BIT12 NISO  — 非 ISO 模式
+WriteLn "=== 1-a. CCCR @ 0x40006818 ==="
+Mem32 0x40006818 1
+// 期望: BIT0=0 (INIT=0, 正常运行)
+//       BIT1=0 (CCE=0, 非配置模式)
+//       BIT7=0 (测试模式关闭)
+//       BIT8=0 (非监控模式)
+//  若 BIT0=1 → 处于初始化或总线关闭状态, 需恢复
+
+// 1-b. PSR (偏移 0x44) — 协议状态
+//   BIT0-2  LEC  — 上次错误码 (0=无错, 1=填充错, 2=格式错, 3=ACK错, 4=隐性位错, 5=显性位错, 6=CRC错, 7=无错误)
+//   BIT3-4  ACT  — 0=错误活跃, 1=错误被动, 2=关闭
+//   BIT4    EP   — 1=错误被动 (TEC≥128)
+//   BIT5    EW   — 1=错误警告 (TEC≥96)
+//   BIT6    BO   — 1=总线关闭! (TEC≥256)
+//   BIT7    DCS  — 1=仲裁丢失
+WriteLn ""
+WriteLn "=== 1-b. PSR @ 0x40006844 ==="
+Mem32 0x40006844 1
+// 重点检查: BIT6(BO) 和 BIT0-2(LEC)
+// 若 BO=1 → 总线关闭, 需恢复
+// 若 LEC 非 0/7 → 有错误发生
+// ACK 错误 (LEC=3) → 总线上没有其他节点应答
+
+// 1-c. ECR (偏移 0x40) — 错误计数器
+//   BIT0-7   TEC — 发送错误计数 (0-255, ≥256 进入 Bus-Off)
+//   BIT8-14  REC — 接收错误计数
+//   BIT15    RP  — 1=接收错误被动
+WriteLn ""
+WriteLn "=== 1-c. ECR @ 0x40006840 ==="
+Mem32 0x40006840 1
+// 若 TEC=0,REC=0 → 从未参与总线通信 (可能 TX 从未发出)
+// 若 TEC≥96 → 接近警告
+// 若 TEC≥128 → 错误被动
+// 若 TEC≥256 → 总线关闭
+// 若 TEC 持续增长 → 总线存在硬件问题 (无终端电阻/极性反/速率不匹配)
+
+// 1-d. TXFQS (偏移 0xA4) — TX FIFO/队列状态
+//   BIT0-5  TFFL — TX FIFO 空闲槽位数 (0-3)
+//   BIT6    TFQF — 1=TX FIFO 满
+//   BIT8-12 TFGI — 获取索引
+//   BIT16-20 TFQPI — 放入索引
+WriteLn ""
+WriteLn "=== 1-d. TXFQS @ 0x400068A4 ==="
+Mem32 0x400068A4 1
+// 若 TFFL=0,TFQF=1 → TX FIFO 满, 有消息堆积未被发出!
+// 若 TFFL=3 → 完全空闲, 无待发送消息
+// 若 TFFL=0 且 BO=1 → 消息堆积因总线关闭无法发出
+
+// 1-e. TXBAR (偏移 0xA0) — TX 发送请求
+//   BIT0-2: 对应 TX Buffer 0-2 的发送请求 (1=有消息等待发送)
+WriteLn ""
+WriteLn "=== 1-e. TXBAR @ 0x400068A0 ==="
+Mem32 0x400068A0 1
+// 正常值: 0x00000000 (无待发送请求)
+// 若某位=1 → 有消息在 TX Buffer 中等待发送, 但未被 FDCAN 取走
+// 配合 TXFQS 判断: 若 TFFL=0 且 TXBAR=0 → FIFO 满但 FDCAN 不工作 (Bus-Off 典型症状)
+
+// 1-e. RXF0S (偏移 0xB0) — RX FIFO 0 状态
+//   BIT0-5  FFL — 填充级别 (0=空)
+//   BIT6    FML — 1=满
+//   BIT7    RF0L — 1=消息丢失
+WriteLn ""
+WriteLn "=== 1-e. RXF0S @ 0x400068B0 ==="
+Mem32 0x400068B0 1
+// 若 FFL>0 → FIFO 中有待处理消息
+// 若 RF0L=1 → 有消息因 FIFO 满而丢失
+
+// 1-f. TXBCR (偏移 0xA8) — TX 取消请求 (若 TXBAR 有挂起消息可取消)
+WriteLn ""
+WriteLn "=== 1-f. TXBCR @ 0x400068A8 ==="
+Mem32 0x400068A8 1
+// 正常: 0x00000000
+
+// 1-g. IR (偏移 0x50) — 中断标志 (读后自动清零)
+//   BIT0  RF0N — RX FIFO 0 新消息
+//   BIT1  RF0W — RX FIFO 0 水位线
+//   BIT2  RF0F — RX FIFO 0 满
+//   BIT3  RF1N — RX FIFO 1 新消息
+//   BIT16 BO   — Bus-Off 中断
+//   BIT17 EW   — 错误警告
+//   BIT18 EP   — 错误被动
+WriteLn ""
+WriteLn "=== 1-f. IR @ 0x40006850 ==="
+Mem32 0x40006850 1
+// 查看是否有 Bus-Off 中断标志
+
+// 1-h. IE (偏移 0x54) — 中断使能
+WriteLn ""
+WriteLn "=== 1-h. IE @ 0x40006854 ==="
+Mem32 0x40006854 1
+// BIT0  RF0NE — 应=1 (RX FIFO 0 新消息中断使能)
+// BIT16 BOE   — 可选
+
+// 1-i. ILE (偏移 0x5C) — 中断线使能
+WriteLn ""
+WriteLn "=== 1-i. ILE @ 0x4000685C ==="
+Mem32 0x4000685C 1
+// BIT0 EINT0 — 应=1
+// BIT1 EINT1 — 应=1
+
+// 1-j. NBTP (偏移 0x1C) — 标称位时序
+//   BIT0-6  NTSEG1 → TSEG1+1 个时间量子
+//   BIT8-12 NBRP  → 预分频器值+1
+//   BIT16-19 NTSEG2 → TSEG2+1
+//   BIT24-25 NSJW  → SJW+1
+WriteLn ""
+WriteLn "=== 1-i. NBTP @ 0x4000681C ==="
+Mem32 0x4000681C 1
+// 解析: PCLK1=170MHz, 预分频=17, TSEG1=5, TSEG2=4
+// tq = 17/170MHz = 100ns, 位时间 = (1+5+4)*100ns = 1000ns → 1Mbps
+// 若 NBTP 值为 0x00040105 → 正确
+//   BRP=16 → 实际预分频=17
+//   TSEG1=4 → 实际 TSEG1+1=5
+//   TSEG2=3 → 实际 TSEG2+1=4
+//   SJW=0 → 实际 SJW+1=1
+
+// 1-k. DBTP (偏移 0x0C) — 数据位时序 (FDFormat=CLASSIC 时无效)
+WriteLn ""
+WriteLn "=== 1-k. DBTP @ 0x4000680C ==="
+Mem32 0x4000680C 1
+
+// =============================================================================
+// 2. HAL 句柄状态 (hfdcan2 在 RAM 中)
+// =============================================================================
+// hfdcan2 是全局变量, 在 fdcan.c 中定义
+// 使用 Ozone 时可直接查看 hfdcan2 变量, JLink 中需通过符号地址读取
+// 此处通过 FDCAN 寄存器推断 HAL 状态
+WriteLn ""
+WriteLn "=== 2. HAL 状态推断 ==="
+// 检查 FDCAN 是否已启动 (从 CCCR 可知)
+// 若 CCCR.INIT=0 且 CCCR.TEST=0 → 正常运行
+// 再检查 FDCAN 消息 RAM 是否可访问 (通过 CREL 寄存器)
+Mem32 0x40006800 1
+// CREL (偏移 0x00): BIT28:20 日, BIT19:16 月, BIT15:8 子版本, BIT7:0 主版本
+// 若读回 0xFFFFFFFF → FDCAN 时钟未使能或地址错误!
+
+// =============================================================================
+// 3. GPIO 引脚配置 (PB5=FDCAN2_RX, PB6=FDCAN2_TX)
+// =============================================================================
+// GPIOB 基址: 0x48000400
+WriteLn ""
+WriteLn "=== 2-a. GPIOB MODER @ 0x48000400 ==="
+Mem32 0x48000400 1
+// 检查 PB5[11:10] = 0b10 (AF) 和 PB6[13:12] = 0b10 (AF)
+// 期望值: 0b1010 << 10 = 0x...A800 或 0x...2800 等
+
+WriteLn ""
+WriteLn "=== 2-b. GPIOB PUPDR @ 0x4800040C ==="
+Mem32 0x4800040C 1
+// 检查 PB5[11:10] 和 PB6[13:12] = 0b00 (无上拉/下拉, 符合 GPIO_NOPULL)
+
+WriteLn ""
+WriteLn "=== 2-c. GPIOB OSPEEDR @ 0x48000408 ==="
+Mem32 0x48000408 1
+// 检查 PB5[11:10] 和 PB6[13:12] = 0b11 (高速, 符合 GPIO_SPEED_FREQ_HIGH)
+
+WriteLn ""
+WriteLn "=== 2-d. GPIOB AFRL (低8位复用功能) @ 0x48000420 ==="
+Mem32 0x48000420 1
+// PB5[23:20] = 0x9 (AF9 = FDCAN2_RX)
+// PB6[27:24] = 0x9 (AF9 = FDCAN2_TX)
+// 期望: 0x99xxxxxx (bits 27:20 = 0x99)
+
+// =============================================================================
+// 4. RCC 时钟配置
+// =============================================================================
+WriteLn ""
+WriteLn "=== 3-a. RCC_APB1ENR1 @ 0x40021058 ==="
+Mem32 0x40021058 1
+// BIT25 FDCANEN — 必须=1 (FDCAN 时钟使能)
+
+WriteLn ""
+WriteLn "=== 3-b. RCC_CCIPR2 @ 0x40021088 ==="
+Mem32 0x40021088 1
+// BIT13:12 FDCANSEL — 00=PCLK1, 01=HSE, 10=PLL_Q
+// 期望: 00 (PCLK1 = 170MHz)
+
+// =============================================================================
+// 5. NVIC 中断配置
+// =============================================================================
+// FDCAN2_IT0 = IRQ 63, FDCAN2_IT1 = IRQ 64
+// ISER1 (0xE000E104) 覆盖 IRQ 32-63, ISER2 (0xE000E108) 覆盖 IRQ 64-95
+WriteLn ""
+WriteLn "=== 4-a. NVIC ISER1 @ 0xE000E104 ==="
+Mem32 0xE000E104 1
+// FDCAN2_IT0 (IRQ63) = BIT31 — 应=1
+
+WriteLn ""
+WriteLn "=== 4-b. NVIC ISER2 @ 0xE000E108 ==="
+Mem32 0xE000E108 1
+// FDCAN2_IT1 (IRQ64) = BIT0 — 应=1
+
+WriteLn ""
+WriteLn "=== 4-c. NVIC IPR15 (IRQ60-63) @ 0xE000E43C ==="
+Mem32 0xE000E43C 1
+// FDCAN2_IT0 (IRQ63) 在 [31:24] — 期望 0x00 (优先级0)
+
+WriteLn ""
+WriteLn "=== 4-d. NVIC IPR16 (IRQ64-67) @ 0xE000E440 ==="
+Mem32 0xE000E440 1
+// FDCAN2_IT1 (IRQ64) 在 [7:0] — 期望 0x00 (优先级0)
+
+// =============================================================================
+// 6. 环回自检 (可选) — 写入 TXBAR 发送测试帧
+// =============================================================================
+// 注意: 以下步骤仅在确认 FDCAN 处于正常模式 (INIT=0, BO=0) 时执行
+// 若要测试, 取消注释下方命令
+//
+// 测试帧: 标准ID=0x211, DLC=8, 数据=01 02 03 04 05 06 07 08
+// 需将帧填入 TX Buffer, 再设置 TXBAR 请求发送
+//
+// 步骤 (仅在 FDCAN 正常运行时取消注释):
+//   w4 0x40006818 0x00000001    // 设置 INIT=1 进入配置模式
+//   sleep 10
+//   w4 0x40006818 0x00000003    // 同时设置 CCE=1 允许配置
+//   sleep 10
+//   // 此处配置 TX Buffer 等...
+//   w4 0x40006818 0x00000000    // 清除 INIT 返回正常模式
+//   sleep 10
+
+// =============================================================================
+// 7. 总结与建议
+// =============================================================================
+WriteLn ""
+WriteLn "=== 6. 诊断总结 ==="
+WriteLn "请检查上方输出, 重点关注:"
+WriteLn "  [FDCAN2 CCCR]  → INIT=0 且 TEST=0 且 MON=0 才是正常模式"
+WriteLn "  [FDCAN2 PSR]   → BO=0 (总线未关闭), LEC=7 (无错误)"
+WriteLn "  [FDCAN2 ECR]   → TEC=0, REC=0 (无错误计数)"
+WriteLn "  [FDCAN2 TXFQS] → TFFL>0 (TX FIFO 有空位)"
+WriteLn "  [GPIOB MODER]  → PB5, PB6 为 AF 模式 (0b10)"
+WriteLn "  [GPIOB AFRL]   → PB5, PB6 为 AF9 (0x9)"
+WriteLn "  [RCC]          → FDCAN 时钟已使能且源=PCLK1"
+WriteLn "  [NVIC]         → FDCAN2_IT0 和 IT1 中断已使能"
+WriteLn ""
+WriteLn "常见问题:"
+WriteLn "  1. 总线关闭 (BO=1): CAN 总线缺少终端电阻, 或 CANH/CANL 接反,"
+WriteLn "     或波特率与总线不匹配。解决: 检查硬件, 或调用 HAL_FDCAN_Stop + Start 恢复"
+WriteLn "  2. TX FIFO 满 (TFFL=0/FQF=1): 消息堆积, 可能因总线关闭或发送超时"
+WriteLn "  3. 波特率不匹配: 检查 NBTP 值是否符合预期 (当前配置 1Mbps)"
+WriteLn "  4. 引脚配置错误: 检查 AFRL 值是否为 0x99xxxxxx"
+WriteLn "  5. 外部收发器: 检查 CAN 收发器供电和 STB 脚 (若为 TJA1050 需 STB=0)"
+WriteLn ""
+WriteLn "=== 恢复方法 ==="
+WriteLn "若检测到 Bus-Off, 可在 Ozone 控制台执行:"
+WriteLn "  hfdcan2.Instance->CCCR |= FDCAN_CCCR_INIT;   // 进入初始化"
+WriteLn "  hfdcan2.Instance->CCCR |= FDCAN_CCCR_CCE;    // 使能配置修改"
+WriteLn "  hfdcan2.Instance->CCCR &= ~FDCAN_CCCR_INIT;  // 退出初始化"
+WriteLn "或调用 HAL 函数: HAL_FDCAN_Stop(&hfdcan2); HAL_FDCAN_Start(&hfdcan2);"
+
+// =============================================================================
+// 恢复运行
+// =============================================================================
+g
+exit

@@ -26,7 +26,7 @@ typedef struct
 void task_init(void);
 void debug_trace_init(void);
 void debug_trace_log(uint8_t type, uint8_t value);
-
+void can_send();
 extern volatile DebugTraceEvent_t debug_trace_events[DEBUG_TRACE_EVENT_COUNT];
 extern volatile uint16_t debug_trace_write_index;
 extern volatile uint32_t debug_trace_seq;

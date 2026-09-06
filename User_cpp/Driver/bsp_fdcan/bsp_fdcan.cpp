@@ -24,15 +24,6 @@
 #include "delaytrigger.hpp"
 #include <map>
 
-// ---- 无线充电接收端: 简单 FDCAN 数据交换 ----
-static float g_fdcan_power_target = 0.0f;  // 从 0x210 收到的功率目标(W)
-static bool  g_fdcan_data_updated = false;  // 有新数据标志
-
-extern "C" {
-float fdcan_get_power_target(void) { return g_fdcan_power_target; }
-bool  fdcan_is_data_updated(void)   { bool v = g_fdcan_data_updated; g_fdcan_data_updated = false; return v; }
-}
-
 static void FDCANServiceInit()
 {
     #ifdef USE_FDCAN1
@@ -358,18 +349,6 @@ struct FDCANKey {
             
             uint32_t received_id = rxconf.Identifier;
 
-            // ---- 无线充电: 处理 0x210 功率指令 ----
-            if (received_id == 0x210)
-            {
-                int16_t power_raw = static_cast<int16_t>((fdcan_rx_data[0] << 8) | fdcan_rx_data[1]);
-                float power = static_cast<float>(power_raw) / 100.0f;
-                if (power < 20.0f)  power = 20.0f;
-                if (power > 200.0f) power = 200.0f;
-                g_fdcan_power_target = power;
-                g_fdcan_data_updated = true;
-                continue; // 已处理, 不走分发器
-            }
-
             // 使用分发器机制
             FDCANKey key{_hfdcan, received_id};
             auto it = fdcan_callbacks_map.find(key);
@@ -436,17 +415,5 @@ struct FDCANKey {
  *
  * @param hcan CAN handle indicate which device the oddest mesg in FIFO_0 comes from
  */
-void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
-{
-    BSP_n::Fdcan_c::FIFOxCallback(hfdcan, FDCAN_RX_FIFO0); // 调用我们自己写的函数来处理消息
-}
-
-/**
- * @brief rx fifo callback. Once FIFO_1 is full,this func would be called
- *
- * @param hcan CAN handle indicate which device the oddest mesg in FIFO_1 comes from
- */
-void HAL_FDCAN_RxFifo1Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
-{
-    BSP_n::Fdcan_c::FIFOxCallback(hfdcan, FDCAN_RX_FIFO1); // 调用我们自己写的函数来处理消息
-}
+// HAL_FDCAN_RxFifo0Callback / HAL_FDCAN_RxFifo1Callback 已移至 fdcan_comm.cpp,
+// 该文件只保留 Fdcan_c 分发器供多实例场景使用(当前无线充电工程未使用)。

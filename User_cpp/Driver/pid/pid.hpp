@@ -2,16 +2,10 @@
 
 #include <cstdint>
 
-enum PID_MODE
-{
-    PID_POSITION,  // 位置式 PID：输出由当前误差、积分、微分直接合成
-    PID_DELTA      // 增量式 PID：每次只在上次输出基础上叠加增量
-};
 
 // 兼容旧 C 版接口的 PID 数据结构，半桥电压环/电流环仍直接读写 ref/output。
 struct PID
 {
-    PID_MODE PID_Mode = PID_POSITION;
     float KP = 0.0f;          // 比例系数
     float KI = 0.0f;          // 积分系数
     float KD = 0.0f;          // 微分系数
@@ -29,7 +23,7 @@ struct PID
 };
 
 void pid_calculate(PID* pid, float fdb);
-void pid_init(PID* pid, PID_MODE pidMode, float kp, float ki, float kd, float errorMax, float outputMax, float outputMin);
+void pid_init(PID* pid, float kp, float ki, float kd, float errorMax, float outputMax, float outputMin);
 void pid_reset(PID* pid);
 void step_in(PID* pid);
 void pid_setfeedforward(PID* pid, float feedforward);

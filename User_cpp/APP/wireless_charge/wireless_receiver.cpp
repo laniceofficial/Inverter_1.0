@@ -23,9 +23,11 @@ extern "C" void task_init(void)
 {
     App::samplingService().init();
     App::ReceiverAsk::init();
-    SEGGER_RTT_Init();
+    // SEGGER_RTT_Init();
     fdcan_comm_init();
+    fdcan_comm_set_charge_enable(1);         // 允许超级电容充电
     HAL_TIM_Base_Start_IT(ReceiverAsk_TIMER); // 4kHz: ASK loop + FDCAN 1kHz send
+
 }
 
 // --- HAL 回调 ----------------------------------------------------------------
@@ -41,11 +43,12 @@ extern "C" void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         static uint8_t fdcan_divider = 0;
         App::ReceiverAsk::loop();
 
-        // 4kHz / 4 = 1kHz FDCAN 发送
-        if (++fdcan_divider >= 4)
+        // 4kHz / 4 = 1kHz FDCAN 发送功率指令
+        if (++fdcan_divider >= 200)
         {
             fdcan_divider = 0;
-            fdcan_comm_send_status();
+            // TODO: 功率指令由上层控制逻辑/ASK 通信决定, 当前固定 20W
+            fdcan_comm_send_power_cmd(20.0f);
         }
     }
     // if (htim->Instance == TIM2)
@@ -109,3 +112,7 @@ extern "C" void debug_trace_log(uint8_t type, uint8_t value)
     debug_trace_write_index = index;
     __set_PRIMASK(primask);
 }
+extern "C" void can_send()
+{
+    fdcan_comm_send_power_cmd(20.0f);
+    }

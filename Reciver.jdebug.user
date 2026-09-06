@@ -1,54 +1,63 @@
 
 
 
-Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/receiver_ask/receiver_ask.cpp:88:1, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/stm32g4xx_it.c:347, State=BP_STATE_ON
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/receiver_ask/receiver_ask.cpp:95:1, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:104, State=BP_STATE_ON
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:114, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:155, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:163:1, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:166:29, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:170, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp:179:29, State=BP_STATE_DISABLED
+Breakpoint=D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/halfbridge_controller/halfbridge_controller.cpp:113:5, State=BP_STATE_DISABLED
 DataBreakpoint=(((App::samplingService::instance).halfBridgeController_).uvpBatTrigger_).triggered_, MatchValue=0x1, ValueMask=0x0, State=Disabled
 DataBreakpoint=(((App::samplingService::instance).halfBridgeController_).ovpCapTrigger_).triggered_, MatchValue=0x1, ValueMask=0x0, State=Disabled
 DataBreakpoint=(((App::samplingService::instance).halfBridgeController_).ovpBatTrigger_).triggered_, MatchValue=0x1, ValueMask=0x0, State=Disabled
-GraphedExpression="(((App::samplingService::instance).halfBridgeController_).state_).errorbit", Color=#e56a6f
-GraphedExpression="(data).halfBridgePower", Color=#35792b, Show=0
-GraphedExpression="((App::samplingService::instance).halfBridgeController_).currentFeed_", Color=#769dda
-GraphedExpression="((App::samplingService::instance).halfBridgeController_).voltageCapFeed_", Color=#b14f0d
-GraphedExpression="((App::samplingService::instance).halfBridgeController_).voltageBatFeed_", Color=#b3c38e
-GraphedExpression="((App::samplingService::instance).halfBridgeController_).duty_", Color=#ab7b05
-OpenDocument="bsp_adc.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/bsp_adc/bsp_adc.cpp", Line=76
-OpenDocument="main.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/main.c", Line=62
-OpenDocument="stm32g4xx_ll_adc.h", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h", Line=4710
-OpenDocument="halfbridge_controller.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/halfbridge_controller/halfbridge_controller.cpp", Line=221
+GraphedExpression="((App::samplingService::instance).halfBridgeController_).currentFeed_", Color=#e56a6f
+GraphedExpression="((App::samplingService::instance).halfBridgeController_).voltageBatFeed_", Color=#35792b, Show=0
+OpenDocument="main.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/main.c", Line=63
 OpenDocument="startup_stm32g474xx.s", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/startup_stm32g474xx.s", Line=50
-OpenDocument="sampling.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/sampling/sampling.cpp", Line=107
-OpenDocument="stm32g4xx_hal_adc.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c", Line=3587
-OpenDocument="bsp_hrtim.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/bsp_hrtim/bsp_hrtim.cpp", Line=248
+OpenDocument="fdcan_comm.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/fdcan_comm.cpp", Line=92
+OpenDocument="sampling.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/sampling/sampling.cpp", Line=139
+OpenDocument="stm32g4xx_ll_adc.h", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h", Line=4686
+OpenDocument="stm32g474xx.h", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h", Line=2310
+OpenDocument="stm32g4xx_hal_fdcan.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c", Line=2574
+OpenDocument="delaytrigger.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/delaytrigger/delaytrigger.cpp", Line=29
+OpenDocument="stm32g4xx_hal_dma.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c", Line=711
+OpenDocument="bsp_adc.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/bsp_adc/bsp_adc.cpp", Line=182
+OpenDocument="pid.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/pid/pid.cpp", Line=94
 OpenDocument="delaytrigger.hpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/delaytrigger/delaytrigger.hpp", Line=0
 OpenDocument="sampling.hpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/sampling/sampling.hpp", Line=18
-OpenDocument="stm32g4xx_hal_dma.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c", Line=773
-OpenDocument="wireless_receiver.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/wireless_receiver.cpp", Line=12
+OpenDocument="halfbridge_controller.hpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/halfbridge_controller/halfbridge_controller.hpp", Line=19
+OpenDocument="halfbridge_controller.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/halfbridge_controller/halfbridge_controller.cpp", Line=168
 OpenDocument="receiver_ask.hpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/receiver_ask/receiver_ask.hpp", Line=0
-OpenDocument="stm32g4xx_hal.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c", Line=399
-OpenDocument="halfbridge_controller.hpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/halfbridge_controller/halfbridge_controller.hpp", Line=0
-OpenDocument="pid.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/pid/pid.cpp", Line=35
+OpenDocument="stm32g4xx_hal_adc.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c", Line=3649
+OpenDocument="bsp_hrtim.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/bsp_hrtim/bsp_hrtim.cpp", Line=224
+OpenDocument="stm32g4xx_it.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/stm32g4xx_it.c", Line=311
 OpenDocument="user_math.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/user_math/user_math.cpp", Line=24
-OpenDocument="stm32g4xx_it.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/stm32g4xx_it.c", Line=37
+OpenDocument="fdcan.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Core/Src/fdcan.c", Line=21
 OpenDocument="stm32g4xx_hal_uart_ex.c", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c", Line=295
-OpenDocument="delaytrigger.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/Driver/delaytrigger/delaytrigger.cpp", Line=6
+OpenDocument="wireless_receiver.cpp", FilePath="D:/ace/stm_cpp/WirelessCharge_receiver/User_cpp/APP/wireless_charge/wireless_receiver.cpp", Line=24
 OpenToolbar="File", Floating=0, x=2, y=0
 OpenToolbar="View", Floating=0, x=1, y=0
 OpenToolbar="Debug", Floating=0, x=0, y=0
-OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=0, w=687, h=204, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Source Files", DockArea=LEFT, x=0, y=0, w=687, h=1053, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=1, w=687, h=504, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Watched Data 1", DockArea=RIGHT, x=0, y=2, w=687, h=343, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=2240, h=160, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
-OpenWindow="Timeline", DockArea=FLOATING, x=291, y=274, w=1453, h=961, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="500 ms / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="0;78", DataGraphShowNamesAtCursor=0, PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="70;20", CodeGraphLegendShown=0, CodeGraphLegendPosition="80;20"
+OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=0, w=894, h=168, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=1, w=834, h=519, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=1, w=894, h=198, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Watched Data 1", DockArea=RIGHT, x=0, y=2, w=894, h=725, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Data Sampling", DockArea=BOTTOM, x=0, y=0, w=2560, h=160, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Timeline", DockArea=LEFT, x=0, y=0, w=834, h=573, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=0, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="1 ns / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=0, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="565;0", DataGraphShowNamesAtCursor=0, PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="565;-77", CodeGraphLegendShown=0, CodeGraphLegendPosition="586;0"
 SmartViewPlugin="", Page="", Toolbar="Hidden", Window="SmartView 1"
-TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[189;153;187;100;130;118]
-TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[223;100;100;100;1664]
-TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" (((App::samplingService::instance).halfBridgeController_).state_).errorbit";" (data).halfBridgePower";" ((App::samplingService::instance).halfBridgeController_).currentFeed_";" ((App::samplingService::instance).halfBridgeController_).voltageCapFeed_";" ((App::samplingService::instance).halfBridgeController_).voltageBatFeed_";" ((App::samplingService::instance).halfBridgeController_).duty_"], ColWidths=[100;100;100;100;100;100;100;100]
-TableHeader="Data Sampling Setup", SortCol="Type", SortOrder="DESCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[773;182;100;182;194;108;128;148;399]
+TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[189;153;187;100;130;135]
+TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[223;100;100;100;1654]
+TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" ((App::samplingService::instance).halfBridgeController_).currentFeed_";" ((App::samplingService::instance).halfBridgeController_).voltageBatFeed_"], ColWidths=[100;100;100;100]
+TableHeader="Data Sampling Setup", SortCol="Type", SortOrder="DESCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[773;100;146;100;146;146;128;170;825]
 TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
-TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Location";"Value";"Refresh";"Type";"Access"], ColWidths=[342;122;100;100;350;100]
+TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Location";"Value";"Refresh";"Type";"Access"], ColWidths=[257;122;344;100;350;100]
 TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
 TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;340]
 WatchedExpression="App::samplingService::instance", Window=Watched Data 1
 WatchedExpression="setpiont", Window=Watched Data 1
 WatchedExpression="data", RefreshRate=2, Window=Watched Data 1
+WatchedExpression="hfdcan2", Window=Watched Data 1
